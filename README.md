@@ -8,13 +8,23 @@
 
 [中文说明](README.zh-CN.md) · [Quick start](#quick-start) · [API](addons/pixelfx/docs/API.md) · [Add an effect](docs/AUTHORING.md) · [Roadmap](ROADMAP.md)
 
-![Native Godot fireball demo](docs/images/fireball.png)
+![Native Godot five-effect gallery](docs/images/five-effects.png)
 
 Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/patch-gg/pixelfx/tree/a84159688af3ca37a4be05a0d422b94451b2e24e). Original work by Patch and Hugo Duprez; see [attribution](NOTICE.md) and [source hashes](addons/pixelfx/provenance.json). This project is independently maintained and is not an official upstream release.
 
 ## Status
 
-**0.1.0 is an early release: one ported effect (Fireball), with reusable addon infrastructure.** The upstream catalog contains 244 effects; the other 243 are not implemented here. Arcane Fireball is a preset, not a second algorithm.
+**0.2.0 includes five ported effects with reusable addon infrastructure.** The pinned upstream catalog contains 244 effects; the remaining 239 are not implemented here. Arcane Fireball is a palette preset, not a sixth algorithm.
+
+| Effect | Preset | Editable effect parameter | Layers |
+| --- | --- | --- | --- |
+| Fireball | `fireball.tres` | Radius, speed | Front |
+| Ice lance | `ice_lance.tres` | Length | Front |
+| Laser bolt | `laser_bolt.tres` | Length | Front |
+| Sunburst | `sunburst.tres` | Ray count | Front |
+| Ripples | `ripples.tres` | Palette, seed, light | Back + front |
+
+All five support palette, seed, light, playback controls and native transforms. They are looping effects; games own projectile movement, impact and stopping. Actor choreography and one-shot/stateful catalog effects are outside this batch.
 
 The renderer generates pixels on the CPU and uploads textures to Godot. It is **not a GPU shader port**, a JavaScript wrapper, or a collection of prerecorded sprite sheets. Runtime frame sharing caches generated samples.
 
@@ -29,7 +39,7 @@ Target: **Godot 4.3+**. Validated on Godot 4.7.2 / macOS / GL Compatibility and 
 
 ## Quick start
 
-1. Download `pixelfx-addon-0.1.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases).
+1. Download `pixelfx-addon-0.2.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases).
 2. Copy `addons/pixelfx` into your project's `addons` directory.
 3. Optionally enable **PixelFX** under **Project → Project Settings → Plugins** for the preview panel. Runtime works with the plugin disabled.
 4. Add a `PixelFXPlayer2D` node and assign `addons/pixelfx/presets/fireball.tres` to **Effect**.
@@ -53,7 +63,7 @@ func spawn_visual(at: Vector2) -> PixelFXPlayer2D:
 # The game owns movement, collision and damage; see the projectile example.
 ```
 
-To run the demo, clone this repository, import `project.godot` in Godot and press **F5**. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed.
+To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed.
 
 ## Add effects without editing the framework
 
@@ -70,7 +80,7 @@ Effect-specific helpers and upstream simulation/acting dependencies may still ne
 
 ## Performance
 
-On the locally tested M4 Pro, first generation with a new parameter combination costs approximately **20 ms**. Prewarm common presets during loading. The default Fireball cycle uses about **6.5 MiB** of estimated cache memory; the shared cache defaults to **32 MiB / 256 frames**.
+On the locally tested M4 Pro, cold frame generation at default parameters averages approximately **3.7–28 ms**, depending on the effect. Prewarm common presets during loading. The default Fireball cycle uses about **6.5 MiB** of estimated cache memory; the shared cache defaults to **32 MiB / 256 frames**.
 
 A warm-cache CPU benchmark with 64 synchronized, identical instances averaged about 0.20 ms per update. This excludes complete scene GPU composition and is **not** a claim that arbitrary 64-effect workloads meet a frame-rate target. Stateful effects and unique parameters have different costs.
 
@@ -86,7 +96,7 @@ python3 tools/pixelfx/package_demo.py
 
 The check downloads the pinned upstream commit and verifies source hashes, then runs pixel parity, runtime, editor integration and performance checks. It does not fetch or execute arbitrary latest upstream versions. Generated files go into ignored `builds/` directories.
 
-Local release validation passed **78 rendering cases, 70 runtime checks and 11 editor checks**. Six rendering cases differ by a small number of channels at 1/255; the exact tolerance and evidence are documented. macOS export was also launched locally. Cross-platform and aesthetic acceptance remain separate checks.
+Local 0.2.0 validation passed **447 rendering cases, 70 runtime checks, 171 catalog/bounds/gallery checks and 23 editor checks**. Of the rendering cases, 416 are byte-exact; the other 31 differ by at most 15 channel bytes at 1/255 per frame. Normal-speed native Godot output is recorded separately. See the validation record for version/platform evidence; aesthetic acceptance remains separate.
 
 ## Contributing and license
 

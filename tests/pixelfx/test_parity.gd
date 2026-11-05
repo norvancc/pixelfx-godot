@@ -38,13 +38,20 @@ func _initialize() -> void:
 		check(absf(M.tile_noise(1.13,-4.17,3,5,seed_value)-row.tile)<1e-14,"tile noise")
 	for row in data.cases:
 		var fx=Fx.new(Fireball.new(),row.get("options",{})); var frame=Frame.new(224,224,-112,-112)
-		fx.update(row.t)
+		fx.update(PackedByteArray(row.time64).decode_double(0))
 		if row.has("stopAge"): fx.stop(); fx.update(row.stopAge)
 		var start := Time.get_ticks_usec()
 		fx.draw(frame,row.get("layer",""))
 		render_ms.append((Time.get_ticks_usec()-start)/1000.0)
 		var bg = int(row.bg) if row.get("bg") != null else null
 		compare(row.name,frame,bg)
+	for row in data.extraCases:
+		var module = load("res://addons/pixelfx/effects/"+row.id+".gd").new()
+		var fx=Fx.new(module,row.options); var frame=Frame.new(512,256,-256,-128)
+		fx.update(PackedByteArray(row.time64).decode_double(0))
+		if row.has("stopAge"): fx.stop(); fx.update(row.stopAge)
+		fx.draw(frame,row.get("layer",""))
+		compare(row.name,frame,int(row.bg) if row.get("bg") != null else null)
 	for row in data.primitiveCases:
 		var frame=Frame.new(96,96,-48,-48); var p=Painter.new(frame)
 		p.place(2,-3,row.flip,row.angle); p.fade=0.73; p.light_k=0.8

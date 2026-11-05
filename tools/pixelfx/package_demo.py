@@ -6,7 +6,7 @@ import shutil
 import zipfile
 
 root = Path(__file__).resolve().parents[2]
-version = '0.1.0'
+version = '0.2.0'
 package = root / f'builds/pixelfx-godot-{version}'
 package.mkdir(parents=True, exist_ok=True)
 for relative in ('addons/pixelfx', 'demos/pixelfx', 'tests/pixelfx', 'tools/pixelfx', '.github', 'docs'):

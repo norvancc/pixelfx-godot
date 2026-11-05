@@ -4,11 +4,13 @@
 
 [English](README.md) · [发行包](https://github.com/norvancc/pixelfx-godot/releases) · [API](addons/pixelfx/docs/API.md) · [新增特效](addons/pixelfx/docs/EFFECTS.md)
 
-![Godot 实时火球](docs/images/fireball.png)
+![Godot 五种实时特效](docs/images/five-effects.png)
 
 ## 当前状态
 
-0.1.0 已实现公共库基础设施与 Fireball。上游固定版本共 244 个效果，目前只移植 1 个，另外 243 个尚未移植。Arcane Fireball 是调色预设，不是第二种算法。
+0.2.0 包含五种原算法移植：Fireball 火球、Ice lance 冰枪、Laser bolt 激光弹、Sunburst 日芒、Ripples 水面涟漪。上游固定版本共 244 个效果，另外 239 个尚未移植。Arcane Fireball 是调色预设，不计为额外效果。
+
+五种均可调色、变速、暂停、定位时间、翻转与淡出；涟漪有前后分层。这批均为循环效果，移动、命中和停止时机由游戏负责。
 
 这是真正的 GDScript CPU 程序生成，生成后通过纹理交给 Godot 绘制；不是 GPU Shader 移植、JS 包装或预录图集。运行时不依赖 Node.js、C#、Autoload 或外部图片。
 
@@ -19,7 +21,7 @@
 1. 从 Releases 下载插件 ZIP，将其中的 `addons/pixelfx` 复制到项目。
 2. 项目设置 → 插件 → 启用 PixelFX，可获得底部编辑器预览面板；运行时无需启用插件。
 3. 添加 PixelFXPlayer2D 节点，将 `presets/fireball.tres` 赋给 Effect。
-4. 也可以克隆完整仓库，用 Godot 打开 `project.godot` 后按 F5 运行演示。
+4. 也可以克隆完整仓库，用 Godot 打开 `project.godot` 后按 F5 运行五效果图鉴，可切换特效和参数。
 
 角色挂点、移动、碰撞和伤害由游戏负责，库负责视觉效果；示例在 `demos/pixelfx/projectile_example.gd`。
 
@@ -33,9 +35,9 @@
 
 目标 Godot 4.3+；本地实测为 4.7.2 / macOS / GL Compatibility，[4.3 Linux headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42019538955) 已通过完整检查。其他平台、版本、渲染器不能自动视为通过。
 
-本地通过 78 组原版渲染对照、70 项运行检查、11 项编辑器检查；并导出启动了 macOS 应用。完整误差记录见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
+0.2.0 本地通过 447 组原版渲染对照、70 项运行检查、171 项目录/边界/图鉴检查、23 项编辑器检查。416 组像素完全一致，其余每组最多 15 个通道字节相差 1/255。完整误差记录见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
 
-不同参数的冷生成约 20ms/个，建议在加载阶段预热常用预设。热缓存基准不代表任意复杂特效的高并发 GPU 性能；见 [性能说明](addons/pixelfx/docs/PERFORMANCE.md)。
+本机默认参数下，五种效果冷生成均值约 3.7–28ms/帧，建议在加载阶段预热常用预设。热缓存基准不代表任意复杂特效的高并发 GPU 性能；见 [性能说明](addons/pixelfx/docs/PERFORMANCE.md)。
 
 开发验证：`python3 tools/pixelfx/check.py`；打包：`python3 tools/pixelfx/package_demo.py`。需要 Python、Godot 和用于上游参考的 Node.js。
 

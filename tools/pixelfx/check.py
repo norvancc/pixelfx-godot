@@ -33,6 +33,7 @@ for name,digest in manifest['upstream_sha256'].items():
 run('reference-release',['node','tools/pixelfx/reference.mjs',upstream], 'Generated')
 run('parity-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_parity.gd'],'failures=0')
 run('runtime-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_runtime.gd'],'failures=0')
+run('catalog-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_catalog.gd'],'failures=0')
 run('benchmark-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/benchmark.gd'],'PIXELFX_BENCHMARK')
 run('editor-release',[sys.executable,'tools/pixelfx/check_editor.py'],'failures=0')
 print('PIXELFX_RELEASE_CHECKS_PASSED')

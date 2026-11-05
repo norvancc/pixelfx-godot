@@ -49,5 +49,32 @@ for(const flip of [false,true]) for(const angle of [0,0.37]){
 const math = [-2147483648,-123,-1,0,1,5,4294967295].map(seed=>{
  const r=M.rng(seed,77);return {seed,hash:M.hash(seed,77),rng:Array.from({length:12},()=>r.next()*4294967296),noise:M.noise(-1.37,seed),noise2:M.noise2(1.13,-4.17,seed),fbm:M.fbm(1.13,-4.17,seed),tile:M.tileNoise(1.13,-4.17,3,5,seed)};
 });
-fs.writeFileSync(path.join(root,'cases.json'),JSON.stringify({cases,primitiveCases,math},null,2));
-console.log(`Generated ${cases.length} effect + ${primitiveCases.length} painter references from ${upstream}`);
+// Four independent algorithm ports. Full default cycles plus option/layer/stop coverage.
+const extraCases=[];
+for(const [id,source,limits] of [
+ ['ice_lance','ice/ice-lance',{length:[20,80]}],
+ ['laser_bolt','projectiles/laser-bolt',{length:[8,80]}],
+ ['sunburst','holy/sunburst',{rays:[2,16]}],
+ ['ripples','water/ripples',{}],
+]) {
+ const module=await load(`fx/${source}.js`), duration=module.meta.duration;
+ const add=(suffix,t,options={},extra={})=>extraCases.push({name:`${id}-${suffix}`,id,t,options,...extra});
+ for(let i=0;i<Math.round(duration*30);i++)add(`cycle-${i}`,i/30);
+ const variants={ 'negative-seed':{seed:-923}, 'large-seed':{seed:4294967295}, palette:{palette:['#180d32','#58c5e0','#ffffff']}, 'no-light':{light:0},'max-light':{light:3}, flip:{flip:true},rotation:{angle:0.41}, position:{x:7.3,y:-2.8} };
+ for(const [key,[min,max]] of Object.entries(limits)){variants[key+'-min']={[key]:min};variants[key+'-max']={[key]:max};}
+ for(const [name,options] of Object.entries(variants)) for(const t of [0,duration*.37,duration-.001])add(`${name}-${t}`,t,options);
+ for(const t of [duration-1e-6,duration,duration+1e-6]) add(`seam-${t}`,t);
+ for(const layer of ['front','back'])add(layer,duration*.37,{}, {layer});
+ for(const stopAge of [.1,.301])add(`stop-${stopAge}`,duration*.37,{}, {stopAge});
+ for(const bg of [C.hex('#192b3c'),C.hex('#eed4a1')])add(`bg-${bg}`,duration*.37,{}, {bg});
+ for(const c of extraCases.filter(c=>c.id===id)){
+  const fx=createFx(module,c.options), f=createFrame(512,256,-256,-128);
+  fx.update(c.t);if(c.stopAge!==undefined){fx.stop();fx.update(c.stopAge);}
+  fx.draw(f,c.layer);writeFrame(c.name,f,c.bg??null);
+ }
+}
+// Preserve the exact JS binary64 timestamp: Godot JSON decimal parsing can round
+// by one ULP, changing the seeded ring index at a remainder boundary.
+for(const c of [...cases,...extraCases]) {const bytes=Buffer.alloc(8);bytes.writeDoubleLE(c.t);c.time64=[...bytes];}
+fs.writeFileSync(path.join(root,'cases.json'),JSON.stringify({cases,primitiveCases,math,extraCases},null,2));
+console.log(`Generated ${cases.length+extraCases.length} effect + ${primitiveCases.length} painter references from ${upstream}`);

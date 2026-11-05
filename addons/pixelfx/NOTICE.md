@@ -4,7 +4,7 @@
 
 This is an independent, unofficial Godot port of [patch-gg/pixelfx](https://github.com/patch-gg/pixelfx), version 0.3.0, commit `a84159688af3ca37a4be05a0d422b94451b2e24e`.
 
-Original PixelFX: Copyright (c) 2026 Patch and Copyright (c) 2026 Hugo Duprez, MIT License. The license is retained in `LICENSE` and `addons/pixelfx/LICENSE`. The port adapts the foundational drawing, math, color, particles and lifecycle code plus the Fireball algorithm. Exact upstream reference-file hashes are recorded in `addons/pixelfx/provenance.json`.
+Original PixelFX: Copyright (c) 2026 Patch and Copyright (c) 2026 Hugo Duprez, MIT License. The license is retained in `LICENSE` and `addons/pixelfx/LICENSE`. The port adapts the foundational drawing, math, color, particles and lifecycle code plus the Fireball, Ice lance, Laser bolt, Sunburst and Ripples algorithms and their selected helpers. Exact upstream reference-file hashes are recorded in `addons/pixelfx/provenance.json`.
 
 Godot integration, resources, editor tooling, tests and documentation: Copyright (c) 2026 norvancc and PixelFX for Godot contributors, MIT License.
 
