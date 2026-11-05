@@ -4,6 +4,7 @@
 
 First reusable Godot addon release. Public effect/resource contract v1.
 
+- Godot 4.3-compatible preset copying and native Inspector fallback.
 - Typed PixelFXPreset resources with dynamic Inspector schema, range validation and isolated overrides.
 - Generic Player lifecycle, inherited scene pause, idle/physics/manual updates and reliable completion/cancellation.
 - One simulation with separate front/back outputs, attachable views, target facing and native transforms.

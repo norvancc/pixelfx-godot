@@ -86,7 +86,7 @@ python3 tools/pixelfx/package_demo.py
 
 The check downloads the pinned upstream commit and verifies source hashes, then runs pixel parity, runtime, editor integration and performance checks. It does not fetch or execute arbitrary latest upstream versions. Generated files go into ignored `builds/` directories.
 
-Local release validation passed **78 rendering cases, 69 runtime checks and 11 editor checks**. Six rendering cases differ by a small number of channels at 1/255; the exact tolerance and evidence are documented. macOS export was also launched locally. Cross-platform and aesthetic acceptance remain separate checks.
+Local release validation passed **78 rendering cases, 70 runtime checks and 11 editor checks**. Six rendering cases differ by a small number of channels at 1/255; the exact tolerance and evidence are documented. macOS export was also launched locally. Cross-platform and aesthetic acceptance remain separate checks.
 
 ## Contributing and license
 

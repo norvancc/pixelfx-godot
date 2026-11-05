@@ -16,6 +16,16 @@ const Colors = preload("../core/color.gd")
 @export_storage var parameter_values: Dictionary = {}
 @export_storage var format_version: int = 1
 
+func copy() -> Resource:
+	# Deep Resource.duplicate() also clones Script resources on older Godot versions.
+	# Keep executable code shared; only mutable preset data belongs to the copy.
+	var result = get_script().new()
+	result.display_name = display_name
+	result.implementation = implementation
+	result.parameter_values = parameter_values.duplicate(true)
+	result.format_version = format_version
+	return result
+
 func new_module():
 	if implementation == null or not implementation.can_instantiate(): return null
 	var base: Script = implementation

@@ -24,7 +24,7 @@ func run() -> void:
 	Cache.clear()
 	var preset = load("res://addons/pixelfx/presets/fireball.tres")
 	check(preset.validate().is_empty(), "default preset validates")
-	var future = preset.duplicate(true); future.format_version = 2
+	var future = preset.copy(); future.format_version = 2
 	check(not future.validate().is_empty(), "unknown preset format rejected")
 	var bad = Preset.new()
 	check(not bad.validate().is_empty(), "missing script rejected")
@@ -33,7 +33,8 @@ func run() -> void:
 	for overrides in [{"radius": -1.0}, {"radius": INF}, {"radius": NAN}, {"radius": "big"}, {"typo": 1}, {"palette": []}, {"palette": ["oops"]}]:
 		check(not preset.resolve(overrides).ok, "invalid parameters rejected: " + str(overrides))
 	check(preset.resolve({"radius": 8}).ok, "integer accepted for float parameter")
-	var copy = preset.duplicate(true)
+	var copy = preset.copy()
+	check(copy.implementation == preset.implementation and copy != preset, "preset copy shares script but isolates resource")
 	check(copy.set_parameter("radius", 7.0), "typed preset setter")
 	check(not copy.set_parameter("radius", -8.0) and copy.get_parameter("radius") == 7.0, "preset mutation is atomic")
 	copy.set_parameter("palette", ["#123456", "#ffffff"])

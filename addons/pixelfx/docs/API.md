@@ -74,3 +74,5 @@ Pool 不负责游戏弹体碰撞、伤害或弹道，项目继续控制这些逻
 `PixelFXFrameCache.configure(memory_mb=32, frame_limit=256)` 更改预算并清空缓存；
 0 可禁用缓存。`clear()` 主动清理，`statistics()` 提供 entries/bytes/hits/misses/evictions。
 缓存返回的纹理应视为只读；不要调用 update 修改共享贴图。
+
+使用 `preset.copy()` 创建可编辑副本：隔离参数数据但共享算法 Script，避免旧版 Godot 深复制脚本时破坏相对继承路径。

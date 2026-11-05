@@ -33,7 +33,7 @@
 
 目标 Godot 4.3+；本地实测为 4.7.2 / macOS / GL Compatibility，4.3 Linux 由 CI 检查，以实际运行结果为准。其他平台、版本、渲染器不能自动视为通过。
 
-本地通过 78 组原版渲染对照、69 项运行检查、11 项编辑器检查；并导出启动了 macOS 应用。完整误差记录见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
+本地通过 78 组原版渲染对照、70 项运行检查、11 项编辑器检查；并导出启动了 macOS 应用。完整误差记录见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
 
 不同参数的冷生成约 20ms/个，建议在加载阶段预热常用预设。热缓存基准不代表任意复杂特效的高并发 GPU 性能；见 [性能说明](addons/pixelfx/docs/PERFORMANCE.md)。
 

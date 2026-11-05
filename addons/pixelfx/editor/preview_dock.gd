@@ -55,7 +55,13 @@ func _ready() -> void:
 	_time.value_changed.connect(func(value):
 		if not _sync_time: player.paused = true; player.seek(value)
 	)
-	inspector.custom_minimum_size.x = 320; inspector.size_flags_horizontal = Control.SIZE_EXPAND_FILL; split.add_child(inspector)
+	if inspector.has_method("edit"):
+		inspector.custom_minimum_size.x = 320; inspector.size_flags_horizontal = Control.SIZE_EXPAND_FILL; split.add_child(inspector)
+	else:
+		# Godot 4.3 exposes editing through EditorInterface, not EditorInspector.edit.
+		inspector.free()
+		inspector = EditorInterface.get_inspector()
+		var hint := Label.new(); hint.text = "参数显示在 Godot 右侧 Inspector"; split.add_child(hint)
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; add_child(status)
 	_restart.one_shot = true; _restart.wait_time = 0.15; add_child(_restart); _restart.timeout.connect(_replay)
 	for dialog in [save_dialog, load_dialog]:
@@ -93,9 +99,10 @@ func request_refresh() -> void:
 func edit_preset(preset: Preset) -> void:
 	if edited and edited.changed.is_connected(_on_changed): edited.changed.disconnect(_on_changed)
 	# Preview works on a private copy; opening a preset must not mutate project assets.
-	edited = preset.duplicate(true)
+	edited = preset.copy()
 	edited.changed.connect(_on_changed)
-	inspector.edit(edited)
+	if inspector.has_method("edit"): inspector.call("edit", edited)
+	else: EditorInterface.inspect_object(edited, "", true)
 	_replay()
 
 func _on_changed() -> void:
@@ -105,7 +112,7 @@ func _replay() -> void:
 	if edited == null: return
 	var errors := edited.validate()
 	if not errors.is_empty(): status.text = "\n".join(errors); player.cancel(); return
-	player.effect = edited.duplicate(true)
+	player.effect = edited.copy()
 	player.play()
 	var meta: Dictionary = edited.new_module().metadata()
 	_time.editable = meta.get("cacheable", false); _time.max_value = float(meta.duration) - 0.001
@@ -113,7 +120,7 @@ func _replay() -> void:
 func _save(path: String) -> void:
 	if edited == null: return
 	if not edited.validate().is_empty(): status.text = "参数无效，未保存。"; return
-	var copy := edited.duplicate(true)
+	var copy := edited.copy()
 	var error := ResourceSaver.save(copy, path)
 	_notice = "已保存：" + path if error == OK else "保存失败：" + error_string(error)
 	_notice_until = Time.get_ticks_msec() + 5000

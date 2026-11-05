@@ -17,9 +17,11 @@ func _exit_tree() -> void:
 		remove_control_from_bottom_panel(_dock); _dock.queue_free()
 	_dock = null
 	Cache.clear()
-func _handles(object: Object) -> bool: return object is Preset or object is Player
+func _handles(object: Object) -> bool:
+	if is_instance_valid(_dock) and object == _dock.edited: return false
+	return object is Preset or object is Player
 func _edit(object: Object) -> void:
-	if not is_instance_valid(_dock) or object == null: return
+	if not is_instance_valid(_dock) or object == null or object == _dock.edited: return
 	if object is Preset: _dock.edit_preset(object)
 	elif object is Player and object.effect: _dock.edit_preset(object.effect)
 func _make_visible(visible: bool) -> void:
