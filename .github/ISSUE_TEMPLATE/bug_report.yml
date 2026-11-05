@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible runtime or editor problem.
+labels: [bug]
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Addon version, Godot version, OS and renderer.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Minimal steps or sanitized project; expected and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs and visual evidence
+      description: Remove credentials and private paths before attaching files.

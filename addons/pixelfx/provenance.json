@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/patch-gg/pixelfx",
+  "revision": "a84159688af3ca37a4be05a0d422b94451b2e24e",
+  "package_version": "0.3.0",
+  "license": "MIT",
+  "status": "godot-addon-v0.1.0",
+  "effect": "fire/fireball",
+  "upstream_sha256": {
+    "LICENSE": "0a77565a50c3462831244452f129c38d2adc4fd07897cbeba8adc943f958604e",
+    "package.json": "9102cb998d434acd1d7ed6867346b3b5ec67a9d30697c3af0410f4a0ba38730e",
+    "src/core/math.js": "da45e1ed43f7d119dd80fbe97c7de2b35b4ea95dea8781671c296ee5942ac0bc",
+    "src/core/color.js": "4e63f3074df7c1e138f721959858d12e4f6ccc2bf4f8e98c576efbae51241e54",
+    "src/core/particles.js": "867e58baf522278b4aad383c7224c599cff9ba93268b5eac9485a39a3809477b",
+    "src/core/painter.js": "5b8ada6a25cdf1e63ae3684cc56276c61306558dc0a3a827a6a39ab038f74681",
+    "src/core/fx.js": "a959c5f7b1c15ba8e07cb26e5b1ccc0bce0aef54ca14cf01f9d6e794cf4e5a0b",
+    "src/core/sim.js": "517febe05b72de9d07e3596c019b9bb01e1f97a74089a30fa80e9e98849ba4b0",
+    "src/fx/fire/_lib.js": "ffa1d5e92b65c7bbac94baa63a0f1dff9feb249c084552ed149876bcf42191da",
+    "src/fx/fire/fireball.js": "22b286d2632742216940e775a931a91d3bbe3ef914bc150b70b041dbe5e02bb4"
+  },
+  "public_api_version": 1
+}

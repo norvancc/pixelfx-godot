@@ -1,0 +1,16 @@
+@tool
+extends "res://addons/pixelfx/core/effect.gd"
+# Copy to res://pixelfx/my_effect.gd. It is discovered by the editor without modifying the library.
+func metadata() -> Dictionary:
+    return {"id": "mygame.my_effect", "name": "My effect", "duration": 1.0,
+        "loop": true, "fps": 30, "cacheable": true, "layers": ["front"], "options": {}}
+func parameter_schema() -> Array[Dictionary]:
+    return [{"name": "radius", "type": TYPE_FLOAT, "default": 12.0,
+        "min": 1.0, "max": 40.0, "hint": PROPERTY_HINT_RANGE, "hint_string": "1,40,1"}]
+func bounds(options: Dictionary) -> Rect2i:
+    var margin := ceili(options.radius + 8)
+    return Rect2i(-margin, -margin, margin * 2, margin * 2)
+func draw(p, time: float, options: Dictionary) -> void:
+    var radius: float = options.radius * (0.8 + 0.2 * sin(time * TAU))
+    p.ring(0, 0, radius, 2, 0xffffcc66)
+    p.glow_ring(0, 0, radius, 5, 0xffffcc66, 0.5)

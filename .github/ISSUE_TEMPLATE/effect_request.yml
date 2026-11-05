@@ -1,0 +1,18 @@
+name: Effect port request
+description: Propose an upstream effect or a new visual effect.
+labels: [enhancement]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Source effect or reference
+      description: Upstream file/link and license, if applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected behavior and use case
+      description: Parameters, layering, timing and target platforms.
+    validations:
+      required: true
