@@ -3,8 +3,7 @@
   "revision": "a84159688af3ca37a4be05a0d422b94451b2e24e",
   "package_version": "0.3.0",
   "license": "MIT",
-  "status": "godot-addon-v0.1.0",
-  "effect": "fire/fireball",
+  "status": "godot-addon-v0.2.0",
   "upstream_sha256": {
     "LICENSE": "0a77565a50c3462831244452f129c38d2adc4fd07897cbeba8adc943f958604e",
     "package.json": "9102cb998d434acd1d7ed6867346b3b5ec67a9d30697c3af0410f4a0ba38730e",
@@ -15,7 +14,22 @@
     "src/core/fx.js": "a959c5f7b1c15ba8e07cb26e5b1ccc0bce0aef54ca14cf01f9d6e794cf4e5a0b",
     "src/core/sim.js": "517febe05b72de9d07e3596c019b9bb01e1f97a74089a30fa80e9e98849ba4b0",
     "src/fx/fire/_lib.js": "ffa1d5e92b65c7bbac94baa63a0f1dff9feb249c084552ed149876bcf42191da",
-    "src/fx/fire/fireball.js": "22b286d2632742216940e775a931a91d3bbe3ef914bc150b70b041dbe5e02bb4"
+    "src/fx/fire/fireball.js": "22b286d2632742216940e775a931a91d3bbe3ef914bc150b70b041dbe5e02bb4",
+    "src/fx/ice/ice-lance.js": "4d5168e7ce7a5fc1f37e150c6d8227258962833d47e7b42dcc3da792f2e063a4",
+    "src/fx/projectiles/laser-bolt.js": "f51c5a185184fccdf431ba7ed8d9a8af4b55ed46134162d877c77555f23473b4",
+    "src/fx/holy/sunburst.js": "64c28225db3b858adc4cd2691ad659b2d1437e88843e8d4012fea17ff2f90b30",
+    "src/fx/water/ripples.js": "2a4fbf4544d03947b185cd7888b78f15fd89b67fe3f6aa98426e1f577a97a9ed",
+    "src/fx/ice/_lib.js": "a81ae57b7f90a1e8266cf2f7f6f11dd4551a088220ddeac03d4539dfb40e5782",
+    "src/fx/water/_lib.js": "367d4014ef7c173a722cde22b9a132e61b39e5942e5cee6fa0a7737beaa4fd2a",
+    "src/fx/holy/_lib.js": "6768e3763ff7c5d5294308cb92137319a979ff365881dc3b101f3f2a01e6ec27",
+    "src/fx/projectiles/_lib.js": "d1211e9dc805ba6e9c0d5545bb487129305fb578bb3f3d834ae021b03a91b2e6"
   },
-  "public_api_version": 1
+  "public_api_version": 1,
+  "effects": [
+    "fire/fireball",
+    "ice/ice-lance",
+    "projectiles/laser-bolt",
+    "holy/sunburst",
+    "water/ripples"
+  ]
 }

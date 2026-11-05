@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 — 2026-11-05
+
+- Port Ice lance, Laser bolt, Sunburst and Ripples from the pinned upstream algorithms: five effects total. Alternate palettes remain presets, not extra effects.
+- Add validated presets and a live five-effect gallery with playback, parameter, palette, direction and background controls. Ripples uses separate front/back layers around a scene-owned occluder.
+- Add full-cycle and parameter/layer/stop comparisons: 447 rendering cases, 171 catalog/bounds/gallery checks, plus the existing runtime suite and extended editor checks.
+- Preserve binary64 reference timestamps across JSON to prevent decimal-parser rounding from selecting a different seeded ripple at modulo boundaries.
+- Record per-effect cold rendering and cache costs; retain public effect/resource contract v1 without player/renderer API changes.
+
 ## 0.1.0 — 2026-11-05
 
 First reusable Godot addon release. Public effect/resource contract v1.

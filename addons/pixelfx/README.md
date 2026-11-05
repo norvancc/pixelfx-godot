@@ -1,9 +1,9 @@
-# PixelFX for Godot 0.1.0
+# PixelFX for Godot 0.2.0
 
 A reusable Godot addon for procedural pixel effects: typed presets, editor preview,
 playback, layered rendering, bounded frame sharing, prewarming and pooling.
 
-这是可独立复制到 Godot 项目的特效库。当前提供完整的库接入流程与原版 Fireball；
+这是可独立复制到 Godot 项目的特效库。当前提供完整的库接入流程与 Fireball、Ice lance、Laser bolt、Sunburst、Ripples；
 后续效果只需实现统一算法接口、参数 schema 和绘制边界，可选提供 `.tres` 预设。
 运行时无需 Node.js、Phaser、编辑器插件或外部图片素材。
 
@@ -59,7 +59,7 @@ func launch_visual(at: Vector2) -> PixelFXPlayer2D:
 
 ## 示例与验证
 
-完整源码工程包含 `demos/pixelfx/fireball_demo.tscn`、挂点/移动弹体示例、测试、打包工具及 CI 配置。
+完整源码工程包含 `demos/pixelfx/gallery.tscn`（五效果演示）及旧 `fireball_demo.tscn`、挂点/移动弹体示例、测试、打包工具及 CI 配置。
 在独立源码工程根目录执行：
 
 ```sh
@@ -74,7 +74,7 @@ python3 tools/pixelfx/check.py
 
 ## 范围与维护
 
-公共扩展契约为 v1，发行版本为 0.1.0。插件元数据、CHANGELOG 和包版本同步。
+公共扩展契约为 v1，发行版本为 0.2.0。插件元数据、CHANGELOG 和包版本同步。
 同一契约内新增特效不需要修改播放器、缓存、预览面板或注册表。
 新增效果自己的算法/辅助绘制代码属于效果模块；不要求预先迁移原库所有内部助手。
 当前没有将上游两百多个效果、actor/rig/poses 系统或专用 sim 模拟器全部迁移。

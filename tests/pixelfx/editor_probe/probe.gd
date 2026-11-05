@@ -37,6 +37,14 @@ func run() -> void:
 		dock._save("res://builds/pixelfx/editor-saved.tres")
 		var saved=load("res://builds/pixelfx/editor-saved.tres")
 		check(saved is Preset and saved.get_parameter("radius")==7.0,"save produces reusable resource")
+		for id in ["ice_lance","laser_bolt","sunburst","ripples"]:
+			dock.edit_preset(load("res://addons/pixelfx/presets/"+id+".tres"))
+			check(dock.player.is_playing() and dock.player.instance.meta.id=="pixelfx."+id,id+" editor preview")
+			dock._time.value=.1
+			dock._time.value=.2
+			check(dock.player.paused and is_equal_approx(dock.player.instance.t,.2),id+" editor seek")
+			dock._save("res://builds/pixelfx/editor-"+id+".tres")
+			check(load("res://builds/pixelfx/editor-"+id+".tres").validate().is_empty(),id+" editor save")
 		make_bottom_panel_item_visible(dock)
 		for i in range(4): await get_tree().process_frame
 		if DisplayServer.get_name()!="headless":
