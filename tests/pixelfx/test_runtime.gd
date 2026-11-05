@@ -8,13 +8,13 @@ const Cache = preload("res://addons/pixelfx/runtime/frame_cache.gd")
 const Catalog = preload("res://addons/pixelfx/editor/catalog.gd")
 const Stateful = preload("res://tests/pixelfx/fixtures/stateful.gd")
 const Fireball = preload("res://addons/pixelfx/effects/fireball.gd")
-const Demo = preload("res://demos/pixelfx/fireball_demo.tscn")
 var failures: Array = []
 var checks := 0
 var completions := 0
 var loops := 0
 func check(ok: bool, message: String) -> void:
 	checks += 1
+	print("CHECK ", checks, ": ", message, " => ", ok)
 	if not ok: failures.append(message); push_error(message)
 func _initialize() -> void: call_deferred("run")
 func make_player(preset):
@@ -23,6 +23,10 @@ func make_player(preset):
 func run() -> void:
 	Cache.clear()
 	var preset = load("res://addons/pixelfx/presets/fireball.tres")
+	if not (preset is Preset):
+		push_error("Fireball preset did not load its PixelFXPreset script")
+		quit(1)
+		return
 	check(preset.validate().is_empty(), "default preset validates")
 	var future = preset.copy(); future.format_version = 2
 	check(not future.validate().is_empty(), "unknown preset format rejected")
@@ -142,7 +146,7 @@ func run() -> void:
 		var extension_player = make_player(new_effect)
 		check(extension_player.play({"radius": 18.0}) and extension_player.get_layer_texture() != null, "new effect uses unchanged player")
 		extension_player.free()
-	var demo = Demo.instantiate(); root.add_child(demo); demo.set_process(false); demo.player.update_mode = Player.UpdateMode.MANUAL
+	var demo = load("res://demos/pixelfx/fireball_demo.tscn").instantiate(); root.add_child(demo); demo.set_process(false); demo.player.update_mode = Player.UpdateMode.MANUAL
 	demo.pause_button.pressed.emit(); check(demo.player.paused, "demo pause")
 	demo.pause_button.pressed.emit(); check(not demo.player.paused, "demo resume")
 	demo.flip_button.pressed.emit(); check(demo.player.flip_h, "demo mirror")
