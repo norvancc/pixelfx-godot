@@ -8,15 +8,23 @@ output.mkdir(parents=True, exist_ok=True)
 (root/'builds/.gdignore').touch()
 
 def run(name, args, expected=None):
-    result = subprocess.run(args, cwd=root, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    print(name + ': running', flush=True)
+    try:
+        result = subprocess.run(args, cwd=root, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=180)
+    except subprocess.TimeoutExpired as error:
+        partial = error.stdout or b''
+        if isinstance(partial, bytes): partial = partial.decode(errors='replace')
+        (output/(name+'.log')).write_text(partial)
+        print(partial, flush=True)
+        raise SystemExit(name + ': exceeded 180 second limit')
     (output/(name+'.log')).write_text(result.stdout)
     if result.returncode or re.search(r'(?m)(SCRIPT ERROR:|ERROR:)', result.stdout) or (expected and expected not in result.stdout):
         print(result.stdout); raise SystemExit(f'{name} failed')
-    print(name+': passed')
+    print(name+': passed', flush=True)
 run('import-release', [godot,'--headless','--path',str(root),'--editor','--import','--quit'])
 upstream = os.environ.get('PIXELFX_UPSTREAM')
 if not upstream:
-    upstream = subprocess.check_output([sys.executable,str(root/'tools/pixelfx/fetch_reference.py')], cwd=root, text=True).strip()
+    upstream = subprocess.check_output([sys.executable,str(root/'tools/pixelfx/fetch_reference.py')], cwd=root, text=True, timeout=180).strip()
 # Also verify explicitly supplied upstream directories.
 manifest=json.loads((root/'addons/pixelfx/provenance.json').read_text())
 import hashlib
