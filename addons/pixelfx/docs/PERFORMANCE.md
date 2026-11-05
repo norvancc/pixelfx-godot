@@ -34,10 +34,10 @@ macOS / Apple M4 Pro / Godot 4.7.2，headless CPU 基准，默认火球 30 FPS�
 ## 兼容范围
 
 运行时是标准 GDScript + CanvasItem，不依赖编辑器 API、外部动态库或 Autoload。
-API 目标为 Godot 4.3+；**本次实测为 4.7.2 / macOS / GL Compatibility**。
-CI 配置使用 4.3 Linux 做兼容检查，但尚未在远端 CI 执行；不把配置文件视为跨平台验证结果。
-其他 Godot 版本、Windows/Linux 实机、移动端、Web 及 Forward+/Mobile 渲染器未实测。
-4.3 本地兼容测试因官方包下载速度过慢未完成，不因此宣称该版本已验收。
+API 目标为 Godot 4.3+。**4.7.2 / macOS / GL Compatibility** 已做可见编辑器和演示检查。
+**Godot 4.3 / Ubuntu / headless** 已通过 GitHub CI 的导入、原版对照、运行时、编辑器和打包检查：
+[验证运行](https://github.com/norvancc/pixelfx-godot/actions/runs/42019538955)。4.3 使用主 Inspector 编辑预览参数；新版可使用内嵌 Inspector。
+其他 Godot 版本、Windows/Linux 可见窗口实机、移动端、Web 及 Forward+/Mobile 渲染器未实测。
 
 ## 导出
 

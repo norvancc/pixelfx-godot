@@ -25,7 +25,7 @@ The renderer generates pixels on the CPU and uploads textures to Godot. It is **
 - Editor preview with automatically discovered effects, Inspector controls, timeline and explicit preset saving.
 - Standalone demo, projectile integration example, extension template, tests and packaging tools.
 
-Target: **Godot 4.3+**. Local validation: Godot 4.7.2 on macOS / GL Compatibility. CI tests Godot 4.3 on Linux; consult the workflow result rather than assuming every Godot version/platform is verified. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
+Target: **Godot 4.3+**. Validated on Godot 4.7.2 / macOS / GL Compatibility and [Godot 4.3 / Ubuntu headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42019538955). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
 
 ## Quick start
 

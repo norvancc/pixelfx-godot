@@ -31,7 +31,7 @@
 
 ## 验证与性能边界
 
-目标 Godot 4.3+；本地实测为 4.7.2 / macOS / GL Compatibility，4.3 Linux 由 CI 检查，以实际运行结果为准。其他平台、版本、渲染器不能自动视为通过。
+目标 Godot 4.3+；本地实测为 4.7.2 / macOS / GL Compatibility，[4.3 Linux headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42019538955) 已通过完整检查。其他平台、版本、渲染器不能自动视为通过。
 
 本地通过 78 组原版渲染对照、70 项运行检查、11 项编辑器检查；并导出启动了 macOS 应用。完整误差记录见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
 
