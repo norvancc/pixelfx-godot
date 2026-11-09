@@ -1,6 +1,6 @@
 # Roadmap and migration status
 
-Updated 2026-11-09 with thirteen additional locally accepted simulations after the eight ice/water effects. The first B2 slice in [B2 PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) was merged as `112d5d4`; Linux CI for the new slice is pending. The pinned PixelFX 0.3.0 catalog contains **244 algorithms: 52 accepted, 192 remaining**. The latest published release is still **0.2.0 (five algorithms)**; B1/B2 are source additions. Arcane Fireball is a palette preset.
+Updated 2026-11-09 with thirteen additional locally accepted simulations after the eight ice/water effects. The first B2 slice in [B2 PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) was merged as `112d5d4`; Linux acceptance for the simulation slice is recorded in [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks). The pinned PixelFX 0.3.0 catalog contains **244 algorithms: 52 accepted, 192 remaining**. The latest published release is still **0.2.0 (five algorithms)**; B1/B2 are source additions. Arcane Fireball is a palette preset.
 
 ## Accepted source capabilities
 

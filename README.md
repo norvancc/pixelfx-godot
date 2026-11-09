@@ -10,7 +10,7 @@
 
 ![Native Godot B2 simulation effects](docs/images/b2-simulations-effects.png)
 
-[Watch the 20-effect native preview](https://github.com/user-attachments/assets/f7feadf1-6fd1-4d19-8569-fe567e98bd2b)
+[Watch the 13-effect native simulation preview](https://github.com/user-attachments/assets/6d2cb744-abb6-4832-ac10-51044966b747)
 
 Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/patch-gg/pixelfx/tree/a84159688af3ca37a4be05a0d422b94451b2e24e). Original work by Patch and Hugo Duprez; see [attribution](NOTICE.md) and [source hashes](addons/pixelfx/provenance.json). This project is independently maintained and is not an official upstream release.
 
@@ -41,7 +41,7 @@ The renderer generates pixels on the CPU and uploads textures to Godot. It is **
 - Editor preview with automatically discovered effects, Inspector controls, timeline and explicit preset saving.
 - Standalone demo, projectile integration example, extension template, tests and packaging tools.
 
-Target: **Godot 4.3+**. The current simulation slice is validated on Godot 4.7.2 / macOS / GL Compatibility; its Linux CI is pending. The previous 31-effect snapshot passed [Godot 4.3 / Ubuntu headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
+Target: **Godot 4.3+**. Local acceptance uses Godot 4.7.2 / macOS / GL Compatibility. The [Godot 4.3 / Ubuntu headless checks](https://github.com/norvancc/pixelfx-godot/pull/9/checks) are recorded on this batch’s PR. The previous 39-effect snapshot passed [its full Linux gate](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
 
 ## Quick start
 

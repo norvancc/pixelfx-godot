@@ -1139,5 +1139,15 @@
         "samples": 4
       }
     }
+  },
+  "linux_ci": {
+    "passed": true,
+    "run": "https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679",
+    "implementation_commit": "f8ecd6eecc50ea0ec6752c0b726742ab0de953ab",
+    "merge_commit": "7ea9ea697e40e51bc889ebcfb7bdef41a10abfdc",
+    "validation_artifact_sha256": "273ceb7b0c623af7665d28bec72724f34a6d8856dfe945dfc9e9a2743084f818",
+    "release_packages_artifact_sha256": "900418a3ce56c3055dbb7675dc3bd57b8586c4ac725c043cccb285ab33ada4fa",
+    "platform": "Godot 4.3 / Ubuntu / headless",
+    "verification": "Full gate, JSON reports and error-free logs inspected; both package hashes and 39-effect/40-preset package scope verified."
   }
 }

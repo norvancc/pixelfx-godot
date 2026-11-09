@@ -35,6 +35,8 @@
 
 固定帧率录像只用于视觉验收，不代表实时 FPS。上表只取四个默认时刻的 `draw()`，不含完整模拟更新、纹理上传或 GPU 合成，也不是穷举峰值。32 MiB / 256 帧默认共享缓存不变；本批模拟不使用共享帧缓存。
 
-机器验收见 [b2-simulations.json](../../addons/pixelfx/validation/b2-simulations.json)，图鉴为 `demos/pixelfx/b2_simulations_gallery.tscn`。干净项目插件禁用时的安装验证覆盖全部 52 算法 / 53 预设；两个源码归档均检查内容。Godot 4.3/Linux 随本批 PR 验证；其他平台、渲染器和完整应用导出未验收。
+机器验收见 [b2-simulations.json](../../addons/pixelfx/validation/b2-simulations.json)，图鉴为 `demos/pixelfx/b2_simulations_gallery.tscn`。干净项目插件禁用时的安装验证覆盖全部 52 算法 / 53 预设；两个源码归档均检查内容。Godot 4.3/Linux 检查记录见 [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks)；其他平台、渲染器和完整应用导出未验收。
 
 本批 Flame pillar、Meteor、Ice spikes、Geyser 和 Holy pillar 的冷绘制采样超过 33.3 ms；其他时刻和参数仍可能更慢。
+
+[完整正常速度原生预览](https://github.com/user-attachments/assets/6d2cb744-abb6-4832-ac10-51044966b747)。本批实现及验收通过 [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9) 交付。

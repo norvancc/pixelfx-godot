@@ -8,7 +8,7 @@
 
 “全量”包括 moves、critters、transitions 等困难类别，不能用相似动画或静态截图抵充。actor / rig / act / poses 等系统以支撑这 244 个效果所需的能力为本轮范围；完整角色制作工具不自动纳入。依赖外部图像、角色或场景输入的效果必须提供输入接口与可运行示例，不能静默删掉行为。
 
-进度依据为 [迁移台账](../migration-status.json)、[B1 验收](../../addons/pixelfx/validation/b1.json)、[B2 验收](../../addons/pixelfx/validation/b2.json)与对应源码哈希。当前完整检查保留 447 + 809 + 2607 + 1052 + 2166 = **7081** 组上游对照；B2 的 [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) 已通过。新增十三项的本地完整 gate、原生正常速度录像及参数极值画面均通过；其 Linux CI 随本批 PR 验证。[模拟十三项验收](b2-simulations-review.zh-CN.md)记录独立范围。[冰水验收说明](b2-elements-review.zh-CN.md)记录独立范围。
+进度依据为 [迁移台账](../migration-status.json)、[B1 验收](../../addons/pixelfx/validation/b1.json)、[B2 验收](../../addons/pixelfx/validation/b2.json)与对应源码哈希。当前完整检查保留 447 + 809 + 2607 + 1052 + 2166 = **7081** 组上游对照；B2 的 [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) 已通过。新增十三项的本地完整 gate、原生正常速度录像及参数极值画面均通过；其 Linux 检查记录见 [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks)。[模拟十三项验收](b2-simulations-review.zh-CN.md)记录独立范围。[冰水验收说明](b2-elements-review.zh-CN.md)记录独立范围。
 
 ## 2. 从前五个效果沿用的做法
 

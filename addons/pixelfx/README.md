@@ -78,7 +78,7 @@ python3 tools/pixelfx/check.py
 
 ## 范围与维护
 
-公共扩展契约为 v1，最新发行版本为 0.2.0；B1/B2 新增项仍为未发布源码。B1/B2 首批已合入主分支；首批合并为 [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) / `112d5d4`，验收数据见 [B1](validation/b1.json) 和 [B2](validation/b2.json)，Godot 4.3/Linux [完整 CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) 已通过。全部 22 个有状态一次性效果不支持 seek/共享帧缓存/预热，调参将重播；其余新增项为解析循环。模拟本批已通过本地 7081 组总对照和 211 项编辑器检查；Linux CI 随本批 PR 验证。
+公共扩展契约为 v1，最新发行版本为 0.2.0；B1/B2 新增项仍为未发布源码。B1/B2 首批已合入主分支；首批合并为 [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) / `112d5d4`，验收数据见 [B1](validation/b1.json) 和 [B2](validation/b2.json)，Godot 4.3/Linux [完整 CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) 已通过。全部 22 个有状态一次性效果不支持 seek/共享帧缓存/预热，调参将重播；其余新增项为解析循环。模拟本批已通过本地 7081 组总对照和 211 项编辑器检查；Linux 检查记录见 [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks)。
 同一契约内新增特效不需要修改播放器、缓存、预览面板或注册表。
 新增效果自己的算法/辅助绘制代码属于效果模块；不要求预先迁移原库所有内部助手。
 当前没有将上游两百多个效果、actor/rig/poses 系统或专用 sim 模拟器全部迁移。

@@ -127,6 +127,8 @@ Frost breath 和 Waterfall 的采样超过 33.3 ms；其他时刻或参数可能
 
 本批 13 项均不支持共享帧缓存/预热。208 次重播两轮对象数持平、静态内存增量 1456 字节，结果限于固定测试负载。不要据固定帧率录像推断实时帧率或并发保证。
 
+模拟十三项的 Linux 检查记录见 [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks)；此前冰水八项已通过[完整 Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679)。
+
 ## 兼容范围
 
 运行时是标准 GDScript + CanvasItem，不依赖编辑器 API、外部动态库或 Autoload。

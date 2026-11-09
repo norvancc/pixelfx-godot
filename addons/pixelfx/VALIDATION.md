@@ -16,7 +16,7 @@
 
 原生 macOS / Godot 4.7.2 / GL Compatibility 录像为 1120×740、30 FPS、3220 个解码帧、107.333333 秒，已按 1× 速度播放到结束；深浅背景、镜像、完整生命周期、结束清理和前后遮挡截图均已检查。额外参数最大值录像为 1610 帧 / 53.666667 秒。视频 SHA-256 和范围在本批 JSON；仓库公开截图为 `docs/images/b2-simulations-effects.png`。固定输出帧率不代表实时 FPS，性能仅为记录负载的采样。
 
-Godot 4.3/Linux 随本批 PR 验证。Windows、Web、移动端、其他渲染器及全部效果的应用导出未验收。
+Godot 4.3/Linux 本批检查见 [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks)。Windows、Web、移动端、其他渲染器及全部效果的应用导出未验收。
 
 ---
 
@@ -36,7 +36,7 @@ Godot 4.3/Linux 随本批 PR 验证。Windows、Web、移动端、其他渲染�
 
 原生 macOS / Godot 4.7.2 / GL Compatibility 录像为 1120×740、30 FPS、1572 个解码帧、52.4 秒；已正常速度查看所有八项的完整周期、深浅背景、镜像与遮挡。另检查 786 帧 / 26.2 秒参数极值录像。视频哈希和完整证据范围在本批 JSON；公开截图为完整仓库 `docs/images/b2-elements-effects.png`。固定输出帧率不代表实时 FPS；Frost breath / Waterfall 冷绘制采样超过 33.3 ms。
 
-Godot 4.3/Linux CI 待本批 PR 验证。以下 PR #6 的 Linux 结果仅对应此前 31 项快照。Windows、Web、移动端、其他渲染器及当前全部效果的应用导出仍未验收。
+冰水批次的 [Godot 4.3/Linux 完整 CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679)已通过（PR #8，`7ea9ea6`）。以下 PR #6 的 Linux 结果仅对应此前 31 项快照。Windows、Web、移动端、其他渲染器及当前全部效果的应用导出仍未验收。
 
 ---
 
@@ -177,4 +177,4 @@ API 目标为 Godot 4.3+。除上述 macOS 实测外，Godot 4.3 / Ubuntu headle
 缓存命中后的 CPU 基准不包括完整场景 GPU 成本；不同参数的冷生成仍约 20 ms/个，
 应在游戏加载阶段预热常用预设。用户审美验收仍以实际查看为准。
 
-Linux Godot 4.3 的 1052 组对照已补充逐像素审计。四个既有例外案例的计数/矩形取两平台并集；所有 alpha 字节相同，最大 RGB 差仍为 2/255。证据归档 SHA-256 为 `f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5`；更新后的完整 CI 随本批 PR 重跑。
+Linux Godot 4.3 的 1052 组对照已补充逐像素审计。四个既有例外案例的计数/矩形取两平台并集；所有 alpha 字节相同，最大 RGB 差仍为 2/255。证据归档 SHA-256 为 `f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5`；更新后的[完整 CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679)已通过，验收归档 SHA-256 为 `273ceb7b0c623af7665d28bec72724f34a6d8856dfe945dfc9e9a2743084f818`。

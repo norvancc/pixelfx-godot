@@ -6,7 +6,7 @@
 
 ![Godot B2 十三种原生模拟效果](docs/images/b2-simulations-effects.png)
 
-[观看首批 20 项预览](https://github.com/user-attachments/assets/f7feadf1-6fd1-4d19-8569-fe567e98bd2b)
+[观看本批十三项完整预览](https://github.com/user-attachments/assets/6d2cb744-abb6-4832-ac10-51044966b747)
 
 ## 当前状态
 
@@ -43,7 +43,7 @@ B1 新增命中火花、消散烟团、篝火、火箭、小爆炸和水花。B2
 
 ## 验证与性能边界
 
-目标 Godot 4.3+；本地实测为 4.7.2 / macOS / GL Compatibility，此前 31 项的 [4.3 Linux headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) 已通过完整检查；新增十三项模拟效果的 Linux CI 待本批 PR 验证。其他平台、版本、渲染器不能自动视为通过。
+目标 Godot 4.3+；本地实测为 4.7.2 / macOS / GL Compatibility，本批 [Godot 4.3/Linux 检查](https://github.com/norvancc/pixelfx-godot/pull/9/checks)记录在 PR #9。此前 39 项的[完整 Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679)已通过。其他平台、版本、渲染器不能自动视为通过。
 
 当前完整 gate 包含 447 组基线、809 组 B1、2607 组 B2 上游 RGBA 对照，另增 1052 组冰水对照，以及本批 2166 组模拟对照，共 **7081 组，零失败**。B2 的 2470 组字节完全一致，8 个超默认阈值案例逐项登记 1–2/255 的量化误差；未统一放宽整体门槛。另有 B2 运行/图鉴 419 项、参数/边界 431 项、编辑器总计 211 项及 B2 重播 320 次。冰水批次另有 167 项运行检查、333 项目录/边界检查和 128 次重播；722 组字节一致、66 个超默认阈值案例逐项审计。模拟本批另有 300 项运行检查、392 项目录/边界检查和 208 次重播，2066 组字节一致、4 个 RGB 量化案例逐项审计。历史结果和完整误差边界见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
 
