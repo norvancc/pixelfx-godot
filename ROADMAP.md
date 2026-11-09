@@ -15,7 +15,8 @@ This roadmap describes intended work, not promised dates or completed features.
 | Water / Ripples | Ported with back/front layers; full-cycle comparison included |
 | B0 migration ledger | Implemented; 244 pinned upstream effects tracked in `docs/migration-status.json` |
 | B1 probe implementations | Six algorithm ports accepted locally with per-effect pixel/runtime/visual evidence; unreleased |
-| Other 233 upstream effects | Not ported |
+| B2 first 20 effects | Seven fire, ten projectile/muzzle and three water ports; source acceptance in `addons/pixelfx/validation/b2.json` |
+| Other 213 upstream effects | Not ported |
 | Upstream actor / rig / act / poses systems | Not ported |
 | Dedicated sim / chain helpers | Not fully ported; add as effects require |
 | GPU / native accelerated backend | Not implemented |
@@ -23,7 +24,7 @@ This roadmap describes intended work, not promised dates or completed features.
 
 Next priorities:
 
-1. Extend beyond the five looping ports to representative one-shot and stateful effects.
+1. Continue the remaining 29 B2 effects after the first 20, retaining per-effect acceptance.
 2. Add category helpers once, retain provenance, and extend reference tests for each effect.
 3. Validate parameter extremes, timings and normal-speed visual output before expanding the catalog.
 4. Profile cold generation and unique-parameter workloads; add backend optimization only with measurements.

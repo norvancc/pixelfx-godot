@@ -1,0 +1,505 @@
+{
+  "passed": true,
+  "accepted_at": "2026-11-09T06:29:40.121075+00:00",
+  "upstream_revision": "a84159688af3ca37a4be05a0d422b94451b2e24e",
+  "scope": "B2 first 20 effects; native macOS acceptance. Godot 4.3/Linux is validated by PR CI.",
+  "environment": {
+    "cpu": "Apple M4 Pro",
+    "display": "headless",
+    "godot": "4.7.2-stable (official)",
+    "os": "macOS"
+  },
+  "parity": {
+    "cases": 2607,
+    "byte_exact": 2470,
+    "default_tolerance": {
+      "max_channel_error": 1,
+      "changed_bytes": 20
+    },
+    "audited_exceptions": {
+      "brazier-cycle-72": {
+        "max_channel_error": 2,
+        "changed_bytes": 9,
+        "pixel_rect": [
+          1,
+          -87,
+          7,
+          12
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      },
+      "brazier-cycle-79": {
+        "max_channel_error": 2,
+        "changed_bytes": 4,
+        "pixel_rect": [
+          2,
+          -91,
+          2,
+          3
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      },
+      "flamethrower-cycle-43": {
+        "max_channel_error": 2,
+        "changed_bytes": 50,
+        "pixel_rect": [
+          98,
+          -56,
+          15,
+          22
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      },
+      "spirit_flame-cycle-54": {
+        "max_channel_error": 2,
+        "changed_bytes": 3,
+        "pixel_rect": [
+          -3,
+          -49,
+          4,
+          2
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      },
+      "spirit_flame-cycle-86": {
+        "max_channel_error": 1,
+        "changed_bytes": 22,
+        "pixel_rect": [
+          -12,
+          -42,
+          6,
+          6
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      },
+      "water_jet-seed0-0.999": {
+        "max_channel_error": 2,
+        "changed_bytes": 17,
+        "pixel_rect": [
+          93,
+          3,
+          35,
+          15
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent mist discs; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      },
+      "water_jet-large-0.999": {
+        "max_channel_error": 1,
+        "changed_bytes": 38,
+        "pixel_rect": [
+          92,
+          3,
+          33,
+          16
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent mist discs; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      },
+      "water_jet-dark-0.999": {
+        "max_channel_error": 1,
+        "changed_bytes": 99,
+        "pixel_rect": [
+          88,
+          5,
+          33,
+          16
+        ],
+        "reason": "Audited native/V8 floating-point rounding at overlapping translucent mist discs; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+      }
+    }
+  },
+  "runtime_checks": 419,
+  "catalog_checks": 431,
+  "editor_checks": 127,
+  "replay_soak": {
+    "batches": [
+      {
+        "cache": {
+          "bytes": 0,
+          "entries": 0,
+          "evictions": 0,
+          "hits": 0,
+          "limit_bytes": 33554432,
+          "misses": 0
+        },
+        "objects": 1633.0,
+        "static_bytes": 28327302
+      },
+      {
+        "cache": {
+          "bytes": 0,
+          "entries": 0,
+          "evictions": 0,
+          "hits": 0,
+          "limit_bytes": 33554432,
+          "misses": 0
+        },
+        "objects": 1633.0,
+        "static_bytes": 28328758
+      }
+    ],
+    "failures": [],
+    "replays": 320,
+    "seeds_per_effect": 8,
+    "wall_seconds": 19.289301
+  },
+  "native_visual": {
+    "reviewed": true,
+    "frames": 4130,
+    "fps": 30,
+    "seconds": 137.666667,
+    "size": [
+      1120,
+      740
+    ],
+    "movie": "builds/pixelfx/b2-native.mp4",
+    "movie_sha256": "320a522d8ba851296947ced2d31a3daf0483500621ee5d8df7f6b47baed02163",
+    "poster": "docs/images/b2-effects.png",
+    "poster_sha256": "098786e346a4e1d30b952dcf58227a81d1d231726d0ec8b779a42f259983cdb8",
+    "coverage": [
+      "all 20 effects",
+      "dark/light backgrounds",
+      "mirroring",
+      "complete lifecycles and loop seams",
+      "front/back water-orb occlusion"
+    ],
+    "limitation": "Fixed-frame recording is visual evidence, not a real-time FPS benchmark."
+  },
+  "source_sha256": {
+    "addons/pixelfx/core/color.gd": "c9773dd443079bcf5bd39d40dda02fe1b3a613691fb4cc36f66773857e689b16",
+    "addons/pixelfx/core/ease.gd": "507d0cce2236ce2fee048083ebf60f650ce037194c70b3a39982073b1360d891",
+    "addons/pixelfx/core/effect.gd": "98090aeea315163f6f3c9cf5fb513fdca758f7c0c61b1edc25d857ee7439984c",
+    "addons/pixelfx/core/frame.gd": "5277dcc8ba034965dc84d4d13022c3ed47a4816603cd4ffc7dc8110f43066cd4",
+    "addons/pixelfx/core/fx.gd": "ccf7e7bb3a3555eb2c46bbd16a02def556003abe76dc20ff52945d08864ff7a6",
+    "addons/pixelfx/core/math.gd": "00524f23d3aa817649046810dcbdb95171629848922c8621ff696a2009ba918e",
+    "addons/pixelfx/core/painter.gd": "9074278708f14ae9d9b3a5f953ad4babb449a427275f89f4f27616170b8a02d9",
+    "addons/pixelfx/core/particles.gd": "18fdbce282c9bd81ad95338b75c3e5e726117be6d866f74341ce225e709d94a6",
+    "addons/pixelfx/core/sim.gd": "b655a4d62109e2102180b29aca6affeb4e759d9e05c3c89de042abcccc0a0fe4",
+    "addons/pixelfx/editor/catalog.gd": "a01da996f907f11418f65ab2ebc9aff725596fd87a9637f1edf48ddb39a15c39",
+    "addons/pixelfx/editor/plugin.gd": "27898700ee4db2929e1f4e2234e5590737ac842d39c098a16fa49a48f02cf82c",
+    "addons/pixelfx/editor/preview_dock.gd": "403f37facc11b6d66e1b8a74b4f6d840f4610dac516e2aeb2c50a32d125b3e1d",
+    "addons/pixelfx/effects/analytic_helpers.gd": "75e038cb052eb62f5a7f664c74196ee60892cd207b19dac5b9868a64a1550b21",
+    "addons/pixelfx/effects/b2_helpers.gd": "c4a1fbaaba1c337b3a42b0f660a6b2abc31aa5df4cbbdd3d8f80ba12ba26437d",
+    "addons/pixelfx/effects/explosions/small_explosion.gd": "0b86f8d0a27414828d602a855bf6eb8ad0088ced24e8590179e0df8fbef87761",
+    "addons/pixelfx/effects/fire/b2_common.gd": "90ffd02c1924a8a159145653d0f41e165a783d3a82bb0843b42cb5d8a55f3a04",
+    "addons/pixelfx/effects/fire/brazier.gd": "e72d58a5564337199712f0458c1c229f6a6be18a55e904c224335a08e4f8254d",
+    "addons/pixelfx/effects/fire/campfire.gd": "220a8bc4cde0be45c6a5a8c531d15d4a2d79feaa536554a691767f6178879cd9",
+    "addons/pixelfx/effects/fire/candle.gd": "594357da52d66fb467a15d008282f36885272f3c437e14c89444cdadb71b6385",
+    "addons/pixelfx/effects/fire/fire_breath.gd": "b72244e091464765b66ee35f2e4b21b8998a2fbb64b96b2695b4fae405b9830f",
+    "addons/pixelfx/effects/fire/fire_tornado.gd": "479acb63024407d399204e252d9773d76e0762f23d3becba529958d98b1ee508",
+    "addons/pixelfx/effects/fire/flamethrower.gd": "be355263af59c1c0bb24020c9ffc8f7cae9c2625aef65bf8b03779bc79f64742",
+    "addons/pixelfx/effects/fire/spirit_flame.gd": "7f7fb8dfb075c9d998165bfcd541723cdb99262fe2218f23fdf2df2c69691e15",
+    "addons/pixelfx/effects/fire/torch.gd": "8fb2541cf87a4b6e770e4460e9dfa80a3a22ca7781a328713cf62b732ce49678",
+    "addons/pixelfx/effects/fire_common.gd": "42ec0841cfdae64b13642300c133d484dd31a68e79cfe90d304b3fde48027d32",
+    "addons/pixelfx/effects/fireball.gd": "f593439ddc37098ba15bfd7651d28bbce2b655d894850fe529bcf21752e366b9",
+    "addons/pixelfx/effects/ice_lance.gd": "65b962f3146dc1e21ba2a879dd73ff79856350bf781540cccdcb674c30cd1763",
+    "addons/pixelfx/effects/impacts/hit_spark.gd": "456f5232eaf2be3d546ecc961f744f3b9892baba6e10cec5e89a5ce12d1e9371",
+    "addons/pixelfx/effects/laser_bolt.gd": "86bf2ffdad0b00c8ea380010520faeddcfdb14e7f5f68050c05f00e978ed7e68",
+    "addons/pixelfx/effects/projectiles/arrow.gd": "f3a053265fb39b5265886ea8382c097596796a892344ac973fc70398fd037e89",
+    "addons/pixelfx/effects/projectiles/b2_common.gd": "02f086317a028a28df46277a95f6e7f3307af8aed14632e1385161533f1dc8a5",
+    "addons/pixelfx/effects/projectiles/bullet_tracer.gd": "d35d0ab4277447b2b268915b7055c69fb1d3d77a9fd78906a558ad89f308508a",
+    "addons/pixelfx/effects/projectiles/cannonball.gd": "85d275315402010487c41f0e7557ec70322b79cae8537e8d8aacd0cb80416b7b",
+    "addons/pixelfx/effects/projectiles/energy_disc.gd": "46c5b374b2b19f74aefbed7091d0624168dd9d99f8198b2de984f13df94f6d00",
+    "addons/pixelfx/effects/projectiles/flare.gd": "f64b42e75c8b3363f82b22d0378d0c83505407065ea4b97726de8d96f22517f2",
+    "addons/pixelfx/effects/projectiles/magic_missile.gd": "ba5fd284d1ad11cad5c3b3026b848f0829eea66132cd4548a95d2a1d5774626c",
+    "addons/pixelfx/effects/projectiles/muzzle_pistol.gd": "3d98202e2914921caef74143f17eeafd2b097d7d2062aa8ac10a27864f396290",
+    "addons/pixelfx/effects/projectiles/muzzle_shotgun.gd": "f0ac1c22fc637eac5e4bc8364f8b9022fca1794649d6d4536b37e46a0a31744f",
+    "addons/pixelfx/effects/projectiles/muzzle_smg.gd": "6444da2fa425af7970262d0cf728c9bd2de94f2eb26712fe207c7f6016771fd4",
+    "addons/pixelfx/effects/projectiles/plasma_shot.gd": "aced9af2dd13ff373cc878e6b3613bef95693f58be7b7eb9f3fc90daf6c6c2d6",
+    "addons/pixelfx/effects/projectiles/projectiles_common.gd": "e8aa7e25ef581abc66ffcef2b40818a90270408ed7f6d0ad3a64f385a4811344",
+    "addons/pixelfx/effects/projectiles/rocket.gd": "372f2b38f6a77fb1e089b74e77c7d0140edce651a966fbdc6084d3643cf50751",
+    "addons/pixelfx/effects/ripples.gd": "14d5ad4b998058c22c53a7a8099590cd939dafe170ba551e3cd96eecec62f6d1",
+    "addons/pixelfx/effects/spawn/poof.gd": "847371f58245f9f7fee3d23a2d413db56bf628bb36e00e7dd113612f799d6838",
+    "addons/pixelfx/effects/sunburst.gd": "19ae91bc4ba54fb2c6e2ba72043ff9eb501098878da88f7ea68ede6e60f2ab91",
+    "addons/pixelfx/effects/water/b2_common.gd": "3484e2504fe8937ab4bcad9ffdc89b2e9d3d3d8d26d8d2e1cbcdb3123542d2eb",
+    "addons/pixelfx/effects/water/splash.gd": "59d5b251d074fcaf1a78b72e7cd1067fa1bab527294d833b069470f4cd54f94a",
+    "addons/pixelfx/effects/water/water_common.gd": "73f9eeb5fd82ac6434ad3ecc6ff48d57f79f04cf96ab45a003cd3fbdd80a464e",
+    "addons/pixelfx/effects/water/water_jet.gd": "64972a050fff47d448f3973bc807eaa78f8cf74707a942680eaa5fe2ba06f28a",
+    "addons/pixelfx/effects/water/water_orb.gd": "bc1f22fb36a7bfd55aaa1d5abc25f651cf4ed49f07317092bf035797ff8b5b1e",
+    "addons/pixelfx/effects/water/whirlpool.gd": "11bc90f79e1af3592f05db7923a66f30e7d051ce3f0dd90d83d78c2762811c50",
+    "addons/pixelfx/pixel_fx_player_2d.gd": "2b20e60d13e79a8c86a7e75afaa47e98e130079ee53589e1a688b73c15df3ef6",
+    "addons/pixelfx/presets/arcane_fireball.tres": "f49fa931205c2ff83f16021c0a3ad68687f4d03e590d36ae636d6d99ea86cca6",
+    "addons/pixelfx/presets/arrow.tres": "e84b1decca4be064642467b3e1de39aac1ccdb92ca3864d05f36099edb889d6d",
+    "addons/pixelfx/presets/brazier.tres": "539ed5e5f3af74a570744771ec4344a1b3a1df31a994b5ffc6a3efa081d09739",
+    "addons/pixelfx/presets/bullet_tracer.tres": "a38623c2e8c361d6b7e0cdb37e9ccb0d2989c498222fac3f2db31b3f0751a705",
+    "addons/pixelfx/presets/campfire.tres": "0f406eb89af932f50bccd159c3542639ccb6ecde1a2fabf14ed7bcf905e5c5dc",
+    "addons/pixelfx/presets/candle.tres": "324313f08ccc72c4e211b14e9b78e480c7232b9a07a0bc10b4996a99f24da66a",
+    "addons/pixelfx/presets/cannonball.tres": "8f5c165a4488a4d8b885f678be8525bc4ed62003363f0f67dff4594a409aeb8b",
+    "addons/pixelfx/presets/energy_disc.tres": "2bca8e35960a0db7630329a3295d117e9913e5a065f9b9e81ff726faa413790d",
+    "addons/pixelfx/presets/fire_breath.tres": "0aa2a8c7f533136c9cfc92edafa22e9d95fc7929df436ca07052d9498a0a5d50",
+    "addons/pixelfx/presets/fire_tornado.tres": "9778f730449219c01ca51af5155f12c588ef2e3a3461c5a1046b84c00f9e0f0f",
+    "addons/pixelfx/presets/fireball.tres": "a6589f23d455f2e6a47151d3faed016977a45f975844aff3ac825dab4ea2befb",
+    "addons/pixelfx/presets/flamethrower.tres": "c691e96c4311e7da161f891edd17a497d482718adeb3bb89adf35c4734580074",
+    "addons/pixelfx/presets/flare.tres": "61cd820b2d2026f317ec5c1f18988c69573f376a6b14f188bdf864a095617352",
+    "addons/pixelfx/presets/hit_spark.tres": "2faad17759c56ab1f7a1739e59b51ccb9c695298437520a041db4eb64132dc37",
+    "addons/pixelfx/presets/ice_lance.tres": "2ededf82c4e5d17de983d7fef64558ea27ca6a5155e9ecc0dfa05d739b954479",
+    "addons/pixelfx/presets/laser_bolt.tres": "02bb0f7b1afc7fe8f7b4f0a97f9cc81fc42abf84ef4d96b0ce866c64f0058af9",
+    "addons/pixelfx/presets/magic_missile.tres": "1384115b51c1d31a2818ce3fae4c5b111c60841aa3a399eacd2f3eef0c0d75f6",
+    "addons/pixelfx/presets/muzzle_pistol.tres": "99281ea58fc448d866340d424684746baa24ef34ef9703b32d2b89b472c71c5f",
+    "addons/pixelfx/presets/muzzle_shotgun.tres": "9b29db585c2dd1850e5d8e9d4ffe579c10dd035ff2cd16da0390895c06e04c3c",
+    "addons/pixelfx/presets/muzzle_smg.tres": "66bac49b0bae34ba84332f22a14c02d5dd6ea1a37849c35cef7fea5fab3515a4",
+    "addons/pixelfx/presets/plasma_shot.tres": "185b4265e46f14cd0bfb671e16db0688196246a86e46f0c46a93d44505728f27",
+    "addons/pixelfx/presets/poof.tres": "af95047f62fa3a1706480d79a001616743bf7d51fb30a3b502c8e513b71fa69f",
+    "addons/pixelfx/presets/ripples.tres": "4f034d603df600e8b0327776cd2546c5a35b8b6a2580b01e27f55538ce45a1b6",
+    "addons/pixelfx/presets/rocket.tres": "707291e7a6ea3a5776ccf1160f8516c20db5d0ba4cdd578d3f931d41c5c4d7c9",
+    "addons/pixelfx/presets/small_explosion.tres": "c097bd1e9c2a9b1136e6f07378e406b4b99d9eba433930d8ed447fdf4811415e",
+    "addons/pixelfx/presets/spirit_flame.tres": "5b6005c60e7acfe98f86304e200ad4f310ce187bf46557261b0d44deceb5f411",
+    "addons/pixelfx/presets/splash.tres": "57f64028ee62d516352fa249e15595d034fe804047e92f02a6c579451b62a455",
+    "addons/pixelfx/presets/sunburst.tres": "30ffffccba81aaadd3595d1cc5b8d09d28ed7571c2daaebab0e4142f501796a6",
+    "addons/pixelfx/presets/torch.tres": "4dcad56125e022bb33ea658b5091ec1316e448ac2aafb30fb3e2b3ae09b6059f",
+    "addons/pixelfx/presets/water_jet.tres": "0ad6054089be42c96a2638448719afb5b1a7d6f90175d3f78b10a7176cf0a6d6",
+    "addons/pixelfx/presets/water_orb.tres": "33214920c520a483a61850b43daa70b7f133265db5611c14f11def456a979fb7",
+    "addons/pixelfx/presets/whirlpool.tres": "0c26ca51884d2629555db2d4210d5151834b0ac1570b801269ef1ff0b996f879",
+    "addons/pixelfx/resources/preset.gd": "f7a854f23c1d80dfb272d9af6bf22d8a19cb3d884aadd1d843b5d57c72ceb9ed",
+    "addons/pixelfx/runtime/frame_cache.gd": "6cc45270d71826666435d9fba11a83577674fb90664de8ed40b2fb443d9c1691",
+    "addons/pixelfx/runtime/layer_2d.gd": "f14391ec22126ce128547cf60052dd7c52753cc84e6fdc48601d377b028fcc2f",
+    "addons/pixelfx/runtime/pool.gd": "9417d76b978669df5c6386301ed23bc79ff587247bb69f6b5d06e6b6974ca350",
+    "addons/pixelfx/runtime/preloader.gd": "01b309c6d1336f014af6cee0685d8173ea49ed964895ce62590b0fb4c4e193c9",
+    "addons/pixelfx/runtime/renderer.gd": "71613e61305176dd75bbc848c2da860cc0a590155b6394f1c6f8495caa95b80c",
+    "demos/pixelfx/b2_gallery.gd": "2c840282f495e949a437062bae59dea597f636db39bb7b2efad53b4f79c713d7",
+    "demos/pixelfx/b2_gallery.tscn": "fe69719e3f5c603bc11d2c153b5c66103f494a9b5e604dbd269c428478f583e4",
+    "tests/pixelfx/b2_effects.json": "c5413c434c33116a0d616ddc9c69924a156b8b44201b180bb1d570083f636305",
+    "tests/pixelfx/b2_tolerances.json": "fa680d8c2e51eab52deddb51a44fb7f6bb95acc6fd627a31ccfa9b314c0bd033"
+  },
+  "effects": {
+    "fire/brazier": {
+      "implementation": "addons/pixelfx/effects/fire/brazier.gd",
+      "stateful": false,
+      "parity_cases": 147,
+      "byte_exact": 119,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 30.663,
+        "sampled_cold_ms_mean": 29.622,
+        "samples": 4
+      }
+    },
+    "fire/candle": {
+      "implementation": "addons/pixelfx/effects/fire/candle.gd",
+      "stateful": false,
+      "parity_cases": 179,
+      "byte_exact": 169,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 3.569,
+        "sampled_cold_ms_mean": 3.382,
+        "samples": 4
+      }
+    },
+    "fire/fire-breath": {
+      "implementation": "addons/pixelfx/effects/fire/fire_breath.gd",
+      "stateful": false,
+      "parity_cases": 117,
+      "byte_exact": 112,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 55.192,
+        "sampled_cold_ms_mean": 54.6935,
+        "samples": 4
+      }
+    },
+    "fire/fire-tornado": {
+      "implementation": "addons/pixelfx/effects/fire/fire_tornado.gd",
+      "stateful": false,
+      "parity_cases": 124,
+      "byte_exact": 122,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 34.066,
+        "sampled_cold_ms_mean": 33.38075,
+        "samples": 4
+      }
+    },
+    "fire/flamethrower": {
+      "implementation": "addons/pixelfx/effects/fire/flamethrower.gd",
+      "stateful": false,
+      "parity_cases": 121,
+      "byte_exact": 111,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 24.983,
+        "sampled_cold_ms_mean": 24.21125,
+        "samples": 4
+      }
+    },
+    "fire/spirit-flame": {
+      "implementation": "addons/pixelfx/effects/fire/spirit_flame.gd",
+      "stateful": false,
+      "parity_cases": 146,
+      "byte_exact": 119,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 10.667,
+        "sampled_cold_ms_mean": 10.27175,
+        "samples": 4
+      }
+    },
+    "fire/torch": {
+      "implementation": "addons/pixelfx/effects/fire/torch.gd",
+      "stateful": false,
+      "parity_cases": 118,
+      "byte_exact": 112,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 15.169,
+        "sampled_cold_ms_mean": 14.9485,
+        "samples": 4
+      }
+    },
+    "projectiles/arrow": {
+      "implementation": "addons/pixelfx/effects/projectiles/arrow.gd",
+      "stateful": false,
+      "parity_cases": 77,
+      "byte_exact": 77,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 0.498,
+        "sampled_cold_ms_mean": 0.4105,
+        "samples": 4
+      }
+    },
+    "projectiles/bullet-tracer": {
+      "implementation": "addons/pixelfx/effects/projectiles/bullet_tracer.gd",
+      "stateful": false,
+      "parity_cases": 91,
+      "byte_exact": 91,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 4.094,
+        "sampled_cold_ms_mean": 3.988,
+        "samples": 4
+      }
+    },
+    "projectiles/cannonball": {
+      "implementation": "addons/pixelfx/effects/projectiles/cannonball.gd",
+      "stateful": true,
+      "parity_cases": 180,
+      "byte_exact": 180,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 43.243,
+        "sampled_cold_ms_mean": 19.94775,
+        "samples": 4
+      }
+    },
+    "projectiles/energy-disc": {
+      "implementation": "addons/pixelfx/effects/projectiles/energy_disc.gd",
+      "stateful": false,
+      "parity_cases": 95,
+      "byte_exact": 95,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 3.317,
+        "sampled_cold_ms_mean": 3.19975,
+        "samples": 4
+      }
+    },
+    "projectiles/flare": {
+      "implementation": "addons/pixelfx/effects/projectiles/flare.gd",
+      "stateful": true,
+      "parity_cases": 215,
+      "byte_exact": 215,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 13.562,
+        "sampled_cold_ms_mean": 5.41225,
+        "samples": 4
+      }
+    },
+    "projectiles/magic-missile": {
+      "implementation": "addons/pixelfx/effects/projectiles/magic_missile.gd",
+      "stateful": true,
+      "parity_cases": 129,
+      "byte_exact": 129,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 6.511,
+        "sampled_cold_ms_mean": 2.335,
+        "samples": 4
+      }
+    },
+    "projectiles/muzzle-pistol": {
+      "implementation": "addons/pixelfx/effects/projectiles/muzzle_pistol.gd",
+      "stateful": true,
+      "parity_cases": 120,
+      "byte_exact": 120,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 10.869,
+        "sampled_cold_ms_mean": 3.6945,
+        "samples": 4
+      }
+    },
+    "projectiles/muzzle-shotgun": {
+      "implementation": "addons/pixelfx/effects/projectiles/muzzle_shotgun.gd",
+      "stateful": true,
+      "parity_cases": 162,
+      "byte_exact": 162,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 40.624,
+        "sampled_cold_ms_mean": 14.4305,
+        "samples": 4
+      }
+    },
+    "projectiles/muzzle-smg": {
+      "implementation": "addons/pixelfx/effects/projectiles/muzzle_smg.gd",
+      "stateful": false,
+      "parity_cases": 96,
+      "byte_exact": 96,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 16.878,
+        "sampled_cold_ms_mean": 13.8875,
+        "samples": 4
+      }
+    },
+    "projectiles/plasma-shot": {
+      "implementation": "addons/pixelfx/effects/projectiles/plasma_shot.gd",
+      "stateful": false,
+      "parity_cases": 96,
+      "byte_exact": 96,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 30.607,
+        "sampled_cold_ms_mean": 30.248,
+        "samples": 4
+      }
+    },
+    "water/water-jet": {
+      "implementation": "addons/pixelfx/effects/water/water_jet.gd",
+      "stateful": false,
+      "parity_cases": 94,
+      "byte_exact": 49,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 20.651,
+        "sampled_cold_ms_mean": 20.0605,
+        "samples": 4
+      }
+    },
+    "water/water-orb": {
+      "implementation": "addons/pixelfx/effects/water/water_orb.gd",
+      "stateful": false,
+      "parity_cases": 154,
+      "byte_exact": 154,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 11.879,
+        "sampled_cold_ms_mean": 11.7675,
+        "samples": 4
+      }
+    },
+    "water/whirlpool": {
+      "implementation": "addons/pixelfx/effects/water/whirlpool.gd",
+      "stateful": false,
+      "parity_cases": 146,
+      "byte_exact": 142,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 29.354,
+        "sampled_cold_ms_mean": 29.243,
+        "samples": 4
+      }
+    }
+  }
+}

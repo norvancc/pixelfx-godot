@@ -45,7 +45,7 @@ func run() -> void:
 			check(dock.player.paused and is_equal_approx(dock.player.instance.t,.2),id+" editor seek")
 			dock._save("res://builds/pixelfx/editor-"+id+".tres")
 			check(load("res://builds/pixelfx/editor-"+id+".tres").validate().is_empty(),id+" editor save")
-		for id in ["hit_spark","poof","campfire","rocket","small_explosion","splash"]:
+		for id in ["hit_spark", "poof", "campfire", "rocket", "small_explosion", "splash", "brazier", "candle", "fire_breath", "fire_tornado", "flamethrower", "spirit_flame", "torch", "arrow", "bullet_tracer", "cannonball", "energy_disc", "flare", "magic_missile", "muzzle_pistol", "muzzle_shotgun", "muzzle_smg", "plasma_shot", "water_jet", "water_orb", "whirlpool"]:
 			dock.edit_preset(load("res://addons/pixelfx/presets/"+id+".tres"))
 			check(dock.player.is_playing() and dock.player.instance.meta.id=="pixelfx."+id,id+" editor preview")
 			var analytic: bool=dock.player.instance.meta.cacheable

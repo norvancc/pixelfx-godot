@@ -14,7 +14,9 @@ Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/pa
 
 ## Status
 
-**The current source includes eleven native effects; the latest published release, 0.2.0, contains five.** The pinned upstream catalog contains 244 effects; 233 remain. Arcane Fireball is a palette preset and does not count as another algorithm.
+**The current source includes 31 native effects; the latest published release, 0.2.0, contains five.** The pinned upstream catalog contains 244 effects; 213 remain. Arcane Fireball is a palette preset and does not count as another algorithm.
+
+B2 adds 20 more native ports: seven fire effects, ten projectiles/muzzle effects and three water effects. The source catalog now contains **31/244** effects (213 remaining). Five new ports are stateful and fifteen are analytic loops. See the [B2 acceptance record](addons/pixelfx/validation/b2.json) and run `demos/pixelfx/b2_gallery.tscn`. These source additions have not been released as a new version.
 
 B1 adds six probe effects with upstream RGBA comparisons, native visual evidence and lifecycle tests. See the [migration ledger](docs/migration-status.json) and [B1 acceptance record](addons/pixelfx/validation/b1.json).
 

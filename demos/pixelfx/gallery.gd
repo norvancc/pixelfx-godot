@@ -57,6 +57,8 @@ func _ready() -> void:
 	controls=VBoxContainer.new(); controls.position=Vector2(816,151); controls.size=Vector2(275,365); controls.add_theme_constant_override("separation",5); add_child(controls)
 	var nav := Button.new(); nav.text="B1 · 六种新特效 →"; nav.position=Vector2(860,40); nav.size=Vector2(230,34); add_child(nav)
 	nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/b1_gallery.tscn"))
+	var b2_nav := Button.new(); b2_nav.text="B2 · 20 种新特效 →"; b2_nav.position=Vector2(610,40); b2_nav.size=Vector2(230,34); add_child(b2_nav)
+	b2_nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/b2_gallery.tscn"))
 	select_effect(0)
 	recording="--gallery-record" in OS.get_cmdline_user_args()
 	queue_redraw()

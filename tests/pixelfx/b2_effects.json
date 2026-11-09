@@ -1,0 +1,220 @@
+[
+  {
+    "id": "brazier",
+    "source": "fire/brazier",
+    "limits": {},
+    "stateful": false
+  },
+  {
+    "id": "candle",
+    "source": "fire/candle",
+    "limits": {},
+    "stateful": false
+  },
+  {
+    "id": "fire_breath",
+    "source": "fire/fire-breath",
+    "limits": {
+      "spread": [
+        0.12,
+        0.36
+      ],
+      "speed": [
+        0,
+        520
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "fire_tornado",
+    "source": "fire/fire-tornado",
+    "limits": {
+      "height": [
+        8,
+        80
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "flamethrower",
+    "source": "fire/flamethrower",
+    "limits": {
+      "reach": [
+        64,
+        160
+      ],
+      "speed": [
+        60,
+        520
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "spirit_flame",
+    "source": "fire/spirit-flame",
+    "limits": {},
+    "stateful": false
+  },
+  {
+    "id": "torch",
+    "source": "fire/torch",
+    "limits": {},
+    "stateful": false
+  },
+  {
+    "id": "arrow",
+    "source": "projectiles/arrow",
+    "limits": {},
+    "stateful": false
+  },
+  {
+    "id": "bullet_tracer",
+    "source": "projectiles/bullet-tracer",
+    "limits": {
+      "length": [
+        60,
+        160
+      ],
+      "speed": [
+        0,
+        520
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "cannonball",
+    "source": "projectiles/cannonball",
+    "limits": {
+      "height": [
+        8,
+        80
+      ]
+    },
+    "stateful": true
+  },
+  {
+    "id": "energy_disc",
+    "source": "projectiles/energy-disc",
+    "limits": {
+      "size": [
+        3,
+        14
+      ],
+      "teeth": [
+        4,
+        16
+      ],
+      "speed": [
+        0,
+        520
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "flare",
+    "source": "projectiles/flare",
+    "limits": {
+      "height": [
+        60,
+        180
+      ]
+    },
+    "stateful": true
+  },
+  {
+    "id": "magic_missile",
+    "source": "projectiles/magic-missile",
+    "limits": {
+      "height": [
+        8,
+        80
+      ],
+      "reach": [
+        64,
+        160
+      ]
+    },
+    "stateful": true
+  },
+  {
+    "id": "muzzle_pistol",
+    "source": "projectiles/muzzle-pistol",
+    "limits": {
+      "height": [
+        8,
+        80
+      ]
+    },
+    "stateful": true
+  },
+  {
+    "id": "muzzle_shotgun",
+    "source": "projectiles/muzzle-shotgun",
+    "limits": {
+      "height": [
+        8,
+        80
+      ]
+    },
+    "stateful": true
+  },
+  {
+    "id": "muzzle_smg",
+    "source": "projectiles/muzzle-smg",
+    "limits": {
+      "height": [
+        8,
+        80
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "plasma_shot",
+    "source": "projectiles/plasma-shot",
+    "limits": {
+      "size": [
+        3,
+        14
+      ],
+      "speed": [
+        0,
+        520
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "water_jet",
+    "source": "water/water-jet",
+    "limits": {
+      "length": [
+        40,
+        160
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "water_orb",
+    "source": "water/water-orb",
+    "limits": {
+      "radius": [
+        8,
+        30
+      ]
+    },
+    "stateful": false
+  },
+  {
+    "id": "whirlpool",
+    "source": "water/whirlpool",
+    "limits": {},
+    "stateful": false
+  }
+]

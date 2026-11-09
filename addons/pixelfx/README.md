@@ -1,9 +1,10 @@
-# PixelFX for Godot — source / B1 (unreleased)
+# PixelFX for Godot — source / B2 (unreleased)
 
 A reusable Godot addon for procedural pixel effects: typed presets, editor preview,
 playback, layered rendering, bounded frame sharing, prewarming and pooling.
 
-这是可独立复制到 Godot 项目的特效库。当前源码提供完整的库接入流程与 11 种效果：Fireball、Ice lance、Laser bolt、Sunburst、Ripples、Hit spark、Poof、Campfire、Rocket、Small explosion、Splash；
+这是可独立复制到 Godot 项目的特效库。当前源码提供完整的库接入流程与 31 种效果。B0/B1 的 11 项为：Fireball、Ice lance、Laser bolt、Sunburst、Ripples、Hit spark、Poof、Campfire、Rocket、Small explosion、Splash；
+本次 B2 新增 20 项火焰、弹体/枪口及水系效果，详见 [validation/b2.json](validation/b2.json)。
 后续效果只需实现统一算法接口、参数 schema 和绘制边界，可选提供 `.tres` 预设。
 运行时无需 Node.js、Phaser、编辑器插件或外部图片素材。
 
@@ -59,7 +60,7 @@ func launch_visual(at: Vector2) -> PixelFXPlayer2D:
 
 ## 示例与验证
 
-完整源码工程包含 `demos/pixelfx/gallery.tscn`（五效果演示）、`demos/pixelfx/b1_gallery.tscn`（六项新增效果）及旧 `fireball_demo.tscn`、挂点/移动弹体示例、测试、打包工具及 CI 配置。
+完整源码工程包含 `demos/pixelfx/gallery.tscn`（五效果演示）、`demos/pixelfx/b1_gallery.tscn`（六项新增效果）、`demos/pixelfx/b2_gallery.tscn`（本批 20 项）及旧 `fireball_demo.tscn`、挂点/移动弹体示例、测试、打包工具及 CI 配置。
 在独立源码工程根目录执行：
 
 ```sh
@@ -74,7 +75,7 @@ python3 tools/pixelfx/check.py
 
 ## 范围与维护
 
-公共扩展契约为 v1，最新发行版本为 0.2.0；B1 新增项仍为未发布源码。验收数据见 [validation/b1.json](validation/b1.json)。四个有状态一次性效果不支持 seek/共享帧缓存/预热，调参将重播。
+公共扩展契约为 v1，最新发行版本为 0.2.0；B1/B2 新增项仍为未发布源码。验收数据见 [validation/b1.json](validation/b1.json)。B1 的四个及 B2 的五个有状态一次性效果不支持 seek/共享帧缓存/预热，调参将重播；其余新增项为解析循环。
 同一契约内新增特效不需要修改播放器、缓存、预览面板或注册表。
 新增效果自己的算法/辅助绘制代码属于效果模块；不要求预先迁移原库所有内部助手。
 当前没有将上游两百多个效果、actor/rig/poses 系统或专用 sim 模拟器全部迁移。

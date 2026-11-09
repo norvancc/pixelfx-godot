@@ -12,7 +12,9 @@
 
 五种均可调色、变速、暂停、定位时间、翻转与淡出；涟漪有前后分层。这批均为循环效果，移动、命中和停止时机由游戏负责。
 
-当前源码新增了 B1 六项：Hit spark 命中火花、Poof 消散烟团、Campfire 篝火、Rocket 火箭、Small explosion 爆炸和 Splash 水花，源码累计 11 项，剩余 233 项；这些新增项尚未发布为发行包。四个有状态一次性效果会自动结束，调参会重播，不支持 seek 或预热；篝火和火箭为解析循环。
+当前源码新增了 B1 六项：Hit spark 命中火花、Poof 消散烟团、Campfire 篝火、Rocket 火箭、Small explosion 爆炸和 Splash 水花，该批累计 11 项；这些新增项尚未发布为发行包。四个有状态一次性效果会自动结束，调参会重播，不支持 seek 或预热；篝火和火箭为解析循环。
+
+本次 B2 新增 20 项，涵盖 7 项火焰、10 项弹体/枪口和 3 项水系，源码累计 **31/244** 项，剩余 213 项。5 项使用独立模拟实例，15 项为解析循环；水球支持前后层。列表、像素误差、运行/视觉与性能证据见 [B2 验收记录](addons/pixelfx/validation/b2.json) 和 [本批说明](docs/plans/b2-twenty-review.zh-CN.md)。
 
 验收含新增 809 组上游 RGBA 对照、原生深浅背景及镜像录制、生命周期/边界/编辑器检查。具体误差与性能见 [B1 验收记录](addons/pixelfx/validation/b1.json)；存在少量逐案例登记的浮点差异，不声称全部像素完全一致。
 
@@ -27,7 +29,7 @@
 3. 添加 PixelFXPlayer2D 节点，将 `presets/fireball.tres` 赋给 Effect。
 4. 也可以克隆完整仓库，用 Godot 打开 `project.godot` 后按 F5 运行五效果图鉴，可切换特效和参数。
 
-图鉴右上角 **B1 · 六种新特效** 可打开新增效果，也可直接运行 `demos/pixelfx/b1_gallery.tscn`。
+图鉴右上角 **B1 · 六种新特效** 和 **B2 · 20 种新特效** 可分别打开新增效果，也可直接运行 `demos/pixelfx/b1_gallery.tscn` 或 `demos/pixelfx/b2_gallery.tscn`。
 
 角色挂点、移动、碰撞和伤害由游戏负责，库负责视觉效果；示例在 `demos/pixelfx/projectile_example.gd`。
 

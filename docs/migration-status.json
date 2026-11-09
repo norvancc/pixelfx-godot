@@ -7,8 +7,8 @@
   },
   "counts": {
     "upstream_effects": 244,
-    "completed": 11,
-    "remaining": 233
+    "completed": 31,
+    "remaining": 213
   },
   "status_order": [
     "待分析",
@@ -861,15 +861,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/brazier.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "147 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "fire/campfire",
@@ -913,15 +922,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/candle.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "179 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "fire/fire-breath",
@@ -936,15 +954,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/fire_breath.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "117 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "fire/fire-ring",
@@ -982,15 +1009,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/fire_tornado.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "124 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "fire/fireball",
@@ -1056,15 +1092,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/flamethrower.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "121 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "fire/meteor",
@@ -1102,15 +1147,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/spirit_flame.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "146 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "fire/torch",
@@ -1125,15 +1179,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/torch.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "118 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "holy/blessing",
@@ -3235,15 +3298,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/arrow.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "77 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/bullet-tracer",
@@ -3258,15 +3330,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/bullet_tracer.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "91 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/cannonball",
@@ -3281,15 +3362,24 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/cannonball.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "180 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/energy-disc",
@@ -3304,15 +3394,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/energy_disc.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "95 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/flare",
@@ -3327,15 +3426,24 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/flare.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "215 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/homing-missile",
@@ -3400,15 +3508,24 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/magic_missile.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "129 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/muzzle-pistol",
@@ -3423,15 +3540,24 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/muzzle_pistol.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "120 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/muzzle-shotgun",
@@ -3446,15 +3572,24 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/muzzle_shotgun.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "162 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/muzzle-smg",
@@ -3469,15 +3604,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/muzzle_smg.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "96 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/plasma-shot",
@@ -3492,15 +3636,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/plasma_shot.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "96 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "projectiles/rocket",
@@ -5299,15 +5452,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/water_jet.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "94 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "water/water-orb",
@@ -5322,15 +5484,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/water_orb.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "154 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "water/waterfall",
@@ -5391,15 +5562,24 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/whirlpool.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_b2.mjs",
+        "tests/pixelfx/test_b2_parity.gd",
+        "146 cases"
       ],
-      "probe_review": null
+      "visual_evidence": [
+        "docs/images/b2-effects.png",
+        "builds/pixelfx/b2-native.mp4"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2.json"
+      ],
+      "remaining_issues": [
+        "逐案例浮点量化差异和 CPU 成本见 B2 验收记录"
+      ],
+      "probe_review": "docs/plans/b2-twenty-review.zh-CN.md"
     },
     {
       "upstream_id": "weather/aurora",
