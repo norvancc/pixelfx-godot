@@ -1,0 +1,90 @@
+{
+  "brazier-cycle-72": {
+    "max_channel_error": 2,
+    "changed_bytes": 9,
+    "pixel_rect": [
+      1,
+      -87,
+      7,
+      12
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  },
+  "brazier-cycle-79": {
+    "max_channel_error": 2,
+    "changed_bytes": 4,
+    "pixel_rect": [
+      2,
+      -91,
+      2,
+      3
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  },
+  "flamethrower-cycle-43": {
+    "max_channel_error": 2,
+    "changed_bytes": 50,
+    "pixel_rect": [
+      98,
+      -56,
+      15,
+      22
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  },
+  "spirit_flame-cycle-54": {
+    "max_channel_error": 2,
+    "changed_bytes": 3,
+    "pixel_rect": [
+      -3,
+      -49,
+      4,
+      2
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  },
+  "spirit_flame-cycle-86": {
+    "max_channel_error": 1,
+    "changed_bytes": 22,
+    "pixel_rect": [
+      -12,
+      -42,
+      6,
+      6
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent smoke/ghost glow; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  },
+  "water_jet-seed0-0.999": {
+    "max_channel_error": 2,
+    "changed_bytes": 17,
+    "pixel_rect": [
+      93,
+      3,
+      35,
+      15
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent mist discs; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  },
+  "water_jet-large-0.999": {
+    "max_channel_error": 1,
+    "changed_bytes": 38,
+    "pixel_rect": [
+      92,
+      3,
+      33,
+      16
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent mist discs; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  },
+  "water_jet-dark-0.999": {
+    "max_channel_error": 1,
+    "changed_bytes": 99,
+    "pixel_rect": [
+      88,
+      5,
+      33,
+      16
+    ],
+    "reason": "Audited native/V8 floating-point rounding at overlapping translucent mist discs; only 1-2/255 channel quantization differences in the recorded rectangle, with no displaced opaque geometry."
+  }
+}

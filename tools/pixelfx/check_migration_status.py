@@ -40,6 +40,20 @@ def main() -> None:
         for name, digest in report["source_sha256"].items():
             if not (ROOT / name).is_file() or hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != digest:
                 raise SystemExit("B1 acceptance is stale for " + name)
+    b2 = json.loads((ROOT / "tests/pixelfx/b2_effects.json").read_text())
+    b2_ids = {row["source"] for row in b2}
+    if len(b2_ids) != 20:
+        raise SystemExit("the B2 acceptance scope must contain exactly 20 unique effects")
+    accepted_b2 = [entry for entry in entries if entry["effect"] in b2_ids and entry["status"] == "完成"]
+    if accepted_b2:
+        report = json.loads((ROOT / "addons/pixelfx/validation/b2.json").read_text())
+        if len(accepted_b2) != 20 or not report.get("passed") or report.get("upstream_revision") != PINNED:
+            raise SystemExit("completed B2 effects require the full pinned acceptance report")
+        if set(report["effects"]) != b2_ids:
+            raise SystemExit("B2 acceptance does not match the selected 20 effects")
+        for name, digest in report["source_sha256"].items():
+            if not (ROOT / name).is_file() or hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != digest:
+                raise SystemExit("B2 acceptance is stale for " + name)
     for entry in entries:
         source = entry.get("source", {})
         path = args.upstream / source.get("path", "")

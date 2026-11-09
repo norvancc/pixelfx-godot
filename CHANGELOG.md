@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — B2
+
+- Add 20 native ports: seven fire effects, ten projectile/muzzle effects and three water effects; 31 of 244 upstream effects are now implemented.
+- Preserve five isolated simulations, fifteen analytic loops, water-orb front/back layering and every upstream option. Add typed default presets and the B2 gallery.
+- Add 2607 upstream RGBA comparisons, lifecycle/isolation/bounds checks, 320 replay iterations, editor save/reload coverage and source-hashed acceptance evidence. Record per-case 1–2/255 floating-point differences and measured CPU limitations.
+- Keep effect contract v1 and published script paths stable. No new release version is created.
+
 ## Unreleased — B1
 
 - Port Hit spark, Poof, Campfire, Rocket, Small explosion and Splash from the pinned upstream algorithms. Preserve the five published module paths; add new modules under their category directories.

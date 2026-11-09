@@ -16,7 +16,7 @@ func run() -> void:
 	var entries := Catalog.discover(PackedStringArray(["res://addons/pixelfx/effects"]))
 	var names := []
 	for entry in entries: names.append(entry.new_module().metadata().id)
-	check(names.size()==11,"catalog discovers five completed algorithms plus six B1 probes")
+	check(names.size()==31,"catalog discovers all 31 migrated algorithms")
 	for id in IDS:
 		check(names.has("pixelfx."+id),id+" discovered")
 		var preset=load("res://addons/pixelfx/presets/"+id+".tres")
