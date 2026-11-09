@@ -8,6 +8,8 @@ Use Godot 4.3 or newer, Python 3.10+ and Node.js 18+. Import `project.godot` and
 
 Run `python3 tools/pixelfx/check.py`. Set `GODOT_BIN` if needed; `PIXELFX_UPSTREAM` may point to a checkout matching the pinned upstream hashes. The gate checks import, upstream provenance, pixel parity, runtime behavior and real editor integration; benchmark results are informational, not hardware-independent thresholds.
 
+See the [documentation index](docs/README.md) and [repository layout](docs/REPOSITORY_LAYOUT.md) for file placement and generated-file boundaries.
+
 ## Adding an effect
 
 1. Identify the original file, commit, license and category helpers. Do not copy unlicensed assets.
@@ -16,7 +18,8 @@ Run `python3 tools/pixelfx/check.py`. Set `GODOT_BIN` if needed; `PIXELFX_UPSTRE
 4. Add deterministic reference coverage where feasible: seeds, parameter extremes, representative timestamps, loop seams and front/back outputs. Document any numerical differences.
 5. Verify pause, speed, stop, restart, instance isolation and the appropriate stateful/analytic behavior.
 6. Review a normal-speed Godot capture, clipping and layer order; record cold generation and cache cost. An import-only check is not visual acceptance.
-7. Update the migration table/roadmap, provenance, documentation and changelog without claiming unverified platforms.
+7. Update provenance and `docs/migration-status.json` with per-effect pixel, visual, runtime and performance evidence. Keep all 244 IDs and original batch assignments; only accepted algorithms count, not alternate presets.
+8. Synchronize the [effect catalog](addons/pixelfx/docs/CATALOG.md), English/Chinese READMEs, roadmap/full migration plan, both changelogs, validation/performance notes and documentation index. Keep current source counts separate from the latest released package. Preserve source-hashed acceptance evidence; rerun acceptance when its implementation changes. Do not claim unverified platforms or infer real-time FPS from fixed-frame captures.
 
 Do not change the public API merely to add an effect name. If a new primitive or simulator is required, discuss its contract and test it separately. Game damage, collision and actor ownership stay outside the visual player.
 

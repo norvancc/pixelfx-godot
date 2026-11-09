@@ -1,5 +1,7 @@
 # Public API v1
 
+当前源码提供 31 个算法、32 个预设，最新发行版 0.2.0 仍为五个算法。公共接口与资源格式保持 v1；各项路径、生命周期和绘制层见 [效果目录](CATALOG.md)。
+
 ## PixelFXPreset
 
 `implementation: Script` 必须继承 PixelFXEffect；`display_name` 用于展示。
@@ -43,10 +45,16 @@
 `last_error` 保存最近校验失败，`last_render_ms` 是最近一次渲染/缓存读取的 CPU 耗时。
 Node.process_mode 默认继承 SceneTree 暂停规则；需要暂停菜单中特效继续时由项目设置 PROCESS_MODE_ALWAYS。
 
+## 当前效果的能力差异
+
+22 个解析循环支持 `seek()`、共享帧缓存和预热。九个有状态一次性效果为 Hit spark、Poof、Small explosion、Splash、Cannonball、Flare、Magic missile、Pistol shot、Shotgun blast：每次播放隔离状态，按 `duration` 自动完成，改参重播，不支持 seek/共享帧缓存/预热。具体显示名称与预设文件名对应关系见 [目录](CATALOG.md)。
+
+参数范围以预设 schema 为准：Flamethrower 的算法 `speed` 为 60..520，不能传 0；播放器 `playback_speed=0` 仍可冻结所有效果。Energy disc 的 `teeth` 必须是 4..16 的整数。
+
 ## 前后遮挡与挂点
 
 默认播放器创建不保存到场景文件的前后 Sprite2D，z_index 分别为 -1/+1，可以覆盖。
-例如把播放器放在角色身体节点下，背部与前部画面可分别绘制；坐标/层级最终遵循项目的 CanvasItem 规则。
+Ripples、Poof、Small explosion、Splash 和 Water orb 使用 back/front；各层读取同一时刻、同一实例。例如把播放器放在角色身体节点下，背部与前部画面可分别绘制；坐标/层级最终遵循项目的 CanvasItem 规则。
 复杂 y-sort/CanvasLayer 布局使用 `external_layers=true`，再创建两个 PixelFXLayer2D，
 分别配置 source_path 指向播放器、layer 为 back/front，并放入项目所需的层。
 `follow_source=true` 跟随源的全局变换；false 时采用视图自身位置/旋转/缩放。

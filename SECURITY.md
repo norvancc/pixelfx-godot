@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Security fixes are currently provided for the latest 0.1.x release. Older prerelease snapshots are unsupported.
+Security fixes are provided for the latest published release, currently **0.2.0**. Older releases and prerelease snapshots are unsupported. The `main` branch also contains unreleased B1/B2 ports; include the exact source commit when reporting an issue from a checkout.
 
 ## Reporting
 

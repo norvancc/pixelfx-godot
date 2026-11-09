@@ -14,3 +14,5 @@ Commands and results; normal-speed preview or screenshots for visual changes. St
 - [ ] Source/license notices preserved
 - [ ] Relevant tests and documentation updated
 - [ ] Migration status accurately reflects implemented and reviewed behavior
+
+- [ ] Effect catalog, source/release counts, both changelogs and evidence links are consistent

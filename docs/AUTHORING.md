@@ -19,8 +19,14 @@ For stateful effects, set `cacheable=false` and implement `update(dt, options)`.
 
 Use the existing deterministic math, color, Painter and particle helpers. Specialized helpers belong with the effect or in a tested shared module. The current library does not include all upstream simulators or character acting systems.
 
+Current source examples include 22 analytic loops and nine isolated stateful one-shots; use the [effect catalog](../addons/pixelfx/docs/CATALOG.md) to choose a comparable module. Preserve the five published effect paths and public contract v1. A helper being available does not mean every upstream effect that uses it has been ported.
+
 ## Verification
 
 Check clipping at maximum parameters, loop seams, stopping and restart, independent instances and front/back ordering. For ports, compare the same seed/options/timestamps against the original and document tolerances. Review normal-speed native Godot output, measure cold generation and cache size, and retain the original license/source reference.
+
+Keep parameter types and legal ranges faithful to the algorithm: integer tooth counts are not floats, and a speed used as a divisor must exclude zero. Audit each numeric tolerance exception by case, bounds and reason. For native captures, verify decoded lifecycle frames and backgrounds, including when the window is occluded; a fixed-rate movie does not establish real-time FPS.
+
+For upstream ports, update provenance, `docs/migration-status.json`, the effect catalog, both overviews/changelogs, the roadmap/full migration plan, validation and performance notes. Extend `tools/pixelfx/check.py` coverage; keep source-hashed acceptance reports tied to the validated implementation rather than regenerating a pass after an unreviewed source change. Release metadata changes only when publishing a new version.
 
 See the [detailed contract](../addons/pixelfx/docs/EFFECTS.md) and [contribution checklist](../CONTRIBUTING.md).

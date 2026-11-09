@@ -8,16 +8,17 @@ import zipfile
 root = Path(__file__).resolve().parents[2]
 version = '0.2.0'
 package = root / f'builds/pixelfx-godot-{version}'
+if package.exists():
+    shutil.rmtree(package)
 package.mkdir(parents=True, exist_ok=True)
-for relative in ('addons/pixelfx', 'demos/pixelfx', 'tests/pixelfx', 'tools/pixelfx', '.github', 'docs'):
+for relative in ('addons/pixelfx', 'demos/pixelfx', 'tests/pixelfx', 'tools/pixelfx', '.github', 'docs', 'scripts'):
     target = package / relative
     if target.exists():
         shutil.rmtree(target)
     shutil.copytree(root / relative, target, ignore=shutil.ignore_patterns('__pycache__', '.DS_Store'))
 for name in ('project.godot', 'export_presets.cfg', '.gitignore', '.gitattributes', '.editorconfig',
              'README.md', 'README.zh-CN.md', 'LICENSE', 'NOTICE.md', 'CHANGELOG.md',
-             'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', 'SECURITY.md', 'SUPPORT.md', 'ROADMAP.md',
-             '打开演示.command', '打开编辑器.command'):
+             'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', 'SECURITY.md', 'SUPPORT.md', 'ROADMAP.md'):
     shutil.copy2(root / name, package / name)
 (package / 'builds/pixelfx').mkdir(parents=True, exist_ok=True)
 (package / 'builds/.gdignore').touch()
