@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "accepted_at": "2026-11-09T08:35:11.009795+00:00",
+  "accepted_at": "2026-11-09T09:18:43.849428+00:00",
   "upstream_revision": "a84159688af3ca37a4be05a0d422b94451b2e24e",
   "scope": "b2-elements: 8 native effects, local macOS acceptance; Linux Godot 4.3 is recorded by PR CI.",
   "environment": {
@@ -177,9 +177,9 @@
           80,
           -20,
           41,
-          41
+          43
         ],
-        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
       },
       "frost_breath-cycle-32": {
         "max_channel_error": 1,
@@ -255,15 +255,15 @@
       },
       "frost_breath-negative-1.199": {
         "max_channel_error": 1,
-        "changed_bytes": 41,
-        "sum_error": 41,
+        "changed_bytes": 43,
+        "sum_error": 43,
         "pixel_rect": [
           60,
           -22,
           75,
           46
         ],
-        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
       },
       "frost_breath-large-1.199": {
         "max_channel_error": 1,
@@ -279,15 +279,15 @@
       },
       "frost_breath-palette-0": {
         "max_channel_error": 2,
-        "changed_bytes": 110,
-        "sum_error": 111,
+        "changed_bytes": 114,
+        "sum_error": 115,
         "pixel_rect": [
-          53,
+          29,
           -19,
-          64,
+          88,
           51
         ],
-        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
       },
       "frost_breath-palette-0.20400000000000001": {
         "max_channel_error": 1,
@@ -591,15 +591,15 @@
       },
       "rain_splash-cycle-21": {
         "max_channel_error": 1,
-        "changed_bytes": 21,
-        "sum_error": 21,
+        "changed_bytes": 22,
+        "sum_error": 22,
         "pixel_rect": [
           -64,
           -6,
           137,
           20
         ],
-        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
       },
       "rain_splash-cycle-31": {
         "max_channel_error": 1,
@@ -817,6 +817,20 @@
         ],
         "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
       }
+    },
+    "linux_audit": {
+      "run": "https://github.com/norvancc/pixelfx-godot/actions/runs/42589983063",
+      "implementation_commit": "5cc03b481d704faec458cc9cdb41aeaf48e748ae",
+      "artifact_sha256": "f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5",
+      "cases": 1052,
+      "byte_exact": 731,
+      "audited_case_limits_updated": [
+        "frost_breath-cycle-31",
+        "frost_breath-negative-1.199",
+        "frost_breath-palette-0",
+        "rain_splash-cycle-21"
+      ],
+      "note": "All 1052 saved Linux comparisons satisfy the updated per-case channel, byte, sum and rectangle limits; full gate reruns on this commit."
     }
   },
   "runtime_checks": 167,
@@ -1018,7 +1032,7 @@
     "demos/pixelfx/b2_elements_gallery.gd": "fe5129565500b48067bdd0c35286f355c82b550787dd41f81be7221301998865",
     "demos/pixelfx/b2_elements_gallery.tscn": "8dcdee00681de9af30bbb5a013913e24b16f491f7f7c8dbb0b8876299a442a1f",
     "docs/images/b2-elements-effects.png": "b85576e14e3679a1c7303ef9896ba782ad453558e3691974b38f32714c819fc1",
-    "tests/pixelfx/batches/b2-elements.json": "30f5f5eff04e543ad503d2ea6ab848cd22d677ffa34b8b6e7a356fb1d3772c9c"
+    "tests/pixelfx/batches/b2-elements.json": "e54bc5bcb23535e1be5edccdc9e07ce47798218257269bd44a8a9fee7abad881"
   },
   "effects": {
     "ice/blizzard-vortex": {

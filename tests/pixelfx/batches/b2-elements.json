@@ -1,7 +1,7 @@
 {
   "id": "b2-elements",
   "batch": "B2",
-  "title": "B2 · 冰与水 / Ice and water",
+  "title": "B2 \u00b7 \u51b0\u4e0e\u6c34 / Ice and water",
   "effects": [
     {
       "id": "blizzard_vortex",
@@ -244,9 +244,9 @@
         80,
         -20,
         41,
-        41
+        43
       ],
-      "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
     },
     "frost_breath-cycle-32": {
       "max_channel_error": 1,
@@ -322,15 +322,15 @@
     },
     "frost_breath-negative-1.199": {
       "max_channel_error": 1,
-      "changed_bytes": 41,
-      "sum_error": 41,
+      "changed_bytes": 43,
+      "sum_error": 43,
       "pixel_rect": [
         60,
         -22,
         75,
         46
       ],
-      "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
     },
     "frost_breath-large-1.199": {
       "max_channel_error": 1,
@@ -346,15 +346,15 @@
     },
     "frost_breath-palette-0": {
       "max_channel_error": 2,
-      "changed_bytes": 110,
-      "sum_error": 111,
+      "changed_bytes": 114,
+      "sum_error": 115,
       "pixel_rect": [
-        53,
+        29,
         -19,
-        64,
+        88,
         51
       ],
-      "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
     },
     "frost_breath-palette-0.20400000000000001": {
       "max_channel_error": 1,
@@ -658,15 +658,15 @@
     },
     "rain_splash-cycle-21": {
       "max_channel_error": 1,
-      "changed_bytes": 21,
-      "sum_error": 21,
+      "changed_bytes": 22,
+      "sum_error": 22,
       "pixel_rect": [
         -64,
         -6,
         137,
         20
       ],
-      "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement. Linux Godot 4.3 was audited from artifact f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5: all alpha bytes and occupied pixels match; this bound is the union of the macOS and Linux RGB quantization differences."
     },
     "rain_splash-cycle-31": {
       "max_channel_error": 1,
