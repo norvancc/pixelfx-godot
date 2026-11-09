@@ -48,7 +48,15 @@
     "src/fx/projectiles/plasma-shot.js": "73a6f1722a9fffee413b20ad49123469e39996dadab5468bd716c687031f4036",
     "src/fx/water/water-jet.js": "63dbf2653cbb23ebdc64029fdb2dfe29ec1b96407934dbc0e69687a8c3c3ffd3",
     "src/fx/water/water-orb.js": "945e1a40366a34624b8cdf57586945d3a8294a44fe6b79106761ace51aea9ff3",
-    "src/fx/water/whirlpool.js": "1a096054e162acd847d903d1d1a01dcf487a80a6bdd25f6436d374d940db0007"
+    "src/fx/water/whirlpool.js": "1a096054e162acd847d903d1d1a01dcf487a80a6bdd25f6436d374d940db0007",
+    "src/fx/ice/blizzard-vortex.js": "0a41523a83f39d038397c7841ec25d3305a7a610b9e454d6dfa313f4b6c26c5d",
+    "src/fx/ice/frost-breath.js": "3d9ef4563c1c8619c9d58231e7b81e25df6ab7e9d74fb926ab57fa6e786fd6cf",
+    "src/fx/ice/ice-crystal.js": "8872044281a9ed3134dddbe6b3c5ed56294126789b8d8cfe0505027e6b2d0e3b",
+    "src/fx/water/bubbles.js": "09c394ca41163cea1be27dd8e133ad361a68ca95a16f60103f9b5c642f8ec71d",
+    "src/fx/water/drip.js": "b024a58d39ddcd66ddf746440cc1d54397705febd54975473c9fc06632595896",
+    "src/fx/water/fountain.js": "6df76a2b9a99c4d1f21282a8e736c9284a9c847c00a403c411e8772b2c18537f",
+    "src/fx/water/rain-splash.js": "9e13b70c904426b92b17f30cdd7fa0d73e2340152d242294375e1278376efa8e",
+    "src/fx/water/waterfall.js": "b5c42cbbf32237be897924af19e493e602fe20e9750da37e19f9e31f98590850"
   },
   "public_api_version": 1,
   "effects": [
@@ -82,6 +90,14 @@
     "projectiles/plasma-shot",
     "water/water-jet",
     "water/water-orb",
-    "water/whirlpool"
+    "water/whirlpool",
+    "ice/blizzard-vortex",
+    "ice/frost-breath",
+    "ice/ice-crystal",
+    "water/bubbles",
+    "water/drip",
+    "water/fountain",
+    "water/rain-splash",
+    "water/waterfall"
   ]
 }

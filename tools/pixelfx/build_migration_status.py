@@ -65,7 +65,45 @@ def plan_batches() -> dict[str, str]:
         batches[effect] = "B0"
     for effect in PROBES:
         batches[effect] = "B1"
+    # The plan appendix now lists remaining work only. Accepted and active
+    # slices retain their original milestone in their declarative scope.
+    for row in json.loads((ROOT / "tests/pixelfx/b2_effects.json").read_text()):
+        batches[row["source"]] = "B2"
+    for config_path in sorted((ROOT / "tests/pixelfx/batches").glob("*.json")):
+        config = json.loads(config_path.read_text())
+        batch = config["batch"]
+        if batch not in {f"B{i}" for i in range(2, 10)}:
+            raise SystemExit(f"Unknown milestone in {config_path}: {batch}")
+        for row in config["effects"]:
+            if row["source"] in batches and batches[row["source"]] != batch:
+                raise SystemExit(f"Conflicting milestone for {row['source']}")
+            batches[row["source"]] = batch
     return batches
+
+
+def accepted_effects() -> dict[str, dict]:
+    accepted = {}
+    for report_path in sorted((ROOT / "addons/pixelfx/validation").glob("*.json")):
+        report = json.loads(report_path.read_text())
+        hashes = report.get("source_sha256", {})
+        if not report.get("passed") or report.get("upstream_revision") != PINNED or not hashes:
+            continue
+        if not all((ROOT / name).is_file() and hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest for name, digest in hashes.items()):
+            continue
+        for effect, original in report.get("effects", {}).items():
+            record = dict(original)
+            implementation = record.get("implementation", "")
+            if implementation not in hashes:
+                raise SystemExit(f"Acceptance omits implementation hash: {effect}")
+            record["report"] = report_path.relative_to(ROOT).as_posix()
+            record["poster"] = report.get("native_visual", {}).get("poster")
+            record["movie"] = report.get("native_visual", {}).get("movie")
+            record["reference_cases"] = report.get("verification", {}).get("reference_cases", [
+                f"tools/pixelfx/reference_{report_path.stem}.mjs",
+                f"tests/pixelfx/test_{report_path.stem}_parity.gd",
+            ])
+            accepted[effect] = record
+    return accepted
 
 
 def imports(path: Path) -> list[str]:
@@ -102,11 +140,8 @@ def main() -> None:
         extra = sorted(set(batches) - set(ids))
         raise SystemExit(f"Plan/catalog mismatch; missing={missing}, extra={extra}")
 
-    acceptance_path = ROOT / "addons/pixelfx/validation/b1.json"
-    acceptance = json.loads(acceptance_path.read_text()) if acceptance_path.exists() else {}
-    hashes = acceptance.get("source_sha256", {})
-    current = bool(hashes) and all((ROOT / name).is_file() and hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == value for name, value in hashes.items())
-    accepted = acceptance.get("effects", {}) if acceptance.get("passed") and current else {}
+    accepted = accepted_effects()
+    previous = {row["effect"]: row for row in json.loads(OUT.read_text()).get("entries", [])} if OUT.exists() else {}
     entries = []
     for path, effect_id in zip(effects, ids):
         rel = f"src/fx/{path.relative_to(upstream / 'src/fx').as_posix()}"
@@ -114,10 +149,15 @@ def main() -> None:
         is_existing = effect_id in EXISTING
         probe = PROBES.get(effect_id)
         record = accepted.get(effect_id, {})
-        implementation = ROOT / PROBE_PATHS[effect_id] if effect_id in PROBE_PATHS else None
-        probe_passed = bool(record) and implementation and record.get("implementation_sha256") == hashlib.sha256(implementation.read_bytes()).hexdigest()
-        status = "完成" if is_existing or probe_passed else ("实现中" if effect_id in PROBE_PATHS else "待分析")
-        godot_path = EXISTING.get(effect_id) or PROBE_PATHS.get(effect_id)
+        candidate = "addons/pixelfx/effects/" + effect_id.replace("-", "_") + ".gd"
+        godot_path = EXISTING.get(effect_id) or record.get("implementation") or PROBE_PATHS.get(effect_id)
+        if not godot_path and (ROOT / candidate).is_file():
+            godot_path = candidate
+        implemented = bool(godot_path and (ROOT / godot_path).is_file())
+        prior = previous.get(effect_id, {})
+        status = "完成" if is_existing or record else ("实现中" if implemented else "待分析")
+        if not record and not is_existing and prior.get("status") not in {None, "完成", "待分析"}:
+            status = prior["status"]
         entries.append({
             "upstream_id": effect_id,
             "effect": effect_id,
@@ -127,11 +167,11 @@ def main() -> None:
             "render_type": "analytic" if is_existing else (probe["render_type"] if probe else render_type(path)),
             "status": status,
             "godot_path": godot_path,
-            "reference_cases": ["tools/pixelfx/reference.mjs", "tests/pixelfx/test_parity.gd"] if is_existing else (["tools/pixelfx/reference_b1.mjs", "tests/pixelfx/test_b1_parity.gd"] if effect_id in PROBE_PATHS else []),
-            "visual_evidence": ["docs/images/five-effects.png"] if is_existing else (["docs/images/b1-effects.png", "addons/pixelfx/validation/b1.json"] if probe_passed else []),
-            "performance_report": ["addons/pixelfx/docs/PERFORMANCE.md"] if is_existing else (["addons/pixelfx/validation/b1.json"] if probe_passed else []),
-            "remaining_issues": [] if is_existing or probe_passed else (["像素参考、正常速度视觉录制和独立性能报告尚未完成。"] if effect_id in PROBE_PATHS else ([probe["review"]] if probe else ["尚未读取上游源码并建立迁移用例"])),
-            "probe_review": probe["review"] if probe else None,
+            "reference_cases": ["tools/pixelfx/reference.mjs", "tests/pixelfx/test_parity.gd"] if is_existing else (record["reference_cases"] + ([f"{record['parity_cases']} cases"] if record.get("parity_cases") else []) if record else prior.get("reference_cases", [])),
+            "visual_evidence": ["docs/images/five-effects.png"] if is_existing else ([value for value in [record.get("poster"), record.get("movie"), record.get("report")] if value] if record else []),
+            "performance_report": ["addons/pixelfx/docs/PERFORMANCE.md"] if is_existing else ([record["report"]] if record else []),
+            "remaining_issues": prior.get("remaining_issues", []) if is_existing or record else (["原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"] if implemented else ([probe["review"]] if probe else ["尚未读取上游源码并建立迁移用例"])),
+            "probe_review": probe["review"] if probe else prior.get("probe_review"),
         })
     payload = {
         "schema_version": 1,

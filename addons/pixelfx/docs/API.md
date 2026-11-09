@@ -1,6 +1,6 @@
 # Public API v1
 
-当前源码提供 31 个算法、32 个预设，最新发行版 0.2.0 仍为五个算法。公共接口与资源格式保持 v1；各项路径、生命周期和绘制层见 [效果目录](CATALOG.md)。
+当前源码提供 39 个算法、40 个预设，最新发行版 0.2.0 仍为五个算法。公共接口与资源格式保持 v1；各项路径、生命周期和绘制层见 [效果目录](CATALOG.md)。
 
 ## PixelFXPreset
 
@@ -47,7 +47,7 @@ Node.process_mode 默认继承 SceneTree 暂停规则；需要暂停菜单中特
 
 ## 当前效果的能力差异
 
-22 个解析循环支持 `seek()`、共享帧缓存和预热。九个有状态一次性效果为 Hit spark、Poof、Small explosion、Splash、Cannonball、Flare、Magic missile、Pistol shot、Shotgun blast：每次播放隔离状态，按 `duration` 自动完成，改参重播，不支持 seek/共享帧缓存/预热。具体显示名称与预设文件名对应关系见 [目录](CATALOG.md)。
+30 个解析循环支持 `seek()`、共享帧缓存和预热。九个有状态一次性效果为 Hit spark、Poof、Small explosion、Splash、Cannonball、Flare、Magic missile、Pistol shot、Shotgun blast：每次播放隔离状态，按 `duration` 自动完成，改参重播，不支持 seek/共享帧缓存/预热。具体显示名称与预设文件名对应关系见 [目录](CATALOG.md)。
 
 参数范围以预设 schema 为准：Flamethrower 的算法 `speed` 为 60..520，不能传 0；播放器 `playback_speed=0` 仍可冻结所有效果。Energy disc 的 `teeth` 必须是 4..16 的整数。
 

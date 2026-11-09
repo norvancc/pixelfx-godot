@@ -1,12 +1,19 @@
 # Changelog
 
-## Unreleased — B2
+## Unreleased — B2 ice/water
 
-- Add 20 native ports: seven fire effects, ten projectile/muzzle effects and three water effects; 31 of 244 upstream effects are now implemented.
+- Add eight native analytic effects: Blizzard vortex, Frost breath, Ice crystal, Bubbles, Drip, Fountain, Rain splash and Waterfall. Source coverage is 39/244 algorithms and 40 presets; B2 is 28/49 accepted, with 205 algorithms remaining overall.
+- Add declarative batch reference, pixel, runtime, bounds, replay and native movie acceptance tools. Preserve all earlier implementation hashes; fix ledger rebuilding from the remaining-only plan appendix.
+- Add 1052 upstream pixel cases, 167 runtime checks, 333 catalog/bounds checks, 128 replays and 159 total editor checks. Record 66 per-case quantization limits and complete native default/extreme visual evidence.
+- Update all source documentation without changing the published 0.2.0 version.
+
+## Unreleased — first B2 slice
+
+- Add 20 native ports: seven fire effects, ten projectile/muzzle effects and three water effects; source coverage reached 31 of 244 upstream effects in this slice.
 - Preserve five isolated simulations, fifteen analytic loops, water-orb front/back layering and every upstream option. Add typed default presets and the B2 gallery.
 - Add 2607 upstream RGBA comparisons, lifecycle/isolation/bounds checks, 320 replay iterations, editor save/reload coverage and source-hashed acceptance evidence. Record per-case 1–2/255 floating-point differences and measured CPU limitations.
 - Accept and merge [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) on 2026-11-09 (`112d5d4`); the implementation commit `73560f4` passes [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517). The accepted code tree is unchanged by the merge.
-- Synchronize source/release status, all-effect catalog, migration plan, validation and performance documentation. B2 remains 20/49 accepted; 213 algorithms remain across the full catalog.
+- Synchronize source/release status, all-effect catalog, migration plan, validation and performance documentation. At that snapshot B2 was 20/49 accepted, with 213 algorithms remaining across the full catalog.
 - Keep effect contract v1 and published script paths stable. No new release version is created.
 
 ## Unreleased — B1

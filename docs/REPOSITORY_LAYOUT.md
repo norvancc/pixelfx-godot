@@ -4,7 +4,7 @@ The repository is both an installable Godot addon and a runnable demonstration p
 
 | Path | Purpose |
 | --- | --- |
-| `addons/pixelfx/` | Distributable addon: runtime, editor, 31 effects / 32 presets, templates, API/catalog/validation documentation, license and provenance |
+| `addons/pixelfx/` | Distributable addon: runtime, editor, 39 effects / 40 presets, templates, API/catalog/validation documentation, license and provenance |
 | `demos/pixelfx/` | Runnable gallery and integration examples |
 | `tests/pixelfx/` | Rendering, runtime, catalog and editor verification; test fixtures stay here |
 | `tools/pixelfx/` | Reference generation, validation and release packaging tools |
@@ -22,9 +22,11 @@ Root files provide installation, licensing, contributor policies, release histor
 
 ## Migration evidence
 
-`docs/migration-status.json` tracks all 244 pinned upstream algorithms (31 completed, 213 remaining; B2 has 29 remaining). `addons/pixelfx/validation/b1.json` and `b2.json` bind batch acceptance to implementation hashes. `addons/pixelfx/docs/CATALOG.md` stays inside the addon so preset paths and lifecycle capabilities remain available after addon-only installation. Public posters live in `docs/images/`; large recordings, decoded frames and generated CI reports stay under ignored `builds/`, with shareable evidence links in the review documents.
+`docs/migration-status.json` tracks all 244 pinned upstream algorithms (39 completed, 205 remaining; B2 has 21 remaining). `addons/pixelfx/validation/b1.json` and `b2.json` and `b2-elements.json` bind batch acceptance to implementation hashes. `addons/pixelfx/docs/CATALOG.md` stays inside the addon so preset paths and lifecycle capabilities remain available after addon-only installation. Public posters live in `docs/images/`; large recordings, decoded frames and generated CI reports stay under ignored `builds/`, with shareable evidence links in the review documents.
 
 Source batch progress does not change the published version: 0.2.0 still contains five effects. Keep both changelogs and package/version metadata aligned when a new release is actually prepared.
+
+Declarative batch scopes live in `tests/pixelfx/batches/`. The shared batch reference/parity/runtime/catalog/soak tools are part of the full gate, and acceptance requires a complete native movie and source hashes.
 
 ## Change rules
 

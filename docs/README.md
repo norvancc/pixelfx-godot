@@ -1,6 +1,6 @@
 # Documentation
 
-Current source: **31/244 accepted algorithms, 213 remaining, 32 presets**. B2 is **20/49** complete (29 remaining); the latest published release is **0.2.0 with five algorithms**. The B2 implementation is merged in [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) (`112d5d4`); [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed.
+Current source: **39/244 accepted algorithms, 205 remaining, 40 presets**. B2 is **28/49** complete (21 remaining); the latest published release is **0.2.0 with five algorithms**. The first B2 implementation is merged in [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) (`112d5d4`); [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed for that 31-effect snapshot; the new ice/water slice has passed local acceptance, with Linux CI pending.
 
 ## Using PixelFX
 
@@ -20,6 +20,8 @@ Current source: **31/244 accepted algorithms, 213 remaining, 32 presets**. B2 is
 - [Migration status and roadmap](../ROADMAP.md)
 - [Full migration plan / 全量迁移计划](plans/full-migration.zh-CN.md)
 - [Machine-readable migration ledger / 迁移台账](migration-status.json)
+- [B2 ice/water review](plans/b2-elements-review.zh-CN.md)
+- [B2 ice/water acceptance](../addons/pixelfx/validation/b2-elements.json)
 - [B2 acceptance evidence](../addons/pixelfx/validation/b2.json)
 - [B2 twenty-effect review / B2 二十项迁移验收](plans/b2-twenty-review.zh-CN.md)
 - [B2 normal-speed video](https://github.com/user-attachments/assets/f7feadf1-6fd1-4d19-8569-fe567e98bd2b)
