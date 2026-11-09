@@ -128,6 +128,9 @@ func resolve(overrides: Dictionary = {}, include_saved: bool = true) -> Dictiona
 					elif color is int: colors.append(color & 0xffffffff)
 					else: valid = false
 				value = colors
+		if kind == TYPE_COLOR and valid:
+			valid = is_finite(value.r) and is_finite(value.g) and is_finite(value.b) and is_finite(value.a)
+			valid = valid and value.r >= 0 and value.r <= 1 and value.g >= 0 and value.g <= 1 and value.b >= 0 and value.b <= 1 and is_equal_approx(value.a, 1)
 		if kind in [TYPE_FLOAT, TYPE_INT] and valid:
 			if not is_finite(float(value)): valid = false
 			if field.has("min") and value < field.min: valid = false

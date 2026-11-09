@@ -14,7 +14,9 @@ Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/pa
 
 ## Status
 
-**0.2.0 includes five ported effects with reusable addon infrastructure.** The pinned upstream catalog contains 244 effects; the remaining 239 are not implemented here. Arcane Fireball is a palette preset, not a sixth algorithm.
+**The current source includes eleven native effects; the latest published release, 0.2.0, contains five.** The pinned upstream catalog contains 244 effects; 233 remain. Arcane Fireball is a palette preset and does not count as another algorithm.
+
+B1 adds six probe effects with upstream RGBA comparisons, native visual evidence and lifecycle tests. See the [migration ledger](docs/migration-status.json) and [B1 acceptance record](addons/pixelfx/validation/b1.json).
 
 | Effect | Preset | Editable effect parameter | Layers |
 | --- | --- | --- | --- |
@@ -23,8 +25,14 @@ Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/pa
 | Laser bolt | `laser_bolt.tres` | Length | Front |
 | Sunburst | `sunburst.tres` | Ray count | Front |
 | Ripples | `ripples.tres` | Palette, seed, light | Back + front |
+| Hit spark | `hit_spark.tres` | Height, aim | Front |
+| Poof | `poof.tres` | Smoke and star palettes | Back + front |
+| Campfire | `campfire.tres` | Height, wood palette | Front |
+| Rocket | `rocket.tres` | Speed, metal/paint/smoke palettes | Front |
+| Small explosion | `small_explosion.tres` | Size, stone colour | Back + front |
+| Splash | `splash.tres` | Stone visibility | Back + front |
 
-All five support palette, seed, light, playback controls and native transforms. They are looping effects; games own projectile movement, impact and stopping. Actor choreography and one-shot/stateful catalog effects are outside this batch.
+All eleven support palette, seed, light, playback controls and native transforms. Hit spark, Poof, Small explosion and Splash keep independent simulations and finish automatically; parameter changes replay them, and seek/prewarming are explicitly unavailable. The other seven are analytic loops. Games own projectile movement, impact and damage; actor choreography remains outside this batch.
 
 The renderer generates pixels on the CPU and uploads textures to Godot. It is **not a GPU shader port**, a JavaScript wrapper, or a collection of prerecorded sprite sheets. Runtime frame sharing caches generated samples.
 
@@ -63,7 +71,7 @@ func spawn_visual(at: Vector2) -> PixelFXPlayer2D:
 # The game owns movement, collision and damage; see the projectile example.
 ```
 
-To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed.
+To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed. The gallery's **B1** button opens the six new effects; that scene is also available at `demos/pixelfx/b1_gallery.tscn`.
 
 ## Add effects without editing the framework
 
@@ -80,7 +88,7 @@ Effect-specific helpers and upstream simulation/acting dependencies may still ne
 
 ## Performance
 
-On the locally tested M4 Pro, cold frame generation at default parameters averages approximately **3.7–28 ms**, depending on the effect. Prewarm common presets during loading. The default Fireball cycle uses about **6.5 MiB** of estimated cache memory; the shared cache defaults to **32 MiB / 256 frames**.
+On the locally tested M4 Pro, cold frame generation at default parameters averages approximately **3.7–28 ms**, depending on the effect. The six new ports have distinct costs: the CPU implementation can exceed a 30 FPS budget during cold generation or explosion peaks. See the B1 acceptance record for measurements. Prewarm common analytic presets during loading. The default Fireball cycle uses about **6.5 MiB** of estimated cache memory; the shared cache defaults to **32 MiB / 256 frames**.
 
 A warm-cache CPU benchmark with 64 synchronized, identical instances averaged about 0.20 ms per update. This excludes complete scene GPU composition and is **not** a claim that arbitrary 64-effect workloads meet a frame-rate target. Stateful effects and unique parameters have different costs.
 

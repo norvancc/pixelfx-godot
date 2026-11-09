@@ -1,0 +1,288 @@
+{
+  "passed": true,
+  "accepted_at": "2026-11-09T04:36:41.365715+00:00",
+  "upstream_revision": "a84159688af3ca37a4be05a0d422b94451b2e24e",
+  "environment": {
+    "cpu": "Apple M4 Pro",
+    "display": "headless",
+    "godot": "4.7.2-stable (official)",
+    "os": "macOS"
+  },
+  "scope": "B1 six algorithm ports; local macOS acceptance. Linux Godot 4.3 acceptance is recorded by the PR CI run.",
+  "parity": {
+    "cases": 809,
+    "byte_exact": 762,
+    "default_tolerance": {
+      "max_channel_error": 1,
+      "changed_bytes": 20
+    },
+    "audited_exceptions": {
+      "poof-cycle-5": {
+        "max_channel_error": 187,
+        "changed_bytes": 16,
+        "pixel_rect": [
+          -13,
+          -4,
+          3,
+          3
+        ],
+        "reason": "V8/Godot sin differ by one ULP: the floor-limited speed-line endpoint is -1.9999999999999982 vs -2.0000000000000018. Bresenham selects the neighbouring row; only these five pixels differ."
+      },
+      "poof-cycle-6": {
+        "max_channel_error": 91,
+        "changed_bytes": 15,
+        "pixel_rect": [
+          -13,
+          -4,
+          2,
+          3
+        ],
+        "reason": "Same audited sin endpoint rounding as cycle-5; only four line pixels differ."
+      },
+      "poof-cycle-16": {
+        "max_channel_error": 2,
+        "changed_bytes": 5,
+        "pixel_rect": [
+          15,
+          -2,
+          4,
+          3
+        ],
+        "reason": "Sub-ULP simulation/trigonometry differences at translucent puff overlaps accumulate through integer alpha blending (five colour channels)."
+      },
+      "small_explosion-palette-0.9180000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 22,
+        "reason": "Smoke/dust alpha blending truncation after native/V8 float math; no geometry displacement."
+      },
+      "small_explosion-dark-0.9180000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 22,
+        "reason": "Same smoke/dust alpha blending as palette case."
+      },
+      "small_explosion-bright-0.9180000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 22,
+        "reason": "Same smoke/dust alpha blending as palette case."
+      },
+      "small_explosion-flip-0.9180000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 22,
+        "reason": "Same smoke/dust alpha blending under mirroring."
+      },
+      "small_explosion-back-0.17": {
+        "max_channel_error": 1,
+        "changed_bytes": 24,
+        "reason": "Back-layer smoke/dust alpha blending truncation."
+      },
+      "small_explosion-stop-0": {
+        "max_channel_error": 1,
+        "changed_bytes": 22,
+        "reason": "Same smoke/dust alpha blending before stop fade begins."
+      },
+      "campfire-cycle-70": {
+        "max_channel_error": 2,
+        "changed_bytes": 12,
+        "reason": "Native/V8 closed-form float math at overlapping translucent smoke discs; integer blending compounds a one-byte channel difference."
+      },
+      "campfire-cycle-71": {
+        "max_channel_error": 1,
+        "changed_bytes": 27,
+        "reason": "Native/V8 closed-form smoke-disc float math and alpha blending truncation."
+      }
+    }
+  },
+  "runtime_checks": 136,
+  "catalog_checks": 329,
+  "editor_checks": 47,
+  "replay_soak": {
+    "batches": [
+      {
+        "cache": {
+          "bytes": 0,
+          "entries": 0,
+          "evictions": 0,
+          "hits": 0,
+          "limit_bytes": 33554432,
+          "misses": 0
+        },
+        "objects": 1544.0,
+        "static_bytes": 26597311
+      },
+      {
+        "cache": {
+          "bytes": 0,
+          "entries": 0,
+          "evictions": 0,
+          "hits": 0,
+          "limit_bytes": 33554432,
+          "misses": 0
+        },
+        "objects": 1544.0,
+        "static_bytes": 26598767
+      }
+    ],
+    "failures": [],
+    "replays": 384,
+    "seeds_per_effect": 32,
+    "wall_seconds": 21.934724
+  },
+  "native_visual": {
+    "reviewed": true,
+    "frames": 1302,
+    "fps": 30,
+    "seconds": 43.4,
+    "size": [
+      1120,
+      740
+    ],
+    "movie": "builds/pixelfx/b1-native.mp4",
+    "movie_sha256": "e7afd0b815da315967d3f898755fcf91ca2e6886c179cadb704fcfb3dfd34183",
+    "poster": "docs/images/b1-effects.png",
+    "poster_sha256": "8ce81f4aa09c0d4a7d37f5128f509b7e790bdaaa226cb35e9d37c78d4345edef",
+    "coverage": [
+      "dark and light backgrounds",
+      "mirroring",
+      "full one-shot lifecycles",
+      "loop seams",
+      "front/back occlusion"
+    ],
+    "limitation": "Movie Maker recording is visual evidence, not a real-time FPS or GPU concurrency benchmark."
+  },
+  "source_sha256": {
+    "addons/pixelfx/core/color.gd": "c9773dd443079bcf5bd39d40dda02fe1b3a613691fb4cc36f66773857e689b16",
+    "addons/pixelfx/core/ease.gd": "507d0cce2236ce2fee048083ebf60f650ce037194c70b3a39982073b1360d891",
+    "addons/pixelfx/core/effect.gd": "98090aeea315163f6f3c9cf5fb513fdca758f7c0c61b1edc25d857ee7439984c",
+    "addons/pixelfx/core/frame.gd": "5277dcc8ba034965dc84d4d13022c3ed47a4816603cd4ffc7dc8110f43066cd4",
+    "addons/pixelfx/core/fx.gd": "ccf7e7bb3a3555eb2c46bbd16a02def556003abe76dc20ff52945d08864ff7a6",
+    "addons/pixelfx/core/math.gd": "00524f23d3aa817649046810dcbdb95171629848922c8621ff696a2009ba918e",
+    "addons/pixelfx/core/painter.gd": "9074278708f14ae9d9b3a5f953ad4babb449a427275f89f4f27616170b8a02d9",
+    "addons/pixelfx/core/particles.gd": "18fdbce282c9bd81ad95338b75c3e5e726117be6d866f74341ce225e709d94a6",
+    "addons/pixelfx/core/sim.gd": "b655a4d62109e2102180b29aca6affeb4e759d9e05c3c89de042abcccc0a0fe4",
+    "addons/pixelfx/editor/catalog.gd": "a01da996f907f11418f65ab2ebc9aff725596fd87a9637f1edf48ddb39a15c39",
+    "addons/pixelfx/editor/plugin.gd": "27898700ee4db2929e1f4e2234e5590737ac842d39c098a16fa49a48f02cf82c",
+    "addons/pixelfx/editor/preview_dock.gd": "403f37facc11b6d66e1b8a74b4f6d840f4610dac516e2aeb2c50a32d125b3e1d",
+    "addons/pixelfx/effects/analytic_helpers.gd": "75e038cb052eb62f5a7f664c74196ee60892cd207b19dac5b9868a64a1550b21",
+    "addons/pixelfx/effects/explosions/small_explosion.gd": "0b86f8d0a27414828d602a855bf6eb8ad0088ced24e8590179e0df8fbef87761",
+    "addons/pixelfx/effects/fire/campfire.gd": "220a8bc4cde0be45c6a5a8c531d15d4a2d79feaa536554a691767f6178879cd9",
+    "addons/pixelfx/effects/fire_common.gd": "42ec0841cfdae64b13642300c133d484dd31a68e79cfe90d304b3fde48027d32",
+    "addons/pixelfx/effects/fireball.gd": "f593439ddc37098ba15bfd7651d28bbce2b655d894850fe529bcf21752e366b9",
+    "addons/pixelfx/effects/ice_lance.gd": "65b962f3146dc1e21ba2a879dd73ff79856350bf781540cccdcb674c30cd1763",
+    "addons/pixelfx/effects/impacts/hit_spark.gd": "456f5232eaf2be3d546ecc961f744f3b9892baba6e10cec5e89a5ce12d1e9371",
+    "addons/pixelfx/effects/laser_bolt.gd": "86bf2ffdad0b00c8ea380010520faeddcfdb14e7f5f68050c05f00e978ed7e68",
+    "addons/pixelfx/effects/projectiles/projectiles_common.gd": "e8aa7e25ef581abc66ffcef2b40818a90270408ed7f6d0ad3a64f385a4811344",
+    "addons/pixelfx/effects/projectiles/rocket.gd": "372f2b38f6a77fb1e089b74e77c7d0140edce651a966fbdc6084d3643cf50751",
+    "addons/pixelfx/effects/ripples.gd": "14d5ad4b998058c22c53a7a8099590cd939dafe170ba551e3cd96eecec62f6d1",
+    "addons/pixelfx/effects/spawn/poof.gd": "847371f58245f9f7fee3d23a2d413db56bf628bb36e00e7dd113612f799d6838",
+    "addons/pixelfx/effects/sunburst.gd": "19ae91bc4ba54fb2c6e2ba72043ff9eb501098878da88f7ea68ede6e60f2ab91",
+    "addons/pixelfx/effects/water/splash.gd": "59d5b251d074fcaf1a78b72e7cd1067fa1bab527294d833b069470f4cd54f94a",
+    "addons/pixelfx/effects/water/water_common.gd": "73f9eeb5fd82ac6434ad3ecc6ff48d57f79f04cf96ab45a003cd3fbdd80a464e",
+    "addons/pixelfx/pixel_fx_player_2d.gd": "2b20e60d13e79a8c86a7e75afaa47e98e130079ee53589e1a688b73c15df3ef6",
+    "addons/pixelfx/resources/preset.gd": "f7a854f23c1d80dfb272d9af6bf22d8a19cb3d884aadd1d843b5d57c72ceb9ed",
+    "addons/pixelfx/runtime/frame_cache.gd": "6cc45270d71826666435d9fba11a83577674fb90664de8ed40b2fb443d9c1691",
+    "addons/pixelfx/runtime/layer_2d.gd": "f14391ec22126ce128547cf60052dd7c52753cc84e6fdc48601d377b028fcc2f",
+    "addons/pixelfx/runtime/pool.gd": "9417d76b978669df5c6386301ed23bc79ff587247bb69f6b5d06e6b6974ca350",
+    "addons/pixelfx/runtime/preloader.gd": "01b309c6d1336f014af6cee0685d8173ea49ed964895ce62590b0fb4c4e193c9",
+    "addons/pixelfx/runtime/renderer.gd": "71613e61305176dd75bbc848c2da860cc0a590155b6394f1c6f8495caa95b80c",
+    "addons/pixelfx/presets/arcane_fireball.tres": "f49fa931205c2ff83f16021c0a3ad68687f4d03e590d36ae636d6d99ea86cca6",
+    "addons/pixelfx/presets/campfire.tres": "0f406eb89af932f50bccd159c3542639ccb6ecde1a2fabf14ed7bcf905e5c5dc",
+    "addons/pixelfx/presets/fireball.tres": "a6589f23d455f2e6a47151d3faed016977a45f975844aff3ac825dab4ea2befb",
+    "addons/pixelfx/presets/hit_spark.tres": "2faad17759c56ab1f7a1739e59b51ccb9c695298437520a041db4eb64132dc37",
+    "addons/pixelfx/presets/ice_lance.tres": "2ededf82c4e5d17de983d7fef64558ea27ca6a5155e9ecc0dfa05d739b954479",
+    "addons/pixelfx/presets/laser_bolt.tres": "02bb0f7b1afc7fe8f7b4f0a97f9cc81fc42abf84ef4d96b0ce866c64f0058af9",
+    "addons/pixelfx/presets/poof.tres": "af95047f62fa3a1706480d79a001616743bf7d51fb30a3b502c8e513b71fa69f",
+    "addons/pixelfx/presets/ripples.tres": "4f034d603df600e8b0327776cd2546c5a35b8b6a2580b01e27f55538ce45a1b6",
+    "addons/pixelfx/presets/rocket.tres": "707291e7a6ea3a5776ccf1160f8516c20db5d0ba4cdd578d3f931d41c5c4d7c9",
+    "addons/pixelfx/presets/small_explosion.tres": "c097bd1e9c2a9b1136e6f07378e406b4b99d9eba433930d8ed447fdf4811415e",
+    "addons/pixelfx/presets/splash.tres": "57f64028ee62d516352fa249e15595d034fe804047e92f02a6c579451b62a455",
+    "addons/pixelfx/presets/sunburst.tres": "30ffffccba81aaadd3595d1cc5b8d09d28ed7571c2daaebab0e4142f501796a6",
+    "demos/pixelfx/b1_gallery.gd": "8f77a8ee29942906c28e64c2ecf3ddcd3928c32c436ec0dc2b6b617f64a966b7",
+    "demos/pixelfx/b1_gallery.tscn": "6548dead690f92e28f7d1fe6dffdb3fa44e43efd918703c4e4bef4c8bdf001bb"
+  },
+  "effects": {
+    "impacts/hit-spark": {
+      "implementation": "addons/pixelfx/effects/impacts/hit_spark.gd",
+      "implementation_sha256": "456f5232eaf2be3d546ecc961f744f3b9892baba6e10cec5e89a5ce12d1e9371",
+      "parity_cases": 87,
+      "byte_exact": 87,
+      "max_changed_bytes": 0,
+      "max_channel_error": 0,
+      "performance": {
+        "cache_bytes": 0,
+        "cold_ms_max": 11.202,
+        "cold_ms_mean": 5.23173333333333,
+        "frames": 15
+      }
+    },
+    "spawn/poof": {
+      "implementation": "addons/pixelfx/effects/spawn/poof.gd",
+      "implementation_sha256": "847371f58245f9f7fee3d23a2d413db56bf628bb36e00e7dd113612f799d6838",
+      "parity_cases": 105,
+      "byte_exact": 102,
+      "max_changed_bytes": 16,
+      "max_channel_error": 187,
+      "performance": {
+        "cache_bytes": 0,
+        "cold_ms_max": 39.105,
+        "cold_ms_mean": 10.5412083333333,
+        "frames": 48
+      }
+    },
+    "fire/campfire": {
+      "implementation": "addons/pixelfx/effects/fire/campfire.gd",
+      "implementation_sha256": "220a8bc4cde0be45c6a5a8c531d15d4a2d79feaa536554a691767f6178879cd9",
+      "parity_cases": 155,
+      "byte_exact": 128,
+      "max_changed_bytes": 27,
+      "max_channel_error": 2,
+      "performance": {
+        "cache_bytes": 31795200,
+        "cold_ms_max": 44.671,
+        "cold_ms_mean": 42.4271777777778,
+        "frames": 90
+      }
+    },
+    "projectiles/rocket": {
+      "implementation": "addons/pixelfx/effects/projectiles/rocket.gd",
+      "implementation_sha256": "372f2b38f6a77fb1e089b74e77c7d0140edce651a966fbdc6084d3643cf50751",
+      "parity_cases": 103,
+      "byte_exact": 103,
+      "max_changed_bytes": 0,
+      "max_channel_error": 0,
+      "performance": {
+        "cache_bytes": 13934592,
+        "cold_ms_max": 40.362,
+        "cold_ms_mean": 38.7339722222222,
+        "frames": 36
+      }
+    },
+    "explosions/small-explosion": {
+      "implementation": "addons/pixelfx/effects/explosions/small_explosion.gd",
+      "implementation_sha256": "0b86f8d0a27414828d602a855bf6eb8ad0088ced24e8590179e0df8fbef87761",
+      "parity_cases": 227,
+      "byte_exact": 213,
+      "max_changed_bytes": 24,
+      "max_channel_error": 1,
+      "performance": {
+        "cache_bytes": 0,
+        "cold_ms_max": 73.745,
+        "cold_ms_mean": 32.035987654321,
+        "frames": 162
+      }
+    },
+    "water/splash": {
+      "implementation": "addons/pixelfx/effects/water/splash.gd",
+      "implementation_sha256": "59d5b251d074fcaf1a78b72e7cd1067fa1bab527294d833b069470f4cd54f94a",
+      "parity_cases": 132,
+      "byte_exact": 129,
+      "max_changed_bytes": 1,
+      "max_channel_error": 1,
+      "performance": {
+        "cache_bytes": 0,
+        "cold_ms_max": 39.263,
+        "cold_ms_mean": 23.52848,
+        "frames": 75
+      }
+    }
+  }
+}

@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — B1
+
+- Port Hit spark, Poof, Campfire, Rocket, Small explosion and Splash from the pinned upstream algorithms. Preserve the five published module paths; add new modules under their category directories.
+- Add stateful particles, landing callbacks, burning debris, water drops/rings/mist, merged smoke and pixel-shape drawing required by these ports.
+- Add the selectable B1 gallery, a 244-entry migration ledger, 809 upstream image cases, simulation/editor/replay checks and explicit per-case floating-point tolerances.
+- Record native 30 FPS visual evidence and CPU/cache costs. B1 is not a new release package or a GPU performance guarantee.
+
 ## 0.2.0 — 2026-11-05
 
 - Port Ice lance, Laser bolt, Sunburst and Ripples from the pinned upstream algorithms: five effects total. Alternate palettes remain presets, not extra effects.

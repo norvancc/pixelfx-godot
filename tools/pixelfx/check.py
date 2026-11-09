@@ -28,10 +28,15 @@ if not upstream:
 # Also verify explicitly supplied upstream directories.
 manifest=json.loads((root/'addons/pixelfx/provenance.json').read_text())
 import hashlib
+run('migration-status', [sys.executable, str(root/'tools/pixelfx/check_migration_status.py'), upstream], 'PIXELFX_MIGRATION_STATUS')
 for name,digest in manifest['upstream_sha256'].items():
     if hashlib.sha256((Path(upstream)/name).read_bytes()).hexdigest()!=digest: raise SystemExit('Upstream hash mismatch: '+name)
 run('reference-release',['node','tools/pixelfx/reference.mjs',upstream], 'Generated')
 run('parity-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_parity.gd'],'failures=0')
+run('reference-b1',['node','tools/pixelfx/reference_b1.mjs',upstream], 'Generated')
+run('parity-b1',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b1_parity.gd'],'failures=0')
+run('runtime-b1',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b1_runtime.gd'],'failures=0')
+run('soak-b1',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b1_soak.gd'],'failures=0')
 run('runtime-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_runtime.gd'],'failures=0')
 run('catalog-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_catalog.gd'],'failures=0')
 run('benchmark-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/benchmark.gd'],'PIXELFX_BENCHMARK')

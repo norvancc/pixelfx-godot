@@ -72,3 +72,43 @@ static func spark(p,x: float,y: float,vx: float,vy: float,k: float,cols: Array) 
 	var head: int=cols[0] if k > 0.6 else (cols[1] if k > 0.3 else cols[2])
 	p.line(x-ux*length,y-uy*length,x-ux*length*0.4,y-uy*length*0.4,head if k > 0.5 else cols[-1])
 	p.line(x-ux*length*0.45,y-uy*length*0.45,x,y,head); p.glow(x,y,3,head,0.45*k)
+
+const M = preload("../core/math.gd")
+const P = preload("../core/particles.gd")
+const BIG_LAYERS = [[1,1,6],[0.8,0.9,5],[0.62,0.78,4],[0.44,0.6,3],[0.26,0.4,1],[0.12,0.22,0]]
+const BACK_LAYERS = [[1,1,7],[0.76,0.86,5],[0.54,0.68,3],[0.3,0.42,2]]
+static func flame_tongue(p,x: float,y: float,h: float,w: float,sx: float,N: Callable,n: int,hot: Array,layers: Array=LAYERS,jit: float=0.5,wob: float=1.1) -> void:
+	if h < 1: return
+	for entry in layers:
+		var extent = h*entry[1]; var c = hot[entry[2]]
+		for r in range(floori(extent)+1):
+			var u = r/maxf(1,extent)
+			var half = w*entry[0]*pow(1-u,0.85)*minf(1,(r+1.5)/3.5)+N.call(9,n,r*0.45)*jit
+			if half < 0.3: continue
+			var cx = x+sx*u*u*entry[1]+N.call(4,n+7,r*0.2)*u*wob; var yy = M.js_round(y-r)
+			for xx in range(M.js_round(cx-half),M.js_round(cx+half)+1): p.px(xx,yy,c)
+static func lick(p,x: float,y: float,k: float,s: float,hot: Array) -> void:
+	var r = s*(0.4+0.6*k)
+	solid(p,x,y,r+0.6,hot[5] if k > 0.5 else hot[6])
+	if k > 0.35: solid(p,x,y-0.3,r*0.6,hot[2] if k > 0.7 else hot[4])
+static func spark_at(x: float,y: float,vx: float,vy: float,t: float,floor_y: float=0,g: float=427,k: float=2.2) -> Array:
+	var state = [x,y,vx,vy]; var left = t
+	for b in range(3):
+		var e = P.drift(state[0],state[1],state[2],state[3],left,0,g,k,k)
+		if e[1] < floor_y or state[1] >= floor_y: return e
+		var lo = 0.0; var hi = left
+		for i in range(16):
+			var mid = (lo+hi)/2
+			if P.drift(state[0],state[1],state[2],state[3],mid,0,g,k,k)[1] < floor_y: lo = mid
+			else: hi = mid
+		var c = P.drift(state[0],state[1],state[2],state[3],hi,0,g,k,k)
+		state = [c[0],floor_y-0.25,c[2]*0.7,-absf(c[3])*0.45]; left -= hi
+	var e = P.drift(state[0],state[1],state[2],state[3],left,0,g,k,k)
+	return e if e[1] < floor_y else [e[0],floor_y-0.25,e[2],0.0]
+static func floor_light(p,x: float,y: float,rx: float,ry: float,c: int,k: float) -> void:
+	if k <= 0.004 or rx < 1 or ry < 0.5: return
+	p.shade(x-rx,y-ry,x+rx,y+ry,func(px,py,out):
+		var dx = (px-x)/rx; var dy = (py-y)/ry; var d = dx*dx+dy*dy
+		if d >= 1: return
+		var f = 1-sqrt(d); out.l = c; out.k = f*f*k
+	)
