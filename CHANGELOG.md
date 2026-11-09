@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — B2 simulations
+
+- Add thirteen native stateful ports and presets: Flame pillar, Meteor, Homing missile, Ice shatter, Ice spikes, Icicle fall, Snowflake burst, Geyser, Wave crash, Feather burst, Healing ring, Holy pillar and Smite. Source coverage reaches 52/244 algorithms, 53 presets; B2 is 41/49 accepted.
+- Preserve ice pane collisions/fractures, falling feathers, rotated missile pixels, fire layering, typed buffer rounding and signed 32-bit bitwise behavior. Simulation callbacks use weak references to release their owning modules.
+- Add 2166 independent RGBA comparisons (2066 byte-exact and four audited quantization exceptions), runtime/bounds/replay checks and native lifecycle/parameter-limit recordings. Keep all existing regression suites.
+- Update source catalog, progress, provenance, performance and validation documentation. Published release remains 0.2.0.
+
 ## Unreleased — B2 ice/water
 
 - Add eight native analytic effects: Blizzard vortex, Frost breath, Ice crystal, Bubbles, Drip, Fountain, Rain splash and Waterfall. Source coverage is 39/244 algorithms and 40 presets; B2 is 28/49 accepted, with 205 algorithms remaining overall.

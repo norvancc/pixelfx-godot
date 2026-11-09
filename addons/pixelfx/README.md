@@ -3,15 +3,16 @@
 A reusable Godot addon for procedural pixel effects: typed presets, editor preview,
 playback, layered rendering, bounded frame sharing, prewarming and pooling.
 
-这是可独立复制到 Godot 项目的特效库。当前源码提供完整的库接入流程与 39 种效果。B0/B1 的 11 项为：Fireball、Ice lance、Laser bolt、Sunburst、Ripples、Hit spark、Poof、Campfire、Rocket、Small explosion、Splash；
-B2 首批新增 20 项火焰、弹体/枪口及水系效果，详见 [validation/b2.json](validation/b2.json)；本批另增八项解析冰水效果，见 [validation/b2-elements.json](validation/b2-elements.json)。
-当前共有 40 个预设，30 项解析循环与 9 项独立模拟一次性效果。各项预设、生命周期和分层见 [完整目录](docs/CATALOG.md)。固定上游共 244 项，剩余 205 项；B2 原计划 49 项尚余 21 项。
+这是可独立复制到 Godot 项目的特效库。当前源码提供完整的库接入流程与 52 种效果。B0/B1 的 11 项为：Fireball、Ice lance、Laser bolt、Sunburst、Ripples、Hit spark、Poof、Campfire、Rocket、Small explosion、Splash；
+B2 首批新增 20 项火焰、弹体/枪口及水系效果，详见 [validation/b2.json](validation/b2.json)；冰水批次另增八项解析效果，见 [validation/b2-elements.json](validation/b2-elements.json)。
+本批另增 13 项独立模拟，见 [validation/b2-simulations.json](validation/b2-simulations.json)。
+当前共有 53 个预设，30 项解析循环与 22 项独立模拟一次性效果。各项预设、生命周期和分层见 [完整目录](docs/CATALOG.md)。固定上游共 244 项，剩余 192 项；B2 原计划 49 项尚余 8 项。
 后续效果只需实现统一算法接口、参数 schema 和绘制边界，可选提供 `.tres` 预设。
 运行时无需 Node.js、Phaser、编辑器插件或外部图片素材。
 
 ## 安装
 
-最新发行包 0.2.0 提供五个算法；要使用已验收的全部 39 项，请使用仓库 `main` 中的 `addons/pixelfx`。
+最新发行包 0.2.0 提供五个算法；要使用已验收的全部 52 项，请使用仓库 `main` 中的 `addons/pixelfx`。
 将选定版本的整个 `addons/pixelfx` 复制到项目的同名目录，保留其内部子目录、预设、来源与许可。
 在 Godot「项目设置 → 插件」启用 PixelFX，可获得底部实时预览面板。
 未启用编辑器插件时，运行时节点和资源仍然可用。无需 Autoload，不修改项目渲染配置。
@@ -62,7 +63,7 @@ func launch_visual(at: Vector2) -> PixelFXPlayer2D:
 
 ## 示例与验证
 
-完整源码工程包含 `demos/pixelfx/gallery.tscn`（五效果演示）、`demos/pixelfx/b1_gallery.tscn`（六项新增效果）、`demos/pixelfx/b2_gallery.tscn`（本批 20 项）及旧 `fireball_demo.tscn`、挂点/移动弹体示例、测试、打包工具及 CI 配置。
+完整源码工程包含 `demos/pixelfx/gallery.tscn`（五效果演示）、`demos/pixelfx/b1_gallery.tscn`（六项新增效果）、`demos/pixelfx/b2_gallery.tscn`（首批 20 项）、`demos/pixelfx/b2_elements_gallery.tscn`（冰水八项）、`demos/pixelfx/b2_simulations_gallery.tscn`（模拟十三项）及旧 `fireball_demo.tscn`、挂点/移动弹体示例、测试、打包工具及 CI 配置。
 在独立源码工程根目录执行：
 
 ```sh
@@ -77,7 +78,7 @@ python3 tools/pixelfx/check.py
 
 ## 范围与维护
 
-公共扩展契约为 v1，最新发行版本为 0.2.0；B1/B2 新增项仍为未发布源码。B1/B2 首批已合入主分支；首批合并为 [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) / `112d5d4`，验收数据见 [B1](validation/b1.json) 和 [B2](validation/b2.json)，Godot 4.3/Linux [完整 CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) 已通过。B1 的四个及 B2 的五个有状态一次性效果不支持 seek/共享帧缓存/预热，调参将重播；其余新增项为解析循环。冰水本批已通过本地 4915 组总对照和 159 项编辑器检查；Linux CI 随本批 PR 验证。
+公共扩展契约为 v1，最新发行版本为 0.2.0；B1/B2 新增项仍为未发布源码。B1/B2 首批已合入主分支；首批合并为 [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) / `112d5d4`，验收数据见 [B1](validation/b1.json) 和 [B2](validation/b2.json)，Godot 4.3/Linux [完整 CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) 已通过。全部 22 个有状态一次性效果不支持 seek/共享帧缓存/预热，调参将重播；其余新增项为解析循环。模拟本批已通过本地 7081 组总对照和 211 项编辑器检查；Linux CI 随本批 PR 验证。
 同一契约内新增特效不需要修改播放器、缓存、预览面板或注册表。
 新增效果自己的算法/辅助绘制代码属于效果模块；不要求预先迁移原库所有内部助手。
 当前没有将上游两百多个效果、actor/rig/poses 系统或专用 sim 模拟器全部迁移。

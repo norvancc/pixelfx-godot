@@ -170,7 +170,7 @@ def main() -> None:
             "reference_cases": ["tools/pixelfx/reference.mjs", "tests/pixelfx/test_parity.gd"] if is_existing else (record["reference_cases"] + ([f"{record['parity_cases']} cases"] if record.get("parity_cases") else []) if record else prior.get("reference_cases", [])),
             "visual_evidence": ["docs/images/five-effects.png"] if is_existing else ([value for value in [record.get("poster"), record.get("movie"), record.get("report")] if value] if record else []),
             "performance_report": ["addons/pixelfx/docs/PERFORMANCE.md"] if is_existing else ([record["report"]] if record else []),
-            "remaining_issues": prior.get("remaining_issues", []) if is_existing or record else (["原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"] if implemented else ([probe["review"]] if probe else ["尚未读取上游源码并建立迁移用例"])),
+            "remaining_issues": (prior.get("remaining_issues", []) if prior.get("status") == "完成" else []) if is_existing or record else (["原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"] if implemented else ([probe["review"]] if probe else ["尚未读取上游源码并建立迁移用例"])),
             "probe_review": probe["review"] if probe else prior.get("probe_review"),
         })
     payload = {
