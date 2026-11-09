@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PixelFXPreset" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://addons/pixelfx/resources/preset.gd" id="1"]
+[ext_resource type="Script" path="res://addons/pixelfx/effects/transitions/burn_away.gd" id="2"]
+
+[resource]
+script = ExtResource("1")
+display_name = "Burn away"
+implementation = ExtResource("2")

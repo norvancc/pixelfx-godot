@@ -101,6 +101,15 @@ def main() -> None:
             if implementation not in report["source_sha256"] or record.get("parity_cases", 0) < 1:
                 raise SystemExit(f"Batch omits implementation/parity evidence: {name}")
         verified.update(scope)
+    basic_entries = [entry for entry in entries if entry.get("status") == "已迁移（待完整验收）"]
+    if basic_entries:
+        basic = json.loads((ROOT / "addons/pixelfx/native/smoke.json").read_text())
+        if basic.get("full_acceptance") is not False or basic.get("upstream_revision") != PINNED:
+            raise SystemExit("Native basic-check evidence must retain its limited scope")
+        verify_hashes(basic, "Native basic playback")
+        passed_basic = {row["effect"] for row in basic.get("records", []) if not row.get("errors")}
+        if any(entry["effect"] not in passed_basic for entry in basic_entries):
+            raise SystemExit("Native basic-check evidence has incomplete coverage")
     uncovered = {entry["effect"] for entry in entries if entry["status"] == "完成"} - verified
     if uncovered:
         raise SystemExit(f"Completed effects have no current source-hashed acceptance: {sorted(uncovered)}")
@@ -113,8 +122,14 @@ def main() -> None:
         if digest != source.get("sha256"):
             raise SystemExit(f"source hash mismatch for {entry['effect']}")
         status = entry.get("status")
-        if status not in {"待分析", "依赖准备", "实现中", "像素验证", "运行/视觉验证", "完成"}:
+        if status not in {"待分析", "依赖准备", "实现中", "已迁移（待完整验收）", "像素验证", "运行/视觉验证", "完成"}:
             raise SystemExit(f"invalid status for {entry['effect']}: {status}")
+        if status == "已迁移（待完整验收）":
+            check = entry.get("basic_check", {})
+            if not check.get("passed") or not (ROOT / check.get("report", "")).is_file():
+                raise SystemExit(f"Ported entry has no basic-check evidence: {entry['effect']}")
+            if not entry.get("godot_path") or not (ROOT / entry["godot_path"]).is_file():
+                raise SystemExit(f"Ported entry has no implementation: {entry['effect']}")
         counts[status] = counts.get(status, 0) + 1
         if status == "完成" and (not entry.get("godot_path") or not (ROOT / entry["godot_path"]).is_file()):
             raise SystemExit(f"completed entry has no Godot path: {entry['effect']}")

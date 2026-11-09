@@ -1,12 +1,15 @@
 # PixelFX for Godot — source / B2 (unreleased)
 
+当前迁移分支提供 **244/244 个算法、245 个预设**。其中 **52 项完整验收，新增 192 项仅通过基础运行检查，待完整验收**；本轮暂缓单测、像素对照与录像。见 [全量迁移说明](FULL_MIGRATION.md)。下文保留前 52 项的历史验收范围。
+
+
 A reusable Godot addon for procedural pixel effects: typed presets, editor preview,
 playback, layered rendering, bounded frame sharing, prewarming and pooling.
 
-这是可独立复制到 Godot 项目的特效库。当前源码提供完整的库接入流程与 52 种效果。B0/B1 的 11 项为：Fireball、Ice lance、Laser bolt、Sunburst、Ripples、Hit spark、Poof、Campfire、Rocket、Small explosion、Splash；
+这是可独立复制到 Godot 项目的特效库。已完整验收范围提供完整的库接入流程与 52 种效果。B0/B1 的 11 项为：Fireball、Ice lance、Laser bolt、Sunburst、Ripples、Hit spark、Poof、Campfire、Rocket、Small explosion、Splash；
 B2 首批新增 20 项火焰、弹体/枪口及水系效果，详见 [validation/b2.json](validation/b2.json)；冰水批次另增八项解析效果，见 [validation/b2-elements.json](validation/b2-elements.json)。
 本批另增 13 项独立模拟，见 [validation/b2-simulations.json](validation/b2-simulations.json)。
-当前共有 53 个预设，30 项解析循环与 22 项独立模拟一次性效果。各项预设、生命周期和分层见 [完整目录](docs/CATALOG.md)。固定上游共 244 项，剩余 192 项；B2 原计划 49 项尚余 8 项。
+已完整验收范围共有 53 个预设，30 项解析循环与 22 项独立模拟一次性效果。各项预设、生命周期和分层见 [完整目录](docs/CATALOG.md)。固定上游共 244 项，192 项待完整验收；B2 原计划 49 项尚有 8 项待完整验收。
 后续效果只需实现统一算法接口、参数 schema 和绘制边界，可选提供 `.tres` 预设。
 运行时无需 Node.js、Phaser、编辑器插件或外部图片素材。
 

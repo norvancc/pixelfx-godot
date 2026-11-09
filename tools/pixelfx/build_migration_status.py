@@ -141,6 +141,12 @@ def main() -> None:
         raise SystemExit(f"Plan/catalog mismatch; missing={missing}, extra={extra}")
 
     accepted = accepted_effects()
+    native_path = ROOT / "addons/pixelfx/native/catalog.json"
+    native = {row["source"]: row for row in json.loads(native_path.read_text())} if native_path.exists() else {}
+    smoke_path = ROOT / "addons/pixelfx/native/smoke.json"
+    smoke = json.loads(smoke_path.read_text()) if smoke_path.exists() else {}
+    smoke_records = {row["effect"]: row for row in smoke.get("records", []) if not row.get("errors")}
+    smoke_current = bool(smoke.get("source_sha256")) and all((ROOT / name).is_file() and hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest for name, digest in smoke.get("source_sha256", {}).items())
     previous = {row["effect"]: row for row in json.loads(OUT.read_text()).get("entries", [])} if OUT.exists() else {}
     entries = []
     for path, effect_id in zip(effects, ids):
@@ -158,6 +164,8 @@ def main() -> None:
         status = "完成" if is_existing or record else ("实现中" if implemented else "待分析")
         if not record and not is_existing and prior.get("status") not in {None, "完成", "待分析"}:
             status = prior["status"]
+        if effect_id in native and implemented and not record:
+            status = "已迁移（待完整验收）" if smoke_current and effect_id in smoke_records else "实现中"
         entries.append({
             "upstream_id": effect_id,
             "effect": effect_id,
@@ -166,6 +174,8 @@ def main() -> None:
             "dependencies": imports(path),
             "render_type": "analytic" if is_existing else (probe["render_type"] if probe else render_type(path)),
             "status": status,
+            "implementation_status": "ported" if implemented else "not_ported",
+            "basic_check": {"passed": bool(smoke_current and effect_id in smoke_records), "report": "addons/pixelfx/native/smoke.json"} if effect_id in native else None,
             "godot_path": godot_path,
             "reference_cases": ["tools/pixelfx/reference.mjs", "tests/pixelfx/test_parity.gd"] if is_existing else (record["reference_cases"] + ([f"{record['parity_cases']} cases"] if record.get("parity_cases") else []) if record else prior.get("reference_cases", [])),
             "visual_evidence": ["docs/images/five-effects.png"] if is_existing else ([value for value in [record.get("poster"), record.get("movie"), record.get("report")] if value] if record else []),
@@ -176,8 +186,8 @@ def main() -> None:
     payload = {
         "schema_version": 1,
         "generated_from": {"repository": "https://github.com/patch-gg/pixelfx", "revision": PINNED, "package_version": "0.3.0"},
-        "counts": {"upstream_effects": 244, "completed": sum(e["status"] == "完成" for e in entries), "remaining": sum(e["status"] != "完成" for e in entries)},
-        "status_order": ["待分析", "依赖准备", "实现中", "像素验证", "运行/视觉验证", "完成"],
+        "counts": {"upstream_effects": 244, "completed": sum(e["status"] == "完成" for e in entries), "remaining": sum(e["status"] != "完成" for e in entries), "ported": sum(e["implementation_status"] == "ported" for e in entries), "not_ported": sum(e["implementation_status"] != "ported" for e in entries), "basic_checked_new": sum(bool(e.get("basic_check", {}).get("passed")) for e in entries if e.get("basic_check"))},
+        "status_order": ["待分析", "依赖准备", "实现中", "已迁移（待完整验收）", "像素验证", "运行/视觉验证", "完成"],
         "entries": entries,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

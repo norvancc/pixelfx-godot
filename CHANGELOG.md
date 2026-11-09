@@ -1,6 +1,9 @@
 # Changelog
 
-## Unreleased — B2 simulations
+## Unreleased — full source migration
+
+- Port the remaining 192 pinned algorithms to native GDScript with presets, actor/rig/act/poses/chain support, masks, pixel fonts and screen/weather helpers. Source coverage is 244/244 with 245 presets; full acceptance stays 52/244.
+- Add the lazy full catalog gallery, native actor/scene input adapters, source hashes and a basic playback report. Full tests, pixel comparisons and recording are deferred for these new ports.
 
 - Add thirteen native stateful ports and presets: Flame pillar, Meteor, Homing missile, Ice shatter, Ice spikes, Icicle fall, Snowflake burst, Geyser, Wave crash, Feather burst, Healing ring, Holy pillar and Smite. Source coverage reaches 52/244 algorithms, 53 presets; B2 is 41/49 accepted.
 - Preserve ice pane collisions/fractures, falling feathers, rotated missile pixels, fire layering, typed buffer rounding and signed 32-bit bitwise behavior. Simulation callbacks use weak references to release their owning modules.

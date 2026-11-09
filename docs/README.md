@@ -1,12 +1,16 @@
 # Documentation
 
-Current source: **52/244 accepted algorithms, 192 remaining, 53 presets**. B2 is **41/49** complete (8 remaining); the latest published release is **0.2.0 with five algorithms**. The first B2 implementation is merged in [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) (`112d5d4`); [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed for that 31-effect snapshot; the new simulation slice has passed local acceptance, with Linux verification recorded in [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks).
+The migration branch now provides **244/244 algorithms and 245 presets**: **52 fully accepted; 192 newly ported with basic playback checks only**. Unit tests, pixel comparisons and recordings are deferred for this phase, as requested. The 52-effect counts below describe the earlier accepted snapshot. See [full source migration](../addons/pixelfx/FULL_MIGRATION.md) for scope, native inputs and limitations.
+
+
+Full acceptance: **52/244 algorithms, 192 pending, 53 accepted presets**. B2 is **41/49** complete (8 remaining); the latest published release is **0.2.0 with five algorithms**. The first B2 implementation is merged in [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) (`112d5d4`); [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed for that 31-effect snapshot; the new simulation slice has passed local acceptance, with Linux verification recorded in [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks).
 
 ## Using PixelFX
 
 - [English overview and installation](../README.md)
 - [中文说明与安装](../README.zh-CN.md)
 - [All effects and presets / 完整效果目录](../addons/pixelfx/docs/CATALOG.md)
+- [Full native source migration / 全量原生源码迁移](../addons/pixelfx/FULL_MIGRATION.md)
 - [Public API](../addons/pixelfx/docs/API.md)
 - [Effect contract](../addons/pixelfx/docs/EFFECTS.md)
 - [Performance](../addons/pixelfx/docs/PERFORMANCE.md)

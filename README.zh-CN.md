@@ -1,5 +1,8 @@
 # PixelFX for Godot
 
+当前迁移分支已提供 **244/244 个算法、245 个预设**；其中 **52 项完成完整验收，新增 192 项仅做基础运行检查，待完整验收**。本轮按用户要求暂缓单测、像素对照和录像；下文 52 项及其历史测试数字均指已完整验收范围。新增效果、角色/动作/场景输入与运行方式见 [全量源码迁移说明](addons/pixelfx/FULL_MIGRATION.md)。
+
+
 **基于 [patch-gg/pixelfx](https://github.com/patch-gg/pixelfx) 的非官方 Godot 移植。** 原作者为 Patch 与 Hugo Duprez，采用 MIT 协议；此仓库由 norvancc 独立维护。
 
 [English](README.md) · [发行包](https://github.com/norvancc/pixelfx-godot/releases) · [API](addons/pixelfx/docs/API.md) · [新增特效](addons/pixelfx/docs/EFFECTS.md)
@@ -10,7 +13,7 @@
 
 ## 当前状态
 
-当前源码已验收 **52/244** 个上游算法，剩余 **192** 个，共有 **53 个预设**。其中 30 项为解析循环，22 项为独立有状态一次性效果。Arcane Fireball 是 Fireball 的换色预设，不计为额外算法。[完整效果与预设目录](addons/pixelfx/docs/CATALOG.md)列出每项的生命周期和绘制层。
+当前源码已验收 **52/244** 个上游算法，另有 **192** 个待完整验收；已完整验收范围共有 **53 个预设**。其中 30 项为解析循环，22 项为独立有状态一次性效果。Arcane Fireball 是 Fireball 的换色预设，不计为额外算法。[完整效果与预设目录](addons/pixelfx/docs/CATALOG.md)列出每项的生命周期和绘制层。
 
 最新发行版仍为 **0.2.0**，包含 Fireball 火球、Ice lance 冰枪、Laser bolt 激光弹、Sunburst 日芒和 Ripples 水面涟漪五项。B1 六项、B2 首批二十项、冰水八项及本批十三项模拟效果均为未发布源码。
 
@@ -26,7 +29,7 @@ B1 新增命中火花、消散烟团、篝火、火箭、小爆炸和水花。B2
 
 ## 安装和运行
 
-1. 使用已发布五项时，从 Releases 下载 0.2.0 插件 ZIP；使用当前全部 52 项时，克隆仓库 `main`，将其中的 `addons/pixelfx` 复制到项目。
+1. 使用已发布五项时，从 Releases 下载 0.2.0 插件 ZIP；使用已完整验收的 52 项时，克隆仓库 `main`，将其中的 `addons/pixelfx` 复制到项目。
 2. 项目设置 → 插件 → 启用 PixelFX，可获得底部编辑器预览面板；运行时无需启用插件。
 3. 添加 PixelFXPlayer2D 节点，将 `presets/fireball.tres` 赋给 Effect。
 4. 也可以克隆完整仓库，用 Godot 打开 `project.godot` 后按 F5 运行五效果图鉴，可切换特效和参数。
@@ -45,7 +48,7 @@ B1 新增命中火花、消散烟团、篝火、火箭、小爆炸和水花。B2
 
 目标 Godot 4.3+；本地实测为 4.7.2 / macOS / GL Compatibility，本批 [Godot 4.3/Linux 检查](https://github.com/norvancc/pixelfx-godot/pull/9/checks)记录在 PR #9。此前 39 项的[完整 Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679)已通过。其他平台、版本、渲染器不能自动视为通过。
 
-当前完整 gate 包含 447 组基线、809 组 B1、2607 组 B2 上游 RGBA 对照，另增 1052 组冰水对照，以及本批 2166 组模拟对照，共 **7081 组，零失败**。B2 的 2470 组字节完全一致，8 个超默认阈值案例逐项登记 1–2/255 的量化误差；未统一放宽整体门槛。另有 B2 运行/图鉴 419 项、参数/边界 431 项、编辑器总计 211 项及 B2 重播 320 次。冰水批次另有 167 项运行检查、333 项目录/边界检查和 128 次重播；722 组字节一致、66 个超默认阈值案例逐项审计。模拟本批另有 300 项运行检查、392 项目录/边界检查和 208 次重播，2066 组字节一致、4 个 RGB 量化案例逐项审计。历史结果和完整误差边界见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
+前 52 项的历史完整 gate 包含 447 组基线、809 组 B1、2607 组 B2 上游 RGBA 对照，另增 1052 组冰水对照，以及本批 2166 组模拟对照，共 **7081 组，零失败**。B2 的 2470 组字节完全一致，8 个超默认阈值案例逐项登记 1–2/255 的量化误差；未统一放宽整体门槛。另有 B2 运行/图鉴 419 项、参数/边界 431 项、编辑器总计 211 项及 B2 重播 320 次。冰水批次另有 167 项运行检查、333 项目录/边界检查和 128 次重播；722 组字节一致、66 个超默认阈值案例逐项审计。模拟本批另有 300 项运行检查、392 项目录/边界检查和 208 次重播，2066 组字节一致、4 个 RGB 量化案例逐项审计。历史结果和完整误差边界见 [VALIDATION.md](addons/pixelfx/VALIDATION.md)。
 
 [B2 PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) 已合并，提交 `112d5d4`；实现提交 `73560f4` 的 Linux CI 与本地验收通过，合并后的代码树一致。本批插件禁用时的干净项目安装验证覆盖 52 项 / 53 个预设。
 

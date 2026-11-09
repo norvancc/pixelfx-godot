@@ -8,12 +8,16 @@
   "counts": {
     "upstream_effects": 244,
     "completed": 52,
-    "remaining": 192
+    "remaining": 192,
+    "ported": 244,
+    "not_ported": 0,
+    "basic_checked_new": 192
   },
   "status_order": [
     "待分析",
     "依赖准备",
     "实现中",
+    "已迁移（待完整验收）",
     "像素验证",
     "运行/视觉验证",
     "完成"
@@ -32,13 +36,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/arcane_beam.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -54,13 +63,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/arcane_missiles.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -77,13 +91,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/arcane_orb.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -100,13 +119,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/blink_in.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -123,13 +147,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/blink_out.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -146,13 +175,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/magic_circle_cast.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -169,13 +203,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/mana_burst.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -192,13 +231,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/portal.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -215,13 +259,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/rune_circle.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -238,13 +287,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/spell_charge.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -260,13 +314,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/star_fall.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -282,13 +341,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/arcane/time_stop.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -305,13 +369,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/bat.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -328,13 +397,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/bird.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -351,13 +425,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/butterfly.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -374,13 +453,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/eyeball.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -397,13 +481,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/fish_school.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -420,13 +509,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/flying_skull.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -443,13 +537,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/frog.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -466,13 +565,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/ghost.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -489,13 +593,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/jellyfish.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -512,13 +621,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/slime.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -535,13 +649,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/snake.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -558,13 +677,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/critters/wisp.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -581,13 +705,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/barrel_explosion.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -604,13 +733,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/big_explosion.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -627,13 +761,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/cartoon_pow.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -650,13 +789,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/dirt_explosion.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -672,13 +816,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/firework_burst.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -695,13 +844,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/firework_rocket.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -718,13 +872,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/grenade.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -741,13 +900,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/implosion.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -764,13 +928,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/nuke.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -787,13 +956,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/plasma_explosion.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -810,6 +984,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/explosions/small_explosion.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
@@ -840,13 +1016,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/explosions/smoke_bomb.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -864,6 +1045,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/brazier.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -897,6 +1080,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/campfire.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
@@ -928,6 +1113,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/candle.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -961,6 +1148,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/fire_breath.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -993,13 +1182,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/fire/fire_ring.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1017,6 +1211,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/fire_tornado.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -1050,6 +1246,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fireball.gd",
       "reference_cases": [
         "tools/pixelfx/reference.mjs",
@@ -1078,6 +1276,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/flame_pillar.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1110,6 +1310,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/flamethrower.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -1143,6 +1345,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/meteor.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1175,6 +1379,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/spirit_flame.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -1208,6 +1414,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/fire/torch.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -1240,13 +1448,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/holy/blessing.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1263,13 +1476,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/holy/divine_shield.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1287,6 +1505,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/holy/feather_burst.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1318,13 +1538,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/holy/halo.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1342,6 +1567,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/holy/heal_aoe.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1373,13 +1600,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/holy/heal.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1397,6 +1629,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/holy/holy_pillar.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1428,13 +1662,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/holy/resurrection.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1452,6 +1691,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/holy/smite.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1484,6 +1725,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/sunburst.gd",
       "reference_cases": [
         "tools/pixelfx/reference.mjs",
@@ -1511,6 +1754,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice/blizzard_vortex.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1542,13 +1787,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ice/freeze.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1565,6 +1815,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice/frost_breath.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1595,13 +1847,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ice/frost_nova.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1618,6 +1875,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice/ice_crystal.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1650,6 +1909,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice_lance.gd",
       "reference_cases": [
         "tools/pixelfx/reference.mjs",
@@ -1678,6 +1939,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice/ice_shatter.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1710,6 +1973,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice/ice_spikes.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1742,6 +2007,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice/icicle_fall.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1774,6 +2041,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ice/snowflake_burst.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -1805,13 +2074,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/blunt_hit.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1828,13 +2102,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/bullet_impact.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1851,13 +2130,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/crit_hit.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1874,13 +2158,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/ground_slam.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1897,13 +2186,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/heavy_landing.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1919,13 +2213,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/hit_flash.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1942,6 +2241,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/impacts/hit_spark.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
@@ -1971,13 +2272,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/impact_frame.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -1994,13 +2300,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/parry.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2017,13 +2328,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/ricochet.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2040,13 +2356,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/impacts/shield_block.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2063,13 +2384,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/ball_lightning.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2086,13 +2412,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/chain_lightning.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2109,13 +2440,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/charge_up.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2132,13 +2468,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/electrified.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2155,13 +2496,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/lightning_strike.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2177,13 +2523,18 @@
         "../../core/index.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/plasma_ball.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2200,13 +2551,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/spark_arc.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2223,13 +2579,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/storm_cloud.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2246,13 +2607,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/tesla_coil.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2269,13 +2635,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/thunderclap.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2292,13 +2663,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/lightning/zap_hit.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2315,13 +2691,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/claw_swipe.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2338,13 +2719,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/dagger_flurry.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2361,13 +2747,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/double_slash.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2384,13 +2775,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/hammer_smash.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2407,13 +2803,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/heavy_cleave.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2430,13 +2831,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/scythe_reap.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2453,13 +2859,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/spear_sweep.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2476,13 +2887,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/spin_slash.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2498,13 +2914,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/sword_slash.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2520,13 +2941,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/thrust.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2543,13 +2969,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/uppercut.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2566,13 +2997,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/melee/whip_crack.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2590,13 +3026,18 @@
         "../projectiles/arrow.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/arrow_shot.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2614,13 +3055,18 @@
         "../melee/sword-slash.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/dash_strike.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2637,13 +3083,18 @@
         "../nature/earth-spike.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/earth_stomp.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2662,13 +3113,18 @@
         "../fire/fireball.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/fireball_throw.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2685,13 +3141,18 @@
         "../impacts/ground-slam.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/ground_pound.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2708,13 +3169,18 @@
         "../holy/smite.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/holy_smite.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2733,13 +3199,18 @@
         "../ice/snowflake-burst.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/ice_lance_throw.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2756,13 +3227,18 @@
         "../lightning/lightning-strike.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/lightning_call.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2780,13 +3256,18 @@
         "../fire/meteor.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/meteor_call.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2805,13 +3286,18 @@
         "../projectiles/muzzle-pistol.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/pistol_shots.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2830,13 +3316,18 @@
         "../projectiles/rocket.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/rocket_launcher.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2855,13 +3346,18 @@
         "../melee/sword-slash.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/moves/sword_combo.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2878,13 +3374,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/acid_splash.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2901,13 +3402,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/boulder.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2924,13 +3430,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/earth_spike.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2947,13 +3458,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/healing_bloom.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2970,13 +3486,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/leaf_storm.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -2992,13 +3513,18 @@
         "../../core/index.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/poison_cloud.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3015,13 +3541,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/quake.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3038,13 +3569,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/root_snare.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3061,13 +3597,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/spore_burst.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3084,13 +3625,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/thorns.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3107,13 +3653,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/tornado.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3129,13 +3680,18 @@
         "../../core/index.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/toxic_puddle.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3152,13 +3708,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/nature/vine_whip.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3175,13 +3736,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/chest_open.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3198,13 +3764,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/coin_spin.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3221,13 +3792,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/collect_burst.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3244,13 +3820,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/crystal_shard.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3267,13 +3848,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/gem_spin.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3290,13 +3876,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/heart_pickup.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3313,13 +3904,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/key_glint.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3336,13 +3932,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/loot_beam.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3359,13 +3960,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/potion.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3382,13 +3988,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/power_star.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3405,13 +4016,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/pickups/xp_orb.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3429,6 +4045,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/arrow.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3462,6 +4080,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/bullet_tracer.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3495,6 +4115,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/cannonball.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3528,6 +4150,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/energy_disc.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3561,6 +4185,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/flare.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3594,6 +4220,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/homing_missile.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -3626,6 +4254,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/laser_bolt.gd",
       "reference_cases": [
         "tools/pixelfx/reference.mjs",
@@ -3653,6 +4283,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/magic_missile.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3686,6 +4318,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/muzzle_pistol.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3719,6 +4353,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/muzzle_shotgun.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3752,6 +4388,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/muzzle_smg.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3785,6 +4423,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/plasma_shot.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -3818,6 +4458,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/projectiles/rocket.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
@@ -3848,13 +4490,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/emp_blast.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3871,13 +4518,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/energy_core.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3894,13 +4546,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/force_field.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3916,13 +4573,18 @@
         "../../core/index.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/glitch.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3939,13 +4601,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/hologram.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3962,13 +4629,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/jetpack.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -3985,13 +4657,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/laser_grid.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4008,13 +4685,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/scanner.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4031,13 +4713,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/teleporter_pad.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4054,13 +4741,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/tractor_beam.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4076,13 +4768,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/warp_in.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4098,13 +4795,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/scifi/warp_out.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4121,13 +4823,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/black_hole.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4144,13 +4851,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/curse.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4167,13 +4879,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/dark_explosion.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4190,13 +4907,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/eclipse.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4213,13 +4935,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/grasping_hands.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4236,13 +4963,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/hex_sigil.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4259,13 +4991,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/life_steal.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4282,13 +5019,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/necro_skulls.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4305,13 +5047,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/shadow_flames.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4328,13 +5075,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/shadow_tendrils.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4351,13 +5103,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/soul_drain.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4374,13 +5131,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/shadow/void_orb.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4396,13 +5158,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/coin_drop.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4419,13 +5186,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/disintegrate.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4442,13 +5214,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/dissolve_burn.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4464,13 +5241,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/egg_hatch.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4487,6 +5269,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/spawn/poof.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
@@ -4517,13 +5301,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/respawn_beam.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4540,13 +5329,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/shatter_death.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4563,13 +5357,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/soul_rise.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4585,13 +5384,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/spawn_portal.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4607,13 +5411,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/spawn/summon_rise.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4630,13 +5439,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/bleeding.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4653,13 +5467,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/burning.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4676,13 +5495,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/charmed.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4699,13 +5523,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/confused.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4722,13 +5551,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/cursed.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4745,13 +5579,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/frozen.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4768,13 +5607,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/haste.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4791,13 +5635,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/petrified.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4814,13 +5663,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/poisoned.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4837,13 +5691,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/rage.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4860,13 +5719,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/sleep.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4883,13 +5747,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/slowed.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4906,13 +5775,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/status/stunned.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4929,13 +5803,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/blinds.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4952,13 +5831,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/burn_away.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4975,13 +5859,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/crt_off.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -4998,13 +5887,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/diamond_wipe.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5021,13 +5915,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/glitch_wipe.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5044,13 +5943,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/iris.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5067,13 +5971,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/pixel_dissolve.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5090,13 +5999,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/shatter_wipe.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5113,13 +6027,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/slash_wipe.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5136,13 +6055,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/transitions/star_iris.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5159,13 +6083,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/achievement.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5182,13 +6111,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/coin_collect.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5205,13 +6139,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/combo_counter.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5227,13 +6166,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/confetti.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5250,13 +6194,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/countdown.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5273,13 +6222,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/crit_number.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5296,13 +6250,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/damage_number.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5318,13 +6277,18 @@
         "../../core/index.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/exclamation.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5341,13 +6305,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/health_bar_hit.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5364,13 +6333,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/heart_lost.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5387,13 +6361,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/level_up.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5410,13 +6389,18 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/ui/quest_complete.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5434,6 +6418,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/bubbles.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -5466,6 +6452,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/drip.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -5498,6 +6486,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/fountain.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -5530,6 +6520,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/geyser.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -5562,6 +6554,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/rain_splash.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -5594,6 +6588,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/ripples.gd",
       "reference_cases": [
         "tools/pixelfx/reference.mjs",
@@ -5622,6 +6618,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/splash.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
@@ -5653,6 +6651,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/water_jet.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -5686,6 +6686,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/water_orb.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -5719,6 +6721,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/waterfall.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -5751,6 +6755,8 @@
       ],
       "render_type": "stateful",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/wave_crash.gd",
       "reference_cases": [
         "tools/pixelfx/reference_batch.mjs",
@@ -5783,6 +6789,8 @@
       ],
       "render_type": "analytic",
       "status": "完成",
+      "implementation_status": "ported",
+      "basic_check": null,
       "godot_path": "addons/pixelfx/effects/water/whirlpool.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b2.mjs",
@@ -5815,13 +6823,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/aurora.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5838,13 +6851,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/blizzard.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5861,13 +6879,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/cherry_blossoms.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5884,13 +6907,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/clouds.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5907,13 +6935,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/falling_leaves.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5930,13 +6963,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/fireflies.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5953,13 +6991,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/fog.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5976,13 +7019,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/god_rays.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -5999,13 +7047,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/rain.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -6022,13 +7075,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/shooting_stars.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -6045,13 +7103,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/snow.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     },
@@ -6068,13 +7131,18 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
+      "status": "已迁移（待完整验收）",
+      "implementation_status": "ported",
+      "basic_check": {
+        "passed": true,
+        "report": "addons/pixelfx/native/smoke.json"
+      },
+      "godot_path": "addons/pixelfx/effects/weather/storm.gd",
       "reference_cases": [],
       "visual_evidence": [],
       "performance_report": [],
       "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+        "原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"
       ],
       "probe_review": null
     }
