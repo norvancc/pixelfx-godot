@@ -32,6 +32,9 @@ func _initialize() -> void:
 		var max_error = 0
 		var sum_error = 0
 		var outside = false
+		var first_pixel = Vector2i(2147483647,2147483647)
+		var last_pixel = Vector2i(-2147483648,-2147483648)
+		var differing_pixels: Array = []
 		var limit: Dictionary = config.get("tolerances", {}).get(row.name, {"max_channel_error":1,"changed_bytes":20})
 		var rectangle = limit.get("pixel_rect", [])
 		for i in range(0 if actual == expected else actual.size()):
@@ -40,11 +43,14 @@ func _initialize() -> void:
 				changed += 1
 				max_error = maxi(error, max_error)
 				sum_error += error
+				var pixel = Vector2i((i/4)%int(viewport.width)+int(viewport.x),(i/4)/int(viewport.width)+int(viewport.y))
+				first_pixel = first_pixel.min(pixel)
+				last_pixel = last_pixel.max(pixel)
+				if differing_pixels.size() < 2048: differing_pixels.append([i,int(expected[i]),int(actual[i])])
 				if rectangle.size() == 4:
 					var rect = Rect2i(int(rectangle[0]),int(rectangle[1]),int(rectangle[2]),int(rectangle[3]))
-					var pixel = Vector2i((i/4)%int(viewport.width)+int(viewport.x),(i/4)/int(viewport.width)+int(viewport.y))
 					if not rect.has_point(pixel): outside = true
-		results.append({"name":row.name,"effect":row.id,"changed_bytes":changed,"max_channel_error":max_error,"sum_error":sum_error})
+		results.append({"name":row.name,"effect":row.id,"changed_bytes":changed,"max_channel_error":max_error,"sum_error":sum_error,"pixel_rect":[first_pixel.x,first_pixel.y,last_pixel.x-first_pixel.x+1,last_pixel.y-first_pixel.y+1] if changed else [],"differing_channels":differing_pixels if changed<=2048 else []})
 		if max_error > limit.max_channel_error or changed > limit.changed_bytes or sum_error > limit.get("sum_error",2147483647) or outside:
 			failures.append(row.name)
 			print("PIXELFX_BATCH_DIFF ",row.name," changed=",changed," max=",max_error)
