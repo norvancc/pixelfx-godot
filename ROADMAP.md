@@ -13,7 +13,9 @@ This roadmap describes intended work, not promised dates or completed features.
 | Projectiles / Laser bolt | Ported; full-cycle comparison included |
 | Holy / Sunburst | Ported; full-cycle comparison included |
 | Water / Ripples | Ported with back/front layers; full-cycle comparison included |
-| Other 239 upstream effects | Not ported |
+| B0 migration ledger | Implemented; 244 pinned upstream effects tracked in `docs/migration-status.json` |
+| B1 probe implementations | Six algorithm ports accepted locally with per-effect pixel/runtime/visual evidence; unreleased |
+| Other 233 upstream effects | Not ported |
 | Upstream actor / rig / act / poses systems | Not ported |
 | Dedicated sim / chain helpers | Not fully ported; add as effects require |
 | GPU / native accelerated backend | Not implemented |
@@ -28,3 +30,5 @@ Next priorities:
 5. Broaden platform/version CI and publish an explicit compatibility matrix.
 
 Adding a catalog entry means the effect works through the public API and has documented verification. It does not imply identical pixels, perfect visual quality or untested platform support.
+
+Detailed batch plan (Chinese): [full migration plan](docs/plans/full-migration.zh-CN.md).

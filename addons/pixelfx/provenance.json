@@ -3,7 +3,7 @@
   "revision": "a84159688af3ca37a4be05a0d422b94451b2e24e",
   "package_version": "0.3.0",
   "license": "MIT",
-  "status": "godot-addon-v0.2.0",
+  "status": "godot-addon-unreleased-b1",
   "upstream_sha256": {
     "LICENSE": "0a77565a50c3462831244452f129c38d2adc4fd07897cbeba8adc943f958604e",
     "package.json": "9102cb998d434acd1d7ed6867346b3b5ec67a9d30697c3af0410f4a0ba38730e",
@@ -22,7 +22,13 @@
     "src/fx/ice/_lib.js": "a81ae57b7f90a1e8266cf2f7f6f11dd4551a088220ddeac03d4539dfb40e5782",
     "src/fx/water/_lib.js": "367d4014ef7c173a722cde22b9a132e61b39e5942e5cee6fa0a7737beaa4fd2a",
     "src/fx/holy/_lib.js": "6768e3763ff7c5d5294308cb92137319a979ff365881dc3b101f3f2a01e6ec27",
-    "src/fx/projectiles/_lib.js": "d1211e9dc805ba6e9c0d5545bb487129305fb578bb3f3d834ae021b03a91b2e6"
+    "src/fx/projectiles/_lib.js": "d1211e9dc805ba6e9c0d5545bb487129305fb578bb3f3d834ae021b03a91b2e6",
+    "src/fx/impacts/hit-spark.js": "b0f2d0e5337ab2fff3a6a8995e6404fed72512bdcd1bc92838a60bf879bc732a",
+    "src/fx/spawn/poof.js": "2c67b046e2062be1503f22637df9214c0577b0373116aa42aca019b75a47122a",
+    "src/fx/fire/campfire.js": "9e406f69bac94a7a81ebe37fb09860b909807b05be0d2fa562b65afcb213103b",
+    "src/fx/projectiles/rocket.js": "e657a3b5404ecd8e6773d544e79af9946703fa40d4d3d5550b2c9b8b2db86f10",
+    "src/fx/explosions/small-explosion.js": "86b8b0bc9ab758233f06cad3686f0d6037ed674d3637381b1fbebf6cbcd63d54",
+    "src/fx/water/splash.js": "511a1f4e5b95c7c9c92db61fad587f6ff990a000bcda232412bf3efe5a6ba3eb"
   },
   "public_api_version": 1,
   "effects": [
@@ -30,6 +36,12 @@
     "ice/ice-lance",
     "projectiles/laser-bolt",
     "holy/sunburst",
-    "water/ripples"
+    "water/ripples",
+    "impacts/hit-spark",
+    "spawn/poof",
+    "fire/campfire",
+    "projectiles/rocket",
+    "explosions/small-explosion",
+    "water/splash"
   ]
 }

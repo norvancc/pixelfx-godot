@@ -48,6 +48,14 @@ macOS / Apple M4 Pro / Godot 4.7.2，headless CPU 基准，默认火球 30 FPS�
 64 MiB / 384 帧，退出后恢复配置；库默认值不变。场景应按实际需要预热或提高预算，
 不要同时启动大量未预热且参数不同的日芒/涟漪。参考 `catalog-v020.json`。
 
+## B1 默认参数成本（未发布源码）
+
+新增六项的完整默认循环/生命周期在同一本机 headless 环境测量。具体数值、帧数和环境保存在 `../validation/b1.json`，由 `catalog-latest.json` 的当前运行生成。一次性效果均为独立模拟，缓存占用为 0；Campfire/Rocket 可共享缓存及预热。爆炸边界随 size 增长。
+
+本机测得 Hit spark 约 5 ms、Poof 约 10 ms、Splash 约 23 ms、Small explosion 约 32 ms/帧；Campfire/Rocket 约 38–42 ms/冷帧。爆炸峰值可达约 90 ms。实际数值以验收 JSON 为准；这些是默认参数下的测量，不承诺 30 FPS，也不含完整游戏的 GPU 合成和逻辑成本。
+
+384 次重播检查每项 32 个 seed，完成两轮后对象数不增加，静态内存增长低于 1 MiB，取消后缓存清空。这是固定重播负载的资源检查，不等价于长时间真实游戏的内存保证。
+
 ## 兼容范围
 
 运行时是标准 GDScript + CanvasItem，不依赖编辑器 API、外部动态库或 Autoload。

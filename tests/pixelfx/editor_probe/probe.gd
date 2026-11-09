@@ -45,6 +45,15 @@ func run() -> void:
 			check(dock.player.paused and is_equal_approx(dock.player.instance.t,.2),id+" editor seek")
 			dock._save("res://builds/pixelfx/editor-"+id+".tres")
 			check(load("res://builds/pixelfx/editor-"+id+".tres").validate().is_empty(),id+" editor save")
+		for id in ["hit_spark","poof","campfire","rocket","small_explosion","splash"]:
+			dock.edit_preset(load("res://addons/pixelfx/presets/"+id+".tres"))
+			check(dock.player.is_playing() and dock.player.instance.meta.id=="pixelfx."+id,id+" editor preview")
+			var analytic: bool=dock.player.instance.meta.cacheable
+			check(dock._time.editable==analytic,id+" editor enables timeline only for analytic effects")
+			dock.edited.set_parameter("seed",-923); dock._replay()
+			check(dock.player.get_parameters().seed==-923,id+" editor parameter replay")
+			dock._save("res://builds/pixelfx/editor-"+id+".tres")
+			check(load("res://builds/pixelfx/editor-"+id+".tres").validate().is_empty(),id+" editor save/readback")
 		make_bottom_panel_item_visible(dock)
 		for i in range(4): await get_tree().process_frame
 		if DisplayServer.get_name()!="headless":

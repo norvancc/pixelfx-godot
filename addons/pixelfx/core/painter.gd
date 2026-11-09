@@ -221,3 +221,16 @@ func glow_ring(x: float,y: float,radius: float,r: float,c: int,k: float=0.5) -> 
 			if d >= 1: continue
 			var f := 1-d
 			add(sx,sy,c,f*f*k)
+
+func sprite(rows: Array,palette: Dictionary,x: float,y: float,opts: Dictionary={}) -> void:
+	var k: float = opts.get("scale",1.0); var alpha: float = opts.get("a",1.0); var width: int = rows[0].length() if not rows.is_empty() else 0
+	for r in range(rows.size()):
+		for q in range(rows[r].length()):
+			var ch: String = rows[r][q]
+			if ch in ["."," "]: continue
+			var color_value = opts.get("tint",palette.get(ch,0))
+			if not color_value: continue
+			var c: int = preload("color.gd").hex(color_value)
+			var column: int = width-1-q if opts.get("flip",false) else q; var row: int = rows.size()-1-r if opts.get("flipY",false) else r
+			if k == 1: dot(x+column,y+row,c,alpha)
+			else: rect(x+column*k,y+row*k,k,k,c,alpha)

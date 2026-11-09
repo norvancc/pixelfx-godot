@@ -1,0 +1,13 @@
+{
+  "poof-cycle-5": {"max_channel_error":187,"changed_bytes":16,"pixel_rect":[-13,-4,3,3],"reason":"V8/Godot sin differ by one ULP: the floor-limited speed-line endpoint is -1.9999999999999982 vs -2.0000000000000018. Bresenham selects the neighbouring row; only these five pixels differ."},
+  "poof-cycle-6": {"max_channel_error":91,"changed_bytes":15,"pixel_rect":[-13,-4,2,3],"reason":"Same audited sin endpoint rounding as cycle-5; only four line pixels differ."},
+  "poof-cycle-16": {"max_channel_error":2,"changed_bytes":5,"pixel_rect":[15,-2,4,3],"reason":"Sub-ULP simulation/trigonometry differences at translucent puff overlaps accumulate through integer alpha blending (five colour channels)."},
+  "small_explosion-palette-0.9180000000000001": {"max_channel_error":1,"changed_bytes":22,"reason":"Smoke/dust alpha blending truncation after native/V8 float math; no geometry displacement."},
+  "small_explosion-dark-0.9180000000000001": {"max_channel_error":1,"changed_bytes":22,"reason":"Same smoke/dust alpha blending as palette case."},
+  "small_explosion-bright-0.9180000000000001": {"max_channel_error":1,"changed_bytes":22,"reason":"Same smoke/dust alpha blending as palette case."},
+  "small_explosion-flip-0.9180000000000001": {"max_channel_error":1,"changed_bytes":22,"reason":"Same smoke/dust alpha blending under mirroring."},
+  "small_explosion-back-0.17": {"max_channel_error":1,"changed_bytes":24,"reason":"Back-layer smoke/dust alpha blending truncation."},
+  "small_explosion-stop-0": {"max_channel_error":1,"changed_bytes":22,"reason":"Same smoke/dust alpha blending before stop fade begins."},
+  "campfire-cycle-70": {"max_channel_error":2,"changed_bytes":12,"reason":"Native/V8 closed-form float math at overlapping translucent smoke discs; integer blending compounds a one-byte channel difference."},
+  "campfire-cycle-71": {"max_channel_error":1,"changed_bytes":27,"reason":"Native/V8 closed-form smoke-disc float math and alpha blending truncation."}
+}
