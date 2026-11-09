@@ -1,0 +1,175 @@
+{
+  "id": "b2-simulations",
+  "batch": "B2",
+  "gallery": "demos/pixelfx/b2_simulations_gallery.tscn",
+  "frame": {
+    "width": 768,
+    "height": 640,
+    "x": -320,
+    "y": -480
+  },
+  "effects": [
+    {
+      "id": "flame_pillar",
+      "source": "fire/flame-pillar",
+      "limits": {
+        "height": [
+          40,
+          200
+        ]
+      },
+      "stateful": true
+    },
+    {
+      "id": "meteor",
+      "source": "fire/meteor",
+      "limits": {},
+      "stateful": true
+    },
+    {
+      "id": "homing_missile",
+      "source": "projectiles/homing-missile",
+      "limits": {},
+      "stateful": true
+    },
+    {
+      "id": "ice_shatter",
+      "source": "ice/ice-shatter",
+      "limits": {},
+      "stateful": true
+    },
+    {
+      "id": "ice_spikes",
+      "source": "ice/ice-spikes",
+      "limits": {
+        "reach": [
+          60,
+          240
+        ],
+        "height": [
+          24,
+          88
+        ]
+      },
+      "stateful": true
+    },
+    {
+      "id": "icicle_fall",
+      "source": "ice/icicle-fall",
+      "limits": {},
+      "stateful": true
+    },
+    {
+      "id": "snowflake_burst",
+      "source": "ice/snowflake-burst",
+      "limits": {
+        "count": [
+          1,
+          18
+        ]
+      },
+      "stateful": true
+    },
+    {
+      "id": "geyser",
+      "source": "water/geyser",
+      "limits": {
+        "height": [
+          40,
+          200
+        ]
+      },
+      "stateful": true
+    },
+    {
+      "id": "wave_crash",
+      "source": "water/wave-crash",
+      "limits": {},
+      "stateful": true
+    },
+    {
+      "id": "feather_burst",
+      "source": "holy/feather-burst",
+      "limits": {},
+      "stateful": true
+    },
+    {
+      "id": "heal_aoe",
+      "source": "holy/heal-aoe",
+      "limits": {
+        "reach": [
+          40,
+          160
+        ]
+      },
+      "stateful": true
+    },
+    {
+      "id": "holy_pillar",
+      "source": "holy/holy-pillar",
+      "limits": {
+        "shafts": [
+          3,
+          12
+        ]
+      },
+      "stateful": true
+    },
+    {
+      "id": "smite",
+      "source": "holy/smite",
+      "limits": {},
+      "stateful": true
+    }
+  ],
+  "tolerances": {
+    "meteor-cycle-56": {
+      "max_channel_error": 1,
+      "changed_bytes": 28,
+      "sum_error": 28,
+      "pixel_rect": [
+        -50,
+        -5,
+        5,
+        5
+      ],
+      "reason": "Layered smoke/fire blending differs by one RGB quantization step; all alpha bytes and occupied pixels are identical."
+    },
+    "geyser-cycle-102": {
+      "max_channel_error": 2,
+      "changed_bytes": 24,
+      "sum_error": 25,
+      "pixel_rect": [
+        -8,
+        -106,
+        15,
+        18
+      ],
+      "reason": "Water mist/billow blend quantization differs by at most two RGB steps; all alpha bytes and occupied pixels are identical."
+    },
+    "geyser-dark-2.55": {
+      "max_channel_error": 1,
+      "changed_bytes": 33,
+      "sum_error": 33,
+      "pixel_rect": [
+        -33,
+        -110,
+        46,
+        106
+      ],
+      "reason": "Water mist/billow blend quantization differs by at most two RGB steps; all alpha bytes and occupied pixels are identical."
+    },
+    "wave_crash-dark-1.6320000000000001": {
+      "max_channel_error": 1,
+      "changed_bytes": 52,
+      "sum_error": 52,
+      "pixel_rect": [
+        5,
+        -23,
+        35,
+        20
+      ],
+      "reason": "Translucent foam/mist blending differs by one RGB quantization step; all alpha bytes and occupied pixels are identical."
+    }
+  }
+}

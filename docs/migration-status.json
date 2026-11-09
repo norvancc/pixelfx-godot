@@ -7,8 +7,8 @@
   },
   "counts": {
     "upstream_effects": 244,
-    "completed": 39,
-    "remaining": 205
+    "completed": 52,
+    "remaining": 192
   },
   "status_order": [
     "待分析",
@@ -1077,14 +1077,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/flame_pillar.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "215 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1133,14 +1142,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/fire/meteor.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "208 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1268,14 +1286,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/holy/feather_burst.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "147 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1314,14 +1341,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/holy/heal_aoe.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "151 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1360,14 +1396,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/holy/holy_pillar.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "169 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1406,14 +1451,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/holy/smite.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "141 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1623,14 +1677,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/ice/ice_shatter.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "140 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1646,14 +1709,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/ice/ice_spikes.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "162 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1669,14 +1741,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/ice/icicle_fall.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "134 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1692,14 +1773,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/ice/snowflake_burst.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "160 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -3503,14 +3593,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/projectiles/homing_missile.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "173 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -5430,14 +5529,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/geyser.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "214 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -5642,14 +5750,23 @@
         "./_lib.js"
       ],
       "render_type": "stateful",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/wave_crash.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-simulations.json",
+        "152 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-simulations-effects.png",
+        "builds/pixelfx/b2-simulations-native.mp4",
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-simulations.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {

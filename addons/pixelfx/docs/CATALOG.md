@@ -1,8 +1,8 @@
 # Effect catalog / 效果目录
 
-当前源码已验收 **39/244** 个上游算法，剩余 **205** 个；包含 **40 个预设**。最新发行包 **0.2.0** 只含 B0 的五个算法及 Arcane Fireball 换色预设，B1/B2 尚未发布为新版本。
+当前源码已验收 **52/244** 个上游算法，剩余 **192** 个；包含 **53 个预设**。最新发行包 **0.2.0** 只含 B0 的五个算法及 Arcane Fireball 换色预设，B1/B2 尚未发布为新版本。
 
-30 个解析循环支持 seek、共享帧缓存和预热；9 个有状态一次性效果使用独立模拟，自动结束，调参重播，不支持 seek、共享帧缓存或预热。全部支持 seed、调色/辅助颜色、light、播放控制及 Node2D 变换；具体可编辑字段和范围由各预设的 Inspector schema 给出。
+30 个解析循环支持 seek、共享帧缓存和预热；22 个有状态一次性效果使用独立模拟，自动结束，调参重播，不支持 seek、共享帧缓存或预热。全部支持 seed、调色/辅助颜色、light、播放控制及 Node2D 变换；具体可编辑字段和范围由各预设的 Inspector schema 给出。
 
 所有预设均位于本插件的 `presets/` 目录。完整仓库的默认图鉴提供 B1/B2 入口；插件单独安装后，直接给 `PixelFXPlayer2D.effect` 赋预设即可。
 
@@ -47,6 +47,19 @@
 | Fountain · `water/fountain` | [fountain.tres](../presets/fountain.tres) | 解析循环 | Back + front | B2 ice/water |
 | Rain splash · `water/rain-splash` | [rain_splash.tres](../presets/rain_splash.tres) | 解析循环 | Back + front | B2 ice/water |
 | Waterfall · `water/waterfall` | [waterfall.tres](../presets/waterfall.tres) | 解析循环 | Back + front | B2 ice/water |
+| Flame pillar · `fire/flame-pillar` | [flame_pillar.tres](../presets/flame_pillar.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Meteor · `fire/meteor` | [meteor.tres](../presets/meteor.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Homing missile · `projectiles/homing-missile` | [homing_missile.tres](../presets/homing_missile.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Ice shatter · `ice/ice-shatter` | [ice_shatter.tres](../presets/ice_shatter.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Ice spikes · `ice/ice-spikes` | [ice_spikes.tres](../presets/ice_spikes.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Icicle fall · `ice/icicle-fall` | [icicle_fall.tres](../presets/icicle_fall.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Snowflake burst · `ice/snowflake-burst` | [snowflake_burst.tres](../presets/snowflake_burst.tres) | 独立模拟，一次性 | Front | B2 simulations |
+| Geyser · `water/geyser` | [geyser.tres](../presets/geyser.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Wave crash · `water/wave-crash` | [wave_crash.tres](../presets/wave_crash.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Feather burst · `holy/feather-burst` | [feather_burst.tres](../presets/feather_burst.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Healing ring · `holy/heal-aoe` | [heal_aoe.tres](../presets/heal_aoe.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Holy pillar · `holy/holy-pillar` | [holy_pillar.tres](../presets/holy_pillar.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
+| Smite · `holy/smite` | [smite.tres](../presets/smite.tres) | 独立模拟，一次性 | Back + front | B2 simulations |
 
 Arcane Fireball（[arcane_fireball.tres](../presets/arcane_fireball.tres)）复用 Fireball 算法，不另计一个算法。
 

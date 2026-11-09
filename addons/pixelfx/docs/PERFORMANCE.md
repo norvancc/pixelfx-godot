@@ -105,6 +105,30 @@ B2 做了 320 次重播（每项八个 seed、两轮），两轮资源快照的�
 
 Frost breath 和 Waterfall 的采样超过 33.3 ms；其他时刻或参数可能更慢。全目录当前有 30 项解析循环、9 项独立有状态效果；共享缓存默认仍为 32 MiB / 256 帧。本批 128 次重播两轮对象数持平、静态内存增量 1456 字节，只代表该固定测试负载。
 
+## B2 模拟十三项成本（未发布源码）
+
+环境为 Apple M4 Pro / macOS / Godot 4.7.2。每项仅测四个默认时刻的 `draw()`；不包括完整模拟更新和 GPU 上传，也不是穷举峰值。原始记录见 [十三项验收](../validation/b2-simulations.json)。
+
+| 效果 | 四次冷绘制最大值 / ms |
+| --- | ---: |
+| `fire/flame-pillar` | 134.781 |
+| `fire/meteor` | 60.189 |
+| `projectiles/homing-missile` | 27.853 |
+| `ice/ice-shatter` | 16.888 |
+| `ice/ice-spikes` | 51.790 |
+| `ice/icicle-fall` | 5.583 |
+| `ice/snowflake-burst` | 15.111 |
+| `water/geyser` | 82.302 |
+| `water/wave-crash` | 25.311 |
+| `holy/feather-burst` | 13.795 |
+| `holy/heal-aoe` | 32.958 |
+| `holy/holy-pillar` | 54.729 |
+| `holy/smite` | 17.309 |
+
+本批 13 项均不支持共享帧缓存/预热。208 次重播两轮对象数持平、静态内存增量 1456 字节，结果限于固定测试负载。不要据固定帧率录像推断实时帧率或并发保证。
+
+模拟十三项的 Linux 检查记录见 [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks)；此前冰水八项已通过[完整 Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679)。
+
 ## 兼容范围
 
 运行时是标准 GDScript + CanvasItem，不依赖编辑器 API、外部动态库或 Autoload。
@@ -120,6 +144,8 @@ API 目标为 Godot 4.3+。**4.7.2 / macOS / GL Compatibility** 已做可见编�
 示例 export_presets.cfg 排除 editor、templates、tests、tools，保留 MIT 声明和来源信息。
 macOS universal/arm64 示例项目启用 Godot 所需的 ETC2 ASTC 导入选项。
 
-0.1.0 的历史 macOS universal .app 已实际导出、校验 ad-hoc 签名并启动检查。B1/B2 仅验证源码图鉴和独立插件安装，未将旧导出结果延伸为当前 39 项效果的应用导出验收。
+0.1.0 的历史 macOS universal .app 已实际导出、校验 ad-hoc 签名并启动检查。B1/B2 仅验证源码图鉴和独立插件安装，未将旧导出结果延伸为当前 52 项效果的应用导出验收。
 这属于本机运行验证，未进行 Apple 公证或商店发布。
 不要把 macOS 导出成功等同于其他平台已验证。
+
+本批 Flame pillar、Meteor、Ice spikes、Geyser 和 Holy pillar 的冷绘制采样超过 33.3 ms；其他时刻和参数仍可能更慢。

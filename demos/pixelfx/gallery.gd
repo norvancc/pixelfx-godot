@@ -61,6 +61,8 @@ func _ready() -> void:
 	b2_nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/b2_gallery.tscn"))
 	var elements_nav := Button.new(); elements_nav.text="B2 · 冰与水 8 项 →"; elements_nav.position=Vector2(850,86); elements_nav.size=Vector2(240,34); add_child(elements_nav)
 	elements_nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/b2_elements_gallery.tscn"))
+	var simulations_nav := Button.new(); simulations_nav.text="B2 · 模拟 13 项 →"; simulations_nav.position=Vector2(600,86); simulations_nav.size=Vector2(240,34); add_child(simulations_nav)
+	simulations_nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/b2_simulations_gallery.tscn"))
 	select_effect(0)
 	recording="--gallery-record" in OS.get_cmdline_user_args()
 	queue_redraw()

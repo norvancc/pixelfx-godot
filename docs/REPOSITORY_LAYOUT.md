@@ -4,7 +4,7 @@ The repository is both an installable Godot addon and a runnable demonstration p
 
 | Path | Purpose |
 | --- | --- |
-| `addons/pixelfx/` | Distributable addon: runtime, editor, 39 effects / 40 presets, templates, API/catalog/validation documentation, license and provenance |
+| `addons/pixelfx/` | Distributable addon: runtime, editor, 52 effects / 53 presets, templates, API/catalog/validation documentation, license and provenance |
 | `demos/pixelfx/` | Runnable gallery and integration examples |
 | `tests/pixelfx/` | Rendering, runtime, catalog and editor verification; test fixtures stay here |
 | `tools/pixelfx/` | Reference generation, validation and release packaging tools |
@@ -22,7 +22,7 @@ Root files provide installation, licensing, contributor policies, release histor
 
 ## Migration evidence
 
-`docs/migration-status.json` tracks all 244 pinned upstream algorithms (39 completed, 205 remaining; B2 has 21 remaining). `addons/pixelfx/validation/b1.json` and `b2.json` and `b2-elements.json` bind batch acceptance to implementation hashes. `addons/pixelfx/docs/CATALOG.md` stays inside the addon so preset paths and lifecycle capabilities remain available after addon-only installation. Public posters live in `docs/images/`; large recordings, decoded frames and generated CI reports stay under ignored `builds/`, with shareable evidence links in the review documents.
+`docs/migration-status.json` tracks all 244 pinned upstream algorithms (52 completed, 192 remaining; B2 has 8 remaining). `addons/pixelfx/validation/b1.json` and `b2.json` and the declarative `b2-elements.json` / `b2-simulations.json` records bind batch acceptance to implementation hashes. `addons/pixelfx/docs/CATALOG.md` stays inside the addon so preset paths and lifecycle capabilities remain available after addon-only installation. Public posters live in `docs/images/`; large recordings, decoded frames and generated CI reports stay under ignored `builds/`, with shareable evidence links in the review documents.
 
 Source batch progress does not change the published version: 0.2.0 still contains five effects. Keep both changelogs and package/version metadata aligned when a new release is actually prepared.
 

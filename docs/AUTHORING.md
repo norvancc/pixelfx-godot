@@ -19,7 +19,7 @@ For stateful effects, set `cacheable=false` and implement `update(dt, options)`.
 
 Use the existing deterministic math, color, Painter and particle helpers. Specialized helpers belong with the effect or in a tested shared module. The current library does not include all upstream simulators or character acting systems.
 
-Current source examples include 30 analytic loops and nine isolated stateful one-shots; use the [effect catalog](../addons/pixelfx/docs/CATALOG.md) to choose a comparable module. Preserve the five published effect paths and public contract v1. A helper being available does not mean every upstream effect that uses it has been ported.
+Current source examples include 30 analytic loops and twenty-two isolated stateful one-shots; use the [effect catalog](../addons/pixelfx/docs/CATALOG.md) to choose a comparable module. Preserve the five published effect paths and public contract v1. A helper being available does not mean every upstream effect that uses it has been ported.
 
 ## Verification
 

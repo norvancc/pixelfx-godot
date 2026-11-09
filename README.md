@@ -8,17 +8,17 @@
 
 [中文说明](README.zh-CN.md) · [Quick start](#quick-start) · [API](addons/pixelfx/docs/API.md) · [Add an effect](docs/AUTHORING.md) · [Roadmap](ROADMAP.md)
 
-![Native Godot B2 effects](docs/images/b2-effects.png)
+![Native Godot B2 simulation effects](docs/images/b2-simulations-effects.png)
 
-[Watch the 20-effect native preview](https://github.com/user-attachments/assets/f7feadf1-6fd1-4d19-8569-fe567e98bd2b)
+[Watch the 13-effect native simulation preview](https://github.com/user-attachments/assets/6d2cb744-abb6-4832-ac10-51044966b747)
 
 Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/patch-gg/pixelfx/tree/a84159688af3ca37a4be05a0d422b94451b2e24e). Original work by Patch and Hugo Duprez; see [attribution](NOTICE.md) and [source hashes](addons/pixelfx/provenance.json). This project is independently maintained and is not an official upstream release.
 
 ## Status
 
-**The current source includes 39 native effects; the latest published release, 0.2.0, contains five.** The pinned upstream catalog contains 244 effects; 205 remain. Arcane Fireball is a palette preset and does not count as another algorithm.
+**The current source includes 52 native effects; the latest published release, 0.2.0, contains five.** The pinned upstream catalog contains 244 effects; 192 remain. Arcane Fireball is a palette preset and does not count as another algorithm.
 
-The first B2 slice added 20 native ports: seven fire effects, ten projectiles/muzzle effects and three water effects. The source catalog now contains **39/244** effects (205 remaining). That first slice has five stateful ports and fifteen analytic loops. See the [B2 acceptance record](addons/pixelfx/validation/b2.json) and run `demos/pixelfx/b2_gallery.tscn`. A second B2 slice adds eight analytic ice/water effects; B2 is 28/49 complete, with 21 effects still pending. See the [ice/water review](docs/plans/b2-elements-review.zh-CN.md) and [acceptance record](addons/pixelfx/validation/b2-elements.json). These source additions have not been released as a new version.
+The first B2 slice added 20 native ports: seven fire effects, ten projectiles/muzzle effects and three water effects. The source catalog now contains **52/244** effects (192 remaining). That first slice has five stateful ports and fifteen analytic loops. See the [B2 acceptance record](addons/pixelfx/validation/b2.json) and run `demos/pixelfx/b2_gallery.tscn`. A second B2 slice adds eight analytic ice/water effects. This slice adds thirteen isolated simulations; B2 is 41/49 complete, with 8 effects still pending. See the [simulation review](docs/plans/b2-simulations-review.zh-CN.md) and [acceptance record](addons/pixelfx/validation/b2-simulations.json). See the [ice/water review](docs/plans/b2-elements-review.zh-CN.md) and [acceptance record](addons/pixelfx/validation/b2-elements.json). These source additions have not been released as a new version.
 
 B1 adds six probe effects with upstream RGBA comparisons, native visual evidence and lifecycle tests. See the [migration ledger](docs/migration-status.json) and [B1 acceptance record](addons/pixelfx/validation/b1.json).
 
@@ -28,8 +28,9 @@ B1 adds six probe effects with upstream RGBA comparisons, native visual evidence
 | B1 / unreleased | 6 | 2 analytic loops, 4 stateful one-shots | `demos/pixelfx/b1_gallery.tscn` |
 | B2 first slice / unreleased | 20 | 15 analytic loops, 5 stateful one-shots | `demos/pixelfx/b2_gallery.tscn` |
 | B2 ice/water / unreleased | 8 | 8 analytic loops | `demos/pixelfx/b2_elements_gallery.tscn` |
+| B2 simulations / unreleased | 13 | 13 stateful one-shots | `demos/pixelfx/b2_simulations_gallery.tscn` |
 
-The source contains **39 algorithms / 40 presets**: **30 analytic loops and 9 stateful one-shots**. See the [complete effect and preset catalog](addons/pixelfx/docs/CATALOG.md). All support palette/auxiliary colors, seed, light, playback controls and native transforms. Stateful effects keep independent simulations, finish automatically and restart on parameter changes; seek, shared-frame caching and prewarming are unavailable for them. Games own projectile movement, impact and damage; actor choreography remains outside these batches.
+The source contains **52 algorithms / 53 presets**: **30 analytic loops and 22 stateful one-shots**. See the [complete effect and preset catalog](addons/pixelfx/docs/CATALOG.md). All support palette/auxiliary colors, seed, light, playback controls and native transforms. Stateful effects keep independent simulations, finish automatically and restart on parameter changes; seek, shared-frame caching and prewarming are unavailable for them. Games own projectile movement, impact and damage; actor choreography remains outside these batches.
 
 The renderer generates pixels on the CPU and uploads textures to Godot. It is **not a GPU shader port**, a JavaScript wrapper, or a collection of prerecorded sprite sheets. Runtime frame sharing caches generated samples.
 
@@ -40,11 +41,11 @@ The renderer generates pixels on the CPU and uploads textures to Godot. It is **
 - Editor preview with automatically discovered effects, Inspector controls, timeline and explicit preset saving.
 - Standalone demo, projectile integration example, extension template, tests and packaging tools.
 
-Target: **Godot 4.3+**. The current ice/water slice is validated on Godot 4.7.2 / macOS / GL Compatibility; its Linux CI is pending. The previous 31-effect snapshot passed [Godot 4.3 / Ubuntu headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
+Target: **Godot 4.3+**. Local acceptance uses Godot 4.7.2 / macOS / GL Compatibility. The [Godot 4.3 / Ubuntu headless checks](https://github.com/norvancc/pixelfx-godot/pull/9/checks) are recorded on this batch’s PR. The previous 39-effect snapshot passed [its full Linux gate](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
 
 ## Quick start
 
-1. For the five released effects, download `pixelfx-addon-0.2.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases). For all 39 accepted source effects, clone this repository at `main` and use its `addons/pixelfx` directory.
+1. For the five released effects, download `pixelfx-addon-0.2.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases). For all 52 accepted source effects, clone this repository at `main` and use its `addons/pixelfx` directory.
 2. Copy `addons/pixelfx` into your project's `addons` directory.
 3. Optionally enable **PixelFX** under **Project → Project Settings → Plugins** for the preview panel. Runtime works with the plugin disabled.
 4. Add a `PixelFXPlayer2D` node and assign `addons/pixelfx/presets/fireball.tres` to **Effect**.
@@ -68,7 +69,7 @@ func spawn_visual(at: Vector2) -> PixelFXPlayer2D:
 # The game owns movement, collision and damage; see the projectile example.
 ```
 
-To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed. The gallery's **B1**, **B2** and **B2 ice/water** buttons open the corresponding galleries; those scenes can also run directly using the paths in the table above.
+To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed. The gallery's **B1**, **B2**, **B2 ice/water** and **B2 simulations** buttons open the corresponding galleries; those scenes can also run directly using the paths in the table above.
 
 ## Add effects without editing the framework
 
@@ -77,7 +78,7 @@ Copy `addons/pixelfx/templates/effect.gd.txt` to `res://pixelfx/my_effect.gd`, t
 Effect-specific helpers and upstream simulation/acting dependencies may still need porting. The extension API does not mean the upstream character/rig/act systems have already been migrated.
 
 - [Effect authoring (English)](docs/AUTHORING.md)
-- [All 39 effects and presets](addons/pixelfx/docs/CATALOG.md)
+- [All 52 effects and presets](addons/pixelfx/docs/CATALOG.md)
 - [Detailed API (中文)](addons/pixelfx/docs/API.md)
 - [Effect contract (中文)](addons/pixelfx/docs/EFFECTS.md)
 - [Performance and compatibility](addons/pixelfx/docs/PERFORMANCE.md)
@@ -102,7 +103,7 @@ python3 tools/pixelfx/package_demo.py
 
 The check downloads the pinned upstream commit and verifies source hashes, then runs pixel parity, runtime, editor integration and performance checks. It does not fetch or execute arbitrary latest upstream versions. Generated files go into ignored `builds/` directories.
 
-Current source validation preserves **447 baseline + 809 B1 + 2607 first-B2 + 1052 ice/water = 4915 upstream RGBA comparisons**. The latest gate also passes 70 baseline, 136 B1 and 419 B2 runtime checks; 329 existing and 431 B2 catalog checks; 159 editor checks; and 384 B1 / 320 B2 replays. The ice/water slice adds 167 runtime checks, 333 catalog/bounds checks and 128 replays, with 722 byte-exact cases and 66 individually audited tolerance exceptions; its local full gate passed. The first B2 slice has 2470 byte-exact cases and eight audited exceptions. [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) and its [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed at implementation commit `73560f4`; merge commit `112d5d4` contains the same accepted source tree. Native visual evidence and platform limits are recorded in [VALIDATION.md](addons/pixelfx/VALIDATION.md).
+Current source validation preserves **447 baseline + 809 B1 + 2607 first-B2 + 1052 ice/water + 2166 simulations = 7081 upstream RGBA comparisons**. The latest gate also passes 70 baseline, 136 B1 and 419 B2 runtime checks; 329 existing and 431 B2 catalog checks; 211 editor checks; and 384 B1 / 320 B2 replays. The ice/water slice adds 167 runtime checks, 333 catalog/bounds checks and 128 replays, with 722 byte-exact cases and 66 individually audited tolerance exceptions; its local full gate passed. The simulation slice adds 300 runtime checks, 392 catalog/bounds checks and 208 replays, with 2066 byte-exact cases and four audited RGB quantization exceptions. The first B2 slice has 2470 byte-exact cases and eight audited exceptions. [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) and its [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed at implementation commit `73560f4`; merge commit `112d5d4` contains the same accepted source tree. Native visual evidence and platform limits are recorded in [VALIDATION.md](addons/pixelfx/VALIDATION.md).
 
 ## Contributing and license
 
