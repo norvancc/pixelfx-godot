@@ -56,7 +56,21 @@
     "src/fx/water/drip.js": "b024a58d39ddcd66ddf746440cc1d54397705febd54975473c9fc06632595896",
     "src/fx/water/fountain.js": "6df76a2b9a99c4d1f21282a8e736c9284a9c847c00a403c411e8772b2c18537f",
     "src/fx/water/rain-splash.js": "9e13b70c904426b92b17f30cdd7fa0d73e2340152d242294375e1278376efa8e",
-    "src/fx/water/waterfall.js": "b5c42cbbf32237be897924af19e493e602fe20e9750da37e19f9e31f98590850"
+    "src/fx/water/waterfall.js": "b5c42cbbf32237be897924af19e493e602fe20e9750da37e19f9e31f98590850",
+    "src/fx/fire/flame-pillar.js": "348910dcff7d5f69287912dd0b5a130cb31f03553884d50fc4eb07abc1aff659",
+    "src/core/shapes.js": "3e28f77e25b3083949f083c74304ead6826b7b1da20a658ccb114ab531fc8898",
+    "src/fx/fire/meteor.js": "f41fb6b0f67e883c2d0b05f42381b1158ad72307e3ac5b9c51ebb8d0578c48d8",
+    "src/fx/projectiles/homing-missile.js": "64bbdee4f09f9de24f6bbc8efde1dfe9809b894984f8c4fab5d4cbb4eb214825",
+    "src/fx/ice/ice-shatter.js": "3019c63190db31416371ee1ba51d3611996d4f2312536d37bc376d4b51b0b12e",
+    "src/fx/ice/ice-spikes.js": "7bb75052f982b28f2f93c87b0473f2075a49f3c18314ee22f798eafbc7812912",
+    "src/fx/ice/icicle-fall.js": "948d0632ac7e712c94355dc73cee8f18d9f23e5a9b57b645712631927d5cb359",
+    "src/fx/ice/snowflake-burst.js": "7a7820355463f86b0d77e9a60fa52006fb75e994de4d8b0d647c542ce653216c",
+    "src/fx/water/geyser.js": "6d72bef805689b54e1aa19318c9098ef80365ab128e5602364ed3b76ecb37497",
+    "src/fx/water/wave-crash.js": "c787fa13943c2ce5b5fd5f7b8f24d22a364c8c2358e76443b9cb7f68fe0cc5bc",
+    "src/fx/holy/feather-burst.js": "01919dee6a522cfcc1d42216370ca57ea36e12e24ea3ec04ae3079f2f9b3efe8",
+    "src/fx/holy/heal-aoe.js": "f9e9d5523abdff4a003d6661a2bcbca7432897018592b5c86a3c72efea8d6c3a",
+    "src/fx/holy/holy-pillar.js": "d65de3c0a32bf6c0816a5729248efcbb128290d6ce980ed8130eea8016d137e3",
+    "src/fx/holy/smite.js": "f0958ff226cb9114de31722b917c50867f715b9029f210c251186565895ea69b"
   },
   "public_api_version": 1,
   "effects": [
@@ -98,6 +112,19 @@
     "water/drip",
     "water/fountain",
     "water/rain-splash",
-    "water/waterfall"
+    "water/waterfall",
+    "fire/flame-pillar",
+    "fire/meteor",
+    "projectiles/homing-missile",
+    "ice/ice-shatter",
+    "ice/ice-spikes",
+    "ice/icicle-fall",
+    "ice/snowflake-burst",
+    "water/geyser",
+    "water/wave-crash",
+    "holy/feather-burst",
+    "holy/heal-aoe",
+    "holy/holy-pillar",
+    "holy/smite"
   ]
 }
