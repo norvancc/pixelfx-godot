@@ -45,7 +45,12 @@ func run() -> void:
 			check(dock.player.paused and is_equal_approx(dock.player.instance.t,.2),id+" editor seek")
 			dock._save("res://builds/pixelfx/editor-"+id+".tres")
 			check(load("res://builds/pixelfx/editor-"+id+".tres").validate().is_empty(),id+" editor save")
-		for id in ["hit_spark", "poof", "campfire", "rocket", "small_explosion", "splash", "brazier", "candle", "fire_breath", "fire_tornado", "flamethrower", "spirit_flame", "torch", "arrow", "bullet_tracer", "cannonball", "energy_disc", "flare", "magic_missile", "muzzle_pistol", "muzzle_shotgun", "muzzle_smg", "plasma_shot", "water_jet", "water_orb", "whirlpool"]:
+		var additional_ids = []
+		var provenance = JSON.parse_string(FileAccess.get_file_as_string("res://addons/pixelfx/provenance.json"))
+		for source in provenance.effects:
+			var id = str(source).get_file().replace("-","_")
+			if id not in ["fireball","ice_lance","laser_bolt","sunburst","ripples"]: additional_ids.append(id)
+		for id in additional_ids:
 			dock.edit_preset(load("res://addons/pixelfx/presets/"+id+".tres"))
 			check(dock.player.is_playing() and dock.player.instance.meta.id=="pixelfx."+id,id+" editor preview")
 			var analytic: bool=dock.player.instance.meta.cacheable

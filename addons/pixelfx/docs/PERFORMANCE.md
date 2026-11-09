@@ -83,9 +83,27 @@ B2 与 B1 的采样方式不同：每项只测默认生命周期的四个 `draw(
 | `water/water-orb` | 11.88 | 解析循环 |
 | `water/whirlpool` | 29.35 | 解析循环 |
 
-Fire breath、Fire tornado、Cannonball 和 Shotgun blast 的这些采样超过 33.3 ms；其他参数或时刻仍可能更慢。不要据少量采样或固定 30 FPS 录像承诺实时性能。全目录有 22 项解析循环和九项独立模拟；预热/共享帧只适用于解析效果，32 MiB / 256 帧默认预算未扩大，整套循环不应一次性同步预热。
+Fire breath、Fire tornado、Cannonball 和 Shotgun blast 的这些采样超过 33.3 ms；其他参数或时刻仍可能更慢。不要据少量采样或固定 30 FPS 录像承诺实时性能。首批验收时有 22 项解析循环和九项独立模拟；预热/共享帧只适用于解析效果，32 MiB / 256 帧默认预算未扩大，整套循环不应一次性同步预热。
 
 B2 做了 320 次重播（每项八个 seed、两轮），两轮资源快照的对象数持平，静态内存增量在测试上限内；这是指定负载的回归结果，不是长期运行或所有工作负载的保证。
+
+
+## B2 冰水八项成本（未发布源码）
+
+同样仅测每项四个默认时刻的 `draw()`；不含完整更新或 GPU 上传，不能视为穷举峰值。环境为 Apple M4 Pro / macOS / Godot 4.7.2。原始记录见 [冰水验收](../validation/b2-elements.json)。
+
+| 效果 | 四次冷绘制最大值 / ms |
+| --- | ---: |
+| `ice/blizzard-vortex` | 17.531 |
+| `ice/frost-breath` | 94.041 |
+| `ice/ice-crystal` | 6.709 |
+| `water/bubbles` | 21.930 |
+| `water/drip` | 4.331 |
+| `water/fountain` | 18.073 |
+| `water/rain-splash` | 32.196 |
+| `water/waterfall` | 79.567 |
+
+Frost breath 和 Waterfall 的采样超过 33.3 ms；其他时刻或参数可能更慢。全目录当前有 30 项解析循环、9 项独立有状态效果；共享缓存默认仍为 32 MiB / 256 帧。本批 128 次重播两轮对象数持平、静态内存增量 1456 字节，只代表该固定测试负载。
 
 ## 兼容范围
 
@@ -102,6 +120,6 @@ API 目标为 Godot 4.3+。**4.7.2 / macOS / GL Compatibility** 已做可见编�
 示例 export_presets.cfg 排除 editor、templates、tests、tools，保留 MIT 声明和来源信息。
 macOS universal/arm64 示例项目启用 Godot 所需的 ETC2 ASTC 导入选项。
 
-0.1.0 的历史 macOS universal .app 已实际导出、校验 ad-hoc 签名并启动检查。B1/B2 仅验证源码图鉴和独立插件安装，未将旧导出结果延伸为 31 项效果的应用导出验收。
+0.1.0 的历史 macOS universal .app 已实际导出、校验 ad-hoc 签名并启动检查。B1/B2 仅验证源码图鉴和独立插件安装，未将旧导出结果延伸为当前 39 项效果的应用导出验收。
 这属于本机运行验证，未进行 Apple 公证或商店发布。
 不要把 macOS 导出成功等同于其他平台已验证。

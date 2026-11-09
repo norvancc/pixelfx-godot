@@ -1,0 +1,1129 @@
+{
+  "passed": true,
+  "accepted_at": "2026-11-09T08:35:11.009795+00:00",
+  "upstream_revision": "a84159688af3ca37a4be05a0d422b94451b2e24e",
+  "scope": "b2-elements: 8 native effects, local macOS acceptance; Linux Godot 4.3 is recorded by PR CI.",
+  "environment": {
+    "cpu": "Apple M4 Pro",
+    "display": "headless",
+    "godot": "4.7.2-stable (official)",
+    "os": "macOS"
+  },
+  "verification": {
+    "config": "tests/pixelfx/batches/b2-elements.json",
+    "reference_cases": [
+      "tools/pixelfx/reference_batch.mjs",
+      "tests/pixelfx/test_batch_parity.gd",
+      "tests/pixelfx/batches/b2-elements.json"
+    ]
+  },
+  "parity": {
+    "cases": 1052,
+    "byte_exact": 722,
+    "default_tolerance": {
+      "max_channel_error": 1,
+      "changed_bytes": 20
+    },
+    "audited_exceptions": {
+      "blizzard_vortex-cycle-31": {
+        "max_channel_error": 2,
+        "changed_bytes": 3,
+        "sum_error": 4,
+        "pixel_rect": [
+          -18,
+          -87,
+          29,
+          88
+        ],
+        "reason": "Audited swirl/disc float rounding at translucent overlaps; only the recorded 1-2/255 quantized channels differ, without displaced opaque geometry."
+      },
+      "blizzard_vortex-flip-1.02": {
+        "max_channel_error": 2,
+        "changed_bytes": 1,
+        "sum_error": 2,
+        "pixel_rect": [
+          18,
+          -88,
+          1,
+          1
+        ],
+        "reason": "Audited swirl/disc float rounding at translucent overlaps; only the recorded 1-2/255 quantized channels differ, without displaced opaque geometry."
+      },
+      "blizzard_vortex-front-0.51": {
+        "max_channel_error": 2,
+        "changed_bytes": 1,
+        "sum_error": 2,
+        "pixel_rect": [
+          -19,
+          -88,
+          1,
+          1
+        ],
+        "reason": "Audited swirl/disc float rounding at translucent overlaps; only the recorded 1-2/255 quantized channels differ, without displaced opaque geometry."
+      },
+      "blizzard_vortex-steps-30": {
+        "max_channel_error": 2,
+        "changed_bytes": 1,
+        "sum_error": 2,
+        "pixel_rect": [
+          -19,
+          -88,
+          1,
+          1
+        ],
+        "reason": "Audited swirl/disc float rounding at translucent overlaps; only the recorded 1-2/255 quantized channels differ, without displaced opaque geometry."
+      },
+      "frost_breath-cycle-1": {
+        "max_channel_error": 2,
+        "changed_bytes": 13,
+        "sum_error": 14,
+        "pixel_rect": [
+          59,
+          -21,
+          70,
+          33
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-2": {
+        "max_channel_error": 1,
+        "changed_bytes": 27,
+        "sum_error": 27,
+        "pixel_rect": [
+          101,
+          -22,
+          24,
+          21
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-5": {
+        "max_channel_error": 2,
+        "changed_bytes": 23,
+        "sum_error": 24,
+        "pixel_rect": [
+          90,
+          -24,
+          34,
+          22
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-26": {
+        "max_channel_error": 2,
+        "changed_bytes": 28,
+        "sum_error": 30,
+        "pixel_rect": [
+          31,
+          -16,
+          93,
+          19
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-27": {
+        "max_channel_error": 2,
+        "changed_bytes": 27,
+        "sum_error": 28,
+        "pixel_rect": [
+          70,
+          -19,
+          43,
+          44
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-28": {
+        "max_channel_error": 1,
+        "changed_bytes": 25,
+        "sum_error": 25,
+        "pixel_rect": [
+          75,
+          -20,
+          40,
+          46
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-29": {
+        "max_channel_error": 1,
+        "changed_bytes": 33,
+        "sum_error": 33,
+        "pixel_rect": [
+          47,
+          -20,
+          70,
+          37
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-30": {
+        "max_channel_error": 2,
+        "changed_bytes": 8,
+        "sum_error": 9,
+        "pixel_rect": [
+          47,
+          -18,
+          53,
+          18
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-31": {
+        "max_channel_error": 2,
+        "changed_bytes": 53,
+        "sum_error": 54,
+        "pixel_rect": [
+          80,
+          -20,
+          41,
+          41
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-32": {
+        "max_channel_error": 1,
+        "changed_bytes": 46,
+        "sum_error": 46,
+        "pixel_rect": [
+          61,
+          -20,
+          62,
+          49
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-33": {
+        "max_channel_error": 2,
+        "changed_bytes": 19,
+        "sum_error": 20,
+        "pixel_rect": [
+          89,
+          -19,
+          20,
+          41
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-34": {
+        "max_channel_error": 2,
+        "changed_bytes": 52,
+        "sum_error": 53,
+        "pixel_rect": [
+          58,
+          -20,
+          67,
+          41
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-cycle-35": {
+        "max_channel_error": 1,
+        "changed_bytes": 93,
+        "sum_error": 93,
+        "pixel_rect": [
+          51,
+          -24,
+          77,
+          49
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-seed0-0": {
+        "max_channel_error": 2,
+        "changed_bytes": 4,
+        "sum_error": 5,
+        "pixel_rect": [
+          86,
+          -6,
+          15,
+          24
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-negative-0": {
+        "max_channel_error": 1,
+        "changed_bytes": 27,
+        "sum_error": 27,
+        "pixel_rect": [
+          90,
+          -24,
+          26,
+          49
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-negative-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 41,
+        "sum_error": 41,
+        "pixel_rect": [
+          60,
+          -22,
+          75,
+          46
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-large-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 33,
+        "sum_error": 33,
+        "pixel_rect": [
+          54,
+          -19,
+          72,
+          39
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-palette-0": {
+        "max_channel_error": 2,
+        "changed_bytes": 110,
+        "sum_error": 111,
+        "pixel_rect": [
+          53,
+          -19,
+          64,
+          51
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-palette-0.20400000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 91,
+        "sum_error": 91,
+        "pixel_rect": [
+          74,
+          -25,
+          50,
+          39
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-palette-0.612": {
+        "max_channel_error": 1,
+        "changed_bytes": 38,
+        "sum_error": 38,
+        "pixel_rect": [
+          27,
+          -19,
+          62,
+          35
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-palette-1.199": {
+        "max_channel_error": 2,
+        "changed_bytes": 398,
+        "sum_error": 404,
+        "pixel_rect": [
+          33,
+          -26,
+          96,
+          41
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-dark-0": {
+        "max_channel_error": 1,
+        "changed_bytes": 56,
+        "sum_error": 56,
+        "pixel_rect": [
+          51,
+          -14,
+          66,
+          39
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-dark-0.20400000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 41,
+        "sum_error": 41,
+        "pixel_rect": [
+          78,
+          -20,
+          47,
+          31
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-dark-0.612": {
+        "max_channel_error": 1,
+        "changed_bytes": 30,
+        "sum_error": 30,
+        "pixel_rect": [
+          37,
+          -14,
+          52,
+          31
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-dark-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 134,
+        "sum_error": 134,
+        "pixel_rect": [
+          64,
+          -24,
+          65,
+          38
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-bright-0.20400000000000001": {
+        "max_channel_error": 2,
+        "changed_bytes": 18,
+        "sum_error": 19,
+        "pixel_rect": [
+          103,
+          -16,
+          22,
+          8
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-bright-1.199": {
+        "max_channel_error": 2,
+        "changed_bytes": 56,
+        "sum_error": 57,
+        "pixel_rect": [
+          93,
+          -24,
+          36,
+          37
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-flip-0.20400000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 28,
+        "sum_error": 28,
+        "pixel_rect": [
+          -125,
+          -19,
+          34,
+          28
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-flip-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 86,
+        "sum_error": 86,
+        "pixel_rect": [
+          -129,
+          -24,
+          54,
+          37
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-rotate-0": {
+        "max_channel_error": 2,
+        "changed_bytes": 23,
+        "sum_error": 24,
+        "pixel_rect": [
+          51,
+          24,
+          48,
+          47
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-rotate-0.20400000000000001": {
+        "max_channel_error": 1,
+        "changed_bytes": 27,
+        "sum_error": 27,
+        "pixel_rect": [
+          73,
+          18,
+          44,
+          28
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-rotate-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 91,
+        "sum_error": 91,
+        "pixel_rect": [
+          68,
+          19,
+          57,
+          35
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-position-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 80,
+        "sum_error": 80,
+        "pixel_rect": [
+          82,
+          -27,
+          54,
+          39
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-spread-min-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 27,
+        "sum_error": 27,
+        "pixel_rect": [
+          94,
+          -15,
+          31,
+          23
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-spread-max-0": {
+        "max_channel_error": 1,
+        "changed_bytes": 64,
+        "sum_error": 64,
+        "pixel_rect": [
+          86,
+          -28,
+          25,
+          68
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-spread-max-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 65,
+        "sum_error": 65,
+        "pixel_rect": [
+          63,
+          -45,
+          48,
+          50
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-power-min-0": {
+        "max_channel_error": 2,
+        "changed_bytes": 3,
+        "sum_error": 4,
+        "pixel_rect": [
+          17,
+          -3,
+          17,
+          9
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-power-min-1.199": {
+        "max_channel_error": 1,
+        "changed_bytes": 22,
+        "sum_error": 22,
+        "pixel_rect": [
+          20,
+          -13,
+          23,
+          17
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-back-0.17": {
+        "max_channel_error": 1,
+        "changed_bytes": 43,
+        "sum_error": 43,
+        "pixel_rect": [
+          91,
+          -19,
+          34,
+          29
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-back-0.97": {
+        "max_channel_error": 2,
+        "changed_bytes": 119,
+        "sum_error": 120,
+        "pixel_rect": [
+          63,
+          -24,
+          65,
+          47
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-end-1.199999": {
+        "max_channel_error": 1,
+        "changed_bytes": 26,
+        "sum_error": 26,
+        "pixel_rect": [
+          70,
+          -20,
+          47,
+          45
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-end-1.2000009999999999": {
+        "max_channel_error": 1,
+        "changed_bytes": 45,
+        "sum_error": 45,
+        "pixel_rect": [
+          58,
+          -22,
+          68,
+          46
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "frost_breath-stop-0": {
+        "max_channel_error": 1,
+        "changed_bytes": 28,
+        "sum_error": 28,
+        "pixel_rect": [
+          91,
+          -19,
+          34,
+          28
+        ],
+        "reason": "Audited layered frost-disc alpha and noise float rounding; all differing channels are within 1-2/255 and the full frame has no opaque geometry displacement. The palette variant has more accumulated quantized channels, explicitly bounded per case."
+      },
+      "rain_splash-cycle-21": {
+        "max_channel_error": 1,
+        "changed_bytes": 21,
+        "sum_error": 21,
+        "pixel_rect": [
+          -64,
+          -6,
+          137,
+          20
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "rain_splash-cycle-31": {
+        "max_channel_error": 1,
+        "changed_bytes": 21,
+        "sum_error": 21,
+        "pixel_rect": [
+          -44,
+          -4,
+          124,
+          17
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "rain_splash-cycle-35": {
+        "max_channel_error": 1,
+        "changed_bytes": 32,
+        "sum_error": 32,
+        "pixel_rect": [
+          -59,
+          -6,
+          139,
+          19
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "rain_splash-cycle-36": {
+        "max_channel_error": 1,
+        "changed_bytes": 27,
+        "sum_error": 27,
+        "pixel_rect": [
+          -56,
+          -4,
+          134,
+          14
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "rain_splash-cycle-38": {
+        "max_channel_error": 1,
+        "changed_bytes": 30,
+        "sum_error": 30,
+        "pixel_rect": [
+          -61,
+          -4,
+          145,
+          15
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "rain_splash-seed0-0": {
+        "max_channel_error": 1,
+        "changed_bytes": 21,
+        "sum_error": 21,
+        "pixel_rect": [
+          -40,
+          -4,
+          98,
+          16
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "rain_splash-large-0.40800000000000003": {
+        "max_channel_error": 1,
+        "changed_bytes": 23,
+        "sum_error": 23,
+        "pixel_rect": [
+          -59,
+          -6,
+          125,
+          17
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "rain_splash-steps-60": {
+        "max_channel_error": 1,
+        "changed_bytes": 23,
+        "sum_error": 23,
+        "pixel_rect": [
+          -62,
+          -4,
+          145,
+          18
+        ],
+        "reason": "Audited wave-field trigonometry/exp/power rounding changes a translucent blend alpha at the ULP scale (the traced rain_splash-cycle-34 pixel differs by seven ULP), producing only 1-2/255 integer channel quantization; no opaque geometry displacement."
+      },
+      "waterfall-cycle-37": {
+        "max_channel_error": 2,
+        "changed_bytes": 4,
+        "sum_error": 5,
+        "pixel_rect": [
+          -48,
+          -13,
+          13,
+          8
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-cycle-41": {
+        "max_channel_error": 2,
+        "changed_bytes": 7,
+        "sum_error": 8,
+        "pixel_rect": [
+          -50,
+          -16,
+          82,
+          12
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-cycle-43": {
+        "max_channel_error": 2,
+        "changed_bytes": 10,
+        "sum_error": 11,
+        "pixel_rect": [
+          -42,
+          -16,
+          14,
+          10
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-cycle-50": {
+        "max_channel_error": 2,
+        "changed_bytes": 16,
+        "sum_error": 17,
+        "pixel_rect": [
+          -45,
+          -16,
+          19,
+          8
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-cycle-54": {
+        "max_channel_error": 1,
+        "changed_bytes": 41,
+        "sum_error": 41,
+        "pixel_rect": [
+          -46,
+          -18,
+          73,
+          18
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-cycle-55": {
+        "max_channel_error": 1,
+        "changed_bytes": 26,
+        "sum_error": 26,
+        "pixel_rect": [
+          -47,
+          -16,
+          76,
+          13
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-cycle-58": {
+        "max_channel_error": 1,
+        "changed_bytes": 32,
+        "sum_error": 32,
+        "pixel_rect": [
+          -47,
+          -17,
+          76,
+          13
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-cycle-59": {
+        "max_channel_error": 1,
+        "changed_bytes": 31,
+        "sum_error": 31,
+        "pixel_rect": [
+          -47,
+          -18,
+          76,
+          18
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-dark-0.34": {
+        "max_channel_error": 1,
+        "changed_bytes": 27,
+        "sum_error": 27,
+        "pixel_rect": [
+          -40,
+          -16,
+          77,
+          9
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-dark-1.999": {
+        "max_channel_error": 1,
+        "changed_bytes": 35,
+        "sum_error": 35,
+        "pixel_rect": [
+          -47,
+          -19,
+          20,
+          15
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      },
+      "waterfall-end-1.999999": {
+        "max_channel_error": 2,
+        "changed_bytes": 29,
+        "sum_error": 30,
+        "pixel_rect": [
+          -46,
+          -18,
+          79,
+          16
+        ],
+        "reason": "Audited water/mist glow and translucent blend rounding; only 1-2/255 channel quantization remains. Float32 rock lighting and callback mutation are preserved independently."
+      }
+    }
+  },
+  "runtime_checks": 167,
+  "catalog_checks": 333,
+  "editor_checks": 159,
+  "replay_soak": {
+    "batches": [
+      {
+        "cache": {
+          "bytes": 0,
+          "entries": 0,
+          "evictions": 0,
+          "hits": 0,
+          "limit_bytes": 33554432,
+          "misses": 0
+        },
+        "objects": 1558.0,
+        "static_bytes": 27382187
+      },
+      {
+        "cache": {
+          "bytes": 0,
+          "entries": 0,
+          "evictions": 0,
+          "hits": 0,
+          "limit_bytes": 33554432,
+          "misses": 0
+        },
+        "objects": 1558.0,
+        "static_bytes": 27383643
+      }
+    ],
+    "failures": [],
+    "replays": 128,
+    "seeds_per_effect": 8,
+    "wall_seconds": 13.343661
+  },
+  "native_visual": {
+    "reviewed": true,
+    "effect_ids": [
+      "ice/blizzard-vortex",
+      "ice/frost-breath",
+      "ice/ice-crystal",
+      "water/bubbles",
+      "water/drip",
+      "water/fountain",
+      "water/rain-splash",
+      "water/waterfall"
+    ],
+    "frames": 1572,
+    "fps": 30,
+    "seconds": 52.4,
+    "size": [
+      1120,
+      740
+    ],
+    "movie": "builds/pixelfx/b2-elements-native.mp4",
+    "movie_sha256": "1bfd957ce0960ad01e43a3e27ee8026a278bd8398a146a35da92a6ae587de781",
+    "poster": "docs/images/b2-elements-effects.png",
+    "poster_sha256": "b85576e14e3679a1c7303ef9896ba782ad453558e3691974b38f32714c819fc1",
+    "coverage": [
+      "all effects",
+      "dark/light backgrounds",
+      "mirroring",
+      "complete lifecycles and loop seams",
+      "front/back occlusion"
+    ],
+    "limitation": "Fixed-frame native recording is visual evidence, not a real-time FPS guarantee.",
+    "normal_speed_review": {
+      "playback_rate": 1,
+      "ended": true,
+      "seconds": 52.4
+    },
+    "parameter_extremes": {
+      "reviewed": true,
+      "movie": "builds/pixelfx/b2-elements-extremes.mp4",
+      "movie_sha256": "95840ab7c65b715dafe848ed8c92a638bb0b6d7f3c862d08f6751128e01b9c04",
+      "frames": 786,
+      "fps": 30,
+      "seconds": 26.2,
+      "coverage": [
+        "all numeric maxima",
+        "light=3",
+        "seed=-923",
+        "source/ledge disabled"
+      ],
+      "contact_sheet": "builds/pixelfx/b2-elements-extremes-sheet.png"
+    }
+  },
+  "source_sha256": {
+    "addons/pixelfx/core/color.gd": "c9773dd443079bcf5bd39d40dda02fe1b3a613691fb4cc36f66773857e689b16",
+    "addons/pixelfx/core/ease.gd": "507d0cce2236ce2fee048083ebf60f650ce037194c70b3a39982073b1360d891",
+    "addons/pixelfx/core/effect.gd": "98090aeea315163f6f3c9cf5fb513fdca758f7c0c61b1edc25d857ee7439984c",
+    "addons/pixelfx/core/frame.gd": "5277dcc8ba034965dc84d4d13022c3ed47a4816603cd4ffc7dc8110f43066cd4",
+    "addons/pixelfx/core/fx.gd": "ccf7e7bb3a3555eb2c46bbd16a02def556003abe76dc20ff52945d08864ff7a6",
+    "addons/pixelfx/core/math.gd": "00524f23d3aa817649046810dcbdb95171629848922c8621ff696a2009ba918e",
+    "addons/pixelfx/core/painter.gd": "9074278708f14ae9d9b3a5f953ad4babb449a427275f89f4f27616170b8a02d9",
+    "addons/pixelfx/core/particles.gd": "18fdbce282c9bd81ad95338b75c3e5e726117be6d866f74341ce225e709d94a6",
+    "addons/pixelfx/core/sim.gd": "b655a4d62109e2102180b29aca6affeb4e759d9e05c3c89de042abcccc0a0fe4",
+    "addons/pixelfx/editor/catalog.gd": "a01da996f907f11418f65ab2ebc9aff725596fd87a9637f1edf48ddb39a15c39",
+    "addons/pixelfx/editor/plugin.gd": "27898700ee4db2929e1f4e2234e5590737ac842d39c098a16fa49a48f02cf82c",
+    "addons/pixelfx/editor/preview_dock.gd": "403f37facc11b6d66e1b8a74b4f6d840f4610dac516e2aeb2c50a32d125b3e1d",
+    "addons/pixelfx/effects/analytic_helpers.gd": "75e038cb052eb62f5a7f664c74196ee60892cd207b19dac5b9868a64a1550b21",
+    "addons/pixelfx/effects/b2_helpers.gd": "c4a1fbaaba1c337b3a42b0f660a6b2abc31aa5df4cbbdd3d8f80ba12ba26437d",
+    "addons/pixelfx/effects/explosions/small_explosion.gd": "0b86f8d0a27414828d602a855bf6eb8ad0088ced24e8590179e0df8fbef87761",
+    "addons/pixelfx/effects/fire/b2_common.gd": "90ffd02c1924a8a159145653d0f41e165a783d3a82bb0843b42cb5d8a55f3a04",
+    "addons/pixelfx/effects/fire/brazier.gd": "e72d58a5564337199712f0458c1c229f6a6be18a55e904c224335a08e4f8254d",
+    "addons/pixelfx/effects/fire/campfire.gd": "220a8bc4cde0be45c6a5a8c531d15d4a2d79feaa536554a691767f6178879cd9",
+    "addons/pixelfx/effects/fire/candle.gd": "594357da52d66fb467a15d008282f36885272f3c437e14c89444cdadb71b6385",
+    "addons/pixelfx/effects/fire/fire_breath.gd": "b72244e091464765b66ee35f2e4b21b8998a2fbb64b96b2695b4fae405b9830f",
+    "addons/pixelfx/effects/fire/fire_tornado.gd": "479acb63024407d399204e252d9773d76e0762f23d3becba529958d98b1ee508",
+    "addons/pixelfx/effects/fire/flamethrower.gd": "be355263af59c1c0bb24020c9ffc8f7cae9c2625aef65bf8b03779bc79f64742",
+    "addons/pixelfx/effects/fire/spirit_flame.gd": "7f7fb8dfb075c9d998165bfcd541723cdb99262fe2218f23fdf2df2c69691e15",
+    "addons/pixelfx/effects/fire/torch.gd": "8fb2541cf87a4b6e770e4460e9dfa80a3a22ca7781a328713cf62b732ce49678",
+    "addons/pixelfx/effects/fire_common.gd": "42ec0841cfdae64b13642300c133d484dd31a68e79cfe90d304b3fde48027d32",
+    "addons/pixelfx/effects/fireball.gd": "f593439ddc37098ba15bfd7651d28bbce2b655d894850fe529bcf21752e366b9",
+    "addons/pixelfx/effects/ice/blizzard_vortex.gd": "ed35a2d54fcda8963557f5988dcb4fd955c3697c41a74d468e48aa74f764b2b3",
+    "addons/pixelfx/effects/ice/frost_breath.gd": "bd26faf7ffdf2c71265a37e063157ec2199591779a7bd4db0c6c02eed38b942a",
+    "addons/pixelfx/effects/ice/ice_crystal.gd": "05801f088938e908444352c2ec6b279f08265ebf4c4ba8b840b406534120457c",
+    "addons/pixelfx/effects/ice_lance.gd": "65b962f3146dc1e21ba2a879dd73ff79856350bf781540cccdcb674c30cd1763",
+    "addons/pixelfx/effects/impacts/hit_spark.gd": "456f5232eaf2be3d546ecc961f744f3b9892baba6e10cec5e89a5ce12d1e9371",
+    "addons/pixelfx/effects/laser_bolt.gd": "86bf2ffdad0b00c8ea380010520faeddcfdb14e7f5f68050c05f00e978ed7e68",
+    "addons/pixelfx/effects/native_bridge.gd": "decc112e5d944d9e2065017a6fb04d012028f97bea600a2658846d4b0da5a37a",
+    "addons/pixelfx/effects/projectiles/arrow.gd": "f3a053265fb39b5265886ea8382c097596796a892344ac973fc70398fd037e89",
+    "addons/pixelfx/effects/projectiles/b2_common.gd": "02f086317a028a28df46277a95f6e7f3307af8aed14632e1385161533f1dc8a5",
+    "addons/pixelfx/effects/projectiles/bullet_tracer.gd": "d35d0ab4277447b2b268915b7055c69fb1d3d77a9fd78906a558ad89f308508a",
+    "addons/pixelfx/effects/projectiles/cannonball.gd": "85d275315402010487c41f0e7557ec70322b79cae8537e8d8aacd0cb80416b7b",
+    "addons/pixelfx/effects/projectiles/energy_disc.gd": "46c5b374b2b19f74aefbed7091d0624168dd9d99f8198b2de984f13df94f6d00",
+    "addons/pixelfx/effects/projectiles/flare.gd": "f64b42e75c8b3363f82b22d0378d0c83505407065ea4b97726de8d96f22517f2",
+    "addons/pixelfx/effects/projectiles/magic_missile.gd": "ba5fd284d1ad11cad5c3b3026b848f0829eea66132cd4548a95d2a1d5774626c",
+    "addons/pixelfx/effects/projectiles/muzzle_pistol.gd": "3d98202e2914921caef74143f17eeafd2b097d7d2062aa8ac10a27864f396290",
+    "addons/pixelfx/effects/projectiles/muzzle_shotgun.gd": "f0ac1c22fc637eac5e4bc8364f8b9022fca1794649d6d4536b37e46a0a31744f",
+    "addons/pixelfx/effects/projectiles/muzzle_smg.gd": "6444da2fa425af7970262d0cf728c9bd2de94f2eb26712fe207c7f6016771fd4",
+    "addons/pixelfx/effects/projectiles/plasma_shot.gd": "aced9af2dd13ff373cc878e6b3613bef95693f58be7b7eb9f3fc90daf6c6c2d6",
+    "addons/pixelfx/effects/projectiles/projectiles_common.gd": "e8aa7e25ef581abc66ffcef2b40818a90270408ed7f6d0ad3a64f385a4811344",
+    "addons/pixelfx/effects/projectiles/rocket.gd": "372f2b38f6a77fb1e089b74e77c7d0140edce651a966fbdc6084d3643cf50751",
+    "addons/pixelfx/effects/ripples.gd": "14d5ad4b998058c22c53a7a8099590cd939dafe170ba551e3cd96eecec62f6d1",
+    "addons/pixelfx/effects/spawn/poof.gd": "847371f58245f9f7fee3d23a2d413db56bf628bb36e00e7dd113612f799d6838",
+    "addons/pixelfx/effects/sunburst.gd": "19ae91bc4ba54fb2c6e2ba72043ff9eb501098878da88f7ea68ede6e60f2ab91",
+    "addons/pixelfx/effects/water/b2_common.gd": "3484e2504fe8937ab4bcad9ffdc89b2e9d3d3d8d26d8d2e1cbcdb3123542d2eb",
+    "addons/pixelfx/effects/water/b2_elements_common.gd": "a40fad47353b0003bb5f8c0309325ae28ba3079ee9b388073324f5a20a2c3c66",
+    "addons/pixelfx/effects/water/bubbles.gd": "2e5f62d72f03787b589be072ae522432881142adf7431bebdad5625999e0e900",
+    "addons/pixelfx/effects/water/drip.gd": "7402d54cdd29308a996d7f5cd4319e3fcb1da10668419727890770b5deb7e4fe",
+    "addons/pixelfx/effects/water/fountain.gd": "8ecb533a0fe6f409f8def6bc3352ae098c925c9a4054798c074a627ada07efe9",
+    "addons/pixelfx/effects/water/rain_splash.gd": "905e25325c0a14e64bf537bc63831313228b2e23b8f8cff1a67b0fe4c784fd3e",
+    "addons/pixelfx/effects/water/splash.gd": "59d5b251d074fcaf1a78b72e7cd1067fa1bab527294d833b069470f4cd54f94a",
+    "addons/pixelfx/effects/water/water_common.gd": "73f9eeb5fd82ac6434ad3ecc6ff48d57f79f04cf96ab45a003cd3fbdd80a464e",
+    "addons/pixelfx/effects/water/water_jet.gd": "64972a050fff47d448f3973bc807eaa78f8cf74707a942680eaa5fe2ba06f28a",
+    "addons/pixelfx/effects/water/water_orb.gd": "bc1f22fb36a7bfd55aaa1d5abc25f651cf4ed49f07317092bf035797ff8b5b1e",
+    "addons/pixelfx/effects/water/waterfall.gd": "c596791c8f779779160bca8cccf7fd0d62d9ffde9f0cc97a46c7988e4eec08a7",
+    "addons/pixelfx/effects/water/whirlpool.gd": "11bc90f79e1af3592f05db7923a66f30e7d051ce3f0dd90d83d78c2762811c50",
+    "addons/pixelfx/pixel_fx_player_2d.gd": "2b20e60d13e79a8c86a7e75afaa47e98e130079ee53589e1a688b73c15df3ef6",
+    "addons/pixelfx/presets/arcane_fireball.tres": "f49fa931205c2ff83f16021c0a3ad68687f4d03e590d36ae636d6d99ea86cca6",
+    "addons/pixelfx/presets/arrow.tres": "e84b1decca4be064642467b3e1de39aac1ccdb92ca3864d05f36099edb889d6d",
+    "addons/pixelfx/presets/blizzard_vortex.tres": "a926f2aca46a17ed05ac41f6840a00419fe9d4a26cc1326def355bd5d8652131",
+    "addons/pixelfx/presets/brazier.tres": "539ed5e5f3af74a570744771ec4344a1b3a1df31a994b5ffc6a3efa081d09739",
+    "addons/pixelfx/presets/bubbles.tres": "c2b896a97cacaf0659ab03206a6e81e93ce3f8afc1f8532e32229c1cbdb2a903",
+    "addons/pixelfx/presets/bullet_tracer.tres": "a38623c2e8c361d6b7e0cdb37e9ccb0d2989c498222fac3f2db31b3f0751a705",
+    "addons/pixelfx/presets/campfire.tres": "0f406eb89af932f50bccd159c3542639ccb6ecde1a2fabf14ed7bcf905e5c5dc",
+    "addons/pixelfx/presets/candle.tres": "324313f08ccc72c4e211b14e9b78e480c7232b9a07a0bc10b4996a99f24da66a",
+    "addons/pixelfx/presets/cannonball.tres": "8f5c165a4488a4d8b885f678be8525bc4ed62003363f0f67dff4594a409aeb8b",
+    "addons/pixelfx/presets/drip.tres": "59f7b5ab805dcbff56814d799fb85f93c1604c4129652adf039bd16a75d8b1fb",
+    "addons/pixelfx/presets/energy_disc.tres": "2bca8e35960a0db7630329a3295d117e9913e5a065f9b9e81ff726faa413790d",
+    "addons/pixelfx/presets/fire_breath.tres": "0aa2a8c7f533136c9cfc92edafa22e9d95fc7929df436ca07052d9498a0a5d50",
+    "addons/pixelfx/presets/fire_tornado.tres": "9778f730449219c01ca51af5155f12c588ef2e3a3461c5a1046b84c00f9e0f0f",
+    "addons/pixelfx/presets/fireball.tres": "a6589f23d455f2e6a47151d3faed016977a45f975844aff3ac825dab4ea2befb",
+    "addons/pixelfx/presets/flamethrower.tres": "c691e96c4311e7da161f891edd17a497d482718adeb3bb89adf35c4734580074",
+    "addons/pixelfx/presets/flare.tres": "61cd820b2d2026f317ec5c1f18988c69573f376a6b14f188bdf864a095617352",
+    "addons/pixelfx/presets/fountain.tres": "f0155e799e3a8fd1707281782a8155fec4c3836ac90024f6d9e10964d9887cc1",
+    "addons/pixelfx/presets/frost_breath.tres": "435e27466a983b2c2d6aa068eb884b570155779bd56141218f4313b82f35dd6e",
+    "addons/pixelfx/presets/hit_spark.tres": "2faad17759c56ab1f7a1739e59b51ccb9c695298437520a041db4eb64132dc37",
+    "addons/pixelfx/presets/ice_crystal.tres": "c34a1b84a527069508174711db1ec129d722a7b79f4afbd250846f1308307037",
+    "addons/pixelfx/presets/ice_lance.tres": "2ededf82c4e5d17de983d7fef64558ea27ca6a5155e9ecc0dfa05d739b954479",
+    "addons/pixelfx/presets/laser_bolt.tres": "02bb0f7b1afc7fe8f7b4f0a97f9cc81fc42abf84ef4d96b0ce866c64f0058af9",
+    "addons/pixelfx/presets/magic_missile.tres": "1384115b51c1d31a2818ce3fae4c5b111c60841aa3a399eacd2f3eef0c0d75f6",
+    "addons/pixelfx/presets/muzzle_pistol.tres": "99281ea58fc448d866340d424684746baa24ef34ef9703b32d2b89b472c71c5f",
+    "addons/pixelfx/presets/muzzle_shotgun.tres": "9b29db585c2dd1850e5d8e9d4ffe579c10dd035ff2cd16da0390895c06e04c3c",
+    "addons/pixelfx/presets/muzzle_smg.tres": "66bac49b0bae34ba84332f22a14c02d5dd6ea1a37849c35cef7fea5fab3515a4",
+    "addons/pixelfx/presets/plasma_shot.tres": "185b4265e46f14cd0bfb671e16db0688196246a86e46f0c46a93d44505728f27",
+    "addons/pixelfx/presets/poof.tres": "af95047f62fa3a1706480d79a001616743bf7d51fb30a3b502c8e513b71fa69f",
+    "addons/pixelfx/presets/rain_splash.tres": "dfec9c130a38bcdb8146eb457c694cf908a406a396aa52e4d17a785d77db1239",
+    "addons/pixelfx/presets/ripples.tres": "4f034d603df600e8b0327776cd2546c5a35b8b6a2580b01e27f55538ce45a1b6",
+    "addons/pixelfx/presets/rocket.tres": "707291e7a6ea3a5776ccf1160f8516c20db5d0ba4cdd578d3f931d41c5c4d7c9",
+    "addons/pixelfx/presets/small_explosion.tres": "c097bd1e9c2a9b1136e6f07378e406b4b99d9eba433930d8ed447fdf4811415e",
+    "addons/pixelfx/presets/spirit_flame.tres": "5b6005c60e7acfe98f86304e200ad4f310ce187bf46557261b0d44deceb5f411",
+    "addons/pixelfx/presets/splash.tres": "57f64028ee62d516352fa249e15595d034fe804047e92f02a6c579451b62a455",
+    "addons/pixelfx/presets/sunburst.tres": "30ffffccba81aaadd3595d1cc5b8d09d28ed7571c2daaebab0e4142f501796a6",
+    "addons/pixelfx/presets/torch.tres": "4dcad56125e022bb33ea658b5091ec1316e448ac2aafb30fb3e2b3ae09b6059f",
+    "addons/pixelfx/presets/water_jet.tres": "0ad6054089be42c96a2638448719afb5b1a7d6f90175d3f78b10a7176cf0a6d6",
+    "addons/pixelfx/presets/water_orb.tres": "33214920c520a483a61850b43daa70b7f133265db5611c14f11def456a979fb7",
+    "addons/pixelfx/presets/waterfall.tres": "d72ff9e1274ea7175dbcc616146b62cb346487bb5c2d9e0d59f39b4e077162fd",
+    "addons/pixelfx/presets/whirlpool.tres": "0c26ca51884d2629555db2d4210d5151834b0ac1570b801269ef1ff0b996f879",
+    "addons/pixelfx/resources/preset.gd": "f7a854f23c1d80dfb272d9af6bf22d8a19cb3d884aadd1d843b5d57c72ceb9ed",
+    "addons/pixelfx/runtime/frame_cache.gd": "6cc45270d71826666435d9fba11a83577674fb90664de8ed40b2fb443d9c1691",
+    "addons/pixelfx/runtime/layer_2d.gd": "f14391ec22126ce128547cf60052dd7c52753cc84e6fdc48601d377b028fcc2f",
+    "addons/pixelfx/runtime/pool.gd": "9417d76b978669df5c6386301ed23bc79ff587247bb69f6b5d06e6b6974ca350",
+    "addons/pixelfx/runtime/preloader.gd": "01b309c6d1336f014af6cee0685d8173ea49ed964895ce62590b0fb4c4e193c9",
+    "addons/pixelfx/runtime/renderer.gd": "71613e61305176dd75bbc848c2da860cc0a590155b6394f1c6f8495caa95b80c",
+    "demos/pixelfx/b2_elements_gallery.gd": "fe5129565500b48067bdd0c35286f355c82b550787dd41f81be7221301998865",
+    "demos/pixelfx/b2_elements_gallery.tscn": "8dcdee00681de9af30bbb5a013913e24b16f491f7f7c8dbb0b8876299a442a1f",
+    "docs/images/b2-elements-effects.png": "b85576e14e3679a1c7303ef9896ba782ad453558e3691974b38f32714c819fc1",
+    "tests/pixelfx/batches/b2-elements.json": "30f5f5eff04e543ad503d2ea6ab848cd22d677ffa34b8b6e7a356fb1d3772c9c"
+  },
+  "effects": {
+    "ice/blizzard-vortex": {
+      "implementation": "addons/pixelfx/effects/ice/blizzard_vortex.gd",
+      "implementation_sha256": "ed35a2d54fcda8963557f5988dcb4fd955c3697c41a74d468e48aa74f764b2b3",
+      "stateful": false,
+      "parity_cases": 124,
+      "byte_exact": 70,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 17.531,
+        "sampled_cold_ms_mean": 16.98275,
+        "samples": 4
+      }
+    },
+    "ice/frost-breath": {
+      "implementation": "addons/pixelfx/effects/ice/frost_breath.gd",
+      "implementation_sha256": "bd26faf7ffdf2c71265a37e063157ec2199591779a7bd4db0c6c02eed38b942a",
+      "stateful": false,
+      "parity_cases": 108,
+      "byte_exact": 12,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 94.041,
+        "sampled_cold_ms_mean": 92.20525,
+        "samples": 4
+      }
+    },
+    "ice/ice-crystal": {
+      "implementation": "addons/pixelfx/effects/ice/ice_crystal.gd",
+      "implementation_sha256": "05801f088938e908444352c2ec6b279f08265ebf4c4ba8b840b406534120457c",
+      "stateful": false,
+      "parity_cases": 154,
+      "byte_exact": 154,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 6.709,
+        "sampled_cold_ms_mean": 6.50875,
+        "samples": 4
+      }
+    },
+    "water/bubbles": {
+      "implementation": "addons/pixelfx/effects/water/bubbles.gd",
+      "implementation_sha256": "2e5f62d72f03787b589be072ae522432881142adf7431bebdad5625999e0e900",
+      "stateful": false,
+      "parity_cases": 176,
+      "byte_exact": 176,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 21.93,
+        "sampled_cold_ms_mean": 21.03375,
+        "samples": 4
+      }
+    },
+    "water/drip": {
+      "implementation": "addons/pixelfx/effects/water/drip.gd",
+      "implementation_sha256": "7402d54cdd29308a996d7f5cd4319e3fcb1da10668419727890770b5deb7e4fe",
+      "stateful": false,
+      "parity_cases": 113,
+      "byte_exact": 113,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 4.331,
+        "sampled_cold_ms_mean": 2.83925,
+        "samples": 4
+      }
+    },
+    "water/fountain": {
+      "implementation": "addons/pixelfx/effects/water/fountain.gd",
+      "implementation_sha256": "8ecb533a0fe6f409f8def6bc3352ae098c925c9a4054798c074a627ada07efe9",
+      "stateful": false,
+      "parity_cases": 116,
+      "byte_exact": 116,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 18.073,
+        "sampled_cold_ms_mean": 17.80675,
+        "samples": 4
+      }
+    },
+    "water/rain-splash": {
+      "implementation": "addons/pixelfx/effects/water/rain_splash.gd",
+      "implementation_sha256": "905e25325c0a14e64bf537bc63831313228b2e23b8f8cff1a67b0fe4c784fd3e",
+      "stateful": false,
+      "parity_cases": 128,
+      "byte_exact": 20,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 32.196,
+        "sampled_cold_ms_mean": 31.1725,
+        "samples": 4
+      }
+    },
+    "water/waterfall": {
+      "implementation": "addons/pixelfx/effects/water/waterfall.gd",
+      "implementation_sha256": "c596791c8f779779160bca8cccf7fd0d62d9ffde9f0cc97a46c7988e4eec08a7",
+      "stateful": false,
+      "parity_cases": 133,
+      "byte_exact": 61,
+      "performance": {
+        "note": "Four lifecycle samples; not an exhaustive peak or real-time frame-rate guarantee.",
+        "sampled_cold_ms_max": 79.567,
+        "sampled_cold_ms_mean": 66.826,
+        "samples": 4
+      }
+    }
+  }
+}

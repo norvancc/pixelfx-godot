@@ -7,10 +7,10 @@ output = root/'builds/pixelfx'
 output.mkdir(parents=True, exist_ok=True)
 (root/'builds/.gdignore').touch()
 
-def run(name, args, expected=None, timeout=180):
+def run(name, args, expected=None, timeout=180, env=None):
     print(name + ': running', flush=True)
     try:
-        result = subprocess.run(args, cwd=root, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
+        result = subprocess.run(args, cwd=root, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout, env=env)
     except subprocess.TimeoutExpired as error:
         partial = error.stdout or b''
         if isinstance(partial, bytes): partial = partial.decode(errors='replace')
@@ -44,6 +44,13 @@ run('catalog-b2',[godot,'--headless','--path',str(root),'--script','tests/pixelf
 run('soak-b2',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b2_soak.gd'],'failures=0',timeout=300)
 run('runtime-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_runtime.gd'],'failures=0')
 run('catalog-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_catalog.gd'],'failures=0')
+for config_path in sorted((root/'tests/pixelfx/batches').glob('*.json')):
+    config = json.loads(config_path.read_text())
+    batch = config['id']
+    batch_env = {**os.environ, 'PIXELFX_BATCH': batch, 'PIXELFX_EFFECT': ''}
+    run('reference-'+batch, ['node','tools/pixelfx/reference_batch.mjs',upstream,str(config_path)], 'Generated', timeout=600, env=batch_env)
+    for phase in ['parity', 'runtime', 'catalog', 'soak']:
+        run(phase+'-'+batch, [godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_batch_'+phase+'.gd'], 'failures=0', timeout=600, env=batch_env)
 run('benchmark-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/benchmark.gd'],'PIXELFX_BENCHMARK')
 run('editor-release',[sys.executable,'tools/pixelfx/check_editor.py'],'failures=0')
 print('PIXELFX_RELEASE_CHECKS_PASSED')

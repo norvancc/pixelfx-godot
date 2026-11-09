@@ -11,7 +11,8 @@ func check(ok: bool, message: String) -> void:
 func _initialize() -> void:
 	var rows = JSON.parse_string(FileAccess.get_file_as_string("res://tests/pixelfx/b2_effects.json"))
 	var entries = Catalog.discover(PackedStringArray(["res://addons/pixelfx/effects"]))
-	check(entries.size() == 31, "all 31 effects are discovered recursively")
+	var expected = JSON.parse_string(FileAccess.get_file_as_string("res://addons/pixelfx/provenance.json")).effects
+	check(entries.size()==expected.size(),"catalog discovers the complete provenance scope")
 	for row in rows:
 		var preset = load("res://addons/pixelfx/presets/"+row.id+".tres")
 		check(preset.validate().is_empty(), row.id+" default preset validates")

@@ -7,8 +7,8 @@
   },
   "counts": {
     "upstream_effects": 244,
-    "completed": 31,
-    "remaining": 213
+    "completed": 39,
+    "remaining": 205
   },
   "status_order": [
     "待分析",
@@ -813,10 +813,12 @@
       "godot_path": "addons/pixelfx/effects/explosions/small_explosion.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
-        "tests/pixelfx/test_b1_parity.gd"
+        "tests/pixelfx/test_b1_parity.gd",
+        "227 cases"
       ],
       "visual_evidence": [
         "docs/images/b1-effects.png",
+        "builds/pixelfx/b1-native.mp4",
         "addons/pixelfx/validation/b1.json"
       ],
       "performance_report": [
@@ -870,7 +872,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -897,10 +900,12 @@
       "godot_path": "addons/pixelfx/effects/fire/campfire.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
-        "tests/pixelfx/test_b1_parity.gd"
+        "tests/pixelfx/test_b1_parity.gd",
+        "155 cases"
       ],
       "visual_evidence": [
         "docs/images/b1-effects.png",
+        "builds/pixelfx/b1-native.mp4",
         "addons/pixelfx/validation/b1.json"
       ],
       "performance_report": [
@@ -931,7 +936,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -963,7 +969,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -1018,7 +1025,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -1101,7 +1109,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -1156,7 +1165,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -1188,7 +1198,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -1445,14 +1456,23 @@
         "../../core/index.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/ice/blizzard_vortex.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "124 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1490,14 +1510,23 @@
         "../../core/index.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/ice/frost_breath.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "108 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1534,14 +1563,23 @@
         "../../core/index.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/ice/ice_crystal.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "154 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -1817,10 +1855,12 @@
       "godot_path": "addons/pixelfx/effects/impacts/hit_spark.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
-        "tests/pixelfx/test_b1_parity.gd"
+        "tests/pixelfx/test_b1_parity.gd",
+        "87 cases"
       ],
       "visual_evidence": [
         "docs/images/b1-effects.png",
+        "builds/pixelfx/b1-native.mp4",
         "addons/pixelfx/validation/b1.json"
       ],
       "performance_report": [
@@ -3307,7 +3347,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3339,7 +3380,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3371,7 +3413,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3403,7 +3446,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3435,7 +3479,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3517,7 +3562,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3549,7 +3595,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3581,7 +3628,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3613,7 +3661,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3645,7 +3694,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -3672,10 +3722,12 @@
       "godot_path": "addons/pixelfx/effects/projectiles/rocket.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
-        "tests/pixelfx/test_b1_parity.gd"
+        "tests/pixelfx/test_b1_parity.gd",
+        "103 cases"
       ],
       "visual_evidence": [
         "docs/images/b1-effects.png",
+        "builds/pixelfx/b1-native.mp4",
         "addons/pixelfx/validation/b1.json"
       ],
       "performance_report": [
@@ -4339,10 +4391,12 @@
       "godot_path": "addons/pixelfx/effects/spawn/poof.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
-        "tests/pixelfx/test_b1_parity.gd"
+        "tests/pixelfx/test_b1_parity.gd",
+        "105 cases"
       ],
       "visual_evidence": [
         "docs/images/b1-effects.png",
+        "builds/pixelfx/b1-native.mp4",
         "addons/pixelfx/validation/b1.json"
       ],
       "performance_report": [
@@ -5280,14 +5334,23 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/bubbles.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "176 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -5303,14 +5366,23 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/drip.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "113 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -5326,14 +5398,23 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/fountain.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "116 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -5372,14 +5453,23 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/rain_splash.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "128 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -5427,10 +5517,12 @@
       "godot_path": "addons/pixelfx/effects/water/splash.gd",
       "reference_cases": [
         "tools/pixelfx/reference_b1.mjs",
-        "tests/pixelfx/test_b1_parity.gd"
+        "tests/pixelfx/test_b1_parity.gd",
+        "132 cases"
       ],
       "visual_evidence": [
         "docs/images/b1-effects.png",
+        "builds/pixelfx/b1-native.mp4",
         "addons/pixelfx/validation/b1.json"
       ],
       "performance_report": [
@@ -5461,7 +5553,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -5493,7 +5586,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
@@ -5516,14 +5610,23 @@
         "./_lib.js"
       ],
       "render_type": "analytic",
-      "status": "待分析",
-      "godot_path": null,
-      "reference_cases": [],
-      "visual_evidence": [],
-      "performance_report": [],
-      "remaining_issues": [
-        "尚未读取上游源码并建立迁移用例"
+      "status": "完成",
+      "godot_path": "addons/pixelfx/effects/water/waterfall.gd",
+      "reference_cases": [
+        "tools/pixelfx/reference_batch.mjs",
+        "tests/pixelfx/test_batch_parity.gd",
+        "tests/pixelfx/batches/b2-elements.json",
+        "133 cases"
       ],
+      "visual_evidence": [
+        "docs/images/b2-elements-effects.png",
+        "builds/pixelfx/b2-elements-native.mp4",
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "performance_report": [
+        "addons/pixelfx/validation/b2-elements.json"
+      ],
+      "remaining_issues": [],
       "probe_review": null
     },
     {
@@ -5571,7 +5674,8 @@
       ],
       "visual_evidence": [
         "docs/images/b2-effects.png",
-        "builds/pixelfx/b2-native.mp4"
+        "builds/pixelfx/b2-native.mp4",
+        "addons/pixelfx/validation/b2.json"
       ],
       "performance_report": [
         "addons/pixelfx/validation/b2.json"
