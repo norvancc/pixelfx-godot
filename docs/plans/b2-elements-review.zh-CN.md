@@ -31,3 +31,5 @@
 视频本地路径为 `builds/pixelfx/b2-elements-native.mp4` 和 `b2-elements-extremes.mp4`，SHA-256 记录于 [验收 JSON](../../addons/pixelfx/validation/b2-elements.json)。固定 30 FPS 输出用于视觉验收，不能视为实时性能保证。Frost breath 和 Waterfall 的四次采样已超过 33.3 ms，其他时刻/参数仍可能更慢；32 MiB / 256 帧默认缓存不变。
 
 独立 addon 与完整源码归档均做内容检查；干净项目禁用编辑器插件时验证全部 39 项 / 40 个预设的加载、实例化与播放。本地完整 gate 已通过；Godot 4.3/Linux 随本批 PR 运行，其他平台未验收。来源见 [provenance.json](../../addons/pixelfx/provenance.json)，逐项进度见[迁移台账](../migration-status.json)。
+
+Linux Godot 4.3 的 1052 组对照已补充逐像素审计。四个既有例外案例的计数/矩形取两平台并集；所有 alpha 字节相同，最大 RGB 差仍为 2/255。证据归档 SHA-256 为 `f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5`；更新后的完整 CI 随本批 PR 重跑。

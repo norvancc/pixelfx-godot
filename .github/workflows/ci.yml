@@ -29,6 +29,8 @@ jobs:
           path: |
             builds/pixelfx/*.log
             builds/pixelfx/*.json
+            builds/pixelfx/*-actual.png
+            builds/pixelfx/*-actual.rgba
       - uses: actions/upload-artifact@v4
         with:
           name: release-packages
