@@ -6,7 +6,7 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: Addon version, Godot version, OS and renderer.
+      description: Addon release version or source commit, effect/preset, Godot version, OS and renderer.
     validations:
       required: true
   - type: textarea

@@ -8,7 +8,9 @@
 
 [中文说明](README.zh-CN.md) · [Quick start](#quick-start) · [API](addons/pixelfx/docs/API.md) · [Add an effect](docs/AUTHORING.md) · [Roadmap](ROADMAP.md)
 
-![Native Godot five-effect gallery](docs/images/five-effects.png)
+![Native Godot B2 effects](docs/images/b2-effects.png)
+
+[Watch the 20-effect native preview](https://github.com/user-attachments/assets/f7feadf1-6fd1-4d19-8569-fe567e98bd2b)
 
 Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/patch-gg/pixelfx/tree/a84159688af3ca37a4be05a0d422b94451b2e24e). Original work by Patch and Hugo Duprez; see [attribution](NOTICE.md) and [source hashes](addons/pixelfx/provenance.json). This project is independently maintained and is not an official upstream release.
 
@@ -16,25 +18,17 @@ Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/pa
 
 **The current source includes 31 native effects; the latest published release, 0.2.0, contains five.** The pinned upstream catalog contains 244 effects; 213 remain. Arcane Fireball is a palette preset and does not count as another algorithm.
 
-B2 adds 20 more native ports: seven fire effects, ten projectiles/muzzle effects and three water effects. The source catalog now contains **31/244** effects (213 remaining). Five new ports are stateful and fifteen are analytic loops. See the [B2 acceptance record](addons/pixelfx/validation/b2.json) and run `demos/pixelfx/b2_gallery.tscn`. These source additions have not been released as a new version.
+B2 adds 20 more native ports: seven fire effects, ten projectiles/muzzle effects and three water effects. The source catalog now contains **31/244** effects (213 remaining). Five new ports are stateful and fifteen are analytic loops. See the [B2 acceptance record](addons/pixelfx/validation/b2.json) and run `demos/pixelfx/b2_gallery.tscn`. B2 is 20/49 complete, with 29 effects still pending in that milestone. These source additions have not been released as a new version.
 
 B1 adds six probe effects with upstream RGBA comparisons, native visual evidence and lifecycle tests. See the [migration ledger](docs/migration-status.json) and [B1 acceptance record](addons/pixelfx/validation/b1.json).
 
-| Effect | Preset | Editable effect parameter | Layers |
-| --- | --- | --- | --- |
-| Fireball | `fireball.tres` | Radius, speed | Front |
-| Ice lance | `ice_lance.tres` | Length | Front |
-| Laser bolt | `laser_bolt.tres` | Length | Front |
-| Sunburst | `sunburst.tres` | Ray count | Front |
-| Ripples | `ripples.tres` | Palette, seed, light | Back + front |
-| Hit spark | `hit_spark.tres` | Height, aim | Front |
-| Poof | `poof.tres` | Smoke and star palettes | Back + front |
-| Campfire | `campfire.tres` | Height, wood palette | Front |
-| Rocket | `rocket.tres` | Speed, metal/paint/smoke palettes | Front |
-| Small explosion | `small_explosion.tres` | Size, stone colour | Back + front |
-| Splash | `splash.tres` | Stone visibility | Back + front |
+| Source batch | Algorithms | Lifecycle | Demo scene |
+| --- | ---: | --- | --- |
+| B0 / release 0.2.0 | 5 | 5 analytic loops | `demos/pixelfx/gallery.tscn` |
+| B1 / unreleased | 6 | 2 analytic loops, 4 stateful one-shots | `demos/pixelfx/b1_gallery.tscn` |
+| B2 first slice / unreleased | 20 | 15 analytic loops, 5 stateful one-shots | `demos/pixelfx/b2_gallery.tscn` |
 
-All eleven support palette, seed, light, playback controls and native transforms. Hit spark, Poof, Small explosion and Splash keep independent simulations and finish automatically; parameter changes replay them, and seek/prewarming are explicitly unavailable. The other seven are analytic loops. Games own projectile movement, impact and damage; actor choreography remains outside this batch.
+The source contains **31 algorithms / 32 presets**: **22 analytic loops and 9 stateful one-shots**. See the [complete effect and preset catalog](addons/pixelfx/docs/CATALOG.md). All support palette/auxiliary colors, seed, light, playback controls and native transforms. Stateful effects keep independent simulations, finish automatically and restart on parameter changes; seek, shared-frame caching and prewarming are unavailable for them. Games own projectile movement, impact and damage; actor choreography remains outside these batches.
 
 The renderer generates pixels on the CPU and uploads textures to Godot. It is **not a GPU shader port**, a JavaScript wrapper, or a collection of prerecorded sprite sheets. Runtime frame sharing caches generated samples.
 
@@ -45,11 +39,11 @@ The renderer generates pixels on the CPU and uploads textures to Godot. It is **
 - Editor preview with automatically discovered effects, Inspector controls, timeline and explicit preset saving.
 - Standalone demo, projectile integration example, extension template, tests and packaging tools.
 
-Target: **Godot 4.3+**. Validated on Godot 4.7.2 / macOS / GL Compatibility and [Godot 4.3 / Ubuntu headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42019538955). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
+Target: **Godot 4.3+**. Validated on Godot 4.7.2 / macOS / GL Compatibility and [Godot 4.3 / Ubuntu headless CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
 
 ## Quick start
 
-1. Download `pixelfx-addon-0.2.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases).
+1. For the five released effects, download `pixelfx-addon-0.2.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases). For all 31 accepted source effects, clone this repository at `main` and use its `addons/pixelfx` directory.
 2. Copy `addons/pixelfx` into your project's `addons` directory.
 3. Optionally enable **PixelFX** under **Project → Project Settings → Plugins** for the preview panel. Runtime works with the plugin disabled.
 4. Add a `PixelFXPlayer2D` node and assign `addons/pixelfx/presets/fireball.tres` to **Effect**.
@@ -73,7 +67,7 @@ func spawn_visual(at: Vector2) -> PixelFXPlayer2D:
 # The game owns movement, collision and damage; see the projectile example.
 ```
 
-To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed. The gallery's **B1** button opens the six new effects; that scene is also available at `demos/pixelfx/b1_gallery.tscn`.
+To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed. The gallery's **B1** and **B2** buttons open the six-effect and twenty-effect galleries; those scenes can also run directly using the paths in the table above.
 
 ## Add effects without editing the framework
 
@@ -82,6 +76,7 @@ Copy `addons/pixelfx/templates/effect.gd.txt` to `res://pixelfx/my_effect.gd`, t
 Effect-specific helpers and upstream simulation/acting dependencies may still need porting. The extension API does not mean the upstream character/rig/act systems have already been migrated.
 
 - [Effect authoring (English)](docs/AUTHORING.md)
+- [All 31 effects and presets](addons/pixelfx/docs/CATALOG.md)
 - [Detailed API (中文)](addons/pixelfx/docs/API.md)
 - [Effect contract (中文)](addons/pixelfx/docs/EFFECTS.md)
 - [Performance and compatibility](addons/pixelfx/docs/PERFORMANCE.md)
@@ -90,7 +85,7 @@ Effect-specific helpers and upstream simulation/acting dependencies may still ne
 
 ## Performance
 
-On the locally tested M4 Pro, cold frame generation at default parameters averages approximately **3.7–28 ms**, depending on the effect. The six new ports have distinct costs: the CPU implementation can exceed a 30 FPS budget during cold generation or explosion peaks. See the B1 acceptance record for measurements. Prewarm common analytic presets during loading. The default Fireball cycle uses about **6.5 MiB** of estimated cache memory; the shared cache defaults to **32 MiB / 256 frames**.
+The five effects in release 0.2.0 averaged approximately **3.7–28 ms** per cold frame on the tested M4 Pro. B1/B2 have separate measurements: some CPU workloads exceed the 33.3 ms budget for 30 FPS. B2 measures four default lifecycle samples per effect, not exhaustive peaks. See [performance and compatibility](addons/pixelfx/docs/PERFORMANCE.md) and the batch acceptance records for the workload and limits. Prewarm common analytic presets during loading. The default Fireball cycle uses about **6.5 MiB** of estimated cache memory; the shared cache defaults to **32 MiB / 256 frames**.
 
 A warm-cache CPU benchmark with 64 synchronized, identical instances averaged about 0.20 ms per update. This excludes complete scene GPU composition and is **not** a claim that arbitrary 64-effect workloads meet a frame-rate target. Stateful effects and unique parameters have different costs.
 
@@ -106,10 +101,12 @@ python3 tools/pixelfx/package_demo.py
 
 The check downloads the pinned upstream commit and verifies source hashes, then runs pixel parity, runtime, editor integration and performance checks. It does not fetch or execute arbitrary latest upstream versions. Generated files go into ignored `builds/` directories.
 
-Local 0.2.0 validation passed **447 rendering cases, 70 runtime checks, 171 catalog/bounds/gallery checks and 23 editor checks**. Of the rendering cases, 416 are byte-exact; the other 31 differ by at most 15 channel bytes at 1/255 per frame. Normal-speed native Godot output is recorded separately. See the validation record for version/platform evidence; aesthetic acceptance remains separate.
+Current source validation preserves **447 baseline + 809 B1 + 2607 B2 = 3863 upstream RGBA comparisons**. The latest gate also passes 70 baseline, 136 B1 and 419 B2 runtime checks; 329 existing and 431 B2 catalog checks; 127 editor checks; and 384 B1 / 320 B2 replays. B2 has 2470 byte-exact cases and eight individually audited tolerance exceptions. [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) and its [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed at implementation commit `73560f4`; merge commit `112d5d4` contains the same accepted source tree. Native visual evidence and platform limits are recorded in [VALIDATION.md](addons/pixelfx/VALIDATION.md).
 
 ## Contributing and license
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [Code of Conduct](CODE_OF_CONDUCT.md), [Security](SECURITY.md) and [Support](SUPPORT.md). Please check the roadmap before starting a large port.
 
 MIT licensed. Preserve the original copyright notices when redistributing. Upstream gallery fonts and character artwork are not bundled; see [NOTICE.md](NOTICE.md).
+
+Documentation and repository layout: [documentation index](docs/README.md).

@@ -52,16 +52,47 @@ macOS / Apple M4 Pro / Godot 4.7.2，headless CPU 基准，默认火球 30 FPS�
 
 新增六项的完整默认循环/生命周期在同一本机 headless 环境测量。具体数值、帧数和环境保存在 `../validation/b1.json`，由 `catalog-latest.json` 的当前运行生成。一次性效果均为独立模拟，缓存占用为 0；Campfire/Rocket 可共享缓存及预热。爆炸边界随 size 增长。
 
-本机测得 Hit spark 约 5 ms、Poof 约 10 ms、Splash 约 23 ms、Small explosion 约 32 ms/帧；Campfire/Rocket 约 38–42 ms/冷帧。爆炸峰值可达约 90 ms。实际数值以验收 JSON 为准；这些是默认参数下的测量，不承诺 30 FPS，也不含完整游戏的 GPU 合成和逻辑成本。
+本机测得 Hit spark 约 5 ms、Poof 约 10 ms、Splash 约 23 ms、Small explosion 约 32 ms/帧；Campfire/Rocket 约 38–42 ms/冷帧。本次默认生命周期中的爆炸冷绘制最大值约 74 ms。实际数值以验收 JSON 为准；这些是默认参数下的测量，不承诺 30 FPS，也不含完整游戏的 GPU 合成和逻辑成本。
 
 384 次重播检查每项 32 个 seed，完成两轮后对象数不增加，静态内存增长低于 1 MiB，取消后缓存清空。这是固定重播负载的资源检查，不等价于长时间真实游戏的内存保证。
+
+## B2 首批 20 项成本（未发布源码）
+
+B2 与 B1 的采样方式不同：每项只测默认生命周期的四个 `draw()` 时刻，不是完整周期均值或穷举峰值；不包含全部模拟更新、纹理上传和 GPU 合成。环境为 Apple M4 Pro / macOS / Godot 4.7.2 headless。下列为该四次采样中的最大值，原始数据见 [B2 验收记录](../validation/b2.json)。
+
+| 效果 | 四次冷绘制采样最大值 / ms | 生命周期 |
+| --- | ---: | --- |
+| `fire/brazier` | 30.66 | 解析循环 |
+| `fire/candle` | 3.57 | 解析循环 |
+| `fire/fire-breath` | 55.19 | 解析循环 |
+| `fire/fire-tornado` | 34.07 | 解析循环 |
+| `fire/flamethrower` | 24.98 | 解析循环 |
+| `fire/spirit-flame` | 10.67 | 解析循环 |
+| `fire/torch` | 15.17 | 解析循环 |
+| `projectiles/arrow` | 0.50 | 解析循环 |
+| `projectiles/bullet-tracer` | 4.09 | 解析循环 |
+| `projectiles/cannonball` | 43.24 | 独立模拟，一次性 |
+| `projectiles/energy-disc` | 3.32 | 解析循环 |
+| `projectiles/flare` | 13.56 | 独立模拟，一次性 |
+| `projectiles/magic-missile` | 6.51 | 独立模拟，一次性 |
+| `projectiles/muzzle-pistol` | 10.87 | 独立模拟，一次性 |
+| `projectiles/muzzle-shotgun` | 40.62 | 独立模拟，一次性 |
+| `projectiles/muzzle-smg` | 16.88 | 解析循环 |
+| `projectiles/plasma-shot` | 30.61 | 解析循环 |
+| `water/water-jet` | 20.65 | 解析循环 |
+| `water/water-orb` | 11.88 | 解析循环 |
+| `water/whirlpool` | 29.35 | 解析循环 |
+
+Fire breath、Fire tornado、Cannonball 和 Shotgun blast 的这些采样超过 33.3 ms；其他参数或时刻仍可能更慢。不要据少量采样或固定 30 FPS 录像承诺实时性能。全目录有 22 项解析循环和九项独立模拟；预热/共享帧只适用于解析效果，32 MiB / 256 帧默认预算未扩大，整套循环不应一次性同步预热。
+
+B2 做了 320 次重播（每项八个 seed、两轮），两轮资源快照的对象数持平，静态内存增量在测试上限内；这是指定负载的回归结果，不是长期运行或所有工作负载的保证。
 
 ## 兼容范围
 
 运行时是标准 GDScript + CanvasItem，不依赖编辑器 API、外部动态库或 Autoload。
 API 目标为 Godot 4.3+。**4.7.2 / macOS / GL Compatibility** 已做可见编辑器和演示检查。
 **Godot 4.3 / Ubuntu / headless** 已通过 GitHub CI 的导入、原版对照、运行时、编辑器和打包检查：
-[验证运行](https://github.com/norvancc/pixelfx-godot/actions/runs/42019538955)。4.3 使用主 Inspector 编辑预览参数；新版可使用内嵌 Inspector。
+[验证运行](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517)。4.3 使用主 Inspector 编辑预览参数；新版可使用内嵌 Inspector。
 其他 Godot 版本、Windows/Linux 可见窗口实机、移动端、Web 及 Forward+/Mobile 渲染器未实测。
 
 ## 导出
@@ -71,6 +102,6 @@ API 目标为 Godot 4.3+。**4.7.2 / macOS / GL Compatibility** 已做可见编�
 示例 export_presets.cfg 排除 editor、templates、tests、tools，保留 MIT 声明和来源信息。
 macOS universal/arm64 示例项目启用 Godot 所需的 ETC2 ASTC 导入选项。
 
-本次 macOS universal .app 已实际导出、校验 ad-hoc 签名并启动检查。
+0.1.0 的历史 macOS universal .app 已实际导出、校验 ad-hoc 签名并启动检查。B1/B2 仅验证源码图鉴和独立插件安装，未将旧导出结果延伸为 31 项效果的应用导出验收。
 这属于本机运行验证，未进行 Apple 公证或商店发布。
 不要把 macOS 导出成功等同于其他平台已验证。

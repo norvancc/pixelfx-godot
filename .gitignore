@@ -7,3 +7,6 @@ __pycache__/
 .env
 .env.*
 export_credentials.cfg
+
+# Private work history and local scratch files
+/local/

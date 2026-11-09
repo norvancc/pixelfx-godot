@@ -5,6 +5,6 @@ body:
     id: question
     attributes:
       label: Question
-      description: Include the documentation you checked and your Godot/addon version.
+      description: Include the documentation you checked, Godot version, and addon release version or exact source commit.
     validations:
       required: true
