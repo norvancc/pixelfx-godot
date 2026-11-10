@@ -63,6 +63,8 @@ func _ready() -> void:
 	elements_nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/b2_elements_gallery.tscn"))
 	var simulations_nav := Button.new(); simulations_nav.text="B2 · 模拟 13 项 →"; simulations_nav.position=Vector2(600,86); simulations_nav.size=Vector2(240,34); add_child(simulations_nav)
 	simulations_nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/b2_simulations_gallery.tscn"))
+	var full_nav := Button.new(); full_nav.text="244 项完整目录 →"; full_nav.position=Vector2(350,86); full_nav.size=Vector2(230,34); add_child(full_nav)
+	full_nav.pressed.connect(func(): get_tree().change_scene_to_file("res://demos/pixelfx/full_gallery.tscn"))
 	select_effect(0)
 	recording="--gallery-record" in OS.get_cmdline_user_args()
 	queue_redraw()

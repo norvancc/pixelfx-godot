@@ -1,5 +1,8 @@
 # 验证记录
 
+源码迁移覆盖 244/244 个算法、245 个预设；完整验收仍为 52 项。2026-11-10 的性能优化复验已完成：新增路径 6500 个像素用例、全 244 项编辑器的 979 项断言通过。重点八项在禁缓存的可见窗口中约有每秒 29.4–29.9 次效果更新；其他新增项仍有超预算采样，整体完整验收尚未通过。Inspector 资源切换已修复。见 [本轮审阅](../../docs/plans/native-acceptance-review.zh-CN.md)；以下历史指标保持原验收口径。
+
+
 ## 当前源码：B2 模拟十三项 — 2026-11-09
 
 累计 **52/244** 个算法、**53 个预设**，剩余 **192** 项；B2 为 **41/49**，剩余 8 项。30 项解析循环、22 项独立模拟。最新发行版仍为 **0.2.0（五项）**。本批验收、来源哈希、逐案例误差和性能见 [validation/b2-simulations.json](validation/b2-simulations.json)。
@@ -178,3 +181,7 @@ API 目标为 Godot 4.3+。除上述 macOS 实测外，Godot 4.3 / Ubuntu headle
 应在游戏加载阶段预热常用预设。用户审美验收仍以实际查看为准。
 
 Linux Godot 4.3 的 1052 组对照已补充逐像素审计。四个既有例外案例的计数/矩形取两平台并集；所有 alpha 字节相同，最大 RGB 差仍为 2/255。证据归档 SHA-256 为 `f6cb96f385bf153a249bbf3d6947a5083e8f1b69bd2b7109bb113b82be17ffe5`；更新后的[完整 CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679)已通过，验收归档 SHA-256 为 `273ceb7b0c623af7665d28bec72724f34a6d8856dfe945dfc9e9a2743084f818`。
+
+## 全量源码阶段的检查方式
+
+源码迁移阶段曾按用户约定仅运行 `python3 tools/pixelfx/basic_check.py`。恢复验收后，CI 现在同时执行该基础检查和 `python3 tools/pixelfx/check.py`，回归已验收范围与生成器语义；新增路径的深入检查和性能预算通过 `PIXELFX_FULL_NATIVE=1` 显式启用。完整验收仍由原 52 项的来源哈希与记录约束；`native/smoke.json` 明确标记 `full_acceptance=false`。CI 配置恢复不等于当前本地改动已取得新的 Linux 运行结果。

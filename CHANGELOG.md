@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased — full source migration
+
+- Port the remaining 192 pinned algorithms to native GDScript with presets, actor/rig/act/poses/chain support, masks, pixel fonts and screen/weather helpers. Source coverage is 244/244 with 245 presets; full acceptance stays 52/244.
+- Add the lazy full catalog gallery, native actor/scene input adapters, source hashes and a basic playback report. Full acceptance has resumed. Optimize pixel loops, numeric bodies, particle integration, row compositing and dependency loading; catalog-wide real-time readiness remains in progress. Fix Inspector resource switching and verify the targeted editor probe.
+- Fix generated switch/continue flow, array-member destructuring, numeric object keys, missing Map numeric comparisons and unsigned frame-buffer reads. Fix transformed weather glow sampling and particle decay quantization; add stone, slash, sky and font kernels with native parity/runtime/bounds/replay probes and isolated performance measurements; acceptance remains 52/244.
+
+- Record 6,500 completed native pixel cases and 979 editor assertions, visible playback measurements, and the later targeted optimization delta without claiming the interrupted 119-effect rerun passed.
+
 ## Unreleased — B2 simulations
 
 - Add thirteen native stateful ports and presets: Flame pillar, Meteor, Homing missile, Ice shatter, Ice spikes, Icicle fall, Snowflake burst, Geyser, Wave crash, Feather burst, Healing ring, Holy pillar and Smite. Source coverage reaches 52/244 algorithms, 53 presets; B2 is 41/49 accepted.

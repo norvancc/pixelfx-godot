@@ -4,7 +4,7 @@ The repository is both an installable Godot addon and a runnable demonstration p
 
 | Path | Purpose |
 | --- | --- |
-| `addons/pixelfx/` | Distributable addon: runtime, editor, 52 effects / 53 presets, templates, API/catalog/validation documentation, license and provenance |
+| `addons/pixelfx/` | Distributable addon: runtime, editor, 244 algorithms / 245 presets (52 fully accepted; 192 pending acceptance), templates, API/catalog/validation documentation, license and provenance |
 | `demos/pixelfx/` | Runnable gallery and integration examples |
 | `tests/pixelfx/` | Rendering, runtime, catalog and editor verification; test fixtures stay here |
 | `tools/pixelfx/` | Reference generation, validation and release packaging tools |
@@ -39,3 +39,5 @@ Declarative batch scopes live in `tests/pixelfx/batches/`. The shared batch refe
 ## Verification
 
 Run `python3 tools/pixelfx/package_demo.py` after packaging changes and inspect both ZIPs. Run `python3 tools/pixelfx/check.py` for runtime or resource changes. Packaging must retain working relative launcher paths and the standalone documentation, while the addon archive contains only `addons/pixelfx/`.
+
+`addons/pixelfx/native/` contains native generated dependency modules, lexical/numeric support, actor inputs, choreography and the basic-check report. `tools/pixelfx/codegen/` is build-only tooling. `demos/pixelfx/full_gallery.tscn` lazily browses all 244 algorithms.

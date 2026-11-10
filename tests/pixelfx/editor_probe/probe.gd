@@ -50,7 +50,10 @@ func run() -> void:
 		for source in provenance.effects:
 			var id = str(source).get_file().replace("-","_")
 			if id not in ["fireball","ice_lance","laser_bolt","sunburst","ripples"]: additional_ids.append(id)
+		var selected=OS.get_environment("PIXELFX_EDITOR_EFFECTS").split(",",false)
 		for id in additional_ids:
+			if not selected.is_empty() and id not in selected:continue
+			print("PIXELFX_EDITOR_EFFECT ",id)
 			dock.edit_preset(load("res://addons/pixelfx/presets/"+id+".tres"))
 			check(dock.player.is_playing() and dock.player.instance.meta.id=="pixelfx."+id,id+" editor preview")
 			var analytic: bool=dock.player.instance.meta.cacheable

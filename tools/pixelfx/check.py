@@ -22,6 +22,7 @@ def run(name, args, expected=None, timeout=180, env=None):
         print(result.stdout); raise SystemExit(f'{name} failed')
     print(name+': passed', flush=True)
 run('import-release', [godot,'--headless','--path',str(root),'--editor','--import','--quit'])
+run('native-semantics', [sys.executable, 'tools/pixelfx/check_native_semantics.py'], 'NATIVE_SEMANTICS passed=true')
 upstream = os.environ.get('PIXELFX_UPSTREAM')
 if not upstream:
     upstream = subprocess.check_output([sys.executable,str(root/'tools/pixelfx/fetch_reference.py')], cwd=root, text=True, timeout=180).strip()
@@ -52,5 +53,7 @@ for config_path in sorted((root/'tests/pixelfx/batches').glob('*.json')):
     for phase in ['parity', 'runtime', 'catalog', 'soak']:
         run(phase+'-'+batch, [godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_batch_'+phase+'.gd'], 'failures=0', timeout=600, env=batch_env)
 run('benchmark-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/benchmark.gd'],'PIXELFX_BENCHMARK')
-run('editor-release',[sys.executable,'tools/pixelfx/check_editor.py'],'failures=0')
+run('editor-release',[sys.executable,'tools/pixelfx/check_editor.py'],'failures=0',timeout=2100)
+if os.environ.get('PIXELFX_FULL_NATIVE') == '1':
+    run('native-deep-acceptance',[sys.executable,'tools/pixelfx/check_native.py',upstream,'--expanded','--survey','--performance'],'PIXELFX_NATIVE_CORRECTNESS_PASSED',timeout=21600)
 print('PIXELFX_RELEASE_CHECKS_PASSED')

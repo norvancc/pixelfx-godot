@@ -30,3 +30,7 @@ Keep parameter types and legal ranges faithful to the algorithm: integer tooth c
 For upstream ports, update provenance, `docs/migration-status.json`, the effect catalog, both overviews/changelogs, the roadmap/full migration plan, validation and performance notes. Extend `tools/pixelfx/check.py` coverage; keep source-hashed acceptance reports tied to the validated implementation rather than regenerating a pass after an unreviewed source change. Release metadata changes only when publishing a new version.
 
 See the [detailed contract](../addons/pixelfx/docs/EFFECTS.md) and [contribution checklist](../CONTRIBUTING.md).
+
+## Generated native ports
+
+The remaining 192 pinned effects use the ahead-of-time generator in `tools/pixelfx/codegen/`. Change the generator/support code, regenerate from the pinned source, and record fresh basic checks. Keep source migration separate from full acceptance; do not overwrite any accepted effect while regenerating. See [the native-port guide](../addons/pixelfx/FULL_MIGRATION.md).

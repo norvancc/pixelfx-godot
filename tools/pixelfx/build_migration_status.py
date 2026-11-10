@@ -141,6 +141,20 @@ def main() -> None:
         raise SystemExit(f"Plan/catalog mismatch; missing={missing}, extra={extra}")
 
     accepted = accepted_effects()
+    native_path = ROOT / "addons/pixelfx/native/catalog.json"
+    native = {row["source"]: row for row in json.loads(native_path.read_text())} if native_path.exists() else {}
+    smoke_path = ROOT / "addons/pixelfx/native/smoke.json"
+    smoke = json.loads(smoke_path.read_text()) if smoke_path.exists() else {}
+    smoke_records = {row["effect"]: row for row in smoke.get("records", []) if not row.get("errors")}
+    smoke_hashes = smoke.get("delivery", {}).get("source_sha256", smoke.get("source_sha256", {}))
+    smoke_current = bool(smoke_hashes) and all((ROOT / name).is_file() and hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest for name, digest in smoke_hashes.items())
+    review_path = ROOT / "addons/pixelfx/validation/native-review.json"
+    review = json.loads(review_path.read_text()) if review_path.exists() else {}
+    review_hashes = review.get("delivery", {}).get("source_sha256", review.get("source_sha256", {}))
+    review_current = bool(review_hashes) and all((ROOT / name).is_file() and hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest for name, digest in review_hashes.items())
+    performance = {row["effect"]: row for row in review.get("performance", {}).get("records", [])} if review_current else {}
+    full_cycle = {row["effect"]: row for row in review.get("full_cycle_performance", {}).get("records", [])} if review_current else {}
+    catalog_costs = {row["effect"]: max(sample["draw_ms"] for sample in row["samples"]) for row in review.get("catalog_performance_samples", {}).get("records", [])} if review_current else {}
     previous = {row["effect"]: row for row in json.loads(OUT.read_text()).get("entries", [])} if OUT.exists() else {}
     entries = []
     for path, effect_id in zip(effects, ids):
@@ -158,6 +172,8 @@ def main() -> None:
         status = "完成" if is_existing or record else ("实现中" if implemented else "待分析")
         if not record and not is_existing and prior.get("status") not in {None, "完成", "待分析"}:
             status = prior["status"]
+        if effect_id in native and implemented and not record:
+            status = "已迁移（待完整验收）" if smoke_current and effect_id in smoke_records else "实现中"
         entries.append({
             "upstream_id": effect_id,
             "effect": effect_id,
@@ -166,6 +182,8 @@ def main() -> None:
             "dependencies": imports(path),
             "render_type": "analytic" if is_existing else (probe["render_type"] if probe else render_type(path)),
             "status": status,
+            "implementation_status": "ported" if implemented else "not_ported",
+            "basic_check": {"passed": bool(smoke_current and effect_id in smoke_records), "report": "addons/pixelfx/native/smoke.json"} if effect_id in native else None,
             "godot_path": godot_path,
             "reference_cases": ["tools/pixelfx/reference.mjs", "tests/pixelfx/test_parity.gd"] if is_existing else (record["reference_cases"] + ([f"{record['parity_cases']} cases"] if record.get("parity_cases") else []) if record else prior.get("reference_cases", [])),
             "visual_evidence": ["docs/images/five-effects.png"] if is_existing else ([value for value in [record.get("poster"), record.get("movie"), record.get("report")] if value] if record else []),
@@ -173,11 +191,34 @@ def main() -> None:
             "remaining_issues": (prior.get("remaining_issues", []) if prior.get("status") == "完成" else []) if is_existing or record else (["原生实现已建立；像素、运行/视觉、边界与性能验收尚未完成。"] if implemented else ([probe["review"]] if probe else ["尚未读取上游源码并建立迁移用例"])),
             "probe_review": probe["review"] if probe else prior.get("probe_review"),
         })
+        if review_current and effect_id in review.get("survey_scope", []):
+            entry = entries[-1]
+            entry["acceptance_review"] = {"report": review_path.relative_to(ROOT).as_posix(), "full_acceptance": False,
+                                          "pixel_scope": "B2 detailed checks" if effect_id in review.get("b2_scope", []) else "six lifecycle samples"}
+            if review.get("delivery"):
+                entry["acceptance_review"]["current_source_fully_rechecked"] = False
+                entry["acceptance_review"]["evidence_scope"] = "last completed snapshot; later delivery delta recorded separately"
+                entry["basic_check"]["current_source_fully_rechecked"] = False
+            entry["reference_cases"] = ["tools/pixelfx/reference_native.mjs", "tests/pixelfx/test_native_parity.gd"]
+            entry["remaining_issues"] = ["Full visual and platform acceptance remains pending; six-time survey alone is insufficient."]
+            if effect_id in catalog_costs:
+                entry["performance_report"] = [review_path.relative_to(ROOT).as_posix()]
+                if catalog_costs[effect_id]>1000/30:
+                    entry["remaining_issues"].append(f"Three-point warm render sample reaches {catalog_costs[effect_id]:.1f} ms; this excludes update and scene cost.")
+            if effect_id in performance:
+                entry["performance_report"] = [review_path.relative_to(ROOT).as_posix()]
+                cost = performance[effect_id]
+                if not cost["meets_30fps"]:
+                    entry["remaining_issues"].insert(0, f"Warm single-instance CPU p95 {cost['p95_ms']:.1f} ms exceeds the 33.3 ms budget.")
+                cycle = full_cycle.get(effect_id)
+                if cycle and not cycle["meets_30fps"]:
+                    entry["remaining_issues"].insert(0, f"Full-cycle CPU p95 {cycle['p95_ms']:.1f} ms exceeds the 33.3 ms budget.")
+                if not review.get("editor",{}).get("passed",False):entry["remaining_issues"].append("Editor Inspector integration has not passed.")
     payload = {
         "schema_version": 1,
         "generated_from": {"repository": "https://github.com/patch-gg/pixelfx", "revision": PINNED, "package_version": "0.3.0"},
-        "counts": {"upstream_effects": 244, "completed": sum(e["status"] == "完成" for e in entries), "remaining": sum(e["status"] != "完成" for e in entries)},
-        "status_order": ["待分析", "依赖准备", "实现中", "像素验证", "运行/视觉验证", "完成"],
+        "counts": {"upstream_effects": 244, "completed": sum(e["status"] == "完成" for e in entries), "remaining": sum(e["status"] != "完成" for e in entries), "ported": sum(e["implementation_status"] == "ported" for e in entries), "not_ported": sum(e["implementation_status"] != "ported" for e in entries), "basic_checked_new": sum(bool(e.get("basic_check", {}).get("passed")) for e in entries if e.get("basic_check"))},
+        "status_order": ["待分析", "依赖准备", "实现中", "已迁移（待完整验收）", "像素验证", "运行/视觉验证", "完成"],
         "entries": entries,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

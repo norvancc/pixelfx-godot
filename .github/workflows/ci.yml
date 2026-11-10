@@ -5,7 +5,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,7 +16,11 @@ jobs:
           curl --fail --location --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
           unzip -q /tmp/godot.zip -d /tmp/godot
           chmod +x /tmp/godot/Godot_v4.3-stable_linux.x86_64
-      - name: Validate source, pixels and runtime
+      - name: Check native catalog playback
+        env:
+          GODOT_BIN: /tmp/godot/Godot_v4.3-stable_linux.x86_64
+        run: python3 tools/pixelfx/basic_check.py
+      - name: Check accepted effects and generator regressions
         env:
           GODOT_BIN: /tmp/godot/Godot_v4.3-stable_linux.x86_64
         run: python3 tools/pixelfx/check.py

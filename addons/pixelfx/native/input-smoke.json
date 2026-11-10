@@ -1,0 +1,332 @@
+{
+  "check_kind": "basic_actor_choreography_only",
+  "full_acceptance": false,
+  "records": [
+    {
+      "effect": "arcane/arcane-beam",
+      "passed": true
+    },
+    {
+      "effect": "arcane/arcane-missiles",
+      "passed": true
+    },
+    {
+      "effect": "arcane/blink-in",
+      "passed": true
+    },
+    {
+      "effect": "arcane/blink-out",
+      "passed": true
+    },
+    {
+      "effect": "arcane/spell-charge",
+      "passed": true
+    },
+    {
+      "effect": "fire/fire-ring",
+      "passed": true
+    },
+    {
+      "effect": "holy/blessing",
+      "passed": true
+    },
+    {
+      "effect": "holy/divine-shield",
+      "passed": true
+    },
+    {
+      "effect": "holy/halo",
+      "passed": true
+    },
+    {
+      "effect": "holy/heal",
+      "passed": true
+    },
+    {
+      "effect": "holy/resurrection",
+      "passed": true
+    },
+    {
+      "effect": "ice/freeze",
+      "passed": true
+    },
+    {
+      "effect": "ice/frost-nova",
+      "passed": true
+    },
+    {
+      "effect": "impacts/heavy-landing",
+      "passed": true
+    },
+    {
+      "effect": "impacts/hit-flash",
+      "passed": true
+    },
+    {
+      "effect": "impacts/shield-block",
+      "passed": true
+    },
+    {
+      "effect": "lightning/chain-lightning",
+      "passed": true
+    },
+    {
+      "effect": "lightning/charge-up",
+      "passed": true
+    },
+    {
+      "effect": "lightning/electrified",
+      "passed": true
+    },
+    {
+      "effect": "lightning/thunderclap",
+      "passed": true
+    },
+    {
+      "effect": "melee/claw-swipe",
+      "passed": true
+    },
+    {
+      "effect": "melee/dagger-flurry",
+      "passed": true
+    },
+    {
+      "effect": "melee/double-slash",
+      "passed": true
+    },
+    {
+      "effect": "melee/hammer-smash",
+      "passed": true
+    },
+    {
+      "effect": "melee/heavy-cleave",
+      "passed": true
+    },
+    {
+      "effect": "melee/scythe-reap",
+      "passed": true
+    },
+    {
+      "effect": "melee/spear-sweep",
+      "passed": true
+    },
+    {
+      "effect": "melee/spin-slash",
+      "passed": true
+    },
+    {
+      "effect": "melee/sword-slash",
+      "passed": true
+    },
+    {
+      "effect": "melee/thrust",
+      "passed": true
+    },
+    {
+      "effect": "melee/uppercut",
+      "passed": true
+    },
+    {
+      "effect": "melee/whip-crack",
+      "passed": true
+    },
+    {
+      "effect": "moves/arrow-shot",
+      "passed": true
+    },
+    {
+      "effect": "moves/dash-strike",
+      "passed": true
+    },
+    {
+      "effect": "moves/earth-stomp",
+      "passed": true
+    },
+    {
+      "effect": "moves/fireball-throw",
+      "passed": true
+    },
+    {
+      "effect": "moves/ground-pound",
+      "passed": true
+    },
+    {
+      "effect": "moves/holy-smite",
+      "passed": true
+    },
+    {
+      "effect": "moves/ice-lance-throw",
+      "passed": true
+    },
+    {
+      "effect": "moves/lightning-call",
+      "passed": true
+    },
+    {
+      "effect": "moves/meteor-call",
+      "passed": true
+    },
+    {
+      "effect": "moves/pistol-shots",
+      "passed": true
+    },
+    {
+      "effect": "moves/rocket-launcher",
+      "passed": true
+    },
+    {
+      "effect": "moves/sword-combo",
+      "passed": true
+    },
+    {
+      "effect": "nature/leaf-storm",
+      "passed": true
+    },
+    {
+      "effect": "nature/root-snare",
+      "passed": true
+    },
+    {
+      "effect": "scifi/force-field",
+      "passed": true
+    },
+    {
+      "effect": "scifi/glitch",
+      "passed": true
+    },
+    {
+      "effect": "scifi/scanner",
+      "passed": true
+    },
+    {
+      "effect": "scifi/warp-in",
+      "passed": true
+    },
+    {
+      "effect": "scifi/warp-out",
+      "passed": true
+    },
+    {
+      "effect": "shadow/curse",
+      "passed": true
+    },
+    {
+      "effect": "shadow/life-steal",
+      "passed": true
+    },
+    {
+      "effect": "spawn/disintegrate",
+      "passed": true
+    },
+    {
+      "effect": "spawn/dissolve-burn",
+      "passed": true
+    },
+    {
+      "effect": "spawn/respawn-beam",
+      "passed": true
+    },
+    {
+      "effect": "spawn/shatter-death",
+      "passed": true
+    },
+    {
+      "effect": "spawn/soul-rise",
+      "passed": true
+    },
+    {
+      "effect": "status/bleeding",
+      "passed": true
+    },
+    {
+      "effect": "status/burning",
+      "passed": true
+    },
+    {
+      "effect": "status/charmed",
+      "passed": true
+    },
+    {
+      "effect": "status/confused",
+      "passed": true
+    },
+    {
+      "effect": "status/cursed",
+      "passed": true
+    },
+    {
+      "effect": "status/frozen",
+      "passed": true
+    },
+    {
+      "effect": "status/haste",
+      "passed": true
+    },
+    {
+      "effect": "status/petrified",
+      "passed": true
+    },
+    {
+      "effect": "status/poisoned",
+      "passed": true
+    },
+    {
+      "effect": "status/rage",
+      "passed": true
+    },
+    {
+      "effect": "status/sleep",
+      "passed": true
+    },
+    {
+      "effect": "status/slowed",
+      "passed": true
+    },
+    {
+      "effect": "status/stunned",
+      "passed": true
+    },
+    {
+      "effect": "ui/exclamation",
+      "passed": true
+    },
+    {
+      "effect": "ui/level-up",
+      "passed": true
+    }
+  ],
+  "count": 73,
+  "native_image_input": "passed",
+  "catalog_load": {
+    "presets": 245,
+    "algorithms": 244
+  },
+  "clean_install": {
+    "godot_import": "passed",
+    "editor_plugin_enabled": false,
+    "presets": 245,
+    "algorithms": 244
+  },
+  "supplemental_checks": {
+    "editor_import_and_exit": {
+      "passed": true,
+      "log_sha256": "6f4308c533731e1f0dc7db96c81148edd6bb76ebbfaf0cb9e57416cd84dc3bd4"
+    },
+    "full_gallery_selection_and_exit": {
+      "passed": true,
+      "log_sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    },
+    "explicit_image_inputs": {
+      "passed": true,
+      "log_sha256": "8b5a6e6c208be421895bb467b03c391bd06ba0e8f8ce00bbd6025f6c9a8a1bc6"
+    },
+    "session_cleanup": {
+      "passed": true,
+      "log_sha256": "89109b2b71c6f7deb2fd0f15da2e15f29683806f03671104b5441a91755806bf"
+    }
+  },
+  "scope_notes": [
+    "Actor choreography checks draw at initial act time and after one 1/30 second update; complete act timing/visual acceptance remains pending.",
+    "Native session cleanup added after the default effect sweep began, independently checked with editor import/exit and Halo playback. Rendering algorithms were unchanged by that cleanup addition."
+  ]
+}
