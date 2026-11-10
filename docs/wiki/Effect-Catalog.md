@@ -14,6 +14,10 @@
 | 过场 | Iris、Diamond wipe、Pixel dissolve |
 | 角色与编排 | Critters、Moves、actor / rig / act / chain |
 
+## 在网页预览每个效果
+
+[独立效果库](https://pixelfx-godot.craftypatio2.chatgpt.site/#effects) 为每个算法提供单独 GIF，支持类别筛选、名称/标签搜索、悬停播放、点击放大和下载。动画来自 Godot 默认生命周期或循环，角色招式包含准备、收招与定格；过场使用浅色底以看清遮罩。GIF 是离线视觉预览，不是实时性能测量。
+
 ## 在 Godot 中浏览
 
 - **完整图鉴：** `demos/pixelfx/full_gallery.tscn`，244 项按需加载，显示 CPU 耗时和场景 FPS。

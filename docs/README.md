@@ -7,6 +7,8 @@ Full acceptance: **52/244 algorithms, 192 pending, 53 accepted presets**. B2 is 
 
 [Website](https://pixelfx-godot.craftypatio2.chatgpt.site) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [Wiki source](wiki/README.md) · [Website source](site/README.md)
 
+The independent website includes an individual animated GIF for every algorithm, with searchable categories and a detailed preview. GIF production is separate from acceptance; source coverage and full acceptance remain separate counts.
+
 ## Using PixelFX
 
 - [English overview and installation](../README.md)

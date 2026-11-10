@@ -62,6 +62,6 @@ B1 新增命中火花、消散烟团、篝火、火箭、小爆炸和水花。B2
 
 文档与目录说明：[文档索引](docs/README.md)。macOS 快捷启动脚本位于 `scripts/macos/`。
 
-[独立宣传页](https://pixelfx-godot.craftypatio2.chatgpt.site) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [安装与第一个效果](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
+[独立效果库 / 全部 244 个 GIF](https://pixelfx-godot.craftypatio2.chatgpt.site/#effects) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [安装与第一个效果](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
 
 全量迁移与性能修复已在 [PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 合并为 `183118a`，Godot 4.3 / Linux CI 的目录启动、语义、既有回归、编辑器与打包检查通过；这不等于新增项的完整视觉与性能验收。全部效果可运行 `demos/pixelfx/full_gallery.tscn` 浏览。

@@ -2,7 +2,8 @@
 
 ## Unreleased — documentation and showcase
 
-- Publish the GitHub Wiki and independent PixelFX website; keep editable page and site sources in docs.
+- Publish the GitHub Wiki and independent PixelFX website with a searchable, categorized library of 244 native lifecycle GIFs. Keep editable page/site sources, animation metadata and serial export tools.
+- Fix numeric coercion for boolean arithmetic in generated shotgun muzzle geometry, found during the Rocket launcher animation capture; retain historical acceptance snapshots and record the targeted fix separately.
 - Synchronize installation, delivery status, Linux CI evidence and source/release boundaries after PR #10 merged as `183118a`.
 
 ## Unreleased — full source migration
