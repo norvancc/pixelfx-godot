@@ -10762,7 +10762,7 @@
       "addons/pixelfx/native/compiled/fx__projectiles__laser-bolt.gd": "ef5b75417097665462c70ec4ae4a2e2c69733da1add99f3b9d82bb9c108d77e2",
       "addons/pixelfx/native/compiled/fx__projectiles__magic-missile.gd": "f07b6b3d1184f7be66476fe83d91f33996a2592a441b8ba0cfef409c9c3922de",
       "addons/pixelfx/native/compiled/fx__projectiles__muzzle-pistol.gd": "45287fbe6a6b5813fc1826a0b55cd75ecb32fe0ea108c8573bbaffe91bb05208",
-      "addons/pixelfx/native/compiled/fx__projectiles__muzzle-shotgun.gd": "6068cf69e47fce6ef8484a6aa286983c67f741db2f7a0385726747072efc388a",
+      "addons/pixelfx/native/compiled/fx__projectiles__muzzle-shotgun.gd": "dd5ad739ad669466afd435edccab8369fbd2eaf87301ddce285ce97610aaa084",
       "addons/pixelfx/native/compiled/fx__projectiles__muzzle-smg.gd": "c0b2031066c7320bd600d09f58bad6d92fd855c69780e93194cbf75e9a1e7b71",
       "addons/pixelfx/native/compiled/fx__projectiles__plasma-shot.gd": "44c1f51ca88202410de49c3fec5d9ceb21338f582389274dc6e04ceb3990561b",
       "addons/pixelfx/native/compiled/fx__projectiles__rocket.gd": "6fd5635d9a9df8e85b55d0f92c2f59b122bc55c46552a2a1a61012fc38cfb74e",
@@ -11096,8 +11096,8 @@
       "tests/pixelfx/core/index.js": "93327257e0917d038cfbd2428ce506e0968f7aa48b3c89a6a563237ef67dec96",
       "tests/pixelfx/native_batches/b2-completion.json": "8c8102d8f5fbd3efd2f7def410e6e9b0e65a0bb6ce0701c06908824a97916f0d",
       "tests/pixelfx/native_batches/optimized-parameters.json": "034f6df5dddd35f20802c501dc808646b33d2d2a6b0ab198d99508d6287e7791",
-      "tests/pixelfx/native_semantics_fixture.js": "8c8f34a30a5eb60fd45d05074be57951d681a00bf9d204ba6347a17cbd064dfb",
-      "tests/pixelfx/native_semantics_generated.gd": "eac066010d63e7ce68a9f39aa57226e33b9c370615194b8fbfcc7fb46b66e311",
+      "tests/pixelfx/native_semantics_fixture.js": "9f13888adf30ded11e8ad2c0ee1d1a99efcc79590a42bafe59e0d3a79ad0a06c",
+      "tests/pixelfx/native_semantics_generated.gd": "e374118cc278749bb797584d12da9394ea6fe4dee6bd55e43584a509f71ca9db",
       "tests/pixelfx/test_native_catalog.gd": "cab10e3124dc1b2d22a19c518290d013441eb9f484c4dc6a82a04a445642eb33",
       "tests/pixelfx/test_native_parity.gd": "60570f04393c711c28cc948908939a3bfbd747a16112ad704915fd3986917e5b",
       "tests/pixelfx/test_native_runtime.gd": "ae296929dcbcd0c51d665d235f1f6958c95a01313007786c3868ee738a10b0c6",
@@ -11107,7 +11107,7 @@
       "tools/pixelfx/check_editor.py": "49914e77c23b558f34d78b57a656c05d5d08c27e8428caefb93dec877511fd3c",
       "tools/pixelfx/check_native.py": "e1234efaa4092a25be9f3670b5c9ddb2f81d38edab32af4fa7a2c3f2d864f803",
       "tools/pixelfx/check_native_semantics.py": "7d5ee756d4e2fe982b95358be3aef3bfd45d336e83dc1d25341dcae3b37ae134",
-      "tools/pixelfx/codegen/direct.mjs": "27c670cabe909d2cba6cf4e389eaa1bcc52409ea980793cef4cf397ac60bbd1a",
+      "tools/pixelfx/codegen/direct.mjs": "cddc918aa2107b8477b222fa7f3a5dfbb63de80eeb3d99e6291d923d478ce6fb",
       "tools/pixelfx/codegen/generate.mjs": "35d96ec4e7301993b69be744a7d55dda504dd28c90da1e100275af6967561655",
       "tools/pixelfx/compare_native.mjs": "60de9a6580dd12c09410dfb466db864abf7914a7cdc5b9c349c2309f7a682ed1",
       "tools/pixelfx/recheck_accepted.py": "4fc0ddc3bc80604c64641eef06f1b9916891280693363d59f7604bb78867938b",
@@ -11118,11 +11118,14 @@
     "changed_since_completed_review": [
       "addons/pixelfx/native/accelerators.gd",
       "addons/pixelfx/native/compiled/fx__explosions___lib.gd",
+      "addons/pixelfx/native/compiled/fx__projectiles__muzzle-shotgun.gd",
       "addons/pixelfx/native/compiled/fx__transitions__diamond-wipe.gd",
       "addons/pixelfx/native/semantics.gd",
       "addons/pixelfx/native/third_party/fdlibm-LICENSE",
       "addons/pixelfx/native/transition_kernels.gd",
       "tests/pixelfx/native_batches/optimized-parameters.json",
+      "tests/pixelfx/native_semantics_fixture.js",
+      "tests/pixelfx/native_semantics_generated.gd",
       "tools/pixelfx/codegen/direct.mjs",
       "tools/pixelfx/codegen/generate.mjs",
       "tools/pixelfx/write_native_review.py"
@@ -11134,6 +11137,30 @@
       "builds/pixelfx/native-performance-shader-final-probe.log": "2c0940fc5b5c773ee31d14690b8f2dcab1c9ae9ec7219c8b7e96eda3446da8c9",
       "builds/pixelfx/parity-native-expanded.log": "71d974da50eed29b1d94722898c2d4e0114a93b86ce2ff23082781f1cb36d1c5",
       "builds/pixelfx/acceptance/config-expanded.json": "5ad8510783021137297b9093558bcc37915b34e72bfeca42f631f4e96639114a"
+    },
+    "follow_up": {
+      "recorded_at": "2026-11-10T10:16:17.600405+00:00",
+      "reason": "Native GIF capture found JS boolean arithmetic in muzzle-shotgun shape; coerce known boolean operands to numbers. Independent Node/Godot semantic oracle passed. Only this upstream module contains the affected AST pattern. No full acceptance promotion.",
+      "changed_sources": {
+        "addons/pixelfx/native/compiled/fx__projectiles__muzzle-shotgun.gd": {
+          "before": "6068cf69e47fce6ef8484a6aa286983c67f741db2f7a0385726747072efc388a",
+          "after": "dd5ad739ad669466afd435edccab8369fbd2eaf87301ddce285ce97610aaa084"
+        },
+        "tests/pixelfx/native_semantics_fixture.js": {
+          "before": "8c8f34a30a5eb60fd45d05074be57951d681a00bf9d204ba6347a17cbd064dfb",
+          "after": "9f13888adf30ded11e8ad2c0ee1d1a99efcc79590a42bafe59e0d3a79ad0a06c"
+        },
+        "tests/pixelfx/native_semantics_generated.gd": {
+          "before": "eac066010d63e7ce68a9f39aa57226e33b9c370615194b8fbfcc7fb46b66e311",
+          "after": "e374118cc278749bb797584d12da9394ea6fe4dee6bd55e43584a509f71ca9db"
+        },
+        "tools/pixelfx/codegen/direct.mjs": {
+          "before": "27c670cabe909d2cba6cf4e389eaa1bcc52409ea980793cef4cf397ac60bbd1a",
+          "after": "cddc918aa2107b8477b222fa7f3a5dfbb63de80eeb3d99e6291d923d478ce6fb"
+        }
+      },
+      "oracle_log": "builds/pixelfx/native-semantics.log",
+      "oracle_sha256": "3737397787c0a643cda5613f652394030b840474ee3330b86125837249e715d8"
     }
   }
 }
