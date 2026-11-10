@@ -29,7 +29,7 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write('runtime=' + str(runtime).lower() + '\n')
           print('Run Godot regression:' if runtime else 'Run static website and documentation checks only', runtime)
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Check the repository website
