@@ -100,3 +100,5 @@ python3 tools/pixelfx/check_native.py /absolute/path/to/pinned/upstream --expand
 第二条在 33.3 ms CPU p95 预算失败时返回非零，仍保留实测结果。全目录三点性能采样使用 `tests/pixelfx/benchmark_native_catalog.gd`，带效果过滤时写入单独的 `performance-native-catalog-selected.json`，避免覆盖全目录报告。可见窗口实测使用 `tests/pixelfx/benchmark_native_realtime.gd`；编辑器验证使用 `python3 tools/pixelfx/check_editor.py`。
 
 已有发布范围检查仍使用 `python3 tools/pixelfx/check.py`；`PIXELFX_FULL_NATIVE=1` 会将新迁移项的深入检查与性能预算一并加入。本轮按用户决定结束追加验收并交付主分支；已知问题按实际使用反馈继续修复。源码交付不另建发行版本。
+
+交付 CI 的启动检查曾因只取开头与 45% 生命周期，漏过 `moves/dash-strike` 的短促斩击而误报空白。检查脚本补取 17% 时刻；该项定向启动检查通过（0.391 秒有 13348 个非空通道值），不放宽空白判定、不改效果算法。

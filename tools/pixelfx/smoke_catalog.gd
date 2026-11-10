@@ -34,13 +34,16 @@ func run():
 		fx.update(1.0/30.0);frame.clear();fx.draw(frame)
 		occupied_samples.append(frame.color.size()-frame.color.count(0)+frame.light.size()-frame.light.count(0))
 		if OS.get_environment("PIXELFX_SMOKE_PEAK")=="1":
-			fx.update(maxf(0.0,float(row.meta.duration)*0.45-fx.t));frame.clear();fx.draw(frame)
-			occupied_samples.append(frame.color.size()-frame.color.count(0)+frame.light.size()-frame.light.count(0))
+			# Short chained strikes can finish before the middle of the declared actor scene.
+			for fraction in [0.17,0.45]:
+				fx.update(maxf(0.0,float(row.meta.duration)*fraction-fx.t));frame.clear();fx.draw(frame)
+				occupied_samples.append(frame.color.size()-frame.color.count(0)+frame.light.size()-frame.light.count(0))
 		if occupied_samples.max()==0:Semantics.fail("No pixels at sampled times for "+row.source)
 		var record={"occupied_samples":occupied_samples,"effect":row.source,"milliseconds":Time.get_ticks_msec()-start,"errors":Semantics.errors.slice(error_start)}
 		records=records.filter(func(r):return r.effect!=row.source)
 		record["drawn_at_seconds"]=[0.0,1.0/30.0]
-		if OS.get_environment("PIXELFX_SMOKE_PEAK")=="1":record.drawn_at_seconds.append(float(row.meta.duration)*0.45)
+		if OS.get_environment("PIXELFX_SMOKE_PEAK")=="1":
+			for fraction in [0.17,0.45]:record.drawn_at_seconds.append(float(row.meta.duration)*fraction)
 		records.append(record);print("SMOKE_RESULT ",JSON.stringify(record))
 		var file=FileAccess.open("res://builds/pixelfx/full-smoke.json",FileAccess.WRITE);file.store_string(JSON.stringify({"records":records},"\t"));file.close()
 		if not record.errors.is_empty():Semantics.shutdown();quit(1);return
