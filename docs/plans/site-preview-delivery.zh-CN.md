@@ -1,6 +1,6 @@
 # 独立效果库与逐项 GIF
 
-独立站：https://pixelfx-godot.craftypatio2.chatgpt.site
+独立站：https://norvancc.github.io/pixelfx-godot
 
 Wiki：https://github.com/norvancc/pixelfx-godot/wiki
 
@@ -32,7 +32,7 @@ python3 tools/pixelfx/finish_previews.py /absolute/path/to/site/assets/previews
 
 导出过程支持已有清单断点续作；重录一项时先移除其清单记录，再用 `--effects category/effect` 限定该项。取景脚本不能与导出脚本同时改写同一份清单。`manifest.json` 记录算法 ID、名称、路径、源文件哈希、GIF 哈希、时长、帧数和大小，可核对全部目录覆盖。
 
-独立站源码在 `docs/site/`，该目录含 `.gdignore`，不参与 Godot 导入。发布通过相同 Sites 项目更新，保持公开受众。Wiki 源码在 `docs/wiki/`；API 和验证细节继续链接插件内的正式文档。
+独立站源码在 `docs/site/`，该目录含 `.gdignore`，不参与 Godot 导入。发布使用 GitHub Pages，推送 `main` 中的页面文件后由 `.github/workflows/pages.yml` 自动更新，保持公开访问。Wiki 源码在 `docs/wiki/`；API 和验证细节继续链接插件内的正式文档。
 
 ## 录制发现的问题
 

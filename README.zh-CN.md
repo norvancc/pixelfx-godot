@@ -1,5 +1,9 @@
 # PixelFX for Godot
 
+**[打开在线效果库 →](https://norvancc.github.io/pixelfx-godot/#effects)** — 244 个效果均可播放预览、搜索分类和下载 GIF。[Wiki / 安装指南](https://github.com/norvancc/pixelfx-godot/wiki)
+
+[![浏览全部 244 个效果](docs/site/assets/portal-forest.webp)](https://norvancc.github.io/pixelfx-godot/)
+
 当前 `main` 提供 **244/244 个算法、245 个预设**；完整验收保持 **52/244**。直接数值计算和依赖延迟加载已将多个秒级热点降到几十毫秒。重点八项在 M4 Pro 可见窗口中禁缓存实测约每秒 29–30 次效果更新；新增路径 6500 个像素用例、979 项编辑器断言通过，其他目录项仍有超预算采样。抽样、像素正确性和离线录像不能代表实时可用；见 [本轮验收记录](docs/plans/native-acceptance-review.zh-CN.md) 和 [全量迁移说明](addons/pixelfx/FULL_MIGRATION.md)。
 
 
@@ -62,6 +66,6 @@ B1 新增命中火花、消散烟团、篝火、火箭、小爆炸和水花。B2
 
 文档与目录说明：[文档索引](docs/README.md)。macOS 快捷启动脚本位于 `scripts/macos/`。
 
-[独立效果库 / 全部 244 个 GIF](https://pixelfx-godot.craftypatio2.chatgpt.site/#effects) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [安装与第一个效果](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
+[独立效果库 / 全部 244 个 GIF](https://norvancc.github.io/pixelfx-godot/#effects) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [安装与第一个效果](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
 
 全量迁移与性能修复已在 [PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 合并为 `183118a`，Godot 4.3 / Linux CI 的目录启动、语义、既有回归、编辑器与打包检查通过；这不等于新增项的完整视觉与性能验收。全部效果可运行 `demos/pixelfx/full_gallery.tscn` 浏览。
