@@ -17,6 +17,8 @@ jobs:
           import json, os, pathlib, subprocess
           event = json.loads(pathlib.Path(os.environ['GITHUB_EVENT_PATH']).read_text())
           base = event.get('pull_request', {}).get('base', {}).get('sha') or event.get('before')
+          if base and set(base) == {'0'}:
+              base = subprocess.check_output(['git', 'merge-base', 'HEAD', 'origin/main'], text=True).strip()
           runtime = True
           if base and set(base) != {'0'}:
               paths = subprocess.check_output(['git', 'diff', '--name-only', base, 'HEAD'], text=True).splitlines()
