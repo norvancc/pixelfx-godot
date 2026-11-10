@@ -37,3 +37,5 @@ node tools/pixelfx/codegen/generate.mjs /absolute/path/to/pinned/upstream
 基础输入检查还覆盖 73 个带角色/招式的演出入口，以及原生图片遮罩输入；独立干净项目导入后、插件禁用时，245 个预设可加载并解析为 244 个唯一算法。该结果见 [input-smoke.json](native/input-smoke.json)，仍不等同于完整动作视觉验收。
 
 本轮生成实现保留了全部源算法和依赖，已开始逐案例像素检查，但完整视觉、实时性能和平台验收仍未完成，不能据此宣称全目录逐像素等价。天气等大画布效果已针对噪声、行缓冲和合成优化，仍有超过单实例实时预算的项目；实际接入前需要依据最新逐项测量选择负载。
+
+交付状态：2026-11-10，[PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 已合并到 `main`（`183118a`）。[Godot 4.3 / Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42786437638) 通过目录基础播放、语义与既有验收范围回归、编辑器和打包检查；新增 192 项的完整验收计数保持不变。使用入口见 [Wiki](https://github.com/norvancc/pixelfx-godot/wiki)。

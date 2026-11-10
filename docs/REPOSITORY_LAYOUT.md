@@ -12,6 +12,8 @@ The repository is both an installable Godot addon and a runnable demonstration p
 | `scripts/macos/` | Optional Finder launchers; resolve the project root relative to the script |
 | `docs/` | Contributor documentation, repository conventions and documentation index |
 | `docs/plans/` | Full migration plan and batch dependency/acceptance reviews; completed status must cite the ledger and acceptance evidence |
+| `docs/wiki/` | Editable source of the published GitHub Wiki |
+| `docs/site/` | Standalone static promotional site, assets and design/source credits |
 | `docs/images/` | Public documentation illustrations |
 | `.github/` | CI, issue and pull request templates, ownership and dependency configuration |
 | `builds/` | Ignored generated references, reports, recordings, exports and release archives |

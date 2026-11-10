@@ -41,4 +41,4 @@ The [machine-readable ledger](docs/migration-status.json) is the source of per-e
 
 ## Source migration phase
 
-B2–B9 now have GDScript entries and presets for every pinned algorithm. The next phase is full acceptance of the 192 new ports, including pixel parity, normal-speed native visual review, parameters/lifecycle, performance and platform coverage. Unit tests and recording were deferred for this migration phase at the user’s request.
+B2–B9 now have GDScript entries and presets for every pinned algorithm. The next phase is full acceptance of the 192 new ports, including pixel parity, normal-speed native visual review, parameters/lifecycle, performance and platform coverage. The initial source-only phase deferred deeper checks; the later review completed 6,500 native pixel cases and 979 editor assertions before delivery. PR #10 merged as `183118a` with passing Godot 4.3/Linux CI. Remaining acceptance work follows usage feedback, with no additional exhaustive sweep required for this delivery.

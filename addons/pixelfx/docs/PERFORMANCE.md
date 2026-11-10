@@ -160,3 +160,5 @@ macOS universal/arm64 示例项目启用 Godot 所需的 ETC2 ASTC 导入选项�
 ## 新增原生路径优化与复验（2026-11-10）
 
 已增加依赖延迟解析、局部数值编译、循环粒子积分、逐行天气合成和热点几何计算；只缓存确定性的数学格点与几何，不存储预录画面。重点八项同时测短段暖帧和完整生命周期的 update + Renderer，192 项另做 17% / 51% / 97% 三点摸底。固定帧率录像仍只用于视觉检查。最新数字、机器环境、失败项与证据范围统一见[本轮验收记录](../../../docs/plans/native-acceptance-review.zh-CN.md)和 [native-review.json](../validation/native-review.json)。
+
+交付状态：2026-11-10，[PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 已合并到 `main`（`183118a`）。[Godot 4.3 / Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42786437638) 通过目录基础播放、语义与既有验收范围回归、编辑器和打包检查；新增 192 项的完整验收计数保持不变。使用入口见 [Wiki](https://github.com/norvancc/pixelfx-godot/wiki)。

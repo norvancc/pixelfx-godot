@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — documentation and showcase
+
+- Publish the GitHub Wiki and independent PixelFX website; keep editable page and site sources in docs.
+- Synchronize installation, delivery status, Linux CI evidence and source/release boundaries after PR #10 merged as `183118a`.
+
 ## Unreleased — full source migration
 
 - Port the remaining 192 pinned algorithms to native GDScript with presets, actor/rig/act/poses/chain support, masks, pixel fonts and screen/weather helpers. Source coverage is 244/244 with 245 presets; full acceptance stays 52/244.

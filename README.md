@@ -1,6 +1,6 @@
 # PixelFX for Godot
 
-The migration branch provides **244/244 algorithms and 245 presets**; full acceptance remains **52/244**. Direct numeric kernels and lazy dependency loading have reduced several second-long frame costs to tens of milliseconds. The eight focused B2 effects now measure about 29–30 effect updates per second in a visible M4 Pro window with frame caching disabled; other catalog entries still exceed the CPU budget. The local regression covers 6,500 native pixel cases and 979 editor assertions. Pixel and sampled lifecycle checks are separate from real-time readiness; see the [acceptance review](docs/plans/native-acceptance-review.zh-CN.md) and [native migration notes](addons/pixelfx/FULL_MIGRATION.md).
+The main branch provides **244/244 algorithms and 245 presets**; full acceptance remains **52/244**. Direct numeric kernels and lazy dependency loading have reduced several second-long frame costs to tens of milliseconds. The eight focused B2 effects now measure about 29–30 effect updates per second in a visible M4 Pro window with frame caching disabled; other catalog entries still exceed the CPU budget. The local regression covers 6,500 native pixel cases and 979 editor assertions. Pixel and sampled lifecycle checks are separate from real-time readiness; see the [acceptance review](docs/plans/native-acceptance-review.zh-CN.md) and [native migration notes](addons/pixelfx/FULL_MIGRATION.md).
 
 
 [![CI](https://github.com/norvancc/pixelfx-godot/actions/workflows/ci.yml/badge.svg)](https://github.com/norvancc/pixelfx-godot/actions/workflows/ci.yml)
@@ -16,6 +16,8 @@ The migration branch provides **244/244 algorithms and 245 presets**; full accep
 [Watch the 13-effect native simulation preview](https://github.com/user-attachments/assets/6d2cb744-abb6-4832-ac10-51044966b747)
 
 Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/patch-gg/pixelfx/tree/a84159688af3ca37a4be05a0d422b94451b2e24e). Original work by Patch and Hugo Duprez; see [attribution](NOTICE.md) and [source hashes](addons/pixelfx/provenance.json). This project is independently maintained and is not an official upstream release.
+
+[Website](https://pixelfx-godot.craftypatio2.chatgpt.site) · [Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [Getting started](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
 
 ## Status
 
@@ -44,11 +46,13 @@ The renderer generates pixels on the CPU and uploads textures to Godot. It is **
 - Editor preview with automatically discovered effects, Inspector controls, timeline and explicit preset saving.
 - Standalone demo, projectile integration example, extension template, tests and packaging tools.
 
+Migration and performance fixes merged in [PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) as `183118a`; [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42786437638) passed the catalog playback, generator, existing regression, editor and package gates. This does not promote the new ports to full acceptance.
+
 Target: **Godot 4.3+**. Local acceptance uses Godot 4.7.2 / macOS / GL Compatibility. The [Godot 4.3 / Ubuntu headless checks](https://github.com/norvancc/pixelfx-godot/pull/9/checks) are recorded on this batch’s PR. The previous 39-effect snapshot passed [its full Linux gate](https://github.com/norvancc/pixelfx-godot/actions/runs/42592448679). Other versions/platforms are not automatically covered. No C#, GDExtension, Autoload, Node.js or external textures are required at runtime.
 
 ## Quick start
 
-1. For the five released effects, download `pixelfx-addon-0.2.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases). For all 52 accepted source effects, clone this repository at `main` and use its `addons/pixelfx` directory.
+1. For the five released effects, download `pixelfx-addon-0.2.0.zip` from [Releases](https://github.com/norvancc/pixelfx-godot/releases). For all 244 source algorithms (52 fully accepted), clone this repository at `main` and use its `addons/pixelfx` directory.
 2. Copy `addons/pixelfx` into your project's `addons` directory.
 3. Optionally enable **PixelFX** under **Project → Project Settings → Plugins** for the preview panel. Runtime works with the plugin disabled.
 4. Add a `PixelFXPlayer2D` node and assign `addons/pixelfx/presets/fireball.tres` to **Effect**.
@@ -72,13 +76,15 @@ func spawn_visual(at: Vector2) -> PixelFXPlayer2D:
 # The game owns movement, collision and damage; see the projectile example.
 ```
 
+For all 244 effects, run `demos/pixelfx/full_gallery.tscn` with F6.
+
 To run the demo, clone this repository, import `project.godot` in Godot and press **F5** for the five-effect gallery. The original fireball demo remains available at `demos/pixelfx/fireball_demo.tscn`. Open the **PixelFX** bottom panel to edit a private preset copy; **Save preset** writes your changes to a `.tres` file. No external game project is needed. The gallery's **B1**, **B2**, **B2 ice/water** and **B2 simulations** buttons open the corresponding galleries; those scenes can also run directly using the paths in the table above.
 
 ## Add effects without editing the framework
 
 Copy `addons/pixelfx/templates/effect.gd.txt` to `res://pixelfx/my_effect.gd`, then implement metadata, parameter schema, pixel bounds and drawing. The editor discovers the module automatically; the same player, cache and preset UI handle it. Stateful modules can implement `update()` and use isolated simulation state.
 
-Effect-specific helpers and upstream simulation/acting dependencies may still need porting. The extension API does not mean the upstream character/rig/act systems have already been migrated.
+The native migration includes actor/rig/act/chain support. Use the documented native input contracts when integrating choreography; see [full migration notes](addons/pixelfx/FULL_MIGRATION.md).
 
 - [Effect authoring (English)](docs/AUTHORING.md)
 - [All 244 effects and presets](addons/pixelfx/docs/CATALOG.md)

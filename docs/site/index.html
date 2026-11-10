@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#252525">
+<title>PixelFX — Pixel effects for Godot</title>
+<meta name="description" content="Fire, frost, spells and little bursts of life. 244 pixel effect algorithms, ported to native GDScript. Open source. Made for Godot.">
+<meta property="og:title" content="PixelFX — Pixel effects for Godot"><meta property="og:description" content="A little more life, one pixel at a time. Explore the native Godot effect library."><meta property="og:type" content="website">
+<meta property="og:image" content="https://pixelfx-godot.craftypatio2.chatgpt.site/assets/hero-poster.webp">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+<header><nav aria-label="Main navigation"><a class="nav-home active" href="#home">home</a><a href="#gallery">effects</a><a class="brand" href="#home" aria-label="PixelFX home"><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M10 0h4v4h4v4h4v4H2V8h4V4h4zM6 14h12v4h4v6h-4v4H6v-4H2v-6h4z"/><path class="eye" d="M8 16h3v3H8zm7 0h3v3h-3z"/></svg></a><a href="https://github.com/norvancc/pixelfx-godot/wiki" target="_blank" rel="noreferrer">wiki ↗</a><a href="https://github.com/norvancc/pixelfx-godot" target="_blank" rel="noreferrer">github ↗</a></nav></header>
+<main id="main">
+<section class="intro" id="home" aria-labelledby="headline">
+<div class="edition"><span>OPEN SOURCE · GODOT 4</span><span>THE PIXELFX COLLECTION / 001</span></div>
+<h1 id="headline"><span>PIXEL EFFECTS</span><span>FOR GODOT</span></h1>
+<div class="stage">
+<div class="stage-note"><p>Fire, frost, spells and little bursts of life.<br>A native pixel effect library for your next game.</p><p>244 algorithms. Yours to play with.</p></div>
+<div class="stage-actions"><a class="button solid" href="#download">get the addon <span>↓</span></a><a class="button" href="#gallery">explore effects <span>↗</span></a></div>
+<div class="video-wrap"><video id="showreel" src="assets/effects.mp4" poster="assets/hero-poster.webp" autoplay muted loop playsinline aria-label="Recorded Godot effects showcase"></video><div class="stage-grid" aria-hidden="true"></div></div>
+<div class="stage-caption"><span><i></i> ACTUAL GODOT CAPTURE</span><span>ELEMENTS & SPELLS</span><button id="playback" type="button" aria-label="Pause showcase">Ⅱ pause</button></div>
+</div>
+<div class="category-bar" role="group" aria-label="Filter effect gallery"><button class="selected" data-filter="all" aria-pressed="true"><span aria-hidden="true">✣</span><span>all effects</span></button><button data-filter="fire" aria-pressed="false"><span aria-hidden="true">♨</span><span>fire</span></button><button data-filter="ice" aria-pressed="false"><span aria-hidden="true">❄</span><span>ice & water</span></button><button data-filter="magic" aria-pressed="false"><span aria-hidden="true">✧</span><span>magic</span></button><button data-filter="more" aria-pressed="false"><span aria-hidden="true">⌁</span><span>and more</span></button></div>
+</section>
+<section class="collection" id="gallery" aria-labelledby="gallery-heading">
+<div class="section-top"><h2 id="gallery-heading">a few from the collection</h2><span id="gallery-count">21 SELECTED EFFECTS</span></div>
+<div class="gallery-layout"><figure class="featured"><button id="featured-open" aria-label="View Holy pillar effect"><div class="featured-art"><img id="featured-image" src="assets/holy-holy-pillar.webp" alt="Holy pillar, rendered in Godot" width="540" height="368"><span class="frame-corner top-left"></span><span class="frame-corner bottom-right"></span><span class="art-id" id="featured-id">HOLY / HOLY PILLAR</span><span class="art-plus" aria-hidden="true">+</span></div></button><figcaption><span class="caption-dot"></span><span><strong id="featured-name">Holy pillar</strong><small>native GDScript / real output</small></span><a id="source-link" class="button mini" href="https://github.com/norvancc/pixelfx-godot/blob/main/addons/pixelfx/effects/holy/holy_pillar.gd" target="_blank" rel="noreferrer">view source ↗</a></figcaption></figure>
+<div class="tiles" id="tiles" aria-live="polite"></div></div>
+<div class="collection-bottom"><p>Every spark starts with code.</p><a class="arrow-link" href="https://github.com/norvancc/pixelfx-godot/blob/main/addons/pixelfx/docs/CATALOG.md" target="_blank" rel="noreferrer">the full 244-effect catalog <span>⟶</span></a></div>
+</section>
+<section class="field-notes" aria-labelledby="notes-heading"><div class="section-top"><h2 id="notes-heading">made for the scene</h2><span>YOUR GAME, YOUR RULES</span></div><div class="notes-body"><p class="large-copy">Drop it in.<br>Make it yours.</p><div class="note-list"><div><span>01 /</span><p><strong>Native in Godot.</strong> GDScript effects, typed presets and an editor preview. No JavaScript runtime in your game.</p></div><div><span>02 /</span><p><strong>Art you can tune.</strong> Set the palette, timing, direction and parameters. Keep the pixels crisp.</p></div><div><span>03 /</span><p><strong>Open from the start.</strong> MIT licensed. Read the algorithms, build on them, ship something of your own.</p></div></div></div></section>
+<section class="download" id="download" aria-labelledby="download-heading"><div class="download-heading"><span class="label">ADD A LITTLE IMPACT</span><h2 id="download-heading">let's make<br>some pixels.</h2></div><div class="download-detail"><p>Copy <code>addons/pixelfx/</code> into a Godot project and enable PixelFX in Project Settings → Plugins. Open the full gallery to find your first effect.</p><a class="button solid wide" href="https://github.com/norvancc/pixelfx-godot/archive/refs/heads/main.zip">download source <span>↓</span></a><a class="arrow-link" href="https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started" target="_blank" rel="noreferrer">installation & first effect <span>⟶</span></a><p class="status-note">The main branch includes all 244 algorithms. This is an evolving source collection; 52 have completed full acceptance. Performance varies by effect. <a href="https://github.com/norvancc/pixelfx-godot/wiki/Performance-and-Status" target="_blank" rel="noreferrer">Read the current status ↗</a></p></div></section>
+</main>
+<footer><a class="footer-logo" href="#home">PIXELFX</a><p>Ported for Godot. Built on <a href="https://github.com/patch-gg/pixelfx" target="_blank" rel="noreferrer">PixelFX by Patch / Hugo Duprez</a>.</p><div><a href="https://github.com/norvancc/pixelfx-godot/wiki">docs ↗</a><a href="https://github.com/norvancc/pixelfx-godot/blob/main/NOTICE.md">credits ↗</a><a href="https://github.com/norvancc/pixelfx-godot/issues">found a bug? ↗</a></div><span>MIT / MADE OF PIXELS</span></footer>
+</div>
+<dialog id="effect-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close effect preview">close ×</button><p class="label">FROM THE PIXELFX COLLECTION</p><h2 id="dialog-title">Holy pillar</h2><img id="dialog-image" src="assets/holy-holy-pillar.webp" alt="" width="540" height="368"><a id="dialog-source" class="button solid" href="https://github.com/norvancc/pixelfx-godot" target="_blank" rel="noreferrer">open source ↗</a></dialog>
+<script src="app.js" defer></script>
+</body></html>

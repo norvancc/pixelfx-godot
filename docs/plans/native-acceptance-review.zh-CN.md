@@ -102,3 +102,5 @@ python3 tools/pixelfx/check_native.py /absolute/path/to/pinned/upstream --expand
 已有发布范围检查仍使用 `python3 tools/pixelfx/check.py`；`PIXELFX_FULL_NATIVE=1` 会将新迁移项的深入检查与性能预算一并加入。本轮按用户决定结束追加验收并交付主分支；已知问题按实际使用反馈继续修复。源码交付不另建发行版本。
 
 交付 CI 的启动检查曾因只取开头与 45% 生命周期，漏过 `moves/dash-strike` 的短促斩击而误报空白。检查脚本补取 17% 时刻；该项定向启动检查通过（0.391 秒有 13348 个非空通道值），不放宽空白判定、不改效果算法。
+
+交付状态：2026-11-10，[PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 已合并到 `main`（`183118a`）。[Godot 4.3 / Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42786437638) 通过目录基础播放、语义与既有验收范围回归、编辑器和打包检查；新增 192 项的完整验收计数保持不变。使用入口见 [Wiki](https://github.com/norvancc/pixelfx-godot/wiki)。

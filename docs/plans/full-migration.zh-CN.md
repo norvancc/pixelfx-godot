@@ -310,3 +310,5 @@ B0、B1 与 B2 的 41 项已完成。后续继续记录每效果的阅读、依�
 - `moves/pistol-shots`
 - `moves/rocket-launcher`
 - `moves/sword-combo`
+
+交付状态：2026-11-10，[PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 已合并到 `main`（`183118a`）。[Godot 4.3 / Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42786437638) 通过目录基础播放、语义与既有验收范围回归、编辑器和打包检查；新增 192 项的完整验收计数保持不变。使用入口见 [Wiki](https://github.com/norvancc/pixelfx-godot/wiki)。

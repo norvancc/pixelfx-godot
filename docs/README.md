@@ -1,9 +1,11 @@
 # Documentation
 
-The migration branch now provides **244/244 algorithms and 245 presets**: **52 fully accepted; 192 newly ported with basic playback checks only**. Unit tests, pixel comparisons and recordings are deferred for this phase, as requested. The 52-effect counts below describe the earlier accepted snapshot. See [full source migration](../addons/pixelfx/FULL_MIGRATION.md) for scope, native inputs and limitations.
+The main branch provides **244/244 algorithms and 245 presets**: **52 fully accepted; 192 awaiting full acceptance**. Migration and performance fixes merged in [PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) (`183118a`); [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42786437638) passed. The last complete local native snapshot includes 6,500 pixel cases and 979 editor assertions. The later optimization delta and interrupted rerun are recorded separately. See [current review](plans/native-acceptance-review.zh-CN.md) and [full source migration](../addons/pixelfx/FULL_MIGRATION.md).
 
 
 Full acceptance: **52/244 algorithms, 192 pending, 53 accepted presets**. B2 is **41/49** complete (8 remaining); the latest published release is **0.2.0 with five algorithms**. The first B2 implementation is merged in [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) (`112d5d4`); [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed for that 31-effect snapshot; the new simulation slice has passed local acceptance, with Linux verification recorded in [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks).
+
+[Website](https://pixelfx-godot.craftypatio2.chatgpt.site) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [Wiki source](wiki/README.md) · [Website source](site/README.md)
 
 ## Using PixelFX
 

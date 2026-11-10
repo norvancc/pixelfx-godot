@@ -1,0 +1,149 @@
+[
+  {
+    "id": "fire/flame-pillar",
+    "name": "Flame pillar",
+    "category": "fire",
+    "image": "assets/fire-flame-pillar.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "fire/meteor",
+    "name": "Meteor",
+    "category": "fire",
+    "image": "assets/fire-meteor.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "projectiles/homing-missile",
+    "name": "Homing missile",
+    "category": "more",
+    "image": "assets/projectiles-homing-missile.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "ice/ice-shatter",
+    "name": "Ice shatter",
+    "category": "ice",
+    "image": "assets/ice-ice-shatter.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "ice/ice-spikes",
+    "name": "Ice spikes",
+    "category": "ice",
+    "image": "assets/ice-ice-spikes.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "ice/icicle-fall",
+    "name": "Icicle fall",
+    "category": "ice",
+    "image": "assets/ice-icicle-fall.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "ice/snowflake-burst",
+    "name": "Snowflake burst",
+    "category": "ice",
+    "image": "assets/ice-snowflake-burst.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "water/geyser",
+    "name": "Geyser",
+    "category": "ice",
+    "image": "assets/water-geyser.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "water/wave-crash",
+    "name": "Wave crash",
+    "category": "ice",
+    "image": "assets/water-wave-crash.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "holy/feather-burst",
+    "name": "Feather burst",
+    "category": "magic",
+    "image": "assets/holy-feather-burst.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "holy/heal-aoe",
+    "name": "Healing ring",
+    "category": "magic",
+    "image": "assets/holy-heal-aoe.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "holy/holy-pillar",
+    "name": "Holy pillar",
+    "category": "magic",
+    "image": "assets/holy-holy-pillar.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "holy/smite",
+    "name": "Smite",
+    "category": "magic",
+    "image": "assets/holy-smite.webp",
+    "evidence": "b2-simulations-effects.png"
+  },
+  {
+    "id": "fire/fire-ring",
+    "name": "Fire ring",
+    "category": "fire",
+    "image": "assets/fire-fire-ring.webp",
+    "evidence": "b2-completion-effects.png"
+  },
+  {
+    "id": "holy/blessing",
+    "name": "Blessing",
+    "category": "magic",
+    "image": "assets/holy-blessing.webp",
+    "evidence": "b2-completion-effects.png"
+  },
+  {
+    "id": "holy/divine-shield",
+    "name": "Divine shield",
+    "category": "magic",
+    "image": "assets/holy-divine-shield.webp",
+    "evidence": "b2-completion-effects.png"
+  },
+  {
+    "id": "holy/halo",
+    "name": "Halo",
+    "category": "magic",
+    "image": "assets/holy-halo.webp",
+    "evidence": "b2-completion-effects.png"
+  },
+  {
+    "id": "holy/heal",
+    "name": "Heal",
+    "category": "magic",
+    "image": "assets/holy-heal.webp",
+    "evidence": "b2-completion-effects.png"
+  },
+  {
+    "id": "holy/resurrection",
+    "name": "Resurrection",
+    "category": "magic",
+    "image": "assets/holy-resurrection.webp",
+    "evidence": "b2-completion-effects.png"
+  },
+  {
+    "id": "ice/freeze",
+    "name": "Freeze",
+    "category": "ice",
+    "image": "assets/ice-freeze.webp",
+    "evidence": "b2-completion-effects.png"
+  },
+  {
+    "id": "ice/frost-nova",
+    "name": "Frost nova",
+    "category": "ice",
+    "image": "assets/ice-frost-nova.webp",
+    "evidence": "b2-completion-effects.png"
+  }
+]
