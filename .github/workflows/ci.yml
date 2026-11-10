@@ -55,7 +55,7 @@ jobs:
       - name: Build release archives
         if: steps.scope.outputs.runtime == 'true'
         run: python3 tools/pixelfx/package_demo.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always() && steps.scope.outputs.runtime == 'true'
         with:
           name: validation
@@ -64,7 +64,7 @@ jobs:
             builds/pixelfx/*.json
             builds/pixelfx/*-actual.png
             builds/pixelfx/*-actual.rgba
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: steps.scope.outputs.runtime == 'true'
         with:
           name: release-packages
