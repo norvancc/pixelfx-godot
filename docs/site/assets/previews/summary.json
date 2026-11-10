@@ -1,0 +1,11 @@
+{
+  "effects": 244,
+  "gif_files": 244,
+  "posters": 244,
+  "decoded_frames": 21357,
+  "duration_seconds": 746.43,
+  "gif_bytes": 157348249,
+  "format": "480x320 GIF",
+  "native_capture_hz": 30,
+  "capture_kind": "offline visual preview, not a real-time performance benchmark"
+}

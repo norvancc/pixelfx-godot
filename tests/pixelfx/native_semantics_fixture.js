@@ -9,7 +9,7 @@ function directNumeric(out,input) {
  for(let i=0;i<2;i++)total+=i;
  for(let i=0;i<2;i++)total-=i;
  total-=payload.input-payload.input+payload['0']-7;
- return [Math.round(-0.5), Math.floor(total*10000), out[1], Math.floor(Math.max(1,total)*1000000),+'6',~4294967295];
+ return [Math.round(-0.5), Math.floor(total*10000), out[1], Math.floor(Math.max(1,total)*1000000),+'6',~4294967295,27+(input>0),5-(input<0),true*3,(input>0)**2,4/(input>0)];
 }
 function directProbe(input) {return directNumeric(new Float32Array(4),input);}
 // This is an oracle input for the build-time generator; Godot executes only its generated GDScript.

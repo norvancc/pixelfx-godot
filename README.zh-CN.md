@@ -1,6 +1,6 @@
 # PixelFX for Godot
 
-当前迁移分支提供 **244/244 个算法、245 个预设**；完整验收保持 **52/244**。直接数值计算和依赖延迟加载已将多个秒级热点降到几十毫秒。重点八项在 M4 Pro 可见窗口中禁缓存实测约每秒 29–30 次效果更新；新增路径 6500 个像素用例、979 项编辑器断言通过，其他目录项仍有超预算采样。抽样、像素正确性和离线录像不能代表实时可用；见 [本轮验收记录](docs/plans/native-acceptance-review.zh-CN.md) 和 [全量迁移说明](addons/pixelfx/FULL_MIGRATION.md)。
+当前 `main` 提供 **244/244 个算法、245 个预设**；完整验收保持 **52/244**。直接数值计算和依赖延迟加载已将多个秒级热点降到几十毫秒。重点八项在 M4 Pro 可见窗口中禁缓存实测约每秒 29–30 次效果更新；新增路径 6500 个像素用例、979 项编辑器断言通过，其他目录项仍有超预算采样。抽样、像素正确性和离线录像不能代表实时可用；见 [本轮验收记录](docs/plans/native-acceptance-review.zh-CN.md) 和 [全量迁移说明](addons/pixelfx/FULL_MIGRATION.md)。
 
 
 **基于 [patch-gg/pixelfx](https://github.com/patch-gg/pixelfx) 的非官方 Godot 移植。** 原作者为 Patch 与 Hugo Duprez，采用 MIT 协议；此仓库由 norvancc 独立维护。
@@ -29,7 +29,7 @@ B1 新增命中火花、消散烟团、篝火、火箭、小爆炸和水花。B2
 
 ## 安装和运行
 
-1. 使用已发布五项时，从 Releases 下载 0.2.0 插件 ZIP；使用已完整验收的 52 项时，克隆仓库 `main`，将其中的 `addons/pixelfx` 复制到项目。
+1. 使用已发布五项时，从 Releases 下载 0.2.0 插件 ZIP；使用全部 244 项源码（其中 52 项完整验收）时，克隆仓库 `main`，将其中的 `addons/pixelfx` 复制到项目。
 2. 项目设置 → 插件 → 启用 PixelFX，可获得底部编辑器预览面板；运行时无需启用插件。
 3. 添加 PixelFXPlayer2D 节点，将 `presets/fireball.tres` 赋给 Effect。
 4. 也可以克隆完整仓库，用 Godot 打开 `project.godot` 后按 F5 运行五效果图鉴，可切换特效和参数。
@@ -61,3 +61,7 @@ B1 新增命中火花、消散烟团、篝火、火箭、小爆炸和水花。B2
 贡献请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。保留上游署名、许可和来源记录；新增特效需提供参数、时序、分层、边界、正常速度视觉对照与性能验证。不要只凭脚本解析成功声称迁移完成。
 
 文档与目录说明：[文档索引](docs/README.md)。macOS 快捷启动脚本位于 `scripts/macos/`。
+
+[独立效果库 / 全部 244 个 GIF](https://pixelfx-godot.craftypatio2.chatgpt.site/#effects) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [安装与第一个效果](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
+
+全量迁移与性能修复已在 [PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 合并为 `183118a`，Godot 4.3 / Linux CI 的目录启动、语义、既有回归、编辑器与打包检查通过；这不等于新增项的完整视觉与性能验收。全部效果可运行 `demos/pixelfx/full_gallery.tscn` 浏览。

@@ -46,7 +46,7 @@ static func _f0(_parent,_args:Array,_this=null):
 			_n_total_b2 -= _n_i_b8
 			_n_i_b8 += 1.0
 	_n_total_b2 -= (((_S.named_value(_n_payload_b3,"input") - _S.named_value(_n_payload_b3,"input")) + _S.index_value(_n_payload_b3,"0")) - 7)
-	return [floori((-0.5)+0.5), floori((_n_total_b2 * 10000)), _S.index_value(_n_out_b0,1), floori((maxf(1,_n_total_b2) * 1000000)), _S.unary("+","6"), _S.unary("~",4294967295)]
+	return [floori((-0.5)+0.5), floori((_n_total_b2 * 10000)), _S.index_value(_n_out_b0,1), floori((maxf(1,_n_total_b2) * 1000000)), _S.unary("+","6"), _S.unary("~",4294967295), (27 + _S.number((_n_input_b1 > 0))), (5 - _S.number((_n_input_b1 < 0))), (_S.number(true) * 3), pow(_S.number((_n_input_b1 > 0)),2), (float(4)/_S.number((_n_input_b1 > 0)))]
 	return null
 
 static func _f1(_parent,_args:Array,_this=null):

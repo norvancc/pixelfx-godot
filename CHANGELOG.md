@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — documentation and showcase
+
+- Publish the GitHub Wiki and independent PixelFX website with a searchable, categorized library of 244 native lifecycle GIFs. Keep editable page/site sources, animation metadata and serial export tools.
+- Fix numeric coercion for boolean arithmetic in generated shotgun muzzle geometry, found during the Rocket launcher animation capture; retain historical acceptance snapshots and record the targeted fix separately.
+- Synchronize installation, delivery status, Linux CI evidence and source/release boundaries after PR #10 merged as `183118a`.
+
 ## Unreleased — full source migration
 
 - Port the remaining 192 pinned algorithms to native GDScript with presets, actor/rig/act/poses/chain support, masks, pixel fonts and screen/weather helpers. Source coverage is 244/244 with 245 presets; full acceptance stays 52/244.

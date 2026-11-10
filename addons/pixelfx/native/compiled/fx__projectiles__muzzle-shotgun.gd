@@ -43,7 +43,7 @@ static func _f0(_parent,_args:Array,_this=null):
 	if _S.truth(_S.binary("===",_n_f_b1,1)):
 		for _iter_0 in _S.array([(-1), 1]):
 			var _n_s_b9 = _iter_0
-			_S.invoke(_n_L_b4,"push",[{"off":1,"a":(_n_s_b9 * (1.6 + (_S.index_value(_n_R_b0,(27 + (_n_s_b9 > 0))) * 0.4))),"len":(5 + (_S.index_value(_n_R_b0,29) * 3)),"wid":1.2,"core":0}])
+			_S.invoke(_n_L_b4,"push",[{"off":1,"a":(_n_s_b9 * (1.6 + (_S.index_value(_n_R_b0,(27 + _S.number((_n_s_b9 > 0)))) * 0.4))),"len":(5 + (_S.index_value(_n_R_b0,29) * 3)),"wid":1.2,"core":0}])
 	return _n_L_b4
 	return null
 

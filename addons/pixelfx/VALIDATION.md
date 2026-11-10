@@ -185,3 +185,5 @@ Linux Godot 4.3 的 1052 组对照已补充逐像素审计。四个既有例外�
 ## 全量源码阶段的检查方式
 
 源码迁移阶段曾按用户约定仅运行 `python3 tools/pixelfx/basic_check.py`。恢复验收后，CI 现在同时执行该基础检查和 `python3 tools/pixelfx/check.py`，回归已验收范围与生成器语义；新增路径的深入检查和性能预算通过 `PIXELFX_FULL_NATIVE=1` 显式启用。完整验收仍由原 52 项的来源哈希与记录约束；`native/smoke.json` 明确标记 `full_acceptance=false`。CI 配置恢复不等于当前本地改动已取得新的 Linux 运行结果。
+
+交付状态：2026-11-10，[PR #10](https://github.com/norvancc/pixelfx-godot/pull/10) 已合并到 `main`（`183118a`）。[Godot 4.3 / Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42786437638) 通过目录基础播放、语义与既有验收范围回归、编辑器和打包检查；新增 192 项的完整验收计数保持不变。使用入口见 [Wiki](https://github.com/norvancc/pixelfx-godot/wiki)。

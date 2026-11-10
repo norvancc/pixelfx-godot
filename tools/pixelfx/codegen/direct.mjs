@@ -16,6 +16,7 @@ export function directFunction(node, method, {q,imported}) {
  const tab=d=>'\t'.repeat(d),read=s=>locals.has(s)?name(s):s==='undefined'?'null':s==='Infinity'?'INF':s==='NaN'?'NAN':(free.add(s),name(s));
  const args=(a,d)=>'['+a.map(v=>expr(v,d)).join(', ')+']';
  const member=(n,d)=>n.computed?expr(n.property,d):q(n.property.name);
+ const booleanValue=n=>n.type==='Literal'&&typeof n.value==='boolean'||n.type==='UnaryExpression'&&n.operator==='!'||n.type==='BinaryExpression'&&['<','>','<=','>=','==','!=','===','!==','in','instanceof'].includes(n.operator);
  function expr(n,d=1){
   if(!n)return 'null';
   switch(n.type){
@@ -32,7 +33,9 @@ export function directFunction(node, method, {q,imported}) {
     return (n.computed?'_S.index_value(':'_S.named_value(')+expr(n.object,d)+','+member(n,d)+')';
    case 'BinaryExpression':{
     if(JSON.stringify(n).includes('get')&&['<','>','<=','>='].includes(n.operator))throw Error('nullable comparison');
-    const a=expr(n.left,d),b=expr(n.right,d),op=n.operator;
+    const op=n.operator,numeric=['+','-','*','/','%','**'].includes(op);
+    const operand=v=>numeric&&booleanValue(v)?'_S.number('+expr(v,d)+')':expr(v,d);
+    const a=operand(n.left),b=operand(n.right);
     if(op==='**')return 'pow('+a+','+b+')';
     if(op==='/')return '(float('+a+')/'+b+')';
     if(op==='%')return 'fmod('+a+','+b+')';

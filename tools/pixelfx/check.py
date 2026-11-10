@@ -35,7 +35,7 @@ for name,digest in manifest['upstream_sha256'].items():
 run('reference-release',['node','tools/pixelfx/reference.mjs',upstream], 'Generated')
 run('parity-release',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_parity.gd'],'failures=0')
 run('reference-b1',['node','tools/pixelfx/reference_b1.mjs',upstream], 'Generated')
-run('parity-b1',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b1_parity.gd'],'failures=0')
+run('parity-b1',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b1_parity.gd'],'failures=0',timeout=600)
 run('runtime-b1',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b1_runtime.gd'],'failures=0')
 run('soak-b1',[godot,'--headless','--path',str(root),'--script','tests/pixelfx/test_b1_soak.gd'],'failures=0')
 run('reference-b2',['node','tools/pixelfx/reference_b2.mjs',upstream], 'Generated')

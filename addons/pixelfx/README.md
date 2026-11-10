@@ -1,6 +1,6 @@
 # PixelFX for Godot — source / B2 (unreleased)
 
-当前迁移分支提供 **244/244 个算法、245 个预设**。其中 **52 项完整验收，新增 192 项仅通过基础运行检查，待完整验收**；本轮暂缓单测、像素对照与录像。见 [全量迁移说明](FULL_MIGRATION.md)。下文保留前 52 项的历史验收范围。
+当前 `main` 提供 **244/244 个算法、245 个预设**。其中 **52 项完整验收，新增 192 项待完整验收**；本轮已完成 6500 个新增像素用例的完整快照、979 项编辑器断言及部分可见播放检查。全量迁移与性能修复已在 PR #10 合并，Godot 4.3 / Linux CI 通过。见 [全量迁移说明](FULL_MIGRATION.md) 与 [验证范围](VALIDATION.md)。下文保留前 52 项的历史验收范围。
 
 
 A reusable Godot addon for procedural pixel effects: typed presets, editor preview,
@@ -15,7 +15,7 @@ B2 首批新增 20 项火焰、弹体/枪口及水系效果，详见 [validation
 
 ## 安装
 
-最新发行包 0.2.0 提供五个算法；要使用已验收的全部 52 项，请使用仓库 `main` 中的 `addons/pixelfx`。
+最新发行包 0.2.0 提供五个算法；要使用全部 244 项源码（其中 52 项已完整验收），请使用仓库 `main` 中的 `addons/pixelfx`。
 将选定版本的整个 `addons/pixelfx` 复制到项目的同名目录，保留其内部子目录、预设、来源与许可。
 在 Godot「项目设置 → 插件」启用 PixelFX，可获得底部实时预览面板。
 未启用编辑器插件时，运行时节点和资源仍然可用。无需 Autoload，不修改项目渲染配置。
@@ -95,3 +95,5 @@ Godot 官方设计参考：
 [EditorPlugin](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/making_plugins.html)、
 [Resources](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html)、
 [Asset Library packaging](https://docs.godotengine.org/en/stable/community/asset_library/submitting_to_assetlib.html)。
+
+[宣传页](https://pixelfx-godot.craftypatio2.chatgpt.site) · [Wiki / 安装和使用](https://github.com/norvancc/pixelfx-godot/wiki)
