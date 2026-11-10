@@ -29,7 +29,11 @@ static func build(_script) -> Dictionary:
 	_exports["__scope"] = _e
 	return _exports
 
-static func _f0(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "t", _S.arg(_args, 0))
-	return _S.binary("+", _S.binary("+", _S.read(_e, "MX"), 10), _S.binary("*", _S.binary("**", _S.binary("-", _S.read(_e, "t"), _S.read(_e, "FIRE")), 1.5), _S.binary("/", _S.binary("-", _S.binary("-", _S.read(_e, "TX"), _S.read(_e, "MX")), 16), _S.binary("**", _S.read(_e, "FLY"), 1.5))))
+static func _f0(_parent,_args:Array,_this=null):
+	var _n_MX = _S.read(_parent,"MX")
+	var _n_FIRE = _S.read(_parent,"FIRE")
+	var _n_TX = _S.read(_parent,"TX")
+	var _n_FLY = _S.read(_parent,"FLY")
+	var _n_t_b0 = _S.arg(_args,0)
+	return ((_n_MX + 10) + (pow((_n_t_b0 - _n_FIRE),1.5) * (float(((_n_TX - _n_MX) - 16))/pow(_n_FLY,1.5))))
+	return null

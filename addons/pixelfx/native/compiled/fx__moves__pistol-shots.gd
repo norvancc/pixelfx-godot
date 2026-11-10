@@ -29,23 +29,38 @@ static func build(_script) -> Dictionary:
 	_exports["__scope"] = _e
 	return _exports
 
-static func _f0(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "t", _S.arg(_args, 0))
-	return [[_S.read(_e, "t"), _S.read(_e, "AIM")], [_S.binary("+", _S.read(_e, "t"), 0.001), _S.read(_e, "KICK"), "snap"], [_S.binary("+", _S.read(_e, "t"), 0.14), _S.read(_e, "AIM")]]
+static func _f0(_parent,_args:Array,_this=null):
+	var _n_AIM = _S.read(_parent,"AIM")
+	var _n_KICK = _S.read(_parent,"KICK")
+	var _n_t_b0 = _S.arg(_args,0)
+	return [[_n_t_b0, _n_AIM], [(_n_t_b0 + 0.001), _n_KICK, "snap"], [(_n_t_b0 + 0.14), _n_AIM]]
+	return null
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "t", _S.arg(_args, 0))
-	_S.define(_e, "i", _S.arg(_args, 1))
-	return _S.merge([{"t": _S.binary("+", _S.read(_e, "t"), _S.read(_e, "FLY"))}, {"stop": (0.08 if _S.truth(_S.binary("===", _S.read(_e, "i"), 2)) else 0.04)}, {"shake": 0.1}, {"amp": _S.binary("+", 1, (1 if _S.truth(_S.binary("===", _S.read(_e, "i"), 2)) else 0))}, {"push": (_S.unary("-", 1.8) if _S.truth(_S.binary("%", _S.read(_e, "i"), 2)) else 2)}, {"straw": 10}, {"y": _S.unary("-", 30)}, {"kick": 1}])
+static func _f1(_parent,_args:Array,_this=null):
+	var _n_FLY = _S.read(_parent,"FLY")
+	var _n_t_b0 = _S.arg(_args,0)
+	var _n_i_b1 = _S.arg(_args,1)
+	return {"t":(_n_t_b0 + _n_FLY),"stop":(0.08 if _S.truth(_S.binary("===",_n_i_b1,2)) else 0.04),"shake":0.1,"amp":(1 + (1 if _S.truth(_S.binary("===",_n_i_b1,2)) else 0)),"push":((-1.8) if _S.truth(fmod(_n_i_b1,2)) else 2),"straw":10,"y":(-30),"kick":1}
+	return null
 
-static func _f2(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "t", _S.arg(_args, 0))
-	return [_S.merge([{"fx": _S.read(_e, "muzzle")}, {"t": _S.read(_e, "t")}, {"x": _S.read(_e, "MX")}, {"height": _S.unary("-", _S.read(_e, "BY"))}]), _S.merge([{"fx": _S.read(_e, "tracer")}, {"t": _S.read(_e, "t")}, {"until": _S.binary("+", _S.read(_e, "t"), _S.read(_e, "FLY"))}, {"x": _S.function_value(_e, "_f3")}, {"y": _S.read(_e, "BY")}]), _S.merge([{"fx": _S.read(_e, "spark")}, {"t": _S.binary("+", _S.read(_e, "t"), _S.read(_e, "FLY"))}, {"x": _S.binary("-", _S.read(_e, "TX"), 10)}, {"height": 28}])]
+static func _f2(_parent,_args:Array,_this=null):
+	var _n_muzzle = _S.read(_parent,"muzzle")
+	var _n_MX = _S.read(_parent,"MX")
+	var _n_BY = _S.read(_parent,"BY")
+	var _n_tracer = _S.read(_parent,"tracer")
+	var _n_FLY = _S.read(_parent,"FLY")
+	var _n_this = _S.read(_parent,"this")
+	var _n_spark = _S.read(_parent,"spark")
+	var _n_TX = _S.read(_parent,"TX")
+	var _n_t_b0 = _S.arg(_args,0)
+	return [{"fx":_n_muzzle,"t":_n_t_b0,"x":_n_MX,"height":(-_n_BY)}, {"fx":_n_tracer,"t":_n_t_b0,"until":(_n_t_b0 + _n_FLY),"x":_S.function_value(_S.capture(_parent,{"t":_n_t_b0,"this":_n_this}),"_f3"),"y":_n_BY}, {"fx":_n_spark,"t":(_n_t_b0 + _n_FLY),"x":(_n_TX - 10),"height":28}]
+	return null
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "u", _S.arg(_args, 0))
-	return _S.binary("+", _S.binary("+", _S.read(_e, "MX"), 4), _S.binary("*", _S.binary("-", _S.read(_e, "u"), _S.read(_e, "t")), _S.binary("/", _S.binary("-", _S.binary("-", _S.read(_e, "TX"), _S.read(_e, "MX")), 14), _S.read(_e, "FLY"))))
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_MX = _S.read(_parent,"MX")
+	var _n_t = _S.read(_parent,"t")
+	var _n_TX = _S.read(_parent,"TX")
+	var _n_FLY = _S.read(_parent,"FLY")
+	var _n_u_b0 = _S.arg(_args,0)
+	return ((_n_MX + 4) + ((_n_u_b0 - _n_t) * (float(((_n_TX - _n_MX) - 14))/_n_FLY)))
+	return null

@@ -29,26 +29,28 @@ static func build(_script) -> Dictionary:
 	_exports["__scope"] = _e
 	return _exports
 
-static func _f0(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "keys", _S.arg(_args, 0))
-	_S.define(_e, "t", _S.arg(_args, 1))
-	return _S.invoke(_S.read(_e, "keys"), "filter", [_S.function_value(_e, "_f1")])
+static func _f0(_parent,_args:Array,_this=null):
+	var _n_this = _S.read(_parent,"this")
+	var _n_keys_b0 = _S.arg(_args,0)
+	var _n_t_b1 = _S.arg(_args,1)
+	return _S.invoke(_n_keys_b0,"filter",[_S.function_value(_S.capture(_parent,{"t":_n_t_b1,"this":_n_this}),"_f1")])
+	return null
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "k", _S.arg(_args, 0))
-	return _S.binary("<=", _S.prop(_S.read(_e, "k"), 0), _S.read(_e, "t"))
+static func _f1(_parent,_args:Array,_this=null):
+	var _n_t = _S.read(_parent,"t")
+	var _n_k_b0 = _S.arg(_args,0)
+	return (_S.index_value(_n_k_b0,0) <= _n_t)
+	return null
 
-static func _f2(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "k", _S.arg(_args, 0))
-	return _S.binary(">=", _S.prop(_S.read(_e, "k"), 0), _S.unary("-", 0.14))
+static func _f2(_parent,_args:Array,_this=null):
+	var _n_k_b0 = _S.arg(_args,0)
+	return (_S.index_value(_n_k_b0,0) >= (-0.14))
+	return null
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "k", _S.arg(_args, 0))
-	return _S.binary(">=", _S.prop(_S.read(_e, "k"), 0), _S.unary("-", 0.3))
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_k_b0 = _S.arg(_args,0)
+	return (_S.index_value(_n_k_b0,0) >= (-0.3))
+	return null
 
 static func _f4(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)

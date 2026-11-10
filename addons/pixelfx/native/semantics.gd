@@ -7,7 +7,9 @@ const MathFX = preload("../core/math.gd")
 const ColorFX = preload("../core/color.gd")
 const Frame = preload("../core/frame.gd")
 const Painter = preload("painter.gd")
+const NoiseKernels=preload("noise_kernels.gd")
 const Bridge = preload("../effects/simulation_bridge.gd")
+const Accelerators = preload("accelerators.gd")
 static var modules: Dictionary = {}
 static var session_cleaner
 class SessionCleaner:
@@ -21,6 +23,7 @@ class Scope:
 	extends RefCounted
 	var parent
 	var values: Dictionary = {}
+	var bindings: Dictionary = {}
 	var executable: Script
 	func _init(p=null, s=null):
 		parent=p
@@ -35,11 +38,21 @@ class FunctionValue:
 	var environment
 	var method: String
 	var properties: Dictionary={}
-	func _init(e, m): environment=e; method=m
+	var native_method: String
+	var shader_method: String
+	func _init(e, m):
+		environment=e; method=m
+		native_method=e.executable.get_script_constant_map().get("ACCELERATED",{}).get(m,"")
+		shader_method=m+"_shader" if m in e.executable.get_script_constant_map().get("SHADERS",[]) else ""
 	func invoke(args: Array, receiver=null):
+		if not native_method.is_empty():
+			var native_script: Script=Accelerators
+			return native_script.callv(native_method,[environment,args,receiver])
 		return environment.executable.call(method, environment, args, receiver)
 	func callback() -> Callable:
 		return func(a=null,b=null,c=null,d=null): return invoke([a,b,c,d])
+	func shader_callback() -> Callable:
+		return environment.executable.call(shader_method,environment) if native_method.is_empty() and not shader_method.is_empty() else callback()
 class NativeMethod:
 	extends RefCounted
 	var object
@@ -66,12 +79,14 @@ class Buffer:
 		return floats.size() if kind=="Float32Array" else doubles.size() if kind=="Float64Array" else ints.size()
 	func at(i: int):
 		if i<0 or i>=size(): return null
-		if owner != null: return owner.get(field)[i]
+		if owner != null: return int(owner.get(field)[i]) & 0xffffffff
 		return floats[i] if kind=="Float32Array" else doubles[i] if kind=="Float64Array" else ints[i]
 	func put(i: int,v):
 		if i<0 or i>=size(): return v
 		if owner != null:
-			var values=owner.get(field); values[i]=int(v)&0xffffffff; owner.set(field,values)
+			if owner.track_writes:owner.touch(i%owner.w,i/owner.w)
+			if field=="color":owner.color[i]=int(v)&0xffffffff
+			else:owner.light[i]=int(v)&0xffffffff
 		elif kind=="Float32Array": floats[i]=float(v) if v!=null else 0.0
 		elif kind=="Float64Array": doubles[i]=float(v) if v!=null else 0.0
 		elif kind=="Uint8ClampedArray": ints[i]=Frame.byte_clamp(float(v))
@@ -93,21 +108,29 @@ class Collection:
 	func _init(set_mode=false): is_set=set_mode
 	func index(key) -> int:
 		for i in range(items.size()):
-			if is_same(items[i][0],key): return i
+			var stored=items[i][0]
+			if (stored is int or stored is float) and (key is int or key is float):
+				# JS has one Number type; Map/Set use SameValueZero, including NaN.
+				if stored==key or is_nan(float(stored)) and is_nan(float(key)):return i
+			elif is_same(stored,key): return i
 		return -1
 
 static func scope(parent=null, script=null): return Scope.new(parent,script)
 static func iteration(e):
 	var result=Scope.new(e.parent,e.executable); result.values=e.values.duplicate(); return result
-static func define(e,key,value): e.values[key]=value; return value
+static func define(e,key,value): e.bindings.erase(key);e.values[key]=value; return value
 static func read(e,key):
-	var current=e
+	var current=e.bindings.get(key,e)
 	while current!=null:
 		if current.values.has(key):
+			if current!=e:e.bindings[key]=current
 			var value=current.values[key]
 			if value is ImportValue:
 				var imported=module(value.module_id)
-				return imported if value.name==null else prop(imported,value.name)
+				var resolved=imported if value.name==null else prop(imported,value.name)
+				# Pinned exports are immutable bindings; cache only resolved imports.
+				if resolved!=null:current.values[key]=resolved
+				return resolved
 			return value
 		current=current.parent
 	return builtin(key)
@@ -119,7 +142,8 @@ static func write(e,key,value,operation="=",post=false):
 	current.values[key]=result
 	return old if post else result
 static func function_value(e,method):
-	var result=FunctionValue.new(e,method); function_refs.append(weakref(result)); return result
+	var result=FunctionValue.new(e,method)
+	function_refs.append(weakref(result)); return result
 static func arg(args,index): return args[index] if index<args.size() else null
 static func coalesce(value, fallback: Callable): return fallback.call() if value==null else value
 static func logical(operation,left,right: Callable):
@@ -236,10 +260,17 @@ static func prop(object,key,receiver=null):
 	if receiver==null:receiver=object
 	if object==null: return null
 	if object is Dictionary:
+		key=string(key)
 		if object.has("__builtin"):
 			if object.__builtin=="Math" and key in ["PI","SQRT2","E"]:return {"PI":PI,"SQRT2":sqrt(2.0),"E":exp(1.0)}[key]
 			return builtin(object.__builtin+"."+str(key))
-		if object.has(key): return object[key]
+		if object.has(key):
+			var value=object[key]
+			if value is ImportValue:
+				var resolved=prop(module(value.module_id),value.name)
+				if resolved!=null:object[key]=resolved
+				return resolved
+			return value
 		if object.get("__getters",{}).has(key): return call_value(object.__getters[key],[],receiver)
 		if object.has("__proto"): return prop(object.__proto,key,receiver)
 		if key is String and ["call","bind","test"].has(key): return NativeMethod.new(object,key)
@@ -268,7 +299,7 @@ static func member_name(key: String) -> String:
 	return {"toX":"to_x","toY":"to_y","fromX":"from_x","fromY":"from_y","cellX":"cell_x","cellY":"cell_y","glowLine":"glow_line","glowRing":"glow_ring","blendPx":"blend_px","lightK":"light_k","range":"range_value","int":"int_value","sign":"sign_value"}.get(key,key)
 static func set_prop(object,key,value,operation="=",post=false):
 	if object==null: fail("Write to null member "+str(key)); return null
-	var old=prop(object,key)
+	var old=prop(object,key) if operation!="=" or post else null
 	var result=value if operation=="=" else (value if operation=="??=" and old==null else old if operation=="??=" else binary(operation.trim_suffix("="),old,value))
 	if object is FunctionValue:object.properties[key]=result
 	elif object is Buffer: object.put(integer(key),result)
@@ -278,6 +309,7 @@ static func set_prop(object,key,value,operation="=",post=false):
 			if integer(key)>=object.size(): object.resize(integer(key)+1)
 			object[integer(key)]=result
 	elif object is Dictionary:
+		key=string(key)
 		if object.get("__setters",{}).has(key): call_value(object.__setters[key],[result],object)
 		else: object[key]=result
 	elif object is Object: object.set(member_name(str(key)),result)
@@ -302,13 +334,32 @@ static func construct(kind,args: Array):
 static func super_value(object): return object.get("__class",{}).get("__base") if object is Dictionary else object
 static func call_value(fn,args: Array,receiver=null):
 	if fn is FunctionValue: return fn.invoke(args,receiver)
-	if fn is NativeMethod: return invoke(fn.object,fn.name,args)
+	if fn is NativeMethod:
+		if fn.object is Dictionary and str(fn.name) in ["call","bind"] and not fn.object.has(fn.name):
+			fail("Invalid dictionary callable: "+str(fn.object.keys()));return null
+		return invoke(fn.object,fn.name,args)
 	if fn is Callable: return fn.callv(args)
 	if fn is Dictionary and fn.has("__builtin"): return call_builtin(fn.__builtin,args)
 	if fn is Dictionary and fn.has("__bound"): return call_value(fn.__bound,fn.args+args,fn.receiver)
 	fail("Value is not callable: "+str(fn).left(120)); return null
 static func invoke(object,key,args: Array):
 	if object==null: fail("Call on null: "+str(key)); return null
+	if object is Painter:
+		# Scalar pixel APIs need no callback conversion or reflective callv.
+		match key:
+			"px":object.px(args[0],args[1],args[2]);return null
+			"dot":object.dot(args[0],args[1],args[2],args[3] if args.size()>3 else 1);return null
+			"blend":object.blend(args[0],args[1],args[2],args[3]);return null
+			"put":object.put(args[0],args[1],args[2],args[3] if args.size()>3 else 1);return null
+			"light":object.light(args[0],args[1],args[2],args[3] if args.size()>3 else 1);return null
+			"add":object.add(args[0],args[1],args[2],args[3] if args.size()>3 else 1);return null
+	if object is MathFX.Rng:
+		match key:
+			"next":return object.next()
+			"range":return object.range_value(args[0],args[1])
+			"int":return object.int_value(args[0],args[1])
+			"chance":return object.chance(args[0])
+			"sign":return object.sign_value()
 	if object is Dictionary:
 		if object.has("__builtin"):
 			if object.__builtin=="RegExp" and key=="test":
@@ -338,6 +389,15 @@ static func invoke(object,key,args: Array):
 			"clear": object.items.clear(); return null
 			"values": return object.items.map(func(x):return x[0] if object.is_set else x[1])
 			"entries": return object.items.duplicate()
+	if object is Buffer and key=="fill":
+		var value=arg(args,0)
+		if object.owner==null:
+			if object.kind=="Float32Array":object.floats.fill(number(value))
+			elif object.kind=="Float64Array":object.doubles.fill(number(value))
+			else:
+				object.put(0,value)
+				if not object.ints.is_empty():object.ints.fill(object.ints[0])
+			return object
 	if object is Array or object is Buffer:
 		var values=array(object)
 		match key:
@@ -430,7 +490,7 @@ static func invoke(object,key,args: Array):
 		var name="read_pixel" if object is Painter and key=="get" else member_name(str(key))
 		if object.has_method(name):
 			var converted: Array=[]
-			for value in args: converted.append(value.callback() if value is FunctionValue else value)
+			for value in args: converted.append((value.shader_callback() if object is Painter and key=="shade" else value.callback()) if value is FunctionValue else value)
 			var result=object.callv(name,converted)
 			return object if key in ["reset","place"] else result
 	fail("Unsupported method "+str(key)+" on "+str(object).left(100));return null
@@ -506,8 +566,13 @@ static func call_builtin(name: String,args: Array,constructing=false):
 		"Painter": return Painter.new(a)
 		"native.weather_clip":
 			var result=Painter.new(a.frame,true)
+			result.weather_clipped=true
 			for key in ["tx","ty","fx","cs","sn","fade","light_k","layer"]:result.set(key,a.get(key))
 			result.clip_bounds=Rect2(-b.origin[0],-b.origin[1],b.size[0],b.size[1])
+			if result.sn==0:
+				var x0:float=result.to_x(result.clip_bounds.position.x,0);var x1:float=result.to_x(result.clip_bounds.end.x,0)
+				var left:int=MathFX.js_round(minf(x0,x1));var top:int=MathFX.js_round(result.to_y(0,result.clip_bounds.position.y))
+				result.weather_screen_bounds=Rect2i(left,top,MathFX.js_round(maxf(x0,x1))-left,MathFX.js_round(result.to_y(0,result.clip_bounds.end.y))-top)
 			return result
 		"native.createFrame": return Frame.new(integer(a),integer(b),integer(arg(args,2)),integer(arg(args,3)))
 		"native.clearFrame": a.clear();return a
@@ -529,6 +594,9 @@ static func call_builtin(name: String,args: Array,constructing=false):
 		"native.toHex": return ColorFX.to_hex(integer(a))
 	if name.begins_with("native.math."):
 		var native_name={"lerp":"lerpf","invLerp":"inv_lerp","remap":"remap_value","tileNoise":"tile_noise","tileFbm":"tile_fbm","loopNoise":"loop_noise","pingpong":"ping_pong"}.get(name.trim_prefix("native.math."),name.trim_prefix("native.math."))
+		if native_name in ["tile_noise","tile_fbm","noise2","fbm","loop_noise"]:
+			var noise_script:Script=NoiseKernels
+			return noise_script.callv(native_name,args)
 		var math_script: Script=MathFX
 		if math_script.has_method(native_name):return math_script.callv(native_name,args)
 	fail("Unknown builtin "+name);return null
@@ -562,8 +630,12 @@ static func fail(message):
 		errors.append(text);push_error(text)
 
 static func optional_call(fn,args: Array):return call_value(fn,args) if fn!=null else null
+static func relational_get(object,args: Array):
+	if object is Collection and object.index(arg(args,0))<0:return NAN
+	return invoke(object,"get",args)
 
 static func shutdown() -> void:
+	NoiseKernels.clear()
 	# Function scopes own closure cycles. Sever every tracked function first,
 	# without recursively walking the weather caches or their large pixel arrays.
 	for reference in function_refs:
@@ -650,3 +722,48 @@ static func stable_sort(values: Array,compare=null) -> void:
 				else:work[out]=values[b];b+=1
 		for i in range(count):values[i]=work[i]
 		width*=2
+
+static func destructure_targets(value,targets: Array):
+	# Capture the entire RHS before assigning either array/member target.
+	for i in range(targets.size()):
+		var target=targets[i]
+		if target==null:continue
+		if target.has("scope"):write(target.scope,target.key,prop(value,i))
+		else:set_prop(target.object,target.key,prop(value,i))
+	return value
+
+static func initialize_actor_lookup(e):
+	var mask:PackedInt64Array=read(e,"REST_MASK").ints;var result=read(e,"NEAREST");var values:PackedInt64Array=[];values.resize(24*38)
+	for row in range(38):
+		for col in range(24):
+			var best:int=-1;var distance:int=1000000000
+			for y in range(maxi(0,row-7),mini(38,row+8)):
+				for x in range(maxi(0,col-7),mini(24,col+8)):
+					var d:int=(x-col)*(x-col)+(y-row)*(y-row)
+					if mask[y*24+x]!=0 and d<distance:distance=d;best=y*24+x
+			values[row*24+col]=best
+	result.ints=values
+
+static func index_value(object,key):
+	if object is Array:
+		var index:int=int(key)
+		return object[index] if index>=0 and index<object.size() else null
+	if object is Buffer:
+		var index:int=int(key)
+		if object.owner!=null:return object.at(index)
+		if object.kind=="Float32Array":return object.floats[index] if index>=0 and index<object.floats.size() else null
+		if object.kind=="Float64Array":return object.doubles[index] if index>=0 and index<object.doubles.size() else null
+		return object.ints[index] if index>=0 and index<object.ints.size() else null
+	return prop(object,key)
+static func named_value(object,key:String):
+	if object is Dictionary and object.has(key) and not object[key] is ImportValue:return object[key]
+	return prop(object,key)
+
+static func numeric_lerp(a:float,b:float,u:float) -> float:
+	# Keep the pinned JS operation order and evaluate call arguments only once.
+	return a+(b-a)*u
+
+static func capture(parent,values:Dictionary):
+	var result=Scope.new(parent)
+	result.values=values
+	return result

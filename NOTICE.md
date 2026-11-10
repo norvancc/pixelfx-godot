@@ -19,3 +19,7 @@ Names and links identify source projects and do not imply endorsement.
 ## Build tooling
 
 Acorn 8.15.0, MIT License; copyright and full license retained in `tools/pixelfx/codegen/ACORN-LICENSE`. It is used only for ahead-of-time generation, and is not required by the Godot runtime.
+
+## Particle decay math
+
+The bounded particle decay power implementation adapts fdlibm / V8 IEEE 754 code. Copyright (C) 1993 Sun Microsystems, Inc.; Copyright 2016 the V8 project authors. The original permission notice is retained in `addons/pixelfx/native/third_party/fdlibm-LICENSE`.

@@ -97,7 +97,11 @@ func request_refresh() -> void:
 	_refresh_pending = true; call_deferred("refresh_catalog")
 
 func edit_preset(preset: Preset) -> void:
-	if edited and edited.changed.is_connected(_on_changed): edited.changed.disconnect(_on_changed)
+	# Inspector holds an ObjectID. Keep the old resource alive until edit() detaches its signals.
+	var previous := edited
+	if previous and previous.changed.is_connected(_on_changed): previous.changed.disconnect(_on_changed)
+	# Detach while edited still owns the old resource; Inspector stores an ObjectID.
+	if inspector.has_method("edit"):inspector.call("edit",null)
 	# Preview works on a private copy; opening a preset must not mutate project assets.
 	edited = preset.copy()
 	edited.changed.connect(_on_changed)
@@ -137,5 +141,6 @@ func _process(_delta: float) -> void:
 	if Time.get_ticks_msec() < _notice_until: status.text = _notice
 func _exit_tree() -> void:
 	_restart.stop()
+	if is_instance_valid(inspector) and inspector.has_method("edit"):inspector.call("edit",null)
 	if edited and edited.changed.is_connected(_on_changed): edited.changed.disconnect(_on_changed)
 	if is_instance_valid(player): player.cancel()

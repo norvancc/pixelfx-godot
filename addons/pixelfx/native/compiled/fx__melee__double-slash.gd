@@ -58,14 +58,15 @@ static func _f0(_parent, _args: Array, _this=null):
 	_S.define(_e, "closed", false)
 	return _S.merge([{"update": _S.function_value(_e, "_f3")}, {"draw": _S.function_value(_e, "_f4")}])
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
+static func _f1(_parent,_args:Array,_this=null):
 	return 0
+	return null
 
-static func _f2(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "a", _S.arg(_args, 0))
-	return _S.merge([{"a": _S.binary("+", _S.read(_e, "a"), _S.invoke(_S.read(_e, "Rg"), "range", [_S.unary("-", 0.2), 0.2]))}, {"r": _S.invoke(_S.read(_e, "Rg"), "range", [5, 8])}, {"v": _S.invoke(_S.read(_e, "Rg"), "range", [70, 120])}, {"arc": _S.invoke(_S.read(_e, "Rg"), "range", [0.4, 0.7])}])
+static func _f2(_parent,_args:Array,_this=null):
+	var _n_Rg = _S.read(_parent,"Rg")
+	var _n_a_b0 = _S.arg(_args,0)
+	return {"a":(_n_a_b0 + _S.invoke(_n_Rg,"range",[(-0.2), 0.2])),"r":_S.invoke(_n_Rg,"range",[5, 8]),"v":_S.invoke(_n_Rg,"range",[70, 120]),"arc":_S.invoke(_n_Rg,"range",[0.4, 0.7])}
+	return null
 
 static func _f3(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)
@@ -156,12 +157,14 @@ static func _f4(_parent, _args: Array, _this=null):
 	_S.invoke(_S.read(_e, "lights"), "draw", [_S.read(_e, "p")])
 	return null
 
-static func _f5(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "x", _S.arg(_args, 0))
-	_S.define(_e, "y", _S.arg(_args, 1))
-	_S.define(_e, "th", _S.arg(_args, 2))
-	_S.define(_e, "dir", _S.arg(_args, 3))
-	_S.define(_e, "span", _S.arg(_args, 4))
-	_S.define(_e, "extra", _S.arg(_args, 5))
-	return _S.call_value(_S.read(_e, "through"), [_S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "th"), _S.read(_e, "dir"), _S.read(_e, "R0"), _S.read(_e, "span"), 0.55, _S.read(_e, "extra")])
+static func _f5(_parent,_args:Array,_this=null):
+	var _n_R0 = _S.read(_parent,"R0")
+	var _n_through = _S.read(_parent,"through")
+	var _n_x_b0 = _S.arg(_args,0)
+	var _n_y_b1 = _S.arg(_args,1)
+	var _n_th_b2 = _S.arg(_args,2)
+	var _n_dir_b3 = _S.arg(_args,3)
+	var _n_span_b4 = _S.arg(_args,4)
+	var _n_extra_b5 = _S.arg(_args,5)
+	return _S.call_value(_n_through,[_n_x_b0, _n_y_b1, _n_th_b2, _n_dir_b3, _n_R0, _n_span_b4, 0.55, _n_extra_b5])
+	return null

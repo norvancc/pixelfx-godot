@@ -30,6 +30,7 @@ func render(fx, rect: Rect2i, fps: int, signature: String, caching: bool) -> Dic
 		if frame == null or frame.w != rect.size.x or frame.h != rect.size.y or frame.ox != rect.position.x or frame.oy != rect.position.y:
 			frame = Frame.new(rect.size.x, rect.size.y, rect.position.x, rect.position.y)
 			_frames[layer] = frame; _images.erase(layer); _textures.erase(layer)
+		frame.track_writes=fx.implementation.has_method("source_module")
 		frame.clear(); fx.draw(frame, layer)
 		var bytes: PackedByteArray = frame.composite()
 		if use_cache:

@@ -15,3 +15,7 @@ Upstream credits Hugo Duprez / [Sprite Fusion](https://www.spritefusion.com/pixe
 Upstream's Patch Pixel gallery font has separate terms and is not part of the upstream MIT grant. That font, upstream gallery assets and third-party game character artwork are **not bundled here**. The preview image is a capture of this project's Godot demo. Verification downloads upstream into ignored build directories; it does not redistribute that checkout in addon packages.
 
 Names and links identify source projects and do not imply endorsement.
+
+## Particle decay math
+
+The bounded particle decay power implementation adapts fdlibm / V8 IEEE 754 code. Copyright (C) 1993 Sun Microsystems, Inc.; Copyright 2016 the V8 project authors. The original permission notice is retained in `native/third_party/fdlibm-LICENSE`.

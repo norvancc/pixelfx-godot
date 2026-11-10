@@ -22,8 +22,19 @@ if result.returncode or re.search(r'(?m)(SCRIPT ERROR:|ERROR:)',result.stdout+re
 (qa/'project.godot').write_text(project.replace('"res://addons/pixelfx/plugin.cfg")','"res://addons/pixelfx/plugin.cfg", "res://tests/pixelfx/editor_probe/plugin.cfg")'))
 args=[godot,'--path',str(qa),'--editor']
 if '--visible' not in sys.argv:args.insert(1,'--headless')
-result=subprocess.run(args,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=180)
-(root/'builds/pixelfx/editor-qa.log').write_text(result.stdout)
+with (root/'builds/pixelfx/editor-qa.log').open('w') as log:
+    process=subprocess.Popen(args,stdout=log,stderr=subprocess.STDOUT,text=True)
+    try:
+        process.wait(timeout=1800)
+    except subprocess.TimeoutExpired:
+        process.terminate()
+        try:
+            process.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            process.kill()
+            process.wait()
+        raise SystemExit('Editor QA timed out; process stopped')
+result=subprocess.CompletedProcess(args,process.returncode,(root/'builds/pixelfx/editor-qa.log').read_text())
 for name in ['editor-v010.json','editor-preview.png']:
     source=qa/'builds/pixelfx'/name
     if source.exists():shutil.copy2(source,root/'builds/pixelfx'/name)

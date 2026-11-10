@@ -44,35 +44,36 @@ static func _f2(_parent, _args: Array, _this=null):
 	_S.define(_e, "i", _S.arg(_args, 1))
 	return _S.merge([{"fx": _S.read(_e, "fx")}, {"t": _S.logical("??", _S.read(_e, "t"), func(): return 0)}, {"until": _S.logical("??", _S.read(_e, "until"), func(): return INF)}, {"x": _S.logical("??", _S.read(_e, "x"), func(): return 0)}, {"y": _S.logical("??", _S.read(_e, "y"), func(): return 0)}, {"flip": _S.unary("!", _S.unary("!", _S.read(_e, "flip")))}, {"opts": _S.merge([_S.read(_e, "opts"), {"seed": _S.binary("+", _S.logical("??", _S.prop(_S.read(_e, "o"), "seed"), func(): return 1), _S.read(_e, "i"))}])}, {"inst": null}, {"over": false}])
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "v", _S.arg(_args, 0))
-	return (_S.call_value(_S.read(_e, "v"), [_S.read(_e, "t")]) if _S.truth(_S.binary("===", _S.unary("typeof", _S.read(_e, "v")), "function")) else _S.read(_e, "v"))
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_t = _S.read(_parent,"t")
+	var _n_v_b0 = _S.arg(_args,0)
+	return (_S.call_value(_n_v_b0,[_n_t]) if _S.truth(_S.binary("===",_S.unary("typeof",_n_v_b0),"function")) else _n_v_b0)
+	return null
 
-static func _f4(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "layer", _S.arg(_args, 1))
-	var _v1 = _S.read(_e, "p")
-	_S.define(_e, "frame", _S.prop(_v1, "frame"))
-	_S.define(_e, "tx", _S.prop(_v1, "tx"))
-	_S.define(_e, "ty", _S.prop(_v1, "ty"))
-	_S.define(_e, "sign", _S.prop(_v1, "fx"))
-	_S.define(_e, "cs", _S.prop(_v1, "cs"))
-	_S.define(_e, "sn", _S.prop(_v1, "sn"))
-	_S.define(_e, "fade", _S.prop(_v1, "fade"))
-	_S.define(_e, "lightK", _S.prop(_v1, "lightK"))
-	for _v2 in _S.array(_S.read(_e, "list")):
-		var _v3 = _S.scope(_e)
-		_S.define(_v3, "c", _v2)
-		var _v4 = _S.scope(_v3)
-		if _S.truth(_S.logical("||", _S.unary("!", _S.prop(_S.read(_v4, "c"), "inst")), func(): return _S.prop(_S.read(_v4, "c"), "over"))):
+static func _f4(_parent,_args:Array,_this=null):
+	var _n_at = _S.read(_parent,"at")
+	var _n_list = _S.read(_parent,"list")
+	var _n_Object = _S.read(_parent,"Object")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_layer_b1 = _S.arg(_args,1)
+	var _object_0 = _n_p_b0
+	var _n_frame_b2 = _S.named_value(_object_0,"frame")
+	var _n_tx_b3 = _S.named_value(_object_0,"tx")
+	var _n_ty_b4 = _S.named_value(_object_0,"ty")
+	var _n_sign_b5 = _S.named_value(_object_0,"fx")
+	var _n_cs_b6 = _S.named_value(_object_0,"cs")
+	var _n_sn_b7 = _S.named_value(_object_0,"sn")
+	var _n_fade_b8 = _S.named_value(_object_0,"fade")
+	var _n_lightK_b9 = _S.named_value(_object_0,"lightK")
+	for _iter_1 in _S.array(_n_list):
+		var _n_c_b10 = _iter_1
+		if _S.truth((not _S.truth(_S.named_value(_n_c_b10,"inst")) if _S.truth(not _S.truth(_S.named_value(_n_c_b10,"inst"))) else _S.named_value(_n_c_b10,"over"))):
 			continue
-		_S.set_prop(_S.prop(_S.prop(_S.read(_v4, "c"), "inst"), "options"), "x", _S.binary("+", _S.read(_v4, "tx"), _S.binary("*", _S.read(_v4, "sign"), _S.call_value(_S.read(_v4, "at"), [_S.prop(_S.read(_v4, "c"), "x")]))), "=", false)
-		_S.set_prop(_S.prop(_S.prop(_S.read(_v4, "c"), "inst"), "options"), "y", _S.binary("+", _S.read(_v4, "ty"), _S.call_value(_S.read(_v4, "at"), [_S.prop(_S.read(_v4, "c"), "y")])), "=", false)
-		_S.set_prop(_S.prop(_S.prop(_S.read(_v4, "c"), "inst"), "options"), "flip", _S.binary("!==", _S.binary("<", _S.read(_v4, "sign"), 0), _S.prop(_S.read(_v4, "c"), "flip")), "=", false)
-		_S.invoke(_S.prop(_S.read(_v4, "c"), "inst"), "draw", [_S.read(_v4, "frame"), _S.read(_v4, "layer")])
-	_S.invoke(_S.read(_e, "Object"), "assign", [_S.read(_e, "p"), _S.merge([{"tx": _S.read(_e, "tx")}, {"ty": _S.read(_e, "ty")}, {"fx": _S.read(_e, "sign")}, {"cs": _S.read(_e, "cs")}, {"sn": _S.read(_e, "sn")}, {"fade": _S.read(_e, "fade")}, {"lightK": _S.read(_e, "lightK")}])])
+		_S.set_prop(_S.named_value(_S.named_value(_n_c_b10,"inst"),"options"),"x",(_n_tx_b3 + (_n_sign_b5 * _S.call_value(_n_at,[_S.named_value(_n_c_b10,"x")]))),"=")
+		_S.set_prop(_S.named_value(_S.named_value(_n_c_b10,"inst"),"options"),"y",(_n_ty_b4 + _S.call_value(_n_at,[_S.named_value(_n_c_b10,"y")])),"=")
+		_S.set_prop(_S.named_value(_S.named_value(_n_c_b10,"inst"),"options"),"flip",_S.binary("!==",(_n_sign_b5 < 0),_S.named_value(_n_c_b10,"flip")),"=")
+		_S.invoke(_S.named_value(_n_c_b10,"inst"),"draw",[_n_frame_b2, _n_layer_b1])
+	_S.invoke(_n_Object,"assign",[_n_p_b0, {"tx":_n_tx_b3,"ty":_n_ty_b4,"fx":_n_sign_b5,"cs":_n_cs_b6,"sn":_n_sn_b7,"fade":_n_fade_b8,"lightK":_n_lightK_b9}])
 	return null
 
 static func _f5(_parent, _args: Array, _this=null):
@@ -94,15 +95,17 @@ static func _f5(_parent, _args: Array, _this=null):
 			_S.set_prop(_S.read(_v7, "c"), "over", true, "=", false)
 	return null
 
-static func _f6(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	return _S.call_value(_S.read(_e, "each"), [_S.read(_e, "p"), "back"])
+static func _f6(_parent,_args:Array,_this=null):
+	var _n_each = _S.read(_parent,"each")
+	var _n_p_b0 = _S.arg(_args,0)
+	return _S.call_value(_n_each,[_n_p_b0, "back"])
+	return null
 
-static func _f7(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	return _S.call_value(_S.read(_e, "each"), [_S.read(_e, "p"), "front"])
+static func _f7(_parent,_args:Array,_this=null):
+	var _n_each = _S.read(_parent,"each")
+	var _n_p_b0 = _S.arg(_args,0)
+	return _S.call_value(_n_each,[_n_p_b0, "front"])
+	return null
 
 static func _f8(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)
@@ -121,11 +124,12 @@ static func _f9(_parent, _args: Array, _this=null):
 	_S.define(_e, "how", _S.prop(_v9, 2))
 	return [_S.binary("+", _S.read(_e, "t"), _S.read(_e, "dt")), _S.merge([_S.read(_e, "pose"), _S.read(_e, "over"), {"x": _S.binary("+", _S.logical("??", _S.prop(_S.read(_e, "pose"), "x"), func(): return 0), _S.read(_e, "dx"))}]), _S.read(_e, "how")]
 
-static func _f10(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "hits", _S.arg(_args, 0))
-	_S.define(_e, "dt", _S.arg(_args, 1))
-	return _S.invoke(_S.read(_e, "hits"), "map", [_S.function_value(_e, "_f11")])
+static func _f10(_parent,_args:Array,_this=null):
+	var _n_this = _S.read(_parent,"this")
+	var _n_hits_b0 = _S.arg(_args,0)
+	var _n_dt_b1 = _S.arg(_args,1)
+	return _S.invoke(_n_hits_b0,"map",[_S.function_value(_S.capture(_parent,{"dt":_n_dt_b1,"this":_n_this}),"_f11")])
+	return null
 
 static func _f11(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)

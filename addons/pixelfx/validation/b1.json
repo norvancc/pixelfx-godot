@@ -153,7 +153,7 @@
     "addons/pixelfx/core/color.gd": "c9773dd443079bcf5bd39d40dda02fe1b3a613691fb4cc36f66773857e689b16",
     "addons/pixelfx/core/ease.gd": "507d0cce2236ce2fee048083ebf60f650ce037194c70b3a39982073b1360d891",
     "addons/pixelfx/core/effect.gd": "98090aeea315163f6f3c9cf5fb513fdca758f7c0c61b1edc25d857ee7439984c",
-    "addons/pixelfx/core/frame.gd": "5277dcc8ba034965dc84d4d13022c3ed47a4816603cd4ffc7dc8110f43066cd4",
+    "addons/pixelfx/core/frame.gd": "1659a4e0587ffef17a8cd35dc6ae5f9748911768033631c85bd849c228da22df",
     "addons/pixelfx/core/fx.gd": "ccf7e7bb3a3555eb2c46bbd16a02def556003abe76dc20ff52945d08864ff7a6",
     "addons/pixelfx/core/math.gd": "00524f23d3aa817649046810dcbdb95171629848922c8621ff696a2009ba918e",
     "addons/pixelfx/core/painter.gd": "9074278708f14ae9d9b3a5f953ad4babb449a427275f89f4f27616170b8a02d9",
@@ -161,7 +161,7 @@
     "addons/pixelfx/core/sim.gd": "b655a4d62109e2102180b29aca6affeb4e759d9e05c3c89de042abcccc0a0fe4",
     "addons/pixelfx/editor/catalog.gd": "a01da996f907f11418f65ab2ebc9aff725596fd87a9637f1edf48ddb39a15c39",
     "addons/pixelfx/editor/plugin.gd": "27898700ee4db2929e1f4e2234e5590737ac842d39c098a16fa49a48f02cf82c",
-    "addons/pixelfx/editor/preview_dock.gd": "403f37facc11b6d66e1b8a74b4f6d840f4610dac516e2aeb2c50a32d125b3e1d",
+    "addons/pixelfx/editor/preview_dock.gd": "c13ac52e1926a6f9f67b91574cbb3386bd148292104ab578c9145729b5ee5597",
     "addons/pixelfx/effects/analytic_helpers.gd": "75e038cb052eb62f5a7f664c74196ee60892cd207b19dac5b9868a64a1550b21",
     "addons/pixelfx/effects/explosions/small_explosion.gd": "0b86f8d0a27414828d602a855bf6eb8ad0088ced24e8590179e0df8fbef87761",
     "addons/pixelfx/effects/fire/campfire.gd": "220a8bc4cde0be45c6a5a8c531d15d4a2d79feaa536554a691767f6178879cd9",
@@ -183,7 +183,7 @@
     "addons/pixelfx/runtime/layer_2d.gd": "f14391ec22126ce128547cf60052dd7c52753cc84e6fdc48601d377b028fcc2f",
     "addons/pixelfx/runtime/pool.gd": "9417d76b978669df5c6386301ed23bc79ff587247bb69f6b5d06e6b6974ca350",
     "addons/pixelfx/runtime/preloader.gd": "01b309c6d1336f014af6cee0685d8173ea49ed964895ce62590b0fb4c4e193c9",
-    "addons/pixelfx/runtime/renderer.gd": "71613e61305176dd75bbc848c2da860cc0a590155b6394f1c6f8495caa95b80c",
+    "addons/pixelfx/runtime/renderer.gd": "9f1ed4764b7c63297f9e1ecea694e972ca1d029614e5fae82f67bd75e4f8dd45",
     "addons/pixelfx/presets/arcane_fireball.tres": "f49fa931205c2ff83f16021c0a3ad68687f4d03e590d36ae636d6d99ea86cca6",
     "addons/pixelfx/presets/campfire.tres": "0f406eb89af932f50bccd159c3542639ccb6ecde1a2fabf14ed7bcf905e5c5dc",
     "addons/pixelfx/presets/fireball.tres": "a6589f23d455f2e6a47151d3faed016977a45f975844aff3ac825dab4ea2befb",
@@ -284,5 +284,64 @@
         "frames": 75
       }
     }
+  },
+  "local_shared_source_regression": {
+    "verified_at": "2026-11-10T06:40:12.431467+00:00",
+    "environment": {
+      "cpu": "Apple M4 Pro",
+      "display": "headless",
+      "godot": "4.7.2-stable (official)",
+      "os": "macOS"
+    },
+    "pixel_cases": 7081,
+    "editor_checks": 979,
+    "changes": {
+      "addons/pixelfx/core/frame.gd": {
+        "previous_sha256": "5277dcc8ba034965dc84d4d13022c3ed47a4816603cd4ffc7dc8110f43066cd4",
+        "current_sha256": "1659a4e0587ffef17a8cd35dc6ae5f9748911768033631c85bd849c228da22df"
+      },
+      "addons/pixelfx/editor/preview_dock.gd": {
+        "previous_sha256": "403f37facc11b6d66e1b8a74b4f6d840f4610dac516e2aeb2c50a32d125b3e1d",
+        "current_sha256": "c13ac52e1926a6f9f67b91574cbb3386bd148292104ab578c9145729b5ee5597"
+      },
+      "addons/pixelfx/runtime/renderer.gd": {
+        "previous_sha256": "71613e61305176dd75bbc848c2da860cc0a590155b6394f1c6f8495caa95b80c",
+        "current_sha256": "9f1ed4764b7c63297f9e1ecea694e972ca1d029614e5fae82f67bd75e4f8dd45"
+      }
+    },
+    "artifact_sha256": {
+      "builds/pixelfx/reference-release.log": "13d30dacd2c30f239d2db338d20df4022ad6a8b53dc242059773510823c51fcb",
+      "builds/pixelfx/parity-release.log": "99422557cbfcaa96eebdcf8e3747ac9d615609267c70860b7313de0123e637dd",
+      "builds/pixelfx/runtime-release.log": "da8fee9baa2c52bcfb3ace83fcf0cd1469eb6c6114b599c3c1083ecf146757b7",
+      "builds/pixelfx/catalog-release.log": "f457adca4eb29b03d657113621f209d578f1bd54edaa52a062d7ccad33f48b50",
+      "builds/pixelfx/reference-b1.log": "5223a3a5dc40c6df8f6a2cc16c7207e03f58a61414d633896cdc09c51baf104e",
+      "builds/pixelfx/parity-b1.log": "693ef8f6a5e802191fb907fbb57948ff54aaf58365e2c4d1bf73496ede000acb",
+      "builds/pixelfx/runtime-b1.log": "f4ae436fe18b831b6d3a20bfffc70923b8f33adacc8317dc6440bd34ffab38a4",
+      "builds/pixelfx/soak-b1.log": "2adcc981a8b63a8df22e64f01333b33141c24d1a924b6736ad78282db88d2835",
+      "builds/pixelfx/reference-b2.log": "717bea85c6e906c2571227ada2242e44192ad954e3ea86df40f62f96cad42eb7",
+      "builds/pixelfx/parity-b2.log": "cfa595ee28763af67aec0c8284ba2fdf25e8bfa9d76ad82eb2ba938e2631727d",
+      "builds/pixelfx/runtime-b2.log": "8a7e2b3e7c75eb952d9d19a4299165bb55927c70694a0d932e8698d4d3cce38a",
+      "builds/pixelfx/catalog-b2.log": "e1747215ce5ce91033fa885d71a47775309ca922f2852c0934af6338d08f431f",
+      "builds/pixelfx/soak-b2.log": "f3ab5674f54f8484c965fb965c32a350e9cd91846002f10eb64d0f5b668b8707",
+      "builds/pixelfx/reference-b2-elements.log": "80b169d2ba5e28c7f2a5f1a31a30035e25f3d04681340f0fe7fe474925eb43cb",
+      "builds/pixelfx/parity-b2-elements.log": "ad7c5495a98bf19cb5673b711f7f541a60f0e09f759d7b84553e9e6dafd3c4df",
+      "builds/pixelfx/runtime-b2-elements.log": "ff5519fe02fdb5320f71cd4c74aecb264e7ef35666b85510242dd2e3b7879101",
+      "builds/pixelfx/catalog-b2-elements.log": "30ba1f62d3cf2e2cc99f414ba1471ced178252e826f241aa45e2d922b296ee0f",
+      "builds/pixelfx/soak-b2-elements.log": "3f3bc1724e8e658e6a3e8267d957d8d5456dd93e42a47373a4cb6b6c6792ad6c",
+      "builds/pixelfx/reference-b2-simulations.log": "34941124de684860ffd6c14c487ff9d9d2bd57f1c47972ddfd08d9c34b8a89df",
+      "builds/pixelfx/parity-b2-simulations.log": "a73d4dc031cae7239cf4cf5a052b373795e0151fb43aaac64b07382a5fde1cca",
+      "builds/pixelfx/runtime-b2-simulations.log": "6d5dc7146e409e0e59945abf2696c806bcfd9a493421a1664c9269c1f57c9b11",
+      "builds/pixelfx/catalog-b2-simulations.log": "c7181005269f8560b23d78610d04c216289011db792347c7594f935d6c5b12cc",
+      "builds/pixelfx/soak-b2-simulations.log": "9719f99ac4a4f8f7fd9e5e25b78d0960b6fc397c6ac218074cbf4d239c83d460",
+      "builds/pixelfx/benchmark-release.log": "14611d1938d90843e6cd598588c576894001960b908f83c501d4af9eb04bf5d4",
+      "builds/pixelfx/editor-release.log": "441b3f4513d12f4dcdf148b29f7db9c23815c5756bf26dd5538ab819ca394c86",
+      "builds/pixelfx/parity.json": "3035722d1a89d393bcbe6277436da8d7c79eba1ad505726f6c108a8758f85f53",
+      "builds/pixelfx/parity-b1.json": "ec9aa7b74fa48c13678abb188724d43c8727d33335deb0d0ccdb0a3f6721110e",
+      "builds/pixelfx/parity-b2.json": "d2574bc004bdf4f5d919fe1c5a65492f1a81e007145cac2fce308b31f93a01d5",
+      "builds/pixelfx/parity-b2-elements.json": "6743d96abf87674b1b4890f1e9adfc0c7abc231b64c2290ab859042e7da3079e",
+      "builds/pixelfx/parity-b2-simulations.json": "b86386a5507528cae4feae6238d77649172870316b5d8b7e677f168c9aeb31ae",
+      "builds/pixelfx/editor-qa.log": "b39e17a65b3e930e419dcd72dd6eeafca51fccd02c1aebbb6384e627128c5add"
+    },
+    "scope": "Current shared frame/renderer/Inspector changes; historical visual and Linux CI evidence retains its original scope."
   }
 }

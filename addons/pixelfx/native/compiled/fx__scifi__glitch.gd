@@ -212,51 +212,57 @@ static func _f0(_parent, _args: Array, _this=null):
 		_S.invoke(_S.read(_e, "p"), "glowLine", [_S.binary("-", _S.prop(_S.read(_e, "A"), "x"), 2), _S.read(_e, "bar"), _S.binary("+", _S.binary("+", _S.prop(_S.read(_e, "A"), "x"), _S.prop(_S.read(_e, "A"), "w")), 2), _S.read(_e, "bar"), 4, _S.prop(_S.read(_e, "C"), 4), 0.12])
 	return null
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	var _v0 = _S.arg(_args, 0)
-	_S.define(_e, "a", _S.prop(_v0, 0))
-	_S.define(_e, "b", _S.prop(_v0, 1))
-	return _S.logical("&&", _S.binary(">=", _S.read(_e, "f"), _S.read(_e, "a")), func(): return _S.binary("<=", _S.read(_e, "f"), _S.read(_e, "b")))
+static func _f1(_parent,_args:Array,_this=null):
+	var _n_f = _S.read(_parent,"f")
+	var _tuple_0 = _S.arg(_args,0)
+	var _n_a_b0 = _S.prop(_tuple_0,0)
+	var _n_b_b1 = _S.prop(_tuple_0,1)
+	return ((_n_f <= _n_b_b1) if _S.truth((_n_f >= _n_a_b0)) else (_n_f >= _n_a_b0))
+	return null
 
 static func _f2(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)
 	_S.define(_e, "n", _args.slice(0))
 	return _S.call_value(_S.read(_e, "rand"), _S.concat([[_S.read(_e, "S")], [_S.read(_e, "f")], _S.array(_S.read(_e, "n"))]))
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "y", _S.arg(_args, 0))
-	for _v2 in _S.array(_S.read(_e, "tears")):
-		var _v3 = _S.scope(_e)
-		var _v4 = _v2
-		_S.define(_v3, "y0", _S.prop(_v4, 0))
-		_S.define(_v3, "h", _S.prop(_v4, 1))
-		_S.define(_v3, "dx", _S.prop(_v4, 2))
-		_S.define(_v3, "tint", _S.prop(_v4, 3))
-		if _S.truth(_S.logical("&&", _S.binary(">=", _S.read(_v3, "y"), _S.read(_v3, "y0")), func(): return _S.binary("<", _S.read(_v3, "y"), _S.binary("+", _S.read(_v3, "y0"), _S.read(_v3, "h"))))):
-			return [_S.read(_v3, "dx"), _S.read(_v3, "tint")]
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_tears = _S.read(_parent,"tears")
+	var _n_y_b0 = _S.arg(_args,0)
+	for _iter_0 in _S.array(_n_tears):
+		var _tuple_1 = _iter_0
+		var _n_y0_b1 = _S.prop(_tuple_1,0)
+		var _n_h_b2 = _S.prop(_tuple_1,1)
+		var _n_dx_b3 = _S.prop(_tuple_1,2)
+		var _n_tint_b4 = _S.prop(_tuple_1,3)
+		if _S.truth(((_n_y_b0 < (_n_y0_b1 + _n_h_b2)) if _S.truth((_n_y_b0 >= _n_y0_b1)) else (_n_y_b0 >= _n_y0_b1))):
+			return [_n_dx_b3, _n_tint_b4]
+	return null
 	return null
 
-static func _f4(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "x", _S.arg(_args, 0))
-	_S.define(_e, "y", _S.arg(_args, 1))
-	_S.define(_e, "c", _S.arg(_args, 2))
-	return _S.invoke(_S.read(_e, "p"), "px", [_S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "c")])
+static func _f4(_parent,_args:Array,_this=null):
+	var _n_p = _S.read(_parent,"p")
+	var _n_x_b0 = _S.arg(_args,0)
+	var _n_y_b1 = _S.arg(_args,1)
+	var _n_c_b2 = _S.arg(_args,2)
+	return _S.invoke(_n_p,"px",[_n_x_b0, _n_y_b1, _n_c_b2])
+	return null
 
-static func _f5(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "_", _S.arg(_args, 0))
-	_S.define(_e, "i", _S.arg(_args, 1))
-	return _S.prop(_S.prop(_S.prop(_S.read(_e, "A"), "mask"), "data"), _S.binary("-", _S.binary("-", _S.binary("+", _S.binary("*", _S.read(_e, "my"), _S.prop(_S.read(_e, "A"), "w")), _S.prop(_S.read(_e, "A"), "w")), 1), _S.read(_e, "i")))
+static func _f5(_parent,_args:Array,_this=null):
+	var _n_A = _S.read(_parent,"A")
+	var _n_my = _S.read(_parent,"my")
+	var _n___b0 = _S.arg(_args,0)
+	var _n_i_b1 = _S.arg(_args,1)
+	return _S.index_value(_S.named_value(_S.named_value(_n_A,"mask"),"data"),((((_n_my * _S.named_value(_n_A,"w")) + _S.named_value(_n_A,"w")) - 1) - _n_i_b1))
+	return null
 
-static func _f6(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "_", _S.arg(_args, 0))
-	_S.define(_e, "i", _S.arg(_args, 1))
-	return _S.prop(_S.prop(_S.prop(_S.read(_e, "A"), "mask"), "data"), _S.binary("+", _S.binary("*", _S.read(_e, "my"), _S.prop(_S.read(_e, "A"), "w")), _S.read(_e, "i")))
+static func _f6(_parent,_args:Array,_this=null):
+	var _n_A = _S.read(_parent,"A")
+	var _n_my = _S.read(_parent,"my")
+	var _n___b0 = _S.arg(_args,0)
+	var _n_i_b1 = _S.arg(_args,1)
+	return _S.index_value(_S.named_value(_S.named_value(_n_A,"mask"),"data"),((_n_my * _S.named_value(_n_A,"w")) + _n_i_b1))
+	return null
 
-static func _f7(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
+static func _f7(_parent,_args:Array,_this=null):
 	return 0
+	return null

@@ -125,9 +125,9 @@ static func _f0(_parent, _args: Array, _this=null):
 		_S.write(_v13, "i", 1, "+=", true)
 	return _S.merge([{"update": _S.function_value(_e, "_f2")}, {"drawBack": _S.function_value(_e, "_f3")}, {"draw": _S.function_value(_e, "_f5")}])
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
+static func _f1(_parent,_args:Array,_this=null):
 	return 0
+	return null
 
 static func _f2(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)
@@ -181,41 +181,57 @@ static func _f2(_parent, _args: Array, _this=null):
 	_S.invoke(_S.read(_e, "lights"), "update", [_S.read(_e, "dt")])
 	return null
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.call_value(_S.read(_e, "crater"), [_S.read(_e, "p"), _S.read(_e, "E"), 0, 28, _S.invoke(_S.read(_e, "ease"), "outCubic", [_S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("/", _S.read(_e, "t"), 0.12)])]), _S.binary("-", 1, _S.call_value(_S.read(_e, "smooth"), [_S.binary("-", _S.prop(_S.read(_e, "meta"), "duration"), 0.7), _S.binary("-", _S.prop(_S.read(_e, "meta"), "duration"), 0.1), _S.read(_e, "t")]))])
-	_S.define(_e, "k", _S.binary("/", _S.read(_e, "t"), 0.45))
-	if _S.truth(_S.binary("<", _S.read(_e, "k"), 1)):
-		_S.call_value(_S.read(_e, "band"), [_S.read(_e, "p"), 0, 0.5, _S.binary("*", 90, _S.invoke(_S.read(_e, "ease"), "outCubic", [_S.read(_e, "k")])), 0.16, _S.invoke(_S.read(_e, "Math"), "max", [1, _S.binary("*", 3, _S.binary("-", 1, _S.read(_e, "k")))]), _S.binary("-", 1.1, _S.read(_e, "k")), [_S.prop(_S.read(_e, "E"), 2), _S.prop(_S.read(_e, "E"), 4), _S.prop(_S.read(_e, "E"), 5), _S.prop(_S.read(_e, "E"), 6)], _S.function_value(_e, "_f4")])
-	_S.call_value(_S.read(_e, "drawDirt"), [_S.read(_e, "p"), _S.read(_e, "ps"), "back"])
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_E = _S.read(_parent,"E")
+	var _n_ease = _S.read(_parent,"ease")
+	var _n_t = _S.read(_parent,"t")
+	var _n_meta = _S.read(_parent,"meta")
+	var _n_crater = _S.read(_parent,"crater")
+	var _n_band = _S.read(_parent,"band")
+	var _n_ps = _S.read(_parent,"ps")
+	var _n_drawDirt = _S.read(_parent,"drawDirt")
+	var _n_p_b0 = _S.arg(_args,0)
+	_S.call_value(_n_crater,[_n_p_b0, _n_E, 0, 28, _S.invoke(_n_ease,"outCubic",[minf(1,(float(_n_t)/0.12))]), (1 - _S.MathFX.smooth((_S.named_value(_n_meta,"duration") - 0.7),(_S.named_value(_n_meta,"duration") - 0.1),_n_t))])
+	var _n_k_b1 = (float(_n_t)/0.45)
+	if _S.truth((_n_k_b1 < 1)):
+		_S.call_value(_n_band,[_n_p_b0, 0, 0.5, (90 * _S.invoke(_n_ease,"outCubic",[_n_k_b1])), 0.16, maxf(1,(3 * (1 - _n_k_b1))), (1.1 - _n_k_b1), [_S.index_value(_n_E,2), _S.index_value(_n_E,4), _S.index_value(_n_E,5), _S.index_value(_n_E,6)], _S.function_value(_S.capture(_parent,{"this":_this}),"_f4")])
+	_S.call_value(_n_drawDirt,[_n_p_b0, _n_ps, "back"])
 	return null
 
-static func _f4(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "g", _S.arg(_args, 0))
-	return _S.binary("<", _S.invoke(_S.read(_e, "Math"), "sin", [_S.read(_e, "g")]), 0)
-
-static func _f5(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "k", _S.binary("/", _S.read(_e, "t"), 0.45))
-	if _S.truth(_S.binary("<", _S.read(_e, "k"), 1)):
-		_S.call_value(_S.read(_e, "band"), [_S.read(_e, "p"), 0, 0.5, _S.binary("*", 90, _S.invoke(_S.read(_e, "ease"), "outCubic", [_S.read(_e, "k")])), 0.16, _S.invoke(_S.read(_e, "Math"), "max", [1, _S.binary("*", 3, _S.binary("-", 1, _S.read(_e, "k")))]), _S.binary("-", 1.1, _S.read(_e, "k")), [_S.prop(_S.read(_e, "E"), 2), _S.prop(_S.read(_e, "E"), 4), _S.prop(_S.read(_e, "E"), 5), _S.prop(_S.read(_e, "E"), 6)], _S.function_value(_e, "_f6")])
-	if _S.truth(_S.binary("<", _S.read(_e, "t"), 0.09)):
-		_S.call_value(_S.read(_e, "dome"), [_S.read(_e, "p"), _S.read(_e, "F"), 0, _S.binary("*", 15, _S.binary("-", 1, _S.binary("*", _S.read(_e, "t"), 3))), _S.binary("-", 1, _S.binary("/", _S.read(_e, "t"), 0.09))])
-	for _v22 in _S.array(_S.prop(_S.read(_e, "clods"), "list")):
-		var _v23 = _S.scope(_e)
-		_S.define(_v23, "b", _v22)
-		_S.call_value(_S.read(_v23, "rock"), [_S.read(_v23, "p"), _S.read(_v23, "b"), _S.read(_v23, "clod"), _S.read(_v23, "F")])
-	_S.call_value(_S.read(_e, "drawDirt"), [_S.read(_e, "p"), _S.read(_e, "ps"), "front"])
-	_S.call_value(_S.read(_e, "pool"), [_S.read(_e, "p"), 0, 1, 60, 10, _S.prop(_S.read(_e, "F"), 3), _S.binary("*", 0.5, _S.invoke(_S.read(_e, "Math"), "max", [0, _S.binary("-", 1, _S.binary("/", _S.read(_e, "t"), 0.3))]))])
-	_S.invoke(_S.read(_e, "lights"), "draw", [_S.read(_e, "p")])
+static func _f4(_parent,_args:Array,_this=null):
+	var _n_g_b0 = _S.arg(_args,0)
+	return (sin(_n_g_b0) < 0)
 	return null
 
-static func _f6(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "g", _S.arg(_args, 0))
-	return _S.binary(">=", _S.invoke(_S.read(_e, "Math"), "sin", [_S.read(_e, "g")]), 0)
+static func _f5(_parent,_args:Array,_this=null):
+	var _n_t = _S.read(_parent,"t")
+	var _n_ease = _S.read(_parent,"ease")
+	var _n_E = _S.read(_parent,"E")
+	var _n_band = _S.read(_parent,"band")
+	var _n_F = _S.read(_parent,"F")
+	var _n_dome = _S.read(_parent,"dome")
+	var _n_clod = _S.read(_parent,"clod")
+	var _n_rock = _S.read(_parent,"rock")
+	var _n_clods = _S.read(_parent,"clods")
+	var _n_ps = _S.read(_parent,"ps")
+	var _n_drawDirt = _S.read(_parent,"drawDirt")
+	var _n_pool = _S.read(_parent,"pool")
+	var _n_lights = _S.read(_parent,"lights")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_k_b1 = (float(_n_t)/0.45)
+	if _S.truth((_n_k_b1 < 1)):
+		_S.call_value(_n_band,[_n_p_b0, 0, 0.5, (90 * _S.invoke(_n_ease,"outCubic",[_n_k_b1])), 0.16, maxf(1,(3 * (1 - _n_k_b1))), (1.1 - _n_k_b1), [_S.index_value(_n_E,2), _S.index_value(_n_E,4), _S.index_value(_n_E,5), _S.index_value(_n_E,6)], _S.function_value(_S.capture(_parent,{"this":_this}),"_f6")])
+	if _S.truth((_n_t < 0.09)):
+		_S.call_value(_n_dome,[_n_p_b0, _n_F, 0, (15 * (1 - (_n_t * 3))), (1 - (float(_n_t)/0.09))])
+	for _iter_0 in _S.array(_S.named_value(_n_clods,"list")):
+		var _n_b_b2 = _iter_0
+		_S.call_value(_n_rock,[_n_p_b0, _n_b_b2, _n_clod, _n_F])
+	_S.call_value(_n_drawDirt,[_n_p_b0, _n_ps, "front"])
+	_S.call_value(_n_pool,[_n_p_b0, 0, 1, 60, 10, _S.index_value(_n_F,3), (0.5 * maxf(0,(1 - (float(_n_t)/0.3))))])
+	_S.invoke(_n_lights,"draw",[_n_p_b0])
+	return null
+
+static func _f6(_parent,_args:Array,_this=null):
+	var _n_g_b0 = _S.arg(_args,0)
+	return (sin(_n_g_b0) >= 0)
+	return null

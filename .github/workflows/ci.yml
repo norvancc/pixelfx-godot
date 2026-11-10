@@ -20,6 +20,10 @@ jobs:
         env:
           GODOT_BIN: /tmp/godot/Godot_v4.3-stable_linux.x86_64
         run: python3 tools/pixelfx/basic_check.py
+      - name: Check accepted effects and generator regressions
+        env:
+          GODOT_BIN: /tmp/godot/Godot_v4.3-stable_linux.x86_64
+        run: python3 tools/pixelfx/check.py
       - name: Build release archives
         run: python3 tools/pixelfx/package_demo.py
       - uses: actions/upload-artifact@v4

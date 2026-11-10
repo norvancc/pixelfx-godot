@@ -1,6 +1,6 @@
 # PixelFX for Godot
 
-当前迁移分支已提供 **244/244 个算法、245 个预设**；其中 **52 项完成完整验收，新增 192 项仅做基础运行检查，待完整验收**。本轮按用户要求暂缓单测、像素对照和录像；下文 52 项及其历史测试数字均指已完整验收范围。新增效果、角色/动作/场景输入与运行方式见 [全量源码迁移说明](addons/pixelfx/FULL_MIGRATION.md)。
+当前迁移分支提供 **244/244 个算法、245 个预设**；完整验收保持 **52/244**。直接数值计算和依赖延迟加载已将多个秒级热点降到几十毫秒。重点八项在 M4 Pro 可见窗口中禁缓存实测约每秒 29–30 次效果更新；新增路径 6500 个像素用例、979 项编辑器断言通过，其他目录项仍有超预算采样。抽样、像素正确性和离线录像不能代表实时可用；见 [本轮验收记录](docs/plans/native-acceptance-review.zh-CN.md) 和 [全量迁移说明](addons/pixelfx/FULL_MIGRATION.md)。
 
 
 **基于 [patch-gg/pixelfx](https://github.com/patch-gg/pixelfx) 的非官方 Godot 移植。** 原作者为 Patch 与 Hugo Duprez，采用 MIT 协议；此仓库由 norvancc 独立维护。

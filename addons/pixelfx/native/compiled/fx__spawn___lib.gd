@@ -46,33 +46,34 @@ static func _f0(_parent, _args: Array, _this=null):
 		_S.write(_v0, "my", 1, "+=", true)
 	return _S.merge([{"list": _S.read(_e, "list")}, {"w": _S.prop(_S.read(_e, "m"), "w")}, {"h": _S.prop(_S.read(_e, "m"), "h")}, {"x": _S.prop(_S.read(_e, "actor"), "x")}, {"y": _S.prop(_S.read(_e, "actor"), "y")}, {"on": _S.read(_e, "on")}, {"cell": _S.function_value(_e, "_f2")}])
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "mx", _S.arg(_args, 0))
-	_S.define(_e, "my", _S.arg(_args, 1))
-	return _S.logical("&&", _S.logical("&&", _S.logical("&&", _S.logical("&&", _S.binary(">=", _S.read(_e, "mx"), 0), func(): return _S.binary(">=", _S.read(_e, "my"), 0)), func(): return _S.binary("<", _S.read(_e, "mx"), _S.prop(_S.read(_e, "m"), "w"))), func(): return _S.binary("<", _S.read(_e, "my"), _S.prop(_S.read(_e, "m"), "h"))), func(): return _S.unary("!", _S.unary("!", _S.prop(_S.prop(_S.read(_e, "m"), "data"), _S.binary("+", _S.binary("*", _S.read(_e, "my"), _S.prop(_S.read(_e, "m"), "w")), _S.read(_e, "mx"))))))
+static func _f1(_parent,_args:Array,_this=null):
+	var _n_m = _S.read(_parent,"m")
+	var _n_mx_b0 = _S.arg(_args,0)
+	var _n_my_b1 = _S.arg(_args,1)
+	return (not _S.truth(not _S.truth(_S.index_value(_S.named_value(_n_m,"data"),((_n_my_b1 * _S.named_value(_n_m,"w")) + _n_mx_b0)))) if _S.truth(((_n_my_b1 < _S.named_value(_n_m,"h")) if _S.truth(((_n_mx_b0 < _S.named_value(_n_m,"w")) if _S.truth(((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0))) else ((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0)))) else ((_n_mx_b0 < _S.named_value(_n_m,"w")) if _S.truth(((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0))) else ((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0))))) else ((_n_my_b1 < _S.named_value(_n_m,"h")) if _S.truth(((_n_mx_b0 < _S.named_value(_n_m,"w")) if _S.truth(((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0))) else ((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0)))) else ((_n_mx_b0 < _S.named_value(_n_m,"w")) if _S.truth(((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0))) else ((_n_my_b1 >= 0) if _S.truth((_n_mx_b0 >= 0)) else (_n_mx_b0 >= 0)))))
+	return null
 
-static func _f2(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "mx", _S.arg(_args, 0))
-	_S.define(_e, "my", _S.arg(_args, 1))
-	return (_S.prop(_S.read(_e, "cells"), _S.binary("+", _S.binary("*", _S.read(_e, "my"), _S.prop(_S.read(_e, "m"), "w")), _S.read(_e, "mx"))) if _S.truth(_S.call_value(_S.read(_e, "on"), [_S.read(_e, "mx"), _S.read(_e, "my")])) else null)
+static func _f2(_parent,_args:Array,_this=null):
+	var _n_cells = _S.read(_parent,"cells")
+	var _n_m = _S.read(_parent,"m")
+	var _n_on = _S.read(_parent,"on")
+	var _n_mx_b0 = _S.arg(_args,0)
+	var _n_my_b1 = _S.arg(_args,1)
+	return (_S.index_value(_n_cells,((_n_my_b1 * _S.named_value(_n_m,"w")) + _n_mx_b0)) if _S.truth(_S.call_value(_n_on,[_n_mx_b0, _n_my_b1])) else null)
+	return null
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "body", _S.arg(_args, 0))
-	_S.define(_e, "out", [])
-	var _v3 = _S.scope(_e)
-	_S.define(_v3, "my", _S.unary("-", 1))
-	while _S.truth(_S.binary("<=", _S.read(_v3, "my"), _S.prop(_S.read(_v3, "body"), "h"))):
-		var _v4 = _S.scope(_v3)
-		_S.define(_v4, "mx", _S.unary("-", 1))
-		while _S.truth(_S.binary("<=", _S.read(_v4, "mx"), _S.prop(_S.read(_v4, "body"), "w"))):
-			if _S.truth(_S.logical("&&", _S.unary("!", _S.invoke(_S.read(_v4, "body"), "on", [_S.read(_v4, "mx"), _S.read(_v4, "my")])), func(): return _S.logical("||", _S.logical("||", _S.logical("||", _S.invoke(_S.read(_v4, "body"), "on", [_S.binary("-", _S.read(_v4, "mx"), 1), _S.read(_v4, "my")]), func(): return _S.invoke(_S.read(_v4, "body"), "on", [_S.binary("+", _S.read(_v4, "mx"), 1), _S.read(_v4, "my")])), func(): return _S.invoke(_S.read(_v4, "body"), "on", [_S.read(_v4, "mx"), _S.binary("-", _S.read(_v4, "my"), 1)])), func(): return _S.invoke(_S.read(_v4, "body"), "on", [_S.read(_v4, "mx"), _S.binary("+", _S.read(_v4, "my"), 1)])))):
-				_S.invoke(_S.read(_v4, "out"), "push", [_S.merge([{"x": _S.binary("+", _S.prop(_S.read(_v4, "body"), "x"), _S.read(_v4, "mx"))}, {"y": _S.binary("+", _S.prop(_S.read(_v4, "body"), "y"), _S.read(_v4, "my"))}, {"mx": _S.read(_v4, "mx")}, {"my": _S.read(_v4, "my")}])])
-			_v4 = _S.iteration(_v4)
-			_S.write(_v4, "mx", 1, "+=", true)
-		_v3 = _S.iteration(_v3)
-		_S.write(_v3, "my", 1, "+=", true)
-	return _S.read(_e, "out")
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_body_b0 = _S.arg(_args,0)
+	var _n_out_b1 = []
+	if true:
+		var _n_my_b2 = (-1)
+		while _S.truth((_n_my_b2 <= _S.named_value(_n_body_b0,"h"))):
+			if true:
+				var _n_mx_b3 = (-1)
+				while _S.truth((_n_mx_b3 <= _S.named_value(_n_body_b0,"w"))):
+					if _S.truth(_S.logical("&&",not _S.truth(_S.invoke(_n_body_b0,"on",[_n_mx_b3, _n_my_b2])),func():return _S.logical("||",_S.logical("||",_S.logical("||",_S.invoke(_n_body_b0,"on",[(_n_mx_b3 - 1), _n_my_b2]),func():return _S.invoke(_n_body_b0,"on",[(_n_mx_b3 + 1), _n_my_b2])),func():return _S.invoke(_n_body_b0,"on",[_n_mx_b3, (_n_my_b2 - 1)])),func():return _S.invoke(_n_body_b0,"on",[_n_mx_b3, (_n_my_b2 + 1)])))):
+						_S.invoke(_n_out_b1,"push",[{"x":(_S.named_value(_n_body_b0,"x") + _n_mx_b3),"y":(_S.named_value(_n_body_b0,"y") + _n_my_b2),"mx":_n_mx_b3,"my":_n_my_b2}])
+					_n_mx_b3 += 1.0
+			_n_my_b2 += 1.0
+	return _n_out_b1
+	return null

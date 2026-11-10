@@ -18,6 +18,8 @@ var texture: ImageTexture
 var paused=false
 var light_background=false
 var step_accumulator=0.0
+var last_frame_ms=0.0
+var last_process_usec:int=0
 func _ready():
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	get_window().title="PixelFX · 完整迁移目录"
@@ -58,8 +60,10 @@ func play_selected():
 		rect=Rect2i(-220,-240,660,440);actor_instance=Act.new(selected.effect,resolved.options)
 	else:instance=Fx.new(module,resolved.options)
 	frame=Frame.new(rect.size.x,rect.size.y,rect.position.x,rect.position.y)
+	frame.track_writes=actor_instance!=null or module.has_method("source_module")
 	description.text=meta.name+" · "+selected.effect+"\n"+("完整验收通过" if selected.status=="完成" else "已迁移，待完整验收")
 	render_frame()
+	step_accumulator=0;last_process_usec=Time.get_ticks_usec()
 func render_frame():
 	if frame==null:return
 	var start=Time.get_ticks_usec();frame.clear()
@@ -68,20 +72,26 @@ func render_frame():
 	var image=frame.image()
 	if texture==null or texture.get_width()!=frame.w or texture.get_height()!=frame.h:texture=ImageTexture.create_from_image(image)
 	else:texture.update(image)
-	performance_label.text="当前帧 %.1f ms"%((Time.get_ticks_usec()-start)/1000.0);queue_redraw()
-func _process(dt):
+	last_frame_ms=(Time.get_ticks_usec()-start)/1000.0
+	performance_label.text="CPU %.1f ms · %d FPS"%[last_frame_ms,Engine.get_frames_per_second()];queue_redraw()
+func _process(_dt):
+	var now:int=Time.get_ticks_usec();var elapsed_step:float=(now-last_process_usec)/1000000.0 if last_process_usec else 0
+	last_process_usec=now
 	if paused or instance==null and actor_instance==null:return
-	step_accumulator+=dt
+	step_accumulator+=elapsed_step
 	if step_accumulator<1.0/30:return
-	# A slow CPU frame slows the demo; it never queues an unbounded catch-up workload.
+	var elapsed=step_accumulator;var start=Time.get_ticks_usec()
+	# Advance by real elapsed time so a costly frame does not change playback speed.
 	step_accumulator=0
 	if actor_instance!=null:
 		if actor_instance.done():return
-		actor_instance.update(1.0/30)
+		actor_instance.update(elapsed)
 	else:
 		if instance.done():return
-		instance.update(1.0/30)
+		instance.update(elapsed)
 	render_frame()
+	last_frame_ms=(Time.get_ticks_usec()-start)/1000.0
+	performance_label.text="CPU %.1f ms · %d FPS"%[last_frame_ms,Engine.get_frames_per_second()]
 func _draw():
 	draw_rect(Rect2(Vector2.ZERO,size),Color("111923"))
 	var panel=Rect2(348,156,740,480);draw_rect(panel,Color("e6e0d4") if light_background else Color("1d2b39"))

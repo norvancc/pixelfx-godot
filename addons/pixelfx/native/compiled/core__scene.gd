@@ -24,48 +24,51 @@ static func build(_script) -> Dictionary:
 	_exports["__scope"] = _e
 	return _exports
 
-static func _f0(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "kind", _S.arg(_args, 0))
-	_S.define(_e, "w", _S.arg(_args, 1))
-	_S.define(_e, "h", _S.arg(_args, 2))
-	_S.define(_e, "groundY", _S.coalesce(_S.arg(_args, 3), func(): return _S.read(_e, "h")))
-	_S.define(_e, "out", _S.construct(_S.read(_e, "Uint32Array"), [_S.binary("*", _S.read(_e, "w"), _S.read(_e, "h"))]))
-	if _S.truth(_S.binary("===", _S.read(_e, "kind"), "light")):
-		return _S.invoke(_S.read(_e, "out"), "fill", [_S.call_value(_S.read(_e, "hex"), ["#ebe8f0"])])
-	if _S.truth(_S.binary("===", _S.read(_e, "kind"), "black")):
-		return _S.invoke(_S.read(_e, "out"), "fill", [_S.call_value(_S.read(_e, "hex"), ["#000000"])])
-	var _v0 = _S.scope(_e)
-	_S.define(_v0, "y", 0)
-	while _S.truth(_S.binary("<", _S.read(_v0, "y"), _S.read(_v0, "h"))):
-		var _v1 = _S.scope(_v0)
-		_S.define(_v1, "x", 0)
-		while _S.truth(_S.binary("<", _S.read(_v1, "x"), _S.read(_v1, "w"))):
-			var _v2 = _S.scope(_v1)
-			_S.define(_v2, "c", _S.read(_v2, "SKY"))
-			if _S.truth(_S.binary("===", _S.read(_v2, "kind"), "sky")):
-				var _v3 = _S.scope(_v2)
-				_S.define(_v3, "t", _S.binary("/", _S.read(_v3, "y"), _S.invoke(_S.read(_v3, "Math"), "max", [1, _S.binary("-", _S.read(_v3, "h"), 1)])))
-				_S.define(_v3, "step", _S.binary("|", _S.binary("+", _S.binary("*", _S.read(_v3, "t"), 5), _S.binary("/", _S.prop(_S.read(_v3, "BAYER"), _S.binary("|", _S.binary("<<", _S.binary("&", _S.read(_v3, "y"), 3), 2), _S.binary("&", _S.read(_v3, "x"), 3))), 16)), 0))
-				_S.write(_v3, "c", _S.call_value(_S.read(_v3, "mix"), [_S.read(_v3, "SKY_TOP"), _S.read(_v3, "SKY_LOW"), _S.invoke(_S.read(_v3, "Math"), "min", [1, _S.binary("/", _S.read(_v3, "step"), 4)])]), "=", false)
-				_S.define(_v3, "r", _S.call_value(_S.read(_v3, "rand"), [_S.read(_v3, "x"), _S.read(_v3, "y"), 77]))
-				if _S.truth(_S.binary(">", _S.read(_v3, "r"), 0.994)):
-					_S.write(_v3, "c", _S.call_value(_S.read(_v3, "mix"), [_S.read(_v3, "c"), _S.call_value(_S.read(_v3, "hex"), ["#cfc8ff"]), _S.binary("+", 0.35, _S.binary("*", _S.binary("-", _S.read(_v3, "r"), 0.994), 90))]), "=", false)
-			if _S.truth(_S.logical("&&", _S.binary("===", _S.read(_v2, "kind"), "ground"), func(): return _S.binary(">=", _S.read(_v2, "y"), _S.read(_v2, "groundY")))):
-				var _v4 = _S.scope(_v2)
-				_S.define(_v4, "gy", _S.binary("-", _S.read(_v4, "y"), _S.read(_v4, "groundY")))
-				if _S.truth(_S.binary("===", _S.read(_v4, "gy"), 0)):
-					_S.write(_v4, "c", _S.read(_v4, "FLOOR_EDGE"), "=", false)
-				else:
-					var _v5 = _S.scope(_v4)
-					_S.define(_v5, "row", _S.invoke(_S.read(_v5, "Math"), "floor", [_S.binary("/", _S.binary("-", _S.read(_v5, "gy"), 1), 5)]))
-					_S.define(_v5, "off", (6 if _S.truth(_S.binary("%", _S.read(_v5, "row"), 2)) else 0))
-					_S.define(_v5, "mortar", _S.logical("||", _S.binary("===", _S.binary("%", _S.binary("-", _S.read(_v5, "gy"), 1), 5), 4), func(): return _S.binary("===", _S.binary("%", _S.binary("+", _S.read(_v5, "x"), _S.read(_v5, "off")), 12), 0)))
-					_S.write(_v5, "c", (_S.read(_v5, "MORTAR") if _S.truth(_S.read(_v5, "mortar")) else (_S.read(_v5, "FLOOR") if _S.truth(_S.binary("<", _S.read(_v5, "gy"), 3)) else _S.read(_v5, "FLOOR_DARK"))), "=", false)
-			_S.set_prop(_S.read(_v2, "out"), _S.binary("+", _S.binary("*", _S.read(_v2, "y"), _S.read(_v2, "w")), _S.read(_v2, "x")), _S.read(_v2, "c"), "=", false)
-			_v1 = _S.iteration(_v1)
-			_S.write(_v1, "x", 1, "+=", true)
-		_v0 = _S.iteration(_v0)
-		_S.write(_v0, "y", 1, "+=", true)
-	return _S.read(_e, "out")
+static func _f0(_parent,_args:Array,_this=null):
+	var _n_Uint32Array = _S.read(_parent,"Uint32Array")
+	var _n_hex = _S.read(_parent,"hex")
+	var _n_SKY = _S.read(_parent,"SKY")
+	var _n_BAYER = _S.read(_parent,"BAYER")
+	var _n_SKY_TOP = _S.read(_parent,"SKY_TOP")
+	var _n_SKY_LOW = _S.read(_parent,"SKY_LOW")
+	var _n_FLOOR_EDGE = _S.read(_parent,"FLOOR_EDGE")
+	var _n_MORTAR = _S.read(_parent,"MORTAR")
+	var _n_FLOOR = _S.read(_parent,"FLOOR")
+	var _n_FLOOR_DARK = _S.read(_parent,"FLOOR_DARK")
+	var _n_kind_b0 = _S.arg(_args,0)
+	var _n_w_b1 = _S.arg(_args,1)
+	var _n_h_b2 = _S.arg(_args,2)
+	var _n_groundY_b3 = _S.coalesce(_S.arg(_args,3),func():return _n_h_b2)
+	var _n_out_b4 = _S.construct(_n_Uint32Array,[(_n_w_b1 * _n_h_b2)])
+	if _S.truth(_S.binary("===",_n_kind_b0,"light")):
+		return _S.invoke(_n_out_b4,"fill",[_S.call_value(_n_hex,["#ebe8f0"])])
+	if _S.truth(_S.binary("===",_n_kind_b0,"black")):
+		return _S.invoke(_n_out_b4,"fill",[_S.call_value(_n_hex,["#000000"])])
+	if true:
+		var _n_y_b5 = 0
+		while _S.truth((_n_y_b5 < _n_h_b2)):
+			if true:
+				var _n_x_b6 = 0
+				while _S.truth((_n_x_b6 < _n_w_b1)):
+					var _n_c_b7 = _n_SKY
+					if _S.truth(_S.binary("===",_n_kind_b0,"sky")):
+						var _n_t_b8 = (float(_n_y_b5)/maxf(1,(_n_h_b2 - 1)))
+						var _n_step_b9 = _S.binary("|",((_n_t_b8 * 5) + (float(_S.index_value(_n_BAYER,_S.binary("|",_S.binary("<<",_S.binary("&",_n_y_b5,3),2),_S.binary("&",_n_x_b6,3))))/16)),0)
+						_n_c_b7 = _S.ColorFX.mix(_n_SKY_TOP,_n_SKY_LOW,minf(1,(float(_n_step_b9)/4)))
+						var _n_r_b10 = _S.MathFX.rand([_n_x_b6,_n_y_b5,77])
+						if _S.truth((_n_r_b10 > 0.994)):
+							_n_c_b7 = _S.ColorFX.mix(_n_c_b7,_S.call_value(_n_hex,["#cfc8ff"]),(0.35 + ((_n_r_b10 - 0.994) * 90)))
+					if _S.truth(((_n_y_b5 >= _n_groundY_b3) if _S.truth(_S.binary("===",_n_kind_b0,"ground")) else _S.binary("===",_n_kind_b0,"ground"))):
+						var _n_gy_b11 = (_n_y_b5 - _n_groundY_b3)
+						if _S.truth(_S.binary("===",_n_gy_b11,0)):
+							_n_c_b7 = _n_FLOOR_EDGE
+						else:
+							var _n_row_b12 = floori((float((_n_gy_b11 - 1))/5))
+							var _n_off_b13 = (6 if _S.truth(fmod(_n_row_b12,2)) else 0)
+							var _n_mortar_b14 = (_S.binary("===",fmod((_n_gy_b11 - 1),5),4) if _S.truth(_S.binary("===",fmod((_n_gy_b11 - 1),5),4)) else _S.binary("===",fmod((_n_x_b6 + _n_off_b13),12),0))
+							_n_c_b7 = (_n_MORTAR if _S.truth(_n_mortar_b14) else (_n_FLOOR if _S.truth((_n_gy_b11 < 3)) else _n_FLOOR_DARK))
+					_S.set_prop(_n_out_b4,((_n_y_b5 * _n_w_b1) + _n_x_b6),_n_c_b7,"=")
+					_n_x_b6 += 1.0
+			_n_y_b5 += 1.0
+	return _n_out_b4
+	return null

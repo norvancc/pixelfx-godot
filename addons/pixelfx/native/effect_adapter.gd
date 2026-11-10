@@ -20,7 +20,13 @@ func parameter_schema() -> Array[Dictionary]:
 			for color in value:colors.append(Color(color))
 			result.append({"name":key,"type":TYPE_PACKED_COLOR_ARRAY,"default":colors})
 		elif value is String and value.begins_with("#"):result.append({"name":key,"type":TYPE_COLOR,"default":Color(value)})
-		else:result.append({"name":key,"type":typeof(value),"default":value})
+		else:
+			var field={"name":key,"type":typeof(value),"default":value}
+			var limits={"fx/fire/fire-ring.js":{"reach":[40.0,160.0]},"fx/ice/frost-nova.js":{"reach":[40.0,160.0]},"fx/holy/divine-shield.js":{"radius":[23.0,44.0]}}
+			if limits.get(source_module(),{}).has(key):
+				var range_value=limits[source_module()][key]
+				field.merge({"type":TYPE_FLOAT,"default":float(value),"min":range_value[0],"max":range_value[1],"hint":PROPERTY_HINT_RANGE,"hint_string":str(range_value[0])+","+str(range_value[1])+",0.1"},true)
+			result.append(field)
 	result.append({"name":"light","type":TYPE_FLOAT,"default":1.0,"min":0.0,"max":3.0})
 	# Actor and scene inputs are native Dictionaries; the default actor matches upstream metadata.
 	if metadata().get("actor"):result.append({"name":"actor","type":TYPE_DICTIONARY,"default":{}})

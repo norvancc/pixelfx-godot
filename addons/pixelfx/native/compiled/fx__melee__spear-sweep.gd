@@ -50,9 +50,9 @@ static func _f0(_parent, _args: Array, _this=null):
 	_S.define(_e, "done", false)
 	return _S.merge([{"update": _S.function_value(_e, "_f2")}, {"drawBack": _S.function_value(_e, "_f3")}, {"draw": _S.function_value(_e, "_f4")}])
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
+static func _f1(_parent,_args:Array,_this=null):
 	return 0
+	return null
 
 static func _f2(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)
@@ -99,28 +99,37 @@ static func _f2(_parent, _args: Array, _this=null):
 	_S.invoke(_S.read(_e, "lights"), "update", [_S.read(_e, "dt")])
 	return null
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.call_value(_S.read(_e, "slash"), [_S.read(_e, "p"), _S.read(_e, "A"), _S.read(_e, "t"), _S.unary("-", 1)])
-	_S.invoke(_S.read(_e, "ps"), "draw", [_S.read(_e, "p"), "back"])
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_A = _S.read(_parent,"A")
+	var _n_t = _S.read(_parent,"t")
+	var _n_slash = _S.read(_parent,"slash")
+	var _n_ps = _S.read(_parent,"ps")
+	var _n_p_b0 = _S.arg(_args,0)
+	_S.call_value(_n_slash,[_n_p_b0, _n_A, _n_t, (-1)])
+	_S.invoke(_n_ps,"draw",[_n_p_b0, "back"])
 	return null
 
-static func _f4(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.call_value(_S.read(_e, "slash"), [_S.read(_e, "p"), _S.read(_e, "A"), _S.read(_e, "t"), 1])
-	_S.define(_e, "g", _S.binary("-", _S.read(_e, "t"), _S.binary("*", _S.prop(_S.read(_e, "A"), "sweep"), 0.6)))
-	if _S.truth(_S.logical("&&", _S.binary(">", _S.read(_e, "g"), 0), func(): return _S.binary("<", _S.read(_e, "g"), 0.24))):
-		_S.call_value(_S.read(_e, "sparkle"), [_S.read(_e, "p"), _S.prop(_S.read(_e, "end"), "x"), _S.prop(_S.read(_e, "end"), "y"), _S.binary("*", _S.binary("*", 9, _S.invoke(_S.read(_e, "ease"), "outBack", [_S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("/", _S.read(_e, "g"), 0.05)])])), _S.binary("-", 1, _S.binary("/", _S.read(_e, "g"), 0.24))), _S.prop(_S.read(_e, "C"), 5), _S.prop(_S.read(_e, "C"), 3), 0.55])
-	if _S.truth(_S.binary("<", _S.read(_e, "t"), _S.binary("+", _S.prop(_S.read(_e, "A"), "sweep"), 0.12))):
-		var _v6 = _S.scope(_e)
-		var _v7 = _S.call_value(_S.read(_v6, "onSwing"), [_S.read(_v6, "A"), _S.binary("-", _S.prop(_S.read(_v6, "A"), "R"), 5), _S.binary("*", _S.prop(_S.read(_v6, "A"), "span"), _S.invoke(_S.read(_v6, "ease"), "outExpo", [_S.call_value(_S.read(_v6, "clamp"), [_S.binary("/", _S.read(_v6, "t"), _S.prop(_S.read(_v6, "A"), "sweep"))])]))])
-		_S.define(_v6, "x", _S.prop(_v7, 0))
-		_S.define(_v6, "y", _S.prop(_v7, 1))
-		_S.invoke(_S.read(_v6, "p"), "glow", [_S.read(_v6, "x"), _S.read(_v6, "y"), 36, _S.prop(_S.read(_v6, "C"), 3), _S.binary("*", 0.45, _S.binary("-", 1, _S.binary("/", _S.read(_v6, "t"), _S.binary("+", _S.prop(_S.read(_v6, "A"), "sweep"), 0.12))))])
-	_S.invoke(_S.read(_e, "ps"), "draw", [_S.read(_e, "p"), "front"])
-	_S.invoke(_S.read(_e, "lights"), "draw", [_S.read(_e, "p")])
+static func _f4(_parent,_args:Array,_this=null):
+	var _n_A = _S.read(_parent,"A")
+	var _n_t = _S.read(_parent,"t")
+	var _n_slash = _S.read(_parent,"slash")
+	var _n_end = _S.read(_parent,"end")
+	var _n_ease = _S.read(_parent,"ease")
+	var _n_C = _S.read(_parent,"C")
+	var _n_sparkle = _S.read(_parent,"sparkle")
+	var _n_onSwing = _S.read(_parent,"onSwing")
+	var _n_ps = _S.read(_parent,"ps")
+	var _n_lights = _S.read(_parent,"lights")
+	var _n_p_b0 = _S.arg(_args,0)
+	_S.call_value(_n_slash,[_n_p_b0, _n_A, _n_t, 1])
+	var _n_g_b1 = (_n_t - (_S.named_value(_n_A,"sweep") * 0.6))
+	if _S.truth(((_n_g_b1 < 0.24) if _S.truth((_n_g_b1 > 0)) else (_n_g_b1 > 0))):
+		_S.call_value(_n_sparkle,[_n_p_b0, _S.named_value(_n_end,"x"), _S.named_value(_n_end,"y"), ((9 * _S.invoke(_n_ease,"outBack",[minf(1,(float(_n_g_b1)/0.05))])) * (1 - (float(_n_g_b1)/0.24))), _S.index_value(_n_C,5), _S.index_value(_n_C,3), 0.55])
+	if _S.truth((_n_t < (_S.named_value(_n_A,"sweep") + 0.12))):
+		var _tuple_0 = _S.call_value(_n_onSwing,[_n_A, (_S.named_value(_n_A,"R") - 5), (_S.named_value(_n_A,"span") * _S.invoke(_n_ease,"outExpo",[clampf((float(_n_t)/_S.named_value(_n_A,"sweep")),0.0,1.0)]))])
+		var _n_x_b2 = _S.prop(_tuple_0,0)
+		var _n_y_b3 = _S.prop(_tuple_0,1)
+		_S.invoke(_n_p_b0,"glow",[_n_x_b2, _n_y_b3, 36, _S.index_value(_n_C,3), (0.45 * (1 - (float(_n_t)/(_S.named_value(_n_A,"sweep") + 0.12))))])
+	_S.invoke(_n_ps,"draw",[_n_p_b0, "front"])
+	_S.invoke(_n_lights,"draw",[_n_p_b0])
 	return null

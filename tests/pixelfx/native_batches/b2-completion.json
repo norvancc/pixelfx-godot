@@ -1,0 +1,61 @@
+{
+  "id": "b2-completion",
+  "batch": "B2",
+  "gallery": "demos/pixelfx/b2_completion_gallery.tscn",
+  "effects": [
+    {
+      "id": "fire_ring",
+      "source": "fire/fire-ring",
+      "stateful": true
+    },
+    {
+      "id": "blessing",
+      "source": "holy/blessing",
+      "stateful": false
+    },
+    {
+      "id": "divine_shield",
+      "source": "holy/divine-shield",
+      "stateful": false
+    },
+    {
+      "id": "halo",
+      "source": "holy/halo",
+      "stateful": false
+    },
+    {
+      "id": "heal",
+      "source": "holy/heal",
+      "stateful": true
+    },
+    {
+      "id": "resurrection",
+      "source": "holy/resurrection",
+      "stateful": true
+    },
+    {
+      "id": "freeze",
+      "source": "ice/freeze",
+      "stateful": true
+    },
+    {
+      "id": "frost_nova",
+      "source": "ice/frost-nova",
+      "stateful": true
+    }
+  ],
+  "tolerances": {
+    "holy/divine-shield:dark:1.224": {
+      "changed_bytes": 21,
+      "max_error": 1,
+      "sum_error": 21,
+      "rect": [
+        -26,
+        -40,
+        52,
+        41
+      ],
+      "reason": "Audited film/lattice blend quantization: 21 RGB bytes differ by one step; every alpha byte and occupied pixel is identical."
+    }
+  }
+}

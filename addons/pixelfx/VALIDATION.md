@@ -1,6 +1,6 @@
 # 验证记录
 
-本轮新增 192 项源码迁移，源码覆盖达到 244/244、245 个预设；新增项仅做基础播放检查，完整验收仍为 52 项。以下历史指标与能力范围保持原验收口径；新增接口、角色/场景输入和限制见 [全量迁移说明](FULL_MIGRATION.md)。
+源码迁移覆盖 244/244 个算法、245 个预设；完整验收仍为 52 项。2026-11-10 的性能优化复验已完成：新增路径 6500 个像素用例、全 244 项编辑器的 979 项断言通过。重点八项在禁缓存的可见窗口中约有每秒 29.4–29.9 次效果更新；其他新增项仍有超预算采样，整体完整验收尚未通过。Inspector 资源切换已修复。见 [本轮审阅](../../docs/plans/native-acceptance-review.zh-CN.md)；以下历史指标保持原验收口径。
 
 
 ## 当前源码：B2 模拟十三项 — 2026-11-09
@@ -184,4 +184,4 @@ Linux Godot 4.3 的 1052 组对照已补充逐像素审计。四个既有例外�
 
 ## 全量源码阶段的检查方式
 
-本轮 CI 入口按用户约定改为 `python3 tools/pixelfx/basic_check.py`，只验证新增 192 项的加载和抽样播放，不运行旧的完整测试。原完整 gate `python3 tools/pixelfx/check.py` 保留，后续补验时使用。完整验收仍由原 52 项的来源哈希与记录约束；`native/smoke.json` 明确标记 `full_acceptance=false`。
+源码迁移阶段曾按用户约定仅运行 `python3 tools/pixelfx/basic_check.py`。恢复验收后，CI 现在同时执行该基础检查和 `python3 tools/pixelfx/check.py`，回归已验收范围与生成器语义；新增路径的深入检查和性能预算通过 `PIXELFX_FULL_NATIVE=1` 显式启用。完整验收仍由原 52 项的来源哈希与记录约束；`native/smoke.json` 明确标记 `full_acceptance=false`。CI 配置恢复不等于当前本地改动已取得新的 Linux 运行结果。

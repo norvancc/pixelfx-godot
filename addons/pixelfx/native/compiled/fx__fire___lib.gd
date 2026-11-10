@@ -3,6 +3,7 @@ extends RefCounted
 ## Generated native GDScript from pinned PixelFX fx/fire/_lib.js; MIT Patch / Hugo Duprez.
 ## Regenerate with tools/pixelfx/codegen/generate.mjs; no JavaScript runtime is shipped.
 const _S = preload("../semantics.gd")
+const ACCELERATED = {"_f5":"flame_tongue","_f19":"fire_sim_draw"}
 static func build(_script) -> Dictionary:
 	var _e = _S.scope(null, _script)
 	var _exports: Dictionary = {}
@@ -67,490 +68,461 @@ static func build(_script) -> Dictionary:
 	_exports["__scope"] = _e
 	return _exports
 
-static func _f0(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "x", _S.arg(_args, 0))
-	_S.define(_e, "period", _S.arg(_args, 1))
-	_S.define(_e, "seed", _S.coalesce(_S.arg(_args, 2), func(): return 0))
-	_S.define(_e, "i", _S.invoke(_S.read(_e, "Math"), "floor", [_S.read(_e, "x")]))
-	_S.define(_e, "f", _S.binary("-", _S.read(_e, "x"), _S.read(_e, "i")))
-	_S.define(_e, "u", _S.binary("*", _S.binary("*", _S.read(_e, "f"), _S.read(_e, "f")), _S.binary("-", 3, _S.binary("*", 2, _S.read(_e, "f")))))
-	_S.define(_e, "a", _S.call_value(_S.read(_e, "rand"), [_S.call_value(_S.read(_e, "wrap"), [_S.read(_e, "i"), _S.read(_e, "period")]), _S.read(_e, "seed")]))
-	_S.define(_e, "b", _S.call_value(_S.read(_e, "rand"), [_S.call_value(_S.read(_e, "wrap"), [_S.binary("+", _S.read(_e, "i"), 1), _S.read(_e, "period")]), _S.read(_e, "seed")]))
-	return _S.binary("-", _S.binary("*", _S.binary("+", _S.read(_e, "a"), _S.binary("*", _S.binary("-", _S.read(_e, "b"), _S.read(_e, "a")), _S.read(_e, "u"))), 2), 1)
-
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "D", _S.arg(_args, 0))
-	if _S.truth(_S.unary("!", _S.read(_e, "D"))):
-		return _S.function_value(_e, "_f2")
-	return _S.function_value(_e, "_f3")
-
-static func _f2(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "tt", _S.arg(_args, 0))
-	_S.define(_e, "rate", _S.arg(_args, 1))
-	_S.define(_e, "seed", _S.coalesce(_S.arg(_args, 2), func(): return 0))
-	_S.define(_e, "off", _S.coalesce(_S.arg(_args, 3), func(): return 0))
-	return _S.call_value(_S.read(_e, "noise"), [_S.binary("+", _S.binary("*", _S.read(_e, "tt"), _S.read(_e, "rate")), _S.read(_e, "off")), _S.read(_e, "seed")])
-
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "tt", _S.arg(_args, 0))
-	_S.define(_e, "rate", _S.arg(_args, 1))
-	_S.define(_e, "seed", _S.coalesce(_S.arg(_args, 2), func(): return 0))
-	_S.define(_e, "off", _S.coalesce(_S.arg(_args, 3), func(): return 0))
-	_S.define(_e, "P", _S.invoke(_S.read(_e, "Math"), "max", [1, _S.invoke(_S.read(_e, "Math"), "round", [_S.binary("*", _S.read(_e, "rate"), _S.read(_e, "D"))])]))
-	return _S.call_value(_S.read(_e, "pnoise"), [_S.binary("+", _S.binary("*", _S.binary("/", _S.read(_e, "tt"), _S.read(_e, "D")), _S.read(_e, "P")), _S.read(_e, "off")), _S.read(_e, "P"), _S.read(_e, "seed")])
-
-static func _f4(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "t", _S.arg(_args, 0))
-	_S.define(_e, "D", _S.arg(_args, 1))
-	_S.define(_e, "count", _S.arg(_args, 2))
-	_S.define(_e, "seed", _S.arg(_args, 3))
-	_S.define(_e, "make", _S.arg(_args, 4))
-	_S.define(_e, "draw", _S.arg(_args, 5))
-	var _v0 = _S.scope(_e)
-	_S.define(_v0, "i", 0)
-	while _S.truth(_S.binary("<", _S.read(_v0, "i"), _S.read(_v0, "count"))):
-		var _v1 = _S.scope(_v0)
-		_S.define(_v1, "r", _S.call_value(_S.read(_v1, "rng"), [_S.read(_v1, "seed"), _S.read(_v1, "i")]))
-		_S.define(_v1, "born", _S.binary("*", _S.invoke(_S.read(_v1, "r"), "next", []), _S.read(_v1, "D")))
-		_S.define(_v1, "q", _S.call_value(_S.read(_v1, "make"), [_S.read(_v1, "r"), _S.read(_v1, "i")]))
-		var _v2 = _S.scope(_v1)
-		_S.define(_v2, "age", _S.call_value(_S.read(_v2, "wrap"), [_S.binary("-", _S.read(_v2, "t"), _S.read(_v2, "born")), _S.read(_v2, "D")]))
-		while _S.truth(_S.binary("<", _S.read(_v2, "age"), _S.prop(_S.read(_v2, "q"), "life"))):
-			_S.call_value(_S.read(_v2, "draw"), [_S.read(_v2, "q"), _S.read(_v2, "age"), _S.read(_v2, "i")])
-			_v2 = _S.iteration(_v2)
-			_S.write(_v2, "age", _S.read(_v2, "D"), "+=", false)
-		_v0 = _S.iteration(_v0)
-		_S.write(_v0, "i", 1, "+=", true)
+static func _f0(_parent,_args:Array,_this=null):
+	var _n_wrap = _S.read(_parent,"wrap")
+	var _n_x_b0 = _S.arg(_args,0)
+	var _n_period_b1 = _S.arg(_args,1)
+	var _n_seed_b2 = _S.coalesce(_S.arg(_args,2),func():return 0)
+	var _n_i_b3 = floori(_n_x_b0)
+	var _n_f_b4 = (_n_x_b0 - _n_i_b3)
+	var _n_u_b5 = ((_n_f_b4 * _n_f_b4) * (3 - (2 * _n_f_b4)))
+	var _n_a_b6 = _S.MathFX.rand([_S.call_value(_n_wrap,[_n_i_b3, _n_period_b1]),_n_seed_b2])
+	var _n_b_b7 = _S.MathFX.rand([_S.call_value(_n_wrap,[(_n_i_b3 + 1), _n_period_b1]),_n_seed_b2])
+	return (((_n_a_b6 + ((_n_b_b7 - _n_a_b6) * _n_u_b5)) * 2) - 1)
 	return null
 
-static func _f5(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "h", _S.arg(_args, 3))
-	_S.define(_e, "w", _S.arg(_args, 4))
-	_S.define(_e, "sx", _S.arg(_args, 5))
-	_S.define(_e, "N", _S.arg(_args, 6))
-	_S.define(_e, "n", _S.arg(_args, 7))
-	_S.define(_e, "H", _S.arg(_args, 8))
-	_S.define(_e, "layers", _S.coalesce(_S.arg(_args, 9), func(): return _S.read(_e, "LAYERS")))
-	_S.define(_e, "jit", _S.coalesce(_S.arg(_args, 10), func(): return 0.5))
-	_S.define(_e, "wob", _S.coalesce(_S.arg(_args, 11), func(): return 1.1))
-	if _S.truth(_S.binary("<", _S.read(_e, "h"), 1)):
+static func _f1(_parent,_args:Array,_this=null):
+	var _n_D_b0 = _S.arg(_args,0)
+	if _S.truth(not _S.truth(_n_D_b0)):
+		return _S.function_value(_S.capture(_parent,{"this":_this}),"_f2")
+	return _S.function_value(_S.capture(_parent,{"D":_n_D_b0,"this":_this}),"_f3")
+	return null
+
+static func _f2(_parent,_args:Array,_this=null):
+	var _n_tt_b0 = _S.arg(_args,0)
+	var _n_rate_b1 = _S.arg(_args,1)
+	var _n_seed_b2 = _S.coalesce(_S.arg(_args,2),func():return 0)
+	var _n_off_b3 = _S.coalesce(_S.arg(_args,3),func():return 0)
+	return _S.MathFX.noise(((_n_tt_b0 * _n_rate_b1) + _n_off_b3),_n_seed_b2)
+	return null
+
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_D = _S.read(_parent,"D")
+	var _n_pnoise = _S.read(_parent,"pnoise")
+	var _n_tt_b0 = _S.arg(_args,0)
+	var _n_rate_b1 = _S.arg(_args,1)
+	var _n_seed_b2 = _S.coalesce(_S.arg(_args,2),func():return 0)
+	var _n_off_b3 = _S.coalesce(_S.arg(_args,3),func():return 0)
+	var _n_P_b4 = maxf(1,floori((_n_rate_b1 * _n_D)+0.5))
+	return _S.call_value(_n_pnoise,[(((float(_n_tt_b0)/_n_D) * _n_P_b4) + _n_off_b3), _n_P_b4, _n_seed_b2])
+	return null
+
+static func _f4(_parent,_args:Array,_this=null):
+	var _n_wrap = _S.read(_parent,"wrap")
+	var _n_t_b0 = _S.arg(_args,0)
+	var _n_D_b1 = _S.arg(_args,1)
+	var _n_count_b2 = _S.arg(_args,2)
+	var _n_seed_b3 = _S.arg(_args,3)
+	var _n_make_b4 = _S.arg(_args,4)
+	var _n_draw_b5 = _S.arg(_args,5)
+	if true:
+		var _n_i_b6 = 0
+		while _S.truth((_n_i_b6 < _n_count_b2)):
+			var _n_r_b7 = _S.MathFX.rng([_n_seed_b3,_n_i_b6])
+			var _n_born_b8 = (_S.invoke(_n_r_b7,"next",[]) * _n_D_b1)
+			var _n_q_b9 = _S.call_value(_n_make_b4,[_n_r_b7, _n_i_b6])
+			if true:
+				var _n_age_b10 = _S.call_value(_n_wrap,[(_n_t_b0 - _n_born_b8), _n_D_b1])
+				while _S.truth((_n_age_b10 < _S.named_value(_n_q_b9,"life"))):
+					_S.call_value(_n_draw_b5,[_n_q_b9, _n_age_b10, _n_i_b6])
+					_n_age_b10 += _n_D_b1
+			_n_i_b6 += 1.0
+	return null
+
+static func _f5(_parent,_args:Array,_this=null):
+	var _n_LAYERS = _S.read(_parent,"LAYERS")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_h_b3 = _S.arg(_args,3)
+	var _n_w_b4 = _S.arg(_args,4)
+	var _n_sx_b5 = _S.arg(_args,5)
+	var _n_N_b6 = _S.arg(_args,6)
+	var _n_n_b7 = _S.arg(_args,7)
+	var _n_H_b8 = _S.arg(_args,8)
+	var _n_layers_b9 = _S.coalesce(_S.arg(_args,9),func():return _n_LAYERS)
+	var _n_jit_b10 = _S.coalesce(_S.arg(_args,10),func():return 0.5)
+	var _n_wob_b11 = _S.coalesce(_S.arg(_args,11),func():return 1.1)
+	if _S.truth((_n_h_b3 < 1)):
 		return null
-	for _v3 in _S.array(_S.read(_e, "layers")):
-		var _v4 = _S.scope(_e)
-		var _v5 = _v3
-		_S.define(_v4, "lw", _S.prop(_v5, 0))
-		_S.define(_v4, "lh", _S.prop(_v5, 1))
-		_S.define(_v4, "ri", _S.prop(_v5, 2))
-		var _v6 = _S.scope(_v4)
-		_S.define(_v6, "L", _S.binary("*", _S.read(_v6, "h"), _S.read(_v6, "lh")))
-		_S.define(_v6, "c", _S.prop(_S.read(_v6, "H"), _S.read(_v6, "ri")))
-		var _v7 = _S.scope(_v6)
-		_S.define(_v7, "r", 0)
-		while _S.truth(_S.binary("<=", _S.read(_v7, "r"), _S.read(_v7, "L"))):
-			var _v8 = _S.scope(_v7)
-			_S.define(_v8, "u", _S.binary("/", _S.read(_v8, "r"), _S.invoke(_S.read(_v8, "Math"), "max", [1, _S.read(_v8, "L")])))
-			_S.define(_v8, "half", _S.binary("+", _S.binary("*", _S.binary("*", _S.binary("*", _S.read(_v8, "w"), _S.read(_v8, "lw")), _S.invoke(_S.read(_v8, "Math"), "pow", [_S.binary("-", 1, _S.read(_v8, "u")), 0.85])), _S.invoke(_S.read(_v8, "Math"), "min", [1, _S.binary("/", _S.binary("+", _S.read(_v8, "r"), 1.5), 3.5)])), _S.binary("*", _S.call_value(_S.read(_v8, "N"), [9, _S.read(_v8, "n"), _S.binary("*", _S.read(_v8, "r"), 0.45)]), _S.read(_v8, "jit"))))
-			if _S.truth(_S.binary("<", _S.read(_v8, "half"), 0.3)):
-				_v7 = _S.iteration(_v7)
-				_S.write(_v7, "r", 1, "+=", true)
+	for _iter_0 in _S.array(_n_layers_b9):
+		var _tuple_1 = _iter_0
+		var _n_lw_b12 = _S.prop(_tuple_1,0)
+		var _n_lh_b13 = _S.prop(_tuple_1,1)
+		var _n_ri_b14 = _S.prop(_tuple_1,2)
+		var _n_L_b15 = (_n_h_b3 * _n_lh_b13)
+		var _n_c_b16 = _S.index_value(_n_H_b8,_n_ri_b14)
+		if true:
+			var _n_r_b17 = 0
+			while _S.truth((_n_r_b17 <= _n_L_b15)):
+				var _n_u_b18 = (float(_n_r_b17)/maxf(1,_n_L_b15))
+				var _n_half_b19 = ((((_n_w_b4 * _n_lw_b12) * pow((1 - _n_u_b18),0.85)) * minf(1,(float((_n_r_b17 + 1.5))/3.5))) + (_S.call_value(_n_N_b6,[9, _n_n_b7, (_n_r_b17 * 0.45)]) * _n_jit_b10))
+				if _S.truth((_n_half_b19 < 0.3)):
+					_n_r_b17 += 1.0
+					continue
+				var _n_cx_b20 = ((_n_x_b1 + (((_n_sx_b5 * _n_u_b18) * _n_u_b18) * _n_lh_b13)) + ((_S.call_value(_n_N_b6,[4, (_n_n_b7 + 7), (_n_r_b17 * 0.2)]) * _n_u_b18) * _n_wob_b11))
+				var _n_Y_b21 = floori((_n_y_b2 - _n_r_b17)+0.5)
+				if true:
+					var _n_px_b22 = floori((_n_cx_b20 - _n_half_b19)+0.5)
+					var _n_x1_b23 = floori((_n_cx_b20 + _n_half_b19)+0.5)
+					while _S.truth((_n_px_b22 <= _n_x1_b23)):
+						_S.invoke(_n_p_b0,"px",[_n_px_b22, _n_Y_b21, _n_c_b16])
+						_n_px_b22 += 1.0
+				_n_r_b17 += 1.0
+	return null
+
+static func _f6(_parent,_args:Array,_this=null):
+	var _n_LAYERS = _S.read(_parent,"LAYERS")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_ux_b3 = _S.arg(_args,3)
+	var _n_uy_b4 = _S.arg(_args,4)
+	var _n_len_b5 = _S.arg(_args,5)
+	var _n_w_b6 = _S.arg(_args,6)
+	var _n_bend_b7 = _S.arg(_args,7)
+	var _n_N_b8 = _S.arg(_args,8)
+	var _n_n_b9 = _S.arg(_args,9)
+	var _n_H_b10 = _S.arg(_args,10)
+	var _n_layers_b11 = _S.coalesce(_S.arg(_args,11),func():return _n_LAYERS)
+	var _n_jit_b12 = _S.coalesce(_S.arg(_args,12),func():return 0.5)
+	var _n_wob_b13 = _S.coalesce(_S.arg(_args,13),func():return 1.1)
+	if _S.truth((_n_len_b5 < 1)):
+		return null
+	var _n_nx_b14 = (-_n_uy_b4)
+	var _n_ny_b15 = _n_ux_b3
+	for _iter_0 in _S.array(_n_layers_b11):
+		var _tuple_1 = _iter_0
+		var _n_lw_b16 = _S.prop(_tuple_1,0)
+		var _n_lh_b17 = _S.prop(_tuple_1,1)
+		var _n_ri_b18 = _S.prop(_tuple_1,2)
+		var _n_L_b19 = (_n_len_b5 * _n_lh_b17)
+		var _n_c_b20 = _S.index_value(_n_H_b10,_n_ri_b18)
+		if true:
+			var _n_r_b21 = 0
+			while _S.truth((_n_r_b21 <= _n_L_b19)):
+				var _n_u_b22 = (float(_n_r_b21)/maxf(1,_n_L_b19))
+				var _n_half_b23 = ((((_n_w_b6 * _n_lw_b16) * pow((1 - _n_u_b22),0.85)) * minf(1,(float((_n_r_b21 + 1.5))/3.5))) + (_S.call_value(_n_N_b8,[9, _n_n_b9, (_n_r_b21 * 0.45)]) * _n_jit_b12))
+				if _S.truth((_n_half_b23 < 0.3)):
+					_n_r_b21 += 0.5
+					continue
+				var _n_off_b24 = ((((_n_bend_b7 * _n_u_b22) * _n_u_b22) * _n_lh_b17) + ((_S.call_value(_n_N_b8,[4, (_n_n_b9 + 7), (_n_r_b21 * 0.2)]) * _n_u_b22) * _n_wob_b13))
+				var _n_cx_b25 = ((_n_x_b1 + (_n_ux_b3 * _n_r_b21)) + (_n_nx_b14 * _n_off_b24))
+				var _n_cy_b26 = ((_n_y_b2 + (_n_uy_b4 * _n_r_b21)) + (_n_ny_b15 * _n_off_b24))
+				if true:
+					var _n_q_b27 = (-_n_half_b23)
+					while _S.truth((_n_q_b27 <= _n_half_b23)):
+						_S.invoke(_n_p_b0,"px",[(_n_cx_b25 + (_n_nx_b14 * _n_q_b27)), (_n_cy_b26 + (_n_ny_b15 * _n_q_b27)), _n_c_b20])
+						_n_q_b27 += 0.5
+				_n_r_b21 += 0.5
+	return null
+
+static func _f7(_parent,_args:Array,_this=null):
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_r_b3 = _S.arg(_args,3)
+	var _n_c_b4 = _S.arg(_args,4)
+	if _S.truth((_n_r_b3 < 0.6)):
+		return _S.invoke(_n_p_b0,"px",[_n_x_b1, _n_y_b2, _n_c_b4])
+	var _n_cx_b5 = _S.invoke(_n_p_b0,"toX",[_n_x_b1, _n_y_b2])
+	var _n_cy_b6 = _S.invoke(_n_p_b0,"toY",[_n_x_b1, _n_y_b2])
+	var _n_r2_b7 = (_n_r_b3 * _n_r_b3)
+	if true:
+		var _n_sy_b8 = floori((_n_cy_b6 - _n_r_b3))
+		while _S.truth((_n_sy_b8 <= ceili((_n_cy_b6 + _n_r_b3)))):
+			var _n_dy_b9 = ((_n_sy_b8 + 0.5) - _n_cy_b6)
+			var _n_s2_b10 = (_n_r2_b7 - (_n_dy_b9 * _n_dy_b9))
+			if _S.truth((_n_s2_b10 < 0)):
+				_n_sy_b8 += 1.0
 				continue
-			_S.define(_v8, "cx", _S.binary("+", _S.binary("+", _S.read(_v8, "x"), _S.binary("*", _S.binary("*", _S.binary("*", _S.read(_v8, "sx"), _S.read(_v8, "u")), _S.read(_v8, "u")), _S.read(_v8, "lh"))), _S.binary("*", _S.binary("*", _S.call_value(_S.read(_v8, "N"), [4, _S.binary("+", _S.read(_v8, "n"), 7), _S.binary("*", _S.read(_v8, "r"), 0.2)]), _S.read(_v8, "u")), _S.read(_v8, "wob"))))
-			_S.define(_v8, "Y", _S.invoke(_S.read(_v8, "Math"), "round", [_S.binary("-", _S.read(_v8, "y"), _S.read(_v8, "r"))]))
-			var _v9 = _S.scope(_v8)
-			_S.define(_v9, "px", _S.invoke(_S.read(_v9, "Math"), "round", [_S.binary("-", _S.read(_v9, "cx"), _S.read(_v9, "half"))]))
-			_S.define(_v9, "x1", _S.invoke(_S.read(_v9, "Math"), "round", [_S.binary("+", _S.read(_v9, "cx"), _S.read(_v9, "half"))]))
-			while _S.truth(_S.binary("<=", _S.read(_v9, "px"), _S.read(_v9, "x1"))):
-				_S.invoke(_S.read(_v9, "p"), "px", [_S.read(_v9, "px"), _S.read(_v9, "Y"), _S.read(_v9, "c")])
-				_v9 = _S.iteration(_v9)
-				_S.write(_v9, "px", 1, "+=", true)
-			_v7 = _S.iteration(_v7)
-			_S.write(_v7, "r", 1, "+=", true)
+			var _n_s_b11 = sqrt(_n_s2_b10)
+			if true:
+				var _n_sx_b12 = ceili(((_n_cx_b5 - _n_s_b11) - 0.5))
+				while _S.truth((_n_sx_b12 <= floori(((_n_cx_b5 + _n_s_b11) - 0.5)))):
+					_S.invoke(_n_p_b0,"put",[_n_sx_b12, _n_sy_b8, _n_c_b4, 1])
+					_n_sx_b12 += 1.0
+			_n_sy_b8 += 1.0
 	return null
 
-static func _f6(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "ux", _S.arg(_args, 3))
-	_S.define(_e, "uy", _S.arg(_args, 4))
-	_S.define(_e, "len", _S.arg(_args, 5))
-	_S.define(_e, "w", _S.arg(_args, 6))
-	_S.define(_e, "bend", _S.arg(_args, 7))
-	_S.define(_e, "N", _S.arg(_args, 8))
-	_S.define(_e, "n", _S.arg(_args, 9))
-	_S.define(_e, "H", _S.arg(_args, 10))
-	_S.define(_e, "layers", _S.coalesce(_S.arg(_args, 11), func(): return _S.read(_e, "LAYERS")))
-	_S.define(_e, "jit", _S.coalesce(_S.arg(_args, 12), func(): return 0.5))
-	_S.define(_e, "wob", _S.coalesce(_S.arg(_args, 13), func(): return 1.1))
-	if _S.truth(_S.binary("<", _S.read(_e, "len"), 1)):
+static func _f8(_parent,_args:Array,_this=null):
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_r_b3 = _S.arg(_args,3)
+	var _n_c_b4 = _S.arg(_args,4)
+	var _n_a_b5 = _S.arg(_args,5)
+	if _S.truth((_n_a_b5 <= 0.004)):
 		return null
-	_S.define(_e, "nx", _S.unary("-", _S.read(_e, "uy")))
-	_S.define(_e, "ny", _S.read(_e, "ux"))
-	for _v10 in _S.array(_S.read(_e, "layers")):
-		var _v11 = _S.scope(_e)
-		var _v12 = _v10
-		_S.define(_v11, "lw", _S.prop(_v12, 0))
-		_S.define(_v11, "lh", _S.prop(_v12, 1))
-		_S.define(_v11, "ri", _S.prop(_v12, 2))
-		var _v13 = _S.scope(_v11)
-		_S.define(_v13, "L", _S.binary("*", _S.read(_v13, "len"), _S.read(_v13, "lh")))
-		_S.define(_v13, "c", _S.prop(_S.read(_v13, "H"), _S.read(_v13, "ri")))
-		var _v14 = _S.scope(_v13)
-		_S.define(_v14, "r", 0)
-		while _S.truth(_S.binary("<=", _S.read(_v14, "r"), _S.read(_v14, "L"))):
-			var _v15 = _S.scope(_v14)
-			_S.define(_v15, "u", _S.binary("/", _S.read(_v15, "r"), _S.invoke(_S.read(_v15, "Math"), "max", [1, _S.read(_v15, "L")])))
-			_S.define(_v15, "half", _S.binary("+", _S.binary("*", _S.binary("*", _S.binary("*", _S.read(_v15, "w"), _S.read(_v15, "lw")), _S.invoke(_S.read(_v15, "Math"), "pow", [_S.binary("-", 1, _S.read(_v15, "u")), 0.85])), _S.invoke(_S.read(_v15, "Math"), "min", [1, _S.binary("/", _S.binary("+", _S.read(_v15, "r"), 1.5), 3.5)])), _S.binary("*", _S.call_value(_S.read(_v15, "N"), [9, _S.read(_v15, "n"), _S.binary("*", _S.read(_v15, "r"), 0.45)]), _S.read(_v15, "jit"))))
-			if _S.truth(_S.binary("<", _S.read(_v15, "half"), 0.3)):
-				_v14 = _S.iteration(_v14)
-				_S.write(_v14, "r", 0.5, "+=", false)
+	if _S.truth((_n_r_b3 < 0.5)):
+		return _S.invoke(_n_p_b0,"blend",[_n_x_b1, _n_y_b2, _n_c_b4, _n_a_b5])
+	var _n_cx_b6 = _S.invoke(_n_p_b0,"toX",[_n_x_b1, _n_y_b2])
+	var _n_cy_b7 = _S.invoke(_n_p_b0,"toY",[_n_x_b1, _n_y_b2])
+	var _n_r2_b8 = (_n_r_b3 * _n_r_b3)
+	if true:
+		var _n_sy_b9 = floori((_n_cy_b7 - _n_r_b3))
+		while _S.truth((_n_sy_b9 <= ceili((_n_cy_b7 + _n_r_b3)))):
+			var _n_dy_b10 = ((_n_sy_b9 + 0.5) - _n_cy_b7)
+			var _n_s2_b11 = (_n_r2_b8 - (_n_dy_b10 * _n_dy_b10))
+			if _S.truth((_n_s2_b11 < 0)):
+				_n_sy_b9 += 1.0
 				continue
-			_S.define(_v15, "off", _S.binary("+", _S.binary("*", _S.binary("*", _S.binary("*", _S.read(_v15, "bend"), _S.read(_v15, "u")), _S.read(_v15, "u")), _S.read(_v15, "lh")), _S.binary("*", _S.binary("*", _S.call_value(_S.read(_v15, "N"), [4, _S.binary("+", _S.read(_v15, "n"), 7), _S.binary("*", _S.read(_v15, "r"), 0.2)]), _S.read(_v15, "u")), _S.read(_v15, "wob"))))
-			_S.define(_v15, "cx", _S.binary("+", _S.binary("+", _S.read(_v15, "x"), _S.binary("*", _S.read(_v15, "ux"), _S.read(_v15, "r"))), _S.binary("*", _S.read(_v15, "nx"), _S.read(_v15, "off"))))
-			_S.define(_v15, "cy", _S.binary("+", _S.binary("+", _S.read(_v15, "y"), _S.binary("*", _S.read(_v15, "uy"), _S.read(_v15, "r"))), _S.binary("*", _S.read(_v15, "ny"), _S.read(_v15, "off"))))
-			var _v16 = _S.scope(_v15)
-			_S.define(_v16, "q", _S.unary("-", _S.read(_v16, "half")))
-			while _S.truth(_S.binary("<=", _S.read(_v16, "q"), _S.read(_v16, "half"))):
-				_S.invoke(_S.read(_v16, "p"), "px", [_S.binary("+", _S.read(_v16, "cx"), _S.binary("*", _S.read(_v16, "nx"), _S.read(_v16, "q"))), _S.binary("+", _S.read(_v16, "cy"), _S.binary("*", _S.read(_v16, "ny"), _S.read(_v16, "q"))), _S.read(_v16, "c")])
-				_v16 = _S.iteration(_v16)
-				_S.write(_v16, "q", 0.5, "+=", false)
-			_v14 = _S.iteration(_v14)
-			_S.write(_v14, "r", 0.5, "+=", false)
+			var _n_s_b12 = sqrt(_n_s2_b11)
+			if true:
+				var _n_sx_b13 = ceili(((_n_cx_b6 - _n_s_b12) - 0.5))
+				while _S.truth((_n_sx_b13 <= floori(((_n_cx_b6 + _n_s_b12) - 0.5)))):
+					_S.invoke(_n_p_b0,"blendPx",[_n_sx_b13, _n_sy_b9, _n_c_b4, _n_a_b5])
+					_n_sx_b13 += 1.0
+			_n_sy_b9 += 1.0
 	return null
 
-static func _f7(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "r", _S.arg(_args, 3))
-	_S.define(_e, "c", _S.arg(_args, 4))
-	if _S.truth(_S.binary("<", _S.read(_e, "r"), 0.6)):
-		return _S.invoke(_S.read(_e, "p"), "px", [_S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "c")])
-	_S.define(_e, "cx", _S.invoke(_S.read(_e, "p"), "toX", [_S.read(_e, "x"), _S.read(_e, "y")]))
-	_S.define(_e, "cy", _S.invoke(_S.read(_e, "p"), "toY", [_S.read(_e, "x"), _S.read(_e, "y")]))
-	_S.define(_e, "r2", _S.binary("*", _S.read(_e, "r"), _S.read(_e, "r")))
-	var _v17 = _S.scope(_e)
-	_S.define(_v17, "sy", _S.invoke(_S.read(_v17, "Math"), "floor", [_S.binary("-", _S.read(_v17, "cy"), _S.read(_v17, "r"))]))
-	while _S.truth(_S.binary("<=", _S.read(_v17, "sy"), _S.invoke(_S.read(_v17, "Math"), "ceil", [_S.binary("+", _S.read(_v17, "cy"), _S.read(_v17, "r"))]))):
-		var _v18 = _S.scope(_v17)
-		_S.define(_v18, "dy", _S.binary("-", _S.binary("+", _S.read(_v18, "sy"), 0.5), _S.read(_v18, "cy")))
-		_S.define(_v18, "s2", _S.binary("-", _S.read(_v18, "r2"), _S.binary("*", _S.read(_v18, "dy"), _S.read(_v18, "dy"))))
-		if _S.truth(_S.binary("<", _S.read(_v18, "s2"), 0)):
-			_v17 = _S.iteration(_v17)
-			_S.write(_v17, "sy", 1, "+=", true)
-			continue
-		_S.define(_v18, "s", _S.invoke(_S.read(_v18, "Math"), "sqrt", [_S.read(_v18, "s2")]))
-		var _v19 = _S.scope(_v18)
-		_S.define(_v19, "sx", _S.invoke(_S.read(_v19, "Math"), "ceil", [_S.binary("-", _S.binary("-", _S.read(_v19, "cx"), _S.read(_v19, "s")), 0.5)]))
-		while _S.truth(_S.binary("<=", _S.read(_v19, "sx"), _S.invoke(_S.read(_v19, "Math"), "floor", [_S.binary("-", _S.binary("+", _S.read(_v19, "cx"), _S.read(_v19, "s")), 0.5)]))):
-			_S.invoke(_S.read(_v19, "p"), "put", [_S.read(_v19, "sx"), _S.read(_v19, "sy"), _S.read(_v19, "c"), 1])
-			_v19 = _S.iteration(_v19)
-			_S.write(_v19, "sx", 1, "+=", true)
-		_v17 = _S.iteration(_v17)
-		_S.write(_v17, "sy", 1, "+=", true)
+static func _f9(_parent,_args:Array,_this=null):
+	var _n_soft = _S.read(_parent,"soft")
+	var _n_solid = _S.read(_parent,"solid")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_k_b3 = _S.arg(_args,3)
+	var _n_size_b4 = _S.arg(_args,4)
+	var _n_frac_b5 = _S.arg(_args,5)
+	var _n_H_b6 = _S.arg(_args,6)
+	var _n_glowK_b7 = _S.coalesce(_S.arg(_args,7),func():return 0.18)
+	var _n_tx_b8 = _S.coalesce(_S.arg(_args,8),func():return 0)
+	var _n_ty_b9 = _S.coalesce(_S.arg(_args,9),func():return (-1))
+	var _n_age_b10 = (1 - _n_k_b3)
+	var _n_n_b11 = _S.prop(_n_H_b6,"length")
+	var _n_heat_b12 = minf(0.999,(pow(_n_age_b10,0.62) + (_n_frac_b5 * 0.1)))
+	var _n_idx_b13 = minf((_n_n_b11 - 2),floori((_n_heat_b12 * (_n_n_b11 - 1))))
+	var _n_r_b14 = ((_n_size_b4 * (0.55 + (0.45 * minf(1,(_n_age_b10 * 7))))) * (1 - (_n_age_b10 * 0.55)))
+	var _n_c_b15 = _S.index_value(_n_H_b6,_n_idx_b13)
+	if _S.truth((_n_idx_b13 >= (_n_n_b11 - 2))):
+		return _S.call_value(_n_soft,[_n_p_b0, _n_x_b1, _n_y_b2, _n_r_b14, _n_c_b15, (minf(1,(_n_k_b3 * 3)) * 0.85)])
+	_S.call_value(_n_solid,[_n_p_b0, _n_x_b1, _n_y_b2, _n_r_b14, _S.index_value(_n_H_b6,minf((_n_n_b11 - 1),(_n_idx_b13 + 2)))])
+	if _S.truth(((_n_ty_b9 > (-0.99)) if _S.truth((_n_r_b14 > 1.6)) else (_n_r_b14 > 1.6))):
+		_S.call_value(_n_solid,[_n_p_b0, (_n_x_b1 + ((_n_tx_b8 * _n_r_b14) * 1.5)), (_n_y_b2 + ((_n_ty_b9 * _n_r_b14) * 1.5)), (_n_r_b14 * 0.3), _S.index_value(_n_H_b6,minf((_n_n_b11 - 1),(_n_idx_b13 + 1)))])
+	_S.call_value(_n_solid,[_n_p_b0, (_n_x_b1 - (_n_r_b14 * 0.16)), (_n_y_b2 - (_n_r_b14 * 0.22)), (_n_r_b14 * 0.78), _n_c_b15])
+	if _S.truth((_n_r_b14 > 1.6)):
+		_S.call_value(_n_solid,[_n_p_b0, (_n_x_b1 + ((_n_tx_b8 * _n_r_b14) * 0.9)), (_n_y_b2 + ((_n_ty_b9 * _n_r_b14) * 0.9)), (_n_r_b14 * 0.42), _n_c_b15])
+	if _S.truth(((_n_r_b14 > 1.8) if _S.truth((_n_idx_b13 <= 3)) else (_n_idx_b13 <= 3))):
+		_S.call_value(_n_solid,[_n_p_b0, (_n_x_b1 - (_n_r_b14 * 0.28)), (_n_y_b2 - (_n_r_b14 * 0.34)), (_n_r_b14 * 0.36), _S.index_value(_n_H_b6,maxf(0,(_n_idx_b13 - 1)))])
+	if _S.truth((_n_idx_b13 < 6)):
+		_S.invoke(_n_p_b0,"glow",[_n_x_b1, _n_y_b2, ((_n_r_b14 * 2.4) + 2), _n_c_b15, (_n_glowK_b7 * _n_k_b3)])
 	return null
 
-static func _f8(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "r", _S.arg(_args, 3))
-	_S.define(_e, "c", _S.arg(_args, 4))
-	_S.define(_e, "a", _S.arg(_args, 5))
-	if _S.truth(_S.binary("<=", _S.read(_e, "a"), 0.004)):
+static func _f10(_parent,_args:Array,_this=null):
+	var _n_solid = _S.read(_parent,"solid")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_k_b3 = _S.arg(_args,3)
+	var _n_s_b4 = _S.arg(_args,4)
+	var _n_H_b5 = _S.arg(_args,5)
+	var _n_r_b6 = (_n_s_b4 * (0.4 + (0.6 * _n_k_b3)))
+	_S.call_value(_n_solid,[_n_p_b0, _n_x_b1, _n_y_b2, (_n_r_b6 + 0.6), (_S.index_value(_n_H_b5,5) if _S.truth((_n_k_b3 > 0.5)) else _S.index_value(_n_H_b5,6))])
+	if _S.truth((_n_k_b3 > 0.35)):
+		_S.call_value(_n_solid,[_n_p_b0, _n_x_b1, (_n_y_b2 - 0.3), (_n_r_b6 * 0.6), (_S.index_value(_n_H_b5,2) if _S.truth((_n_k_b3 > 0.7)) else _S.index_value(_n_H_b5,4))])
+	return null
+
+static func _f11(_parent,_args:Array,_this=null):
+	var _n_rampAt = _S.read(_parent,"rampAt")
+	var _n_SMOKE_RAMP = _S.read(_parent,"SMOKE_RAMP")
+	var _n_soft = _S.read(_parent,"soft")
+	var _n_WHITE = _S.read(_parent,"WHITE")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_k_b3 = _S.arg(_args,3)
+	var _n_size_b4 = _S.arg(_args,4)
+	var _n_col_b5 = _S.coalesce(_S.arg(_args,5),func():return 0)
+	var _n_big_b6 = _S.coalesce(_S.arg(_args,6),func():return false)
+	var _n_aMul_b7 = _S.coalesce(_S.arg(_args,7),func():return 1)
+	var _n_age_b8 = (1 - _n_k_b3)
+	var _n_r_b9 = (_n_size_b4 * ((0.65 + (minf(1,(_n_age_b8 * 2.5)) * 0.45)) + (_n_age_b8 * (0.5 if _S.truth(_n_big_b6) else 0.4))))
+	var _n_a_b10 = (((minf(1,(_n_age_b8 * 12)) * minf(1,(_n_k_b3 * 2.4))) * (0.7 if _S.truth(_n_big_b6) else 0.58)) * _n_aMul_b7)
+	var _n_c_b11 = (_S.ColorFX.mix(_n_col_b5,_S.call_value(_n_rampAt,[_n_SMOKE_RAMP, _n_age_b8]),_n_age_b8) if _S.truth(_n_col_b5) else _S.call_value(_n_rampAt,[_n_SMOKE_RAMP, (_n_age_b8 * 1.05)]))
+	_S.call_value(_n_soft,[_n_p_b0, _n_x_b1, _n_y_b2, _n_r_b9, _n_c_b11, (_n_a_b10 * 0.45)])
+	_S.call_value(_n_soft,[_n_p_b0, (_n_x_b1 + (_n_r_b9 * 0.05)), (_n_y_b2 + (_n_r_b9 * 0.06)), (_n_r_b9 * 0.74), _n_c_b11, (_n_a_b10 * 0.62)])
+	if _S.truth((_n_age_b8 < 0.5)):
+		_S.call_value(_n_soft,[_n_p_b0, (_n_x_b1 - (_n_r_b9 * 0.22)), (_n_y_b2 - (_n_r_b9 * 0.3)), (_n_r_b9 * 0.5), _S.ColorFX.mix(_n_c_b11,_n_WHITE,0.12), ((_n_a_b10 * 0.4) * (1 - (_n_age_b8 * 2)))])
+	return null
+
+static func _f12(_parent,_args:Array,_this=null):
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_k_b3 = _S.arg(_args,3)
+	var _n_size_b4 = _S.arg(_args,4)
+	var _n_cols_b5 = _S.arg(_args,5)
+	var _n_ph_b6 = _S.arg(_args,6)
+	if _S.truth(((sin(_n_ph_b6) < 0) if _S.truth((_n_k_b3 < 0.25)) else (_n_k_b3 < 0.25))):
 		return null
-	if _S.truth(_S.binary("<", _S.read(_e, "r"), 0.5)):
-		return _S.invoke(_S.read(_e, "p"), "blend", [_S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "c"), _S.read(_e, "a")])
-	_S.define(_e, "cx", _S.invoke(_S.read(_e, "p"), "toX", [_S.read(_e, "x"), _S.read(_e, "y")]))
-	_S.define(_e, "cy", _S.invoke(_S.read(_e, "p"), "toY", [_S.read(_e, "x"), _S.read(_e, "y")]))
-	_S.define(_e, "r2", _S.binary("*", _S.read(_e, "r"), _S.read(_e, "r")))
-	var _v20 = _S.scope(_e)
-	_S.define(_v20, "sy", _S.invoke(_S.read(_v20, "Math"), "floor", [_S.binary("-", _S.read(_v20, "cy"), _S.read(_v20, "r"))]))
-	while _S.truth(_S.binary("<=", _S.read(_v20, "sy"), _S.invoke(_S.read(_v20, "Math"), "ceil", [_S.binary("+", _S.read(_v20, "cy"), _S.read(_v20, "r"))]))):
-		var _v21 = _S.scope(_v20)
-		_S.define(_v21, "dy", _S.binary("-", _S.binary("+", _S.read(_v21, "sy"), 0.5), _S.read(_v21, "cy")))
-		_S.define(_v21, "s2", _S.binary("-", _S.read(_v21, "r2"), _S.binary("*", _S.read(_v21, "dy"), _S.read(_v21, "dy"))))
-		if _S.truth(_S.binary("<", _S.read(_v21, "s2"), 0)):
-			_v20 = _S.iteration(_v20)
-			_S.write(_v20, "sy", 1, "+=", true)
-			continue
-		_S.define(_v21, "s", _S.invoke(_S.read(_v21, "Math"), "sqrt", [_S.read(_v21, "s2")]))
-		var _v22 = _S.scope(_v21)
-		_S.define(_v22, "sx", _S.invoke(_S.read(_v22, "Math"), "ceil", [_S.binary("-", _S.binary("-", _S.read(_v22, "cx"), _S.read(_v22, "s")), 0.5)]))
-		while _S.truth(_S.binary("<=", _S.read(_v22, "sx"), _S.invoke(_S.read(_v22, "Math"), "floor", [_S.binary("-", _S.binary("+", _S.read(_v22, "cx"), _S.read(_v22, "s")), 0.5)]))):
-			_S.invoke(_S.read(_v22, "p"), "blendPx", [_S.read(_v22, "sx"), _S.read(_v22, "sy"), _S.read(_v22, "c"), _S.read(_v22, "a")])
-			_v22 = _S.iteration(_v22)
-			_S.write(_v22, "sx", 1, "+=", true)
-		_v20 = _S.iteration(_v20)
-		_S.write(_v20, "sy", 1, "+=", true)
-	return null
-
-static func _f9(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "k", _S.arg(_args, 3))
-	_S.define(_e, "size", _S.arg(_args, 4))
-	_S.define(_e, "frac", _S.arg(_args, 5))
-	_S.define(_e, "H", _S.arg(_args, 6))
-	_S.define(_e, "glowK", _S.coalesce(_S.arg(_args, 7), func(): return 0.18))
-	_S.define(_e, "tx", _S.coalesce(_S.arg(_args, 8), func(): return 0))
-	_S.define(_e, "ty", _S.coalesce(_S.arg(_args, 9), func(): return _S.unary("-", 1)))
-	_S.define(_e, "age", _S.binary("-", 1, _S.read(_e, "k")))
-	_S.define(_e, "n", _S.prop(_S.read(_e, "H"), "length"))
-	_S.define(_e, "heat", _S.invoke(_S.read(_e, "Math"), "min", [0.999, _S.binary("+", _S.invoke(_S.read(_e, "Math"), "pow", [_S.read(_e, "age"), 0.62]), _S.binary("*", _S.read(_e, "frac"), 0.1))]))
-	_S.define(_e, "idx", _S.invoke(_S.read(_e, "Math"), "min", [_S.binary("-", _S.read(_e, "n"), 2), _S.invoke(_S.read(_e, "Math"), "floor", [_S.binary("*", _S.read(_e, "heat"), _S.binary("-", _S.read(_e, "n"), 1))])]))
-	_S.define(_e, "r", _S.binary("*", _S.binary("*", _S.read(_e, "size"), _S.binary("+", 0.55, _S.binary("*", 0.45, _S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("*", _S.read(_e, "age"), 7)])))), _S.binary("-", 1, _S.binary("*", _S.read(_e, "age"), 0.55))))
-	_S.define(_e, "c", _S.prop(_S.read(_e, "H"), _S.read(_e, "idx")))
-	if _S.truth(_S.binary(">=", _S.read(_e, "idx"), _S.binary("-", _S.read(_e, "n"), 2))):
-		return _S.call_value(_S.read(_e, "soft"), [_S.read(_e, "p"), _S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "r"), _S.read(_e, "c"), _S.binary("*", _S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("*", _S.read(_e, "k"), 3)]), 0.85)])
-	_S.call_value(_S.read(_e, "solid"), [_S.read(_e, "p"), _S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "r"), _S.prop(_S.read(_e, "H"), _S.invoke(_S.read(_e, "Math"), "min", [_S.binary("-", _S.read(_e, "n"), 1), _S.binary("+", _S.read(_e, "idx"), 2)]))])
-	if _S.truth(_S.logical("&&", _S.binary(">", _S.read(_e, "r"), 1.6), func(): return _S.binary(">", _S.read(_e, "ty"), _S.unary("-", 0.99)))):
-		_S.call_value(_S.read(_e, "solid"), [_S.read(_e, "p"), _S.binary("+", _S.read(_e, "x"), _S.binary("*", _S.binary("*", _S.read(_e, "tx"), _S.read(_e, "r")), 1.5)), _S.binary("+", _S.read(_e, "y"), _S.binary("*", _S.binary("*", _S.read(_e, "ty"), _S.read(_e, "r")), 1.5)), _S.binary("*", _S.read(_e, "r"), 0.3), _S.prop(_S.read(_e, "H"), _S.invoke(_S.read(_e, "Math"), "min", [_S.binary("-", _S.read(_e, "n"), 1), _S.binary("+", _S.read(_e, "idx"), 1)]))])
-	_S.call_value(_S.read(_e, "solid"), [_S.read(_e, "p"), _S.binary("-", _S.read(_e, "x"), _S.binary("*", _S.read(_e, "r"), 0.16)), _S.binary("-", _S.read(_e, "y"), _S.binary("*", _S.read(_e, "r"), 0.22)), _S.binary("*", _S.read(_e, "r"), 0.78), _S.read(_e, "c")])
-	if _S.truth(_S.binary(">", _S.read(_e, "r"), 1.6)):
-		_S.call_value(_S.read(_e, "solid"), [_S.read(_e, "p"), _S.binary("+", _S.read(_e, "x"), _S.binary("*", _S.binary("*", _S.read(_e, "tx"), _S.read(_e, "r")), 0.9)), _S.binary("+", _S.read(_e, "y"), _S.binary("*", _S.binary("*", _S.read(_e, "ty"), _S.read(_e, "r")), 0.9)), _S.binary("*", _S.read(_e, "r"), 0.42), _S.read(_e, "c")])
-	if _S.truth(_S.logical("&&", _S.binary("<=", _S.read(_e, "idx"), 3), func(): return _S.binary(">", _S.read(_e, "r"), 1.8))):
-		_S.call_value(_S.read(_e, "solid"), [_S.read(_e, "p"), _S.binary("-", _S.read(_e, "x"), _S.binary("*", _S.read(_e, "r"), 0.28)), _S.binary("-", _S.read(_e, "y"), _S.binary("*", _S.read(_e, "r"), 0.34)), _S.binary("*", _S.read(_e, "r"), 0.36), _S.prop(_S.read(_e, "H"), _S.invoke(_S.read(_e, "Math"), "max", [0, _S.binary("-", _S.read(_e, "idx"), 1)]))])
-	if _S.truth(_S.binary("<", _S.read(_e, "idx"), 6)):
-		_S.invoke(_S.read(_e, "p"), "glow", [_S.read(_e, "x"), _S.read(_e, "y"), _S.binary("+", _S.binary("*", _S.read(_e, "r"), 2.4), 2), _S.read(_e, "c"), _S.binary("*", _S.read(_e, "glowK"), _S.read(_e, "k"))])
-	return null
-
-static func _f10(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "k", _S.arg(_args, 3))
-	_S.define(_e, "s", _S.arg(_args, 4))
-	_S.define(_e, "H", _S.arg(_args, 5))
-	_S.define(_e, "r", _S.binary("*", _S.read(_e, "s"), _S.binary("+", 0.4, _S.binary("*", 0.6, _S.read(_e, "k")))))
-	_S.call_value(_S.read(_e, "solid"), [_S.read(_e, "p"), _S.read(_e, "x"), _S.read(_e, "y"), _S.binary("+", _S.read(_e, "r"), 0.6), (_S.prop(_S.read(_e, "H"), 5) if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.5)) else _S.prop(_S.read(_e, "H"), 6))])
-	if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.35)):
-		_S.call_value(_S.read(_e, "solid"), [_S.read(_e, "p"), _S.read(_e, "x"), _S.binary("-", _S.read(_e, "y"), 0.3), _S.binary("*", _S.read(_e, "r"), 0.6), (_S.prop(_S.read(_e, "H"), 2) if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.7)) else _S.prop(_S.read(_e, "H"), 4))])
-	return null
-
-static func _f11(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "k", _S.arg(_args, 3))
-	_S.define(_e, "size", _S.arg(_args, 4))
-	_S.define(_e, "col", _S.coalesce(_S.arg(_args, 5), func(): return 0))
-	_S.define(_e, "big", _S.coalesce(_S.arg(_args, 6), func(): return false))
-	_S.define(_e, "aMul", _S.coalesce(_S.arg(_args, 7), func(): return 1))
-	_S.define(_e, "age", _S.binary("-", 1, _S.read(_e, "k")))
-	_S.define(_e, "r", _S.binary("*", _S.read(_e, "size"), _S.binary("+", _S.binary("+", 0.65, _S.binary("*", _S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("*", _S.read(_e, "age"), 2.5)]), 0.45)), _S.binary("*", _S.read(_e, "age"), (0.5 if _S.truth(_S.read(_e, "big")) else 0.4)))))
-	_S.define(_e, "a", _S.binary("*", _S.binary("*", _S.binary("*", _S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("*", _S.read(_e, "age"), 12)]), _S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("*", _S.read(_e, "k"), 2.4)])), (0.7 if _S.truth(_S.read(_e, "big")) else 0.58)), _S.read(_e, "aMul")))
-	_S.define(_e, "c", (_S.call_value(_S.read(_e, "mix"), [_S.read(_e, "col"), _S.call_value(_S.read(_e, "rampAt"), [_S.read(_e, "SMOKE_RAMP"), _S.read(_e, "age")]), _S.read(_e, "age")]) if _S.truth(_S.read(_e, "col")) else _S.call_value(_S.read(_e, "rampAt"), [_S.read(_e, "SMOKE_RAMP"), _S.binary("*", _S.read(_e, "age"), 1.05)])))
-	_S.call_value(_S.read(_e, "soft"), [_S.read(_e, "p"), _S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "r"), _S.read(_e, "c"), _S.binary("*", _S.read(_e, "a"), 0.45)])
-	_S.call_value(_S.read(_e, "soft"), [_S.read(_e, "p"), _S.binary("+", _S.read(_e, "x"), _S.binary("*", _S.read(_e, "r"), 0.05)), _S.binary("+", _S.read(_e, "y"), _S.binary("*", _S.read(_e, "r"), 0.06)), _S.binary("*", _S.read(_e, "r"), 0.74), _S.read(_e, "c"), _S.binary("*", _S.read(_e, "a"), 0.62)])
-	if _S.truth(_S.binary("<", _S.read(_e, "age"), 0.5)):
-		_S.call_value(_S.read(_e, "soft"), [_S.read(_e, "p"), _S.binary("-", _S.read(_e, "x"), _S.binary("*", _S.read(_e, "r"), 0.22)), _S.binary("-", _S.read(_e, "y"), _S.binary("*", _S.read(_e, "r"), 0.3)), _S.binary("*", _S.read(_e, "r"), 0.5), _S.call_value(_S.read(_e, "mix"), [_S.read(_e, "c"), _S.read(_e, "WHITE"), 0.12]), _S.binary("*", _S.binary("*", _S.read(_e, "a"), 0.4), _S.binary("-", 1, _S.binary("*", _S.read(_e, "age"), 2)))])
-	return null
-
-static func _f12(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "k", _S.arg(_args, 3))
-	_S.define(_e, "size", _S.arg(_args, 4))
-	_S.define(_e, "cols", _S.arg(_args, 5))
-	_S.define(_e, "ph", _S.arg(_args, 6))
-	if _S.truth(_S.logical("&&", _S.binary("<", _S.read(_e, "k"), 0.25), func(): return _S.binary("<", _S.invoke(_S.read(_e, "Math"), "sin", [_S.read(_e, "ph")]), 0))):
+	var _n_c_b7 = (_S.index_value(_n_cols_b5,0) if _S.truth((_n_k_b3 > 0.6)) else (_S.index_value(_n_cols_b5,1) if _S.truth((_n_k_b3 > 0.3)) else _S.index_value(_n_cols_b5,2)))
+	if _S.truth((_n_size_b4 >= 2)):
+		var _n_rim_b8 = (_S.index_value(_n_cols_b5,2) if _S.truth((_n_k_b3 > 0.45)) else _S.index_value(_n_cols_b5,3))
+		_S.invoke(_n_p_b0,"px",[(_n_x_b1 - 1), _n_y_b2, _n_rim_b8])
+		_S.invoke(_n_p_b0,"px",[(_n_x_b1 + 1), _n_y_b2, _n_rim_b8])
+		_S.invoke(_n_p_b0,"px",[_n_x_b1, (_n_y_b2 - 1), _n_rim_b8])
+		_S.invoke(_n_p_b0,"px",[_n_x_b1, (_n_y_b2 + 1), _n_rim_b8])
+		_S.invoke(_n_p_b0,"px",[_n_x_b1, _n_y_b2, _n_c_b7])
+		_S.invoke(_n_p_b0,"glow",[_n_x_b1, _n_y_b2, 8, _n_c_b7, (0.4 * _n_k_b3)])
 		return null
-	_S.define(_e, "c", (_S.prop(_S.read(_e, "cols"), 0) if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.6)) else (_S.prop(_S.read(_e, "cols"), 1) if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.3)) else _S.prop(_S.read(_e, "cols"), 2))))
-	if _S.truth(_S.binary(">=", _S.read(_e, "size"), 2)):
-		var _v23 = _S.scope(_e)
-		_S.define(_v23, "rim", (_S.prop(_S.read(_v23, "cols"), 2) if _S.truth(_S.binary(">", _S.read(_v23, "k"), 0.45)) else _S.prop(_S.read(_v23, "cols"), 3)))
-		_S.last([_S.invoke(_S.read(_v23, "p"), "px", [_S.binary("-", _S.read(_v23, "x"), 1), _S.read(_v23, "y"), _S.read(_v23, "rim")]), _S.invoke(_S.read(_v23, "p"), "px", [_S.binary("+", _S.read(_v23, "x"), 1), _S.read(_v23, "y"), _S.read(_v23, "rim")]), _S.invoke(_S.read(_v23, "p"), "px", [_S.read(_v23, "x"), _S.binary("-", _S.read(_v23, "y"), 1), _S.read(_v23, "rim")]), _S.invoke(_S.read(_v23, "p"), "px", [_S.read(_v23, "x"), _S.binary("+", _S.read(_v23, "y"), 1), _S.read(_v23, "rim")])])
-		_S.invoke(_S.read(_v23, "p"), "px", [_S.read(_v23, "x"), _S.read(_v23, "y"), _S.read(_v23, "c")])
-		_S.invoke(_S.read(_v23, "p"), "glow", [_S.read(_v23, "x"), _S.read(_v23, "y"), 8, _S.read(_v23, "c"), _S.binary("*", 0.4, _S.read(_v23, "k"))])
+	_S.invoke(_n_p_b0,"px",[_n_x_b1, _n_y_b2, _n_c_b7])
+	if _S.truth((_n_size_b4 > 1.4)):
+		_S.invoke(_n_p_b0,"px",[_n_x_b1, (_n_y_b2 + 1), _S.index_value(_n_cols_b5,3)])
+	_S.invoke(_n_p_b0,"glow",[_n_x_b1, _n_y_b2, (3 + _n_size_b4), _n_c_b7, (0.35 * _n_k_b3)])
+	return null
+
+static func _f13(_parent,_args:Array,_this=null):
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_vx_b3 = _S.arg(_args,3)
+	var _n_vy_b4 = _S.arg(_args,4)
+	var _n_k_b5 = _S.arg(_args,5)
+	var _n_cols_b6 = _S.arg(_args,6)
+	var _n_sp_b7 = _S.logical("||",_S.Bridge.hypot([_n_vx_b3, _n_vy_b4]),func():return 1)
+	var _n_ux_b8 = (float(_n_vx_b3)/_n_sp_b7)
+	var _n_uy_b9 = (float(_n_vy_b4)/_n_sp_b7)
+	var _n_len_b10 = minf(9,(1 + (_n_sp_b7 * 0.022)))
+	var _n_head_b11 = (_S.index_value(_n_cols_b6,0) if _S.truth((_n_k_b5 > 0.6)) else (_S.index_value(_n_cols_b6,1) if _S.truth((_n_k_b5 > 0.3)) else _S.index_value(_n_cols_b6,2)))
+	_S.invoke(_n_p_b0,"line",[(_n_x_b1 - (_n_ux_b8 * _n_len_b10)), (_n_y_b2 - (_n_uy_b9 * _n_len_b10)), (_n_x_b1 - ((_n_ux_b8 * _n_len_b10) * 0.4)), (_n_y_b2 - ((_n_uy_b9 * _n_len_b10) * 0.4)), (_n_head_b11 if _S.truth((_n_k_b5 > 0.5)) else _S.index_value(_n_cols_b6,(_S.prop(_n_cols_b6,"length") - 1)))])
+	_S.invoke(_n_p_b0,"line",[(_n_x_b1 - ((_n_ux_b8 * _n_len_b10) * 0.45)), (_n_y_b2 - ((_n_uy_b9 * _n_len_b10) * 0.45)), _n_x_b1, _n_y_b2, _n_head_b11])
+	_S.invoke(_n_p_b0,"glow",[_n_x_b1, _n_y_b2, 3, _n_head_b11, (0.45 * _n_k_b5)])
+	return null
+
+static func _f14(_parent,_args:Array,_this=null):
+	var _n_x_b0 = _S.arg(_args,0)
+	var _n_v_b1 = _S.arg(_args,1)
+	var _n_a_b2 = _S.arg(_args,2)
+	var _n_k_b3 = _S.arg(_args,3)
+	var _n_t_b4 = _S.arg(_args,4)
+	if _S.truth((_n_k_b3 <= 0)):
+		return [((_n_x_b0 + (_n_v_b1 * _n_t_b4)) + (((0.5 * _n_a_b2) * _n_t_b4) * _n_t_b4)), (_n_v_b1 + (_n_a_b2 * _n_t_b4))]
+	var _n_e_b5 = exp(((-_n_k_b3) * _n_t_b4))
+	var _n_vt_b6 = (float(_n_a_b2)/_n_k_b3)
+	return [((_n_x_b0 + (_n_vt_b6 * _n_t_b4)) + (float(((_n_v_b1 - _n_vt_b6) * (1 - _n_e_b5)))/_n_k_b3)), (_n_vt_b6 + ((_n_v_b1 - _n_vt_b6) * _n_e_b5))]
+	return null
+
+static func _f15(_parent,_args:Array,_this=null):
+	var _n_along = _S.read(_parent,"along")
+	var _n_x_b0 = _S.arg(_args,0)
+	var _n_y_b1 = _S.arg(_args,1)
+	var _n_vx_b2 = _S.arg(_args,2)
+	var _n_vy_b3 = _S.arg(_args,3)
+	var _n_t_b4 = _S.arg(_args,4)
+	var _n_ax_b5 = _S.arg(_args,5)
+	var _n_ay_b6 = _S.arg(_args,6)
+	var _n_kx_b7 = _S.arg(_args,7)
+	var _n_ky_b8 = _S.arg(_args,8)
+	var _n_X_b9 = _S.call_value(_n_along,[_n_x_b0, _n_vx_b2, _n_ax_b5, _n_kx_b7, _n_t_b4])
+	var _n_Y_b10 = _S.call_value(_n_along,[_n_y_b1, _n_vy_b3, _n_ay_b6, _n_ky_b8, _n_t_b4])
+	return [_S.index_value(_n_X_b9,0), _S.index_value(_n_Y_b10,0), _S.index_value(_n_X_b9,1), _S.index_value(_n_Y_b10,1)]
+	return null
+
+static func _f16(_parent,_args:Array,_this=null):
+	var _n_drift = _S.read(_parent,"drift")
+	var _n_x_b0 = _S.arg(_args,0)
+	var _n_y_b1 = _S.arg(_args,1)
+	var _n_vx_b2 = _S.arg(_args,2)
+	var _n_vy_b3 = _S.arg(_args,3)
+	var _n_t_b4 = _S.arg(_args,4)
+	var _n_floor_b5 = _S.coalesce(_S.arg(_args,5),func():return 0)
+	var _n_g_b6 = _S.coalesce(_S.arg(_args,6),func():return 427)
+	var _n_k_b7 = _S.coalesce(_S.arg(_args,7),func():return 2.2)
+	var _n_s_b8 = [_n_x_b0, _n_y_b1, _n_vx_b2, _n_vy_b3]
+	var _n_left_b9 = _n_t_b4
+	if true:
+		var _n_b_b11 = 0
+		while _S.truth((_n_b_b11 < 3)):
+			var _n_e_b12 = _S.call_value(_n_drift,[_S.index_value(_n_s_b8,0), _S.index_value(_n_s_b8,1), _S.index_value(_n_s_b8,2), _S.index_value(_n_s_b8,3), _n_left_b9, 0, _n_g_b6, _n_k_b7, _n_k_b7])
+			if _S.truth(((_S.index_value(_n_e_b12,1) < _n_floor_b5) if _S.truth((_S.index_value(_n_e_b12,1) < _n_floor_b5)) else (_S.index_value(_n_s_b8,1) >= _n_floor_b5))):
+				return _n_e_b12
+			var _n_lo_b13 = 0
+			var _n_hi_b14 = _n_left_b9
+			if true:
+				var _n_i_b16 = 0
+				while _S.truth((_n_i_b16 < 16)):
+					var _n_m_b17 = (float((_n_lo_b13 + _n_hi_b14))/2)
+					if _S.truth((_S.index_value(_S.call_value(_n_drift,[_S.index_value(_n_s_b8,0), _S.index_value(_n_s_b8,1), _S.index_value(_n_s_b8,2), _S.index_value(_n_s_b8,3), _n_m_b17, 0, _n_g_b6, _n_k_b7, _n_k_b7]),1) < _n_floor_b5)):
+						_n_lo_b13 = _n_m_b17
+					else:
+						_n_hi_b14 = _n_m_b17
+					_n_i_b16 += 1.0
+			var _n_c_b15 = _S.call_value(_n_drift,[_S.index_value(_n_s_b8,0), _S.index_value(_n_s_b8,1), _S.index_value(_n_s_b8,2), _S.index_value(_n_s_b8,3), _n_hi_b14, 0, _n_g_b6, _n_k_b7, _n_k_b7])
+			_n_s_b8 = [_S.index_value(_n_c_b15,0), (_n_floor_b5 - 0.25), (_S.index_value(_n_c_b15,2) * 0.7), ((-absf(_S.index_value(_n_c_b15,3))) * 0.45)]
+			_n_left_b9 -= _n_hi_b14
+			_n_b_b11 += 1.0
+	var _n_e_b10 = _S.call_value(_n_drift,[_S.index_value(_n_s_b8,0), _S.index_value(_n_s_b8,1), _S.index_value(_n_s_b8,2), _S.index_value(_n_s_b8,3), _n_left_b9, 0, _n_g_b6, _n_k_b7, _n_k_b7])
+	return (_n_e_b10 if _S.truth((_S.index_value(_n_e_b10,1) < _n_floor_b5)) else [_S.index_value(_n_e_b10,0), (_n_floor_b5 - 0.25), _S.index_value(_n_e_b10,2), 0])
+	return null
+
+static func _f17(_parent,_args:Array,_this=null):
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_x_b1 = _S.arg(_args,1)
+	var _n_y_b2 = _S.arg(_args,2)
+	var _n_rx_b3 = _S.arg(_args,3)
+	var _n_ry_b4 = _S.arg(_args,4)
+	var _n_c_b5 = _S.arg(_args,5)
+	var _n_k_b6 = _S.arg(_args,6)
+	if _S.truth((((_n_k_b6 <= 0.004) if _S.truth((_n_k_b6 <= 0.004)) else (_n_rx_b3 < 1)) if _S.truth(((_n_k_b6 <= 0.004) if _S.truth((_n_k_b6 <= 0.004)) else (_n_rx_b3 < 1))) else (_n_ry_b4 < 0.5))):
 		return null
-	_S.invoke(_S.read(_e, "p"), "px", [_S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "c")])
-	if _S.truth(_S.binary(">", _S.read(_e, "size"), 1.4)):
-		_S.invoke(_S.read(_e, "p"), "px", [_S.read(_e, "x"), _S.binary("+", _S.read(_e, "y"), 1), _S.prop(_S.read(_e, "cols"), 3)])
-	_S.invoke(_S.read(_e, "p"), "glow", [_S.read(_e, "x"), _S.read(_e, "y"), _S.binary("+", 3, _S.read(_e, "size")), _S.read(_e, "c"), _S.binary("*", 0.35, _S.read(_e, "k"))])
+	_S.invoke(_n_p_b0,"shade",[(_n_x_b1 - _n_rx_b3), (_n_y_b2 - _n_ry_b4), (_n_x_b1 + _n_rx_b3), (_n_y_b2 + _n_ry_b4), _S.function_value(_S.capture(_parent,{"x":_n_x_b1,"rx":_n_rx_b3,"y":_n_y_b2,"ry":_n_ry_b4,"c":_n_c_b5,"k":_n_k_b6,"this":_this}),"_f18")])
 	return null
 
-static func _f13(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "vx", _S.arg(_args, 3))
-	_S.define(_e, "vy", _S.arg(_args, 4))
-	_S.define(_e, "k", _S.arg(_args, 5))
-	_S.define(_e, "cols", _S.arg(_args, 6))
-	_S.define(_e, "sp", _S.logical("||", _S.invoke(_S.read(_e, "Math"), "hypot", [_S.read(_e, "vx"), _S.read(_e, "vy")]), func(): return 1))
-	_S.define(_e, "ux", _S.binary("/", _S.read(_e, "vx"), _S.read(_e, "sp")))
-	_S.define(_e, "uy", _S.binary("/", _S.read(_e, "vy"), _S.read(_e, "sp")))
-	_S.define(_e, "len", _S.invoke(_S.read(_e, "Math"), "min", [9, _S.binary("+", 1, _S.binary("*", _S.read(_e, "sp"), 0.022))]))
-	_S.define(_e, "head", (_S.prop(_S.read(_e, "cols"), 0) if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.6)) else (_S.prop(_S.read(_e, "cols"), 1) if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.3)) else _S.prop(_S.read(_e, "cols"), 2))))
-	_S.invoke(_S.read(_e, "p"), "line", [_S.binary("-", _S.read(_e, "x"), _S.binary("*", _S.read(_e, "ux"), _S.read(_e, "len"))), _S.binary("-", _S.read(_e, "y"), _S.binary("*", _S.read(_e, "uy"), _S.read(_e, "len"))), _S.binary("-", _S.read(_e, "x"), _S.binary("*", _S.binary("*", _S.read(_e, "ux"), _S.read(_e, "len")), 0.4)), _S.binary("-", _S.read(_e, "y"), _S.binary("*", _S.binary("*", _S.read(_e, "uy"), _S.read(_e, "len")), 0.4)), (_S.read(_e, "head") if _S.truth(_S.binary(">", _S.read(_e, "k"), 0.5)) else _S.prop(_S.read(_e, "cols"), _S.binary("-", _S.prop(_S.read(_e, "cols"), "length"), 1)))])
-	_S.invoke(_S.read(_e, "p"), "line", [_S.binary("-", _S.read(_e, "x"), _S.binary("*", _S.binary("*", _S.read(_e, "ux"), _S.read(_e, "len")), 0.45)), _S.binary("-", _S.read(_e, "y"), _S.binary("*", _S.binary("*", _S.read(_e, "uy"), _S.read(_e, "len")), 0.45)), _S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "head")])
-	_S.invoke(_S.read(_e, "p"), "glow", [_S.read(_e, "x"), _S.read(_e, "y"), 3, _S.read(_e, "head"), _S.binary("*", 0.45, _S.read(_e, "k"))])
-	return null
-
-static func _f14(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "x", _S.arg(_args, 0))
-	_S.define(_e, "v", _S.arg(_args, 1))
-	_S.define(_e, "a", _S.arg(_args, 2))
-	_S.define(_e, "k", _S.arg(_args, 3))
-	_S.define(_e, "t", _S.arg(_args, 4))
-	if _S.truth(_S.binary("<=", _S.read(_e, "k"), 0)):
-		return [_S.binary("+", _S.binary("+", _S.read(_e, "x"), _S.binary("*", _S.read(_e, "v"), _S.read(_e, "t"))), _S.binary("*", _S.binary("*", _S.binary("*", 0.5, _S.read(_e, "a")), _S.read(_e, "t")), _S.read(_e, "t"))), _S.binary("+", _S.read(_e, "v"), _S.binary("*", _S.read(_e, "a"), _S.read(_e, "t")))]
-	_S.define(_e, "e", _S.invoke(_S.read(_e, "Math"), "exp", [_S.binary("*", _S.unary("-", _S.read(_e, "k")), _S.read(_e, "t"))]))
-	_S.define(_e, "vt", _S.binary("/", _S.read(_e, "a"), _S.read(_e, "k")))
-	return [_S.binary("+", _S.binary("+", _S.read(_e, "x"), _S.binary("*", _S.read(_e, "vt"), _S.read(_e, "t"))), _S.binary("/", _S.binary("*", _S.binary("-", _S.read(_e, "v"), _S.read(_e, "vt")), _S.binary("-", 1, _S.read(_e, "e"))), _S.read(_e, "k"))), _S.binary("+", _S.read(_e, "vt"), _S.binary("*", _S.binary("-", _S.read(_e, "v"), _S.read(_e, "vt")), _S.read(_e, "e")))]
-
-static func _f15(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "x", _S.arg(_args, 0))
-	_S.define(_e, "y", _S.arg(_args, 1))
-	_S.define(_e, "vx", _S.arg(_args, 2))
-	_S.define(_e, "vy", _S.arg(_args, 3))
-	_S.define(_e, "t", _S.arg(_args, 4))
-	_S.define(_e, "ax", _S.arg(_args, 5))
-	_S.define(_e, "ay", _S.arg(_args, 6))
-	_S.define(_e, "kx", _S.arg(_args, 7))
-	_S.define(_e, "ky", _S.arg(_args, 8))
-	_S.define(_e, "X", _S.call_value(_S.read(_e, "along"), [_S.read(_e, "x"), _S.read(_e, "vx"), _S.read(_e, "ax"), _S.read(_e, "kx"), _S.read(_e, "t")]))
-	_S.define(_e, "Y", _S.call_value(_S.read(_e, "along"), [_S.read(_e, "y"), _S.read(_e, "vy"), _S.read(_e, "ay"), _S.read(_e, "ky"), _S.read(_e, "t")]))
-	return [_S.prop(_S.read(_e, "X"), 0), _S.prop(_S.read(_e, "Y"), 0), _S.prop(_S.read(_e, "X"), 1), _S.prop(_S.read(_e, "Y"), 1)]
-
-static func _f16(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "x", _S.arg(_args, 0))
-	_S.define(_e, "y", _S.arg(_args, 1))
-	_S.define(_e, "vx", _S.arg(_args, 2))
-	_S.define(_e, "vy", _S.arg(_args, 3))
-	_S.define(_e, "t", _S.arg(_args, 4))
-	_S.define(_e, "floor", _S.coalesce(_S.arg(_args, 5), func(): return 0))
-	_S.define(_e, "g", _S.coalesce(_S.arg(_args, 6), func(): return 427))
-	_S.define(_e, "k", _S.coalesce(_S.arg(_args, 7), func(): return 2.2))
-	_S.define(_e, "s", [_S.read(_e, "x"), _S.read(_e, "y"), _S.read(_e, "vx"), _S.read(_e, "vy")])
-	_S.define(_e, "left", _S.read(_e, "t"))
-	var _v24 = _S.scope(_e)
-	_S.define(_v24, "b", 0)
-	while _S.truth(_S.binary("<", _S.read(_v24, "b"), 3)):
-		var _v25 = _S.scope(_v24)
-		_S.define(_v25, "e", _S.call_value(_S.read(_v25, "drift"), [_S.prop(_S.read(_v25, "s"), 0), _S.prop(_S.read(_v25, "s"), 1), _S.prop(_S.read(_v25, "s"), 2), _S.prop(_S.read(_v25, "s"), 3), _S.read(_v25, "left"), 0, _S.read(_v25, "g"), _S.read(_v25, "k"), _S.read(_v25, "k")]))
-		if _S.truth(_S.logical("||", _S.binary("<", _S.prop(_S.read(_v25, "e"), 1), _S.read(_v25, "floor")), func(): return _S.binary(">=", _S.prop(_S.read(_v25, "s"), 1), _S.read(_v25, "floor")))):
-			return _S.read(_v25, "e")
-		_S.define(_v25, "lo", 0)
-		_S.define(_v25, "hi", _S.read(_v25, "left"))
-		var _v26 = _S.scope(_v25)
-		_S.define(_v26, "i", 0)
-		while _S.truth(_S.binary("<", _S.read(_v26, "i"), 16)):
-			var _v27 = _S.scope(_v26)
-			_S.define(_v27, "m", _S.binary("/", _S.binary("+", _S.read(_v27, "lo"), _S.read(_v27, "hi")), 2))
-			if _S.truth(_S.binary("<", _S.prop(_S.call_value(_S.read(_v27, "drift"), [_S.prop(_S.read(_v27, "s"), 0), _S.prop(_S.read(_v27, "s"), 1), _S.prop(_S.read(_v27, "s"), 2), _S.prop(_S.read(_v27, "s"), 3), _S.read(_v27, "m"), 0, _S.read(_v27, "g"), _S.read(_v27, "k"), _S.read(_v27, "k")]), 1), _S.read(_v27, "floor"))):
-				_S.write(_v27, "lo", _S.read(_v27, "m"), "=", false)
-			else:
-				_S.write(_v27, "hi", _S.read(_v27, "m"), "=", false)
-			_v26 = _S.iteration(_v26)
-			_S.write(_v26, "i", 1, "+=", true)
-		_S.define(_v25, "c", _S.call_value(_S.read(_v25, "drift"), [_S.prop(_S.read(_v25, "s"), 0), _S.prop(_S.read(_v25, "s"), 1), _S.prop(_S.read(_v25, "s"), 2), _S.prop(_S.read(_v25, "s"), 3), _S.read(_v25, "hi"), 0, _S.read(_v25, "g"), _S.read(_v25, "k"), _S.read(_v25, "k")]))
-		_S.write(_v25, "s", [_S.prop(_S.read(_v25, "c"), 0), _S.binary("-", _S.read(_v25, "floor"), 0.25), _S.binary("*", _S.prop(_S.read(_v25, "c"), 2), 0.7), _S.binary("*", _S.unary("-", _S.invoke(_S.read(_v25, "Math"), "abs", [_S.prop(_S.read(_v25, "c"), 3)])), 0.45)], "=", false)
-		_S.write(_v25, "left", _S.read(_v25, "hi"), "-=", false)
-		_v24 = _S.iteration(_v24)
-		_S.write(_v24, "b", 1, "+=", true)
-	_S.define(_e, "e", _S.call_value(_S.read(_e, "drift"), [_S.prop(_S.read(_e, "s"), 0), _S.prop(_S.read(_e, "s"), 1), _S.prop(_S.read(_e, "s"), 2), _S.prop(_S.read(_e, "s"), 3), _S.read(_e, "left"), 0, _S.read(_e, "g"), _S.read(_e, "k"), _S.read(_e, "k")]))
-	return (_S.read(_e, "e") if _S.truth(_S.binary("<", _S.prop(_S.read(_e, "e"), 1), _S.read(_e, "floor"))) else [_S.prop(_S.read(_e, "e"), 0), _S.binary("-", _S.read(_e, "floor"), 0.25), _S.prop(_S.read(_e, "e"), 2), 0])
-
-static func _f17(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "x", _S.arg(_args, 1))
-	_S.define(_e, "y", _S.arg(_args, 2))
-	_S.define(_e, "rx", _S.arg(_args, 3))
-	_S.define(_e, "ry", _S.arg(_args, 4))
-	_S.define(_e, "c", _S.arg(_args, 5))
-	_S.define(_e, "k", _S.arg(_args, 6))
-	if _S.truth(_S.logical("||", _S.logical("||", _S.binary("<=", _S.read(_e, "k"), 0.004), func(): return _S.binary("<", _S.read(_e, "rx"), 1)), func(): return _S.binary("<", _S.read(_e, "ry"), 0.5))):
+static func _f18(_parent,_args:Array,_this=null):
+	var _n_x = _S.read(_parent,"x")
+	var _n_rx = _S.read(_parent,"rx")
+	var _n_y = _S.read(_parent,"y")
+	var _n_ry = _S.read(_parent,"ry")
+	var _n_c = _S.read(_parent,"c")
+	var _n_k = _S.read(_parent,"k")
+	var _n_px_b0 = _S.arg(_args,0)
+	var _n_py_b1 = _S.arg(_args,1)
+	var _n_out_b2 = _S.arg(_args,2)
+	var _n_dx_b3 = (float((_n_px_b0 - _n_x))/_n_rx)
+	var _n_dy_b4 = (float((_n_py_b1 - _n_y))/_n_ry)
+	var _n_d_b5 = ((_n_dx_b3 * _n_dx_b3) + (_n_dy_b4 * _n_dy_b4))
+	if _S.truth((_n_d_b5 >= 1)):
 		return null
-	_S.invoke(_S.read(_e, "p"), "shade", [_S.binary("-", _S.read(_e, "x"), _S.read(_e, "rx")), _S.binary("-", _S.read(_e, "y"), _S.read(_e, "ry")), _S.binary("+", _S.read(_e, "x"), _S.read(_e, "rx")), _S.binary("+", _S.read(_e, "y"), _S.read(_e, "ry")), _S.function_value(_e, "_f18")])
+	var _n_f_b6 = (1 - sqrt(_n_d_b5))
+	_S.set_prop(_n_out_b2,"l",_n_c,"=")
+	_S.set_prop(_n_out_b2,"k",((_n_f_b6 * _n_f_b6) * _n_k),"=")
 	return null
 
-static func _f18(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "px", _S.arg(_args, 0))
-	_S.define(_e, "py", _S.arg(_args, 1))
-	_S.define(_e, "out", _S.arg(_args, 2))
-	_S.define(_e, "dx", _S.binary("/", _S.binary("-", _S.read(_e, "px"), _S.read(_e, "x")), _S.read(_e, "rx")))
-	_S.define(_e, "dy", _S.binary("/", _S.binary("-", _S.read(_e, "py"), _S.read(_e, "y")), _S.read(_e, "ry")))
-	_S.define(_e, "d", _S.binary("+", _S.binary("*", _S.read(_e, "dx"), _S.read(_e, "dx")), _S.binary("*", _S.read(_e, "dy"), _S.read(_e, "dy"))))
-	if _S.truth(_S.binary(">=", _S.read(_e, "d"), 1)):
-		return null
-	_S.define(_e, "f", _S.binary("-", 1, _S.invoke(_S.read(_e, "Math"), "sqrt", [_S.read(_e, "d")])))
-	_S.set_prop(_S.read(_e, "out"), "l", _S.read(_e, "c"), "=", false)
-	_S.set_prop(_S.read(_e, "out"), "k", _S.binary("*", _S.binary("*", _S.read(_e, "f"), _S.read(_e, "f")), _S.read(_e, "k")), "=", false)
+static func _f19(_parent,_args:Array,_this=null):
+	var _n_P = _S.read(_parent,"P")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_ps_b1 = _S.arg(_args,1)
+	var _n_H_b2 = _S.arg(_args,2)
+	var _n_layer_b3 = _S.arg(_args,3)
+	var _n_all_b4 = _S.named_value(_n_ps_b1,"list")
+	var _n_rest_b5 = []
+	var _n_fire_b6 = []
+	for _iter_0 in _S.array(_n_all_b4):
+		var _n_q_b8 = _iter_0
+		_S.invoke((_n_fire_b6 if _S.truth(_S.binary("===",_S.named_value(_n_q_b8,"k"),_S.named_value(_n_P,"FIRE"))) else _n_rest_b5),"push",[_n_q_b8])
+	var _n_puffs_b7 = _S.function_value(_S.capture(_parent,{"fire":_n_fire_b6,"p":_n_p_b0,"H":_n_H_b2,"this":_this}),"_f20")
+	_S.set_prop(_n_ps_b1,"list",_n_rest_b5,"=")
+	if _S.truth(_S.binary("!==",_n_layer_b3,"front")):
+		_S.invoke(_n_ps_b1,"draw",[_n_p_b0, "back"])
+		_S.call_value(_n_puffs_b7,[true])
+	if _S.truth(_S.binary("!==",_n_layer_b3,"back")):
+		_S.call_value(_n_puffs_b7,[false])
+		_S.invoke(_n_ps_b1,"draw",[_n_p_b0, "front"])
+	_S.set_prop(_n_ps_b1,"list",_n_all_b4,"=")
 	return null
 
-static func _f19(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "ps", _S.arg(_args, 1))
-	_S.define(_e, "H", _S.arg(_args, 2))
-	_S.define(_e, "layer", _S.arg(_args, 3))
-	_S.define(_e, "all", _S.prop(_S.read(_e, "ps"), "list"))
-	_S.define(_e, "rest", [])
-	_S.define(_e, "fire", [])
-	for _v28 in _S.array(_S.read(_e, "all")):
-		var _v29 = _S.scope(_e)
-		_S.define(_v29, "q", _v28)
-		_S.invoke((_S.read(_v29, "fire") if _S.truth(_S.binary("===", _S.prop(_S.read(_v29, "q"), "k"), _S.prop(_S.read(_v29, "P"), "FIRE"))) else _S.read(_v29, "rest")), "push", [_S.read(_v29, "q")])
-	_S.define(_e, "puffs", _S.function_value(_e, "_f20"))
-	_S.set_prop(_S.read(_e, "ps"), "list", _S.read(_e, "rest"), "=", false)
-	if _S.truth(_S.binary("!==", _S.read(_e, "layer"), "front")):
-		_S.last([_S.invoke(_S.read(_e, "ps"), "draw", [_S.read(_e, "p"), "back"]), _S.call_value(_S.read(_e, "puffs"), [true])])
-	if _S.truth(_S.binary("!==", _S.read(_e, "layer"), "back")):
-		_S.last([_S.call_value(_S.read(_e, "puffs"), [false]), _S.invoke(_S.read(_e, "ps"), "draw", [_S.read(_e, "p"), "front"])])
-	_S.set_prop(_S.read(_e, "ps"), "list", _S.read(_e, "all"), "=", false)
-	return null
-
-static func _f20(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "back", _S.arg(_args, 0))
-	for _v30 in _S.array(_S.read(_e, "fire")):
-		var _v31 = _S.scope(_e)
-		_S.define(_v31, "q", _v30)
-		if _S.truth(_S.logical("&&", _S.binary("<=", _S.prop(_S.read(_v31, "q"), "delay"), 0), func(): return _S.binary("===", _S.unary("!", _S.unary("!", _S.binary("&", _S.prop(_S.read(_v31, "q"), "flag"), _S.prop(_S.read(_v31, "PF"), "BACK")))), _S.read(_v31, "back")))):
-			_S.call_value(_S.read(_v31, "firePuff"), [_S.read(_v31, "p"), _S.prop(_S.read(_v31, "q"), "x"), _S.prop(_S.read(_v31, "q"), "y"), _S.binary("/", _S.prop(_S.read(_v31, "q"), "life"), _S.prop(_S.read(_v31, "q"), "max")), _S.prop(_S.read(_v31, "q"), "size"), _S.binary("%", _S.prop(_S.read(_v31, "q"), "seed"), 1), _S.read(_v31, "H")])
+static func _f20(_parent,_args:Array,_this=null):
+	var _n_PF = _S.read(_parent,"PF")
+	var _n_firePuff = _S.read(_parent,"firePuff")
+	var _n_p = _S.read(_parent,"p")
+	var _n_H = _S.read(_parent,"H")
+	var _n_fire = _S.read(_parent,"fire")
+	var _n_back_b0 = _S.arg(_args,0)
+	for _iter_0 in _S.array(_n_fire):
+		var _n_q_b1 = _iter_0
+		if _S.truth((_S.binary("===",not _S.truth(not _S.truth(_S.binary("&",_S.named_value(_n_q_b1,"flag"),_S.named_value(_n_PF,"BACK")))),_n_back_b0) if _S.truth((_S.named_value(_n_q_b1,"delay") <= 0)) else (_S.named_value(_n_q_b1,"delay") <= 0))):
+			_S.call_value(_n_firePuff,[_n_p, _S.named_value(_n_q_b1,"x"), _S.named_value(_n_q_b1,"y"), (float(_S.named_value(_n_q_b1,"life"))/_S.named_value(_n_q_b1,"max")), _S.named_value(_n_q_b1,"size"), fmod(_S.named_value(_n_q_b1,"seed"),1), _n_H])
 	return null
 
 static func _f21(_parent, _args: Array, _this=null):
@@ -623,74 +595,108 @@ static func _f21(_parent, _args: Array, _this=null):
 		_S.invoke(_S.read(_v47, "p"), "glow", [_S.read(_v47, "X"), _S.binary("-", _S.read(_v47, "Y"), 2), 8, _S.prop(_S.read(_v47, "H"), 0), _S.binary("*", _S.binary("*", 0.14, _S.read(_v47, "fl")), _S.read(_v47, "G"))])
 	return _S.merge([{"tip": _S.read(_e, "tip")}, {"fl": _S.read(_e, "fl")}])
 
-static func _f22(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "rate", _S.arg(_args, 0))
-	_S.define(_e, "seed", _S.coalesce(_S.arg(_args, 1), func(): return 0))
-	_S.define(_e, "off", _S.coalesce(_S.arg(_args, 2), func(): return 0))
-	return _S.call_value(_S.read(_e, "NL"), [_S.read(_e, "t"), _S.read(_e, "rate"), _S.read(_e, "seed"), _S.read(_e, "off")])
+static func _f22(_parent,_args:Array,_this=null):
+	var _n_NL = _S.read(_parent,"NL")
+	var _n_t = _S.read(_parent,"t")
+	var _n_rate_b0 = _S.arg(_args,0)
+	var _n_seed_b1 = _S.coalesce(_S.arg(_args,1),func():return 0)
+	var _n_off_b2 = _S.coalesce(_S.arg(_args,2),func():return 0)
+	return _S.call_value(_n_NL,[_n_t, _n_rate_b0, _n_seed_b1, _n_off_b2])
+	return null
 
-static func _f23(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "tt", _S.arg(_args, 0))
-	return _S.binary("+", _S.binary("+", 0.74, _S.binary("*", 0.16, _S.call_value(_S.read(_e, "NL"), [_S.read(_e, "tt"), 7.3, _S.binary("+", _S.read(_e, "S"), 1)]))), _S.binary("*", 0.1, _S.call_value(_S.read(_e, "NL"), [_S.read(_e, "tt"), 19, _S.binary("+", _S.read(_e, "S"), 2)])))
+static func _f23(_parent,_args:Array,_this=null):
+	var _n_NL = _S.read(_parent,"NL")
+	var _n_S = _S.read(_parent,"S")
+	var _n_tt_b0 = _S.arg(_args,0)
+	return ((0.74 + (0.16 * _S.call_value(_n_NL,[_n_tt_b0, 7.3, (_n_S + 1)]))) + (0.1 * _S.call_value(_n_NL,[_n_tt_b0, 19, (_n_S + 2)])))
+	return null
 
-static func _f24(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "rate", _S.arg(_args, 0))
-	return _S.invoke(_S.read(_e, "Math"), "round", [_S.binary("*", _S.read(_e, "rate"), _S.read(_e, "D"))])
+static func _f24(_parent,_args:Array,_this=null):
+	var _n_D = _S.read(_parent,"D")
+	var _n_rate_b0 = _S.arg(_args,0)
+	return floori((_n_rate_b0 * _n_D)+0.5)
+	return null
 
-static func _f25(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	var _v33 = _S.arg(_args, 0)
-	_S.define(_e, "dx", _S.prop(_v33, 0))
-	_S.define(_e, "dy", _S.prop(_v33, 1))
-	_S.define(_e, "h", _S.prop(_v33, 2))
-	_S.define(_e, "w", _S.prop(_v33, 3))
-	_S.define(_e, "back", _S.prop(_v33, 4))
-	_S.define(_e, "i", _S.arg(_args, 1))
-	return _S.merge([{"dx": _S.binary("+", _S.read(_e, "dx"), _S.invoke(_S.read(_e, "R"), "range", [_S.unary("-", 0.3), 0.3]))}, {"y": _S.read(_e, "dy")}, {"h": _S.binary("+", 2, _S.binary("*", _S.binary("*", _S.read(_e, "HC"), _S.read(_e, "h")), _S.invoke(_S.read(_e, "R"), "range", [0.92, 1.08])))}, {"w": _S.binary("*", _S.read(_e, "w"), _S.invoke(_S.read(_e, "R"), "range", [0.92, 1.08]))}, {"back": _S.read(_e, "back")}, {"env": _S.read(_e, "h")}, {"n": _S.binary("*", _S.binary("+", _S.binary("*", _S.read(_e, "S"), 7), _S.read(_e, "i")), 13)}])
+static func _f25(_parent,_args:Array,_this=null):
+	var _n_R = _S.read(_parent,"R")
+	var _n_HC = _S.read(_parent,"HC")
+	var _n_S = _S.read(_parent,"S")
+	var _tuple_0 = _S.arg(_args,0)
+	var _n_dx_b0 = _S.prop(_tuple_0,0)
+	var _n_dy_b1 = _S.prop(_tuple_0,1)
+	var _n_h_b2 = _S.prop(_tuple_0,2)
+	var _n_w_b3 = _S.prop(_tuple_0,3)
+	var _n_back_b4 = _S.prop(_tuple_0,4)
+	var _n_i_b5 = _S.arg(_args,1)
+	return {"dx":(_n_dx_b0 + _S.invoke(_n_R,"range",[(-0.3), 0.3])),"y":_n_dy_b1,"h":(2 + ((_n_HC * _n_h_b2) * _S.invoke(_n_R,"range",[0.92, 1.08]))),"w":(_n_w_b3 * _S.invoke(_n_R,"range",[0.92, 1.08])),"back":_n_back_b4,"env":_n_h_b2,"n":(((_n_S * 7) + _n_i_b5) * 13)}
+	return null
 
-static func _f26(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "tt", _S.arg(_args, 0))
-	return _S.binary("*", _S.call_value(_S.read(_e, "NL"), [_S.read(_e, "tt"), 0.67, _S.binary("+", _S.read(_e, "S"), 90)]), _S.logical("??", _S.prop(_S.read(_e, "o"), "lean"), func(): return 0.1))
+static func _f26(_parent,_args:Array,_this=null):
+	var _n_NL = _S.read(_parent,"NL")
+	var _n_S = _S.read(_parent,"S")
+	var _n_o = _S.read(_parent,"o")
+	var _n_tt_b0 = _S.arg(_args,0)
+	return (_S.call_value(_n_NL,[_n_tt_b0, 0.67, (_n_S + 90)]) * (_S.named_value(_n_o,"lean") if _S.named_value(_n_o,"lean")!=null else 0.1))
+	return null
 
-static func _f27(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "i", _S.arg(_args, 0))
-	_S.define(_e, "tt", _S.arg(_args, 1))
-	var _v34 = _S.prop(_S.read(_e, "TT"), _S.read(_e, "i"))
-	_S.define(_e, "h", _S.prop(_v34, "h"))
-	_S.define(_e, "n", _S.prop(_v34, "n"))
-	_S.define(_e, "leap", _S.binary("*", _S.invoke(_S.read(_e, "Math"), "max", [0, _S.binary("-", _S.call_value(_S.read(_e, "NL"), [_S.read(_e, "tt"), 2.6, _S.binary("+", _S.read(_e, "n"), 70)]), 0.55)]), 1.4))
-	return _S.binary("*", _S.binary("+", _S.binary("+", _S.read(_e, "h"), _S.binary("*", _S.binary("*", 0.25, _S.read(_e, "h")), _S.call_value(_S.read(_e, "NL"), [_S.read(_e, "tt"), 3.3, _S.read(_e, "n")]))), _S.binary("*", _S.read(_e, "h"), _S.read(_e, "leap"))), _S.binary("+", 0.9, _S.binary("*", 0.1, _S.call_value(_S.read(_e, "fla"), [_S.read(_e, "tt")]))))
+static func _f27(_parent,_args:Array,_this=null):
+	var _n_TT = _S.read(_parent,"TT")
+	var _n_NL = _S.read(_parent,"NL")
+	var _n_fla = _S.read(_parent,"fla")
+	var _n_i_b0 = _S.arg(_args,0)
+	var _n_tt_b1 = _S.arg(_args,1)
+	var _object_0 = _S.index_value(_n_TT,_n_i_b0)
+	var _n_h_b2 = _S.named_value(_object_0,"h")
+	var _n_n_b3 = _S.named_value(_object_0,"n")
+	var _n_leap_b4 = (maxf(0,(_S.call_value(_n_NL,[_n_tt_b1, 2.6, (_n_n_b3 + 70)]) - 0.55)) * 1.4)
+	return (((_n_h_b2 + ((0.25 * _n_h_b2) * _S.call_value(_n_NL,[_n_tt_b1, 3.3, _n_n_b3]))) + (_n_h_b2 * _n_leap_b4)) * (0.9 + (0.1 * _S.call_value(_n_fla,[_n_tt_b1]))))
+	return null
 
-static func _f28(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "i", _S.arg(_args, 0))
-	_S.define(_e, "tt", _S.arg(_args, 1))
-	_S.define(_e, "h", _S.arg(_args, 2))
-	return _S.binary("-", _S.binary("+", _S.binary("*", _S.call_value(_S.read(_e, "NL"), [_S.read(_e, "tt"), 2.2, _S.binary("+", _S.prop(_S.prop(_S.read(_e, "TT"), _S.read(_e, "i")), "n"), 40)]), _S.binary("+", 1, _S.binary("*", _S.read(_e, "h"), 0.08))), _S.binary("*", _S.binary("*", _S.call_value(_S.read(_e, "lean"), [_S.read(_e, "tt")]), _S.read(_e, "h")), 0.9)), _S.call_value(_S.read(_e, "clamp"), [_S.binary("*", _S.prop(_S.prop(_S.read(_e, "TT"), _S.read(_e, "i")), "dx"), 0.3), _S.unary("-", 2.5), 2.5]))
+static func _f28(_parent,_args:Array,_this=null):
+	var _n_NL = _S.read(_parent,"NL")
+	var _n_TT = _S.read(_parent,"TT")
+	var _n_lean = _S.read(_parent,"lean")
+	var _n_i_b0 = _S.arg(_args,0)
+	var _n_tt_b1 = _S.arg(_args,1)
+	var _n_h_b2 = _S.arg(_args,2)
+	return (((_S.call_value(_n_NL,[_n_tt_b1, 2.2, (_S.named_value(_S.index_value(_n_TT,_n_i_b0),"n") + 40)]) * (1 + (_n_h_b2 * 0.08))) + ((_S.call_value(_n_lean,[_n_tt_b1]) * _n_h_b2) * 0.9)) - clampf((_S.named_value(_S.index_value(_n_TT,_n_i_b0),"dx") * 0.3),(-2.5),2.5))
+	return null
 
-static func _f29(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "i", _S.arg(_args, 0))
-	_S.define(_e, "tt", _S.arg(_args, 1))
-	_S.define(_e, "h", _S.call_value(_S.read(_e, "height"), [_S.read(_e, "i"), _S.read(_e, "tt")]))
-	return [_S.binary("+", _S.binary("+", _S.read(_e, "X"), _S.prop(_S.prop(_S.read(_e, "TT"), _S.read(_e, "i")), "dx")), _S.binary("*", _S.call_value(_S.read(_e, "sweep"), [_S.read(_e, "i"), _S.read(_e, "tt"), _S.read(_e, "h")]), 0.85)), _S.binary("+", _S.binary("-", _S.binary("+", _S.read(_e, "Y"), _S.prop(_S.prop(_S.read(_e, "TT"), _S.read(_e, "i")), "y")), _S.binary("*", _S.read(_e, "h"), 0.88)), 3), _S.read(_e, "h")]
+static func _f29(_parent,_args:Array,_this=null):
+	var _n_height = _S.read(_parent,"height")
+	var _n_X = _S.read(_parent,"X")
+	var _n_TT = _S.read(_parent,"TT")
+	var _n_sweep = _S.read(_parent,"sweep")
+	var _n_Y = _S.read(_parent,"Y")
+	var _n_i_b0 = _S.arg(_args,0)
+	var _n_tt_b1 = _S.arg(_args,1)
+	var _n_h_b2 = _S.call_value(_n_height,[_n_i_b0, _n_tt_b1])
+	return [((_n_X + _S.named_value(_S.index_value(_n_TT,_n_i_b0),"dx")) + (_S.call_value(_n_sweep,[_n_i_b0, _n_tt_b1, _n_h_b2]) * 0.85)), (((_n_Y + _S.named_value(_S.index_value(_n_TT,_n_i_b0),"y")) - (_n_h_b2 * 0.88)) + 3), _n_h_b2]
+	return null
 
-static func _f30(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "i", _S.arg(_args, 0))
-	var _v35 = _S.prop(_S.read(_e, "TT"), _S.read(_e, "i"))
-	_S.define(_e, "dx", _S.prop(_v35, "dx"))
-	_S.define(_e, "y", _S.prop(_v35, "y"))
-	_S.define(_e, "w", _S.prop(_v35, "w"))
-	_S.define(_e, "n", _S.prop(_v35, "n"))
-	_S.define(_e, "back", _S.prop(_v35, "back"))
-	_S.define(_e, "h", _S.call_value(_S.read(_e, "height"), [_S.read(_e, "i"), _S.read(_e, "t")]))
-	_S.call_value(_S.read(_e, "flameTongue"), [_S.read(_e, "p"), _S.binary("+", _S.read(_e, "X"), _S.read(_e, "dx")), _S.binary("+", _S.read(_e, "Y"), _S.read(_e, "y")), _S.read(_e, "h"), _S.read(_e, "w"), _S.call_value(_S.read(_e, "sweep"), [_S.read(_e, "i"), _S.read(_e, "t"), _S.read(_e, "h")]), _S.read(_e, "N"), _S.read(_e, "n"), _S.read(_e, "H"), (_S.read(_e, "BACK_LAYERS") if _S.truth(_S.read(_e, "back")) else (_S.read(_e, "BIG_LAYERS") if _S.truth(_S.binary(">", _S.read(_e, "w"), 2.2)) else _S.read(_e, "LAYERS"))), 0.5, _S.binary("+", 1.1, _S.binary("*", _S.read(_e, "h"), 0.04))])
+static func _f30(_parent,_args:Array,_this=null):
+	var _n_TT = _S.read(_parent,"TT")
+	var _n_height = _S.read(_parent,"height")
+	var _n_t = _S.read(_parent,"t")
+	var _n_flameTongue = _S.read(_parent,"flameTongue")
+	var _n_p = _S.read(_parent,"p")
+	var _n_X = _S.read(_parent,"X")
+	var _n_Y = _S.read(_parent,"Y")
+	var _n_sweep = _S.read(_parent,"sweep")
+	var _n_N = _S.read(_parent,"N")
+	var _n_H = _S.read(_parent,"H")
+	var _n_BACK_LAYERS = _S.read(_parent,"BACK_LAYERS")
+	var _n_BIG_LAYERS = _S.read(_parent,"BIG_LAYERS")
+	var _n_LAYERS = _S.read(_parent,"LAYERS")
+	var _n_i_b0 = _S.arg(_args,0)
+	var _object_0 = _S.index_value(_n_TT,_n_i_b0)
+	var _n_dx_b1 = _S.named_value(_object_0,"dx")
+	var _n_y_b2 = _S.named_value(_object_0,"y")
+	var _n_w_b3 = _S.named_value(_object_0,"w")
+	var _n_n_b4 = _S.named_value(_object_0,"n")
+	var _n_back_b5 = _S.named_value(_object_0,"back")
+	var _n_h_b6 = _S.call_value(_n_height,[_n_i_b0, _n_t])
+	_S.call_value(_n_flameTongue,[_n_p, (_n_X + _n_dx_b1), (_n_Y + _n_y_b2), _n_h_b6, _n_w_b3, _S.call_value(_n_sweep,[_n_i_b0, _n_t, _n_h_b6]), _n_N, _n_n_b4, _n_H, (_n_BACK_LAYERS if _S.truth(_n_back_b5) else (_n_BIG_LAYERS if _S.truth((_n_w_b3 > 2.2)) else _n_LAYERS)), 0.5, (1.1 + (_n_h_b6 * 0.04))])
 	return null
 
 static func _f31(_parent, _args: Array, _this=null):
@@ -698,91 +704,119 @@ static func _f31(_parent, _args: Array, _this=null):
 	_S.define(_e, "r", _S.arg(_args, 0))
 	return _S.merge([{"x": _S.binary("*", _S.invoke(_S.read(_e, "r"), "range", [_S.unary("-", _S.read(_e, "W")), _S.read(_e, "W")]), 0.7)}, {"y": _S.binary("-", _S.binary("*", _S.unary("-", _S.read(_e, "HC")), 0.8), _S.invoke(_S.read(_e, "r"), "range", [0, 6]))}, {"vx": _S.invoke(_S.read(_e, "r"), "range", [_S.unary("-", 2), 2])}, {"vy": _S.unary("-", _S.invoke(_S.read(_e, "r"), "range", [10, 17]))}, {"life": _S.invoke(_S.read(_e, "r"), "range", _S.concat([_S.array(_S.logical("??", _S.prop(_S.read(_e, "o"), "smokeLife"), func(): return [1.6, 2.6]))]))}, {"s": _S.binary("*", _S.invoke(_S.read(_e, "r"), "range", [0.7, 1.1]), _S.logical("??", _S.prop(_S.read(_e, "o"), "smokeSize"), func(): return 3))}])
 
-static func _f32(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "q", _S.arg(_args, 0))
-	_S.define(_e, "age", _S.arg(_args, 1))
-	var _v36 = _S.call_value(_S.read(_e, "drift"), [_S.prop(_S.read(_e, "q"), "x"), _S.prop(_S.read(_e, "q"), "y"), _S.prop(_S.read(_e, "q"), "vx"), _S.prop(_S.read(_e, "q"), "vy"), _S.read(_e, "age"), _S.logical("??", _S.prop(_S.read(_e, "o"), "wind"), func(): return 3), _S.unary("-", 20), 1.6, 1])
-	_S.define(_e, "x", _S.prop(_v36, 0))
-	_S.define(_e, "y", _S.prop(_v36, 1))
-	_S.call_value(_S.read(_e, "smokePuff"), [_S.read(_e, "p"), _S.binary("+", _S.binary("+", _S.read(_e, "X"), _S.read(_e, "x")), _S.binary("*", _S.call_value(_S.read(_e, "NL"), [_S.binary("-", _S.read(_e, "t"), _S.read(_e, "age")), 0.8, _S.binary("+", _S.read(_e, "S"), 60)]), _S.binary("+", 1.5, _S.binary("*", 2.5, _S.read(_e, "age"))))), _S.binary("+", _S.read(_e, "Y"), _S.read(_e, "y")), _S.binary("-", 1, _S.binary("/", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "life"))), _S.prop(_S.read(_e, "q"), "s"), _S.read(_e, "SMOKE")])
+static func _f32(_parent,_args:Array,_this=null):
+	var _n_drift = _S.read(_parent,"drift")
+	var _n_o = _S.read(_parent,"o")
+	var _n_smokePuff = _S.read(_parent,"smokePuff")
+	var _n_p = _S.read(_parent,"p")
+	var _n_X = _S.read(_parent,"X")
+	var _n_NL = _S.read(_parent,"NL")
+	var _n_t = _S.read(_parent,"t")
+	var _n_S = _S.read(_parent,"S")
+	var _n_Y = _S.read(_parent,"Y")
+	var _n_SMOKE = _S.read(_parent,"SMOKE")
+	var _n_q_b0 = _S.arg(_args,0)
+	var _n_age_b1 = _S.arg(_args,1)
+	var _tuple_0 = _S.call_value(_n_drift,[_S.named_value(_n_q_b0,"x"), _S.named_value(_n_q_b0,"y"), _S.named_value(_n_q_b0,"vx"), _S.named_value(_n_q_b0,"vy"), _n_age_b1, (_S.named_value(_n_o,"wind") if _S.named_value(_n_o,"wind")!=null else 3), (-20), 1.6, 1])
+	var _n_x_b2 = _S.prop(_tuple_0,0)
+	var _n_y_b3 = _S.prop(_tuple_0,1)
+	_S.call_value(_n_smokePuff,[_n_p, ((_n_X + _n_x_b2) + (_S.call_value(_n_NL,[(_n_t - _n_age_b1), 0.8, (_n_S + 60)]) * (1.5 + (2.5 * _n_age_b1)))), (_n_Y + _n_y_b3), (1 - (float(_n_age_b1)/_S.named_value(_n_q_b0,"life"))), _S.named_value(_n_q_b0,"s"), _n_SMOKE])
 	return null
 
-static func _f33(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "r", _S.arg(_args, 0))
-	_S.define(_e, "j", _S.arg(_args, 1))
-	_S.define(_e, "i", _S.binary("%", _S.read(_e, "j"), _S.prop(_S.read(_e, "TT"), "length")))
-	_S.define(_e, "fire", _S.invoke(_S.read(_e, "r"), "range", [0.14, 0.3]))
-	_S.define(_e, "smokes", _S.invoke(_S.read(_e, "r"), "chance", [0.45]))
-	return _S.merge([{"i": _S.read(_e, "i")}, {"fire": _S.read(_e, "fire")}, {"smokes": _S.read(_e, "smokes")}, {"sl": _S.invoke(_S.read(_e, "r"), "range", [0.8, 1.4])}, {"ox": _S.invoke(_S.read(_e, "r"), "range", [_S.unary("-", 1), 1])}, {"oy": _S.invoke(_S.read(_e, "r"), "range", [0, 4])}, {"vx": _S.invoke(_S.read(_e, "r"), "range", [_S.unary("-", 4), 4])}, {"vy": _S.unary("-", _S.invoke(_S.read(_e, "r"), "range", [15, 30]))}, {"s": _S.binary("*", _S.invoke(_S.read(_e, "r"), "range", [0.8, 1.6]), _S.binary("+", 0.8, _S.binary("*", 0.6, _S.prop(_S.prop(_S.read(_e, "TT"), _S.read(_e, "i")), "env"))))}, {"f": _S.invoke(_S.read(_e, "r"), "next", [])}, {"life": _S.binary("+", _S.read(_e, "fire"), (1.4 if _S.truth(_S.read(_e, "smokes")) else 0))}])
+static func _f33(_parent,_args:Array,_this=null):
+	var _n_TT = _S.read(_parent,"TT")
+	var _n_r_b0 = _S.arg(_args,0)
+	var _n_j_b1 = _S.arg(_args,1)
+	var _n_i_b2 = fmod(_n_j_b1,_S.prop(_n_TT,"length"))
+	var _n_fire_b3 = _S.invoke(_n_r_b0,"range",[0.14, 0.3])
+	var _n_smokes_b4 = _S.invoke(_n_r_b0,"chance",[0.45])
+	return {"i":_n_i_b2,"fire":_n_fire_b3,"smokes":_n_smokes_b4,"sl":_S.invoke(_n_r_b0,"range",[0.8, 1.4]),"ox":_S.invoke(_n_r_b0,"range",[(-1), 1]),"oy":_S.invoke(_n_r_b0,"range",[0, 4]),"vx":_S.invoke(_n_r_b0,"range",[(-4), 4]),"vy":(-_S.invoke(_n_r_b0,"range",[15, 30])),"s":(_S.invoke(_n_r_b0,"range",[0.8, 1.6]) * (0.8 + (0.6 * _S.named_value(_S.index_value(_n_TT,_n_i_b2),"env")))),"f":_S.invoke(_n_r_b0,"next",[]),"life":(_n_fire_b3 + (1.4 if _S.truth(_n_smokes_b4) else 0))}
+	return null
 
-static func _f34(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "q", _S.arg(_args, 0))
-	_S.define(_e, "age", _S.arg(_args, 1))
-	var _v37 = _S.call_value(_S.read(_e, "tip"), [_S.prop(_S.read(_e, "q"), "i"), _S.binary("-", _S.read(_e, "t"), _S.read(_e, "age"))])
-	_S.define(_e, "tx", _S.prop(_v37, 0))
-	_S.define(_e, "ty", _S.prop(_v37, 1))
-	var _v38 = _S.call_value(_S.read(_e, "drift"), [_S.binary("+", _S.read(_e, "tx"), _S.prop(_S.read(_e, "q"), "ox")), _S.binary("+", _S.read(_e, "ty"), _S.prop(_S.read(_e, "q"), "oy")), _S.prop(_S.read(_e, "q"), "vx"), _S.prop(_S.read(_e, "q"), "vy"), _S.invoke(_S.read(_e, "Math"), "min", [_S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "fire")]), 0, _S.unary("-", 95), 5, 3.2])
-	_S.define(_e, "x", _S.prop(_v38, 0))
-	_S.define(_e, "y", _S.prop(_v38, 1))
-	_S.define(_e, "vx", _S.prop(_v38, 2))
-	_S.define(_e, "vy", _S.prop(_v38, 3))
-	if _S.truth(_S.binary("<", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "fire"))):
-		return _S.invoke(_S.read(_e, "puffs"), "push", [[_S.read(_e, "x"), _S.read(_e, "y"), _S.binary("-", 1, _S.binary("/", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "fire"))), _S.prop(_S.read(_e, "q"), "s"), _S.prop(_S.read(_e, "q"), "f")]])
-	if _S.truth(_S.binary(">", _S.binary("-", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "fire")), _S.prop(_S.read(_e, "q"), "sl"))):
+static func _f34(_parent,_args:Array,_this=null):
+	var _n_tip = _S.read(_parent,"tip")
+	var _n_t = _S.read(_parent,"t")
+	var _n_drift = _S.read(_parent,"drift")
+	var _n_puffs = _S.read(_parent,"puffs")
+	var _n_o = _S.read(_parent,"o")
+	var _n_smokePuff = _S.read(_parent,"smokePuff")
+	var _n_p = _S.read(_parent,"p")
+	var _n_q_b0 = _S.arg(_args,0)
+	var _n_age_b1 = _S.arg(_args,1)
+	var _tuple_0 = _S.call_value(_n_tip,[_S.named_value(_n_q_b0,"i"), (_n_t - _n_age_b1)])
+	var _n_tx_b2 = _S.prop(_tuple_0,0)
+	var _n_ty_b3 = _S.prop(_tuple_0,1)
+	var _tuple_1 = _S.call_value(_n_drift,[(_n_tx_b2 + _S.named_value(_n_q_b0,"ox")), (_n_ty_b3 + _S.named_value(_n_q_b0,"oy")), _S.named_value(_n_q_b0,"vx"), _S.named_value(_n_q_b0,"vy"), minf(_n_age_b1,_S.named_value(_n_q_b0,"fire")), 0, (-95), 5, 3.2])
+	var _n_x_b4 = _S.prop(_tuple_1,0)
+	var _n_y_b5 = _S.prop(_tuple_1,1)
+	var _n_vx_b6 = _S.prop(_tuple_1,2)
+	var _n_vy_b7 = _S.prop(_tuple_1,3)
+	if _S.truth((_n_age_b1 < _S.named_value(_n_q_b0,"fire"))):
+		return _S.invoke(_n_puffs,"push",[[_n_x_b4, _n_y_b5, (1 - (float(_n_age_b1)/_S.named_value(_n_q_b0,"fire"))), _S.named_value(_n_q_b0,"s"), _S.named_value(_n_q_b0,"f")]])
+	if _S.truth(((_n_age_b1 - _S.named_value(_n_q_b0,"fire")) > _S.named_value(_n_q_b0,"sl"))):
 		return null
-	var _v39 = _S.call_value(_S.read(_e, "drift"), [_S.read(_e, "x"), _S.read(_e, "y"), _S.binary("*", _S.read(_e, "vx"), 0.6), _S.binary("-", _S.binary("*", _S.read(_e, "vy"), 0.6), 6), _S.binary("-", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "fire")), _S.logical("??", _S.prop(_S.read(_e, "o"), "wind"), func(): return 3), _S.unary("-", 16), 1.6, 1.2])
-	_S.define(_e, "sx", _S.prop(_v39, 0))
-	_S.define(_e, "sy", _S.prop(_v39, 1))
-	_S.call_value(_S.read(_e, "smokePuff"), [_S.read(_e, "p"), _S.read(_e, "sx"), _S.read(_e, "sy"), _S.binary("-", 1, _S.binary("/", _S.binary("-", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "fire")), _S.prop(_S.read(_e, "q"), "sl"))), _S.binary("*", _S.prop(_S.read(_e, "q"), "s"), 0.7), 0])
+	var _tuple_2 = _S.call_value(_n_drift,[_n_x_b4, _n_y_b5, (_n_vx_b6 * 0.6), ((_n_vy_b7 * 0.6) - 6), (_n_age_b1 - _S.named_value(_n_q_b0,"fire")), (_S.named_value(_n_o,"wind") if _S.named_value(_n_o,"wind")!=null else 3), (-16), 1.6, 1.2])
+	var _n_sx_b8 = _S.prop(_tuple_2,0)
+	var _n_sy_b9 = _S.prop(_tuple_2,1)
+	_S.call_value(_n_smokePuff,[_n_p, _n_sx_b8, _n_sy_b9, (1 - (float((_n_age_b1 - _S.named_value(_n_q_b0,"fire")))/_S.named_value(_n_q_b0,"sl"))), (_S.named_value(_n_q_b0,"s") * 0.7), 0])
 	return null
 
-static func _f35(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "r", _S.arg(_args, 0))
-	_S.define(_e, "j", _S.arg(_args, 1))
-	return _S.merge([{"i": _S.binary("%", _S.read(_e, "j"), _S.prop(_S.read(_e, "TT"), "length"))}, {"vx": _S.invoke(_S.read(_e, "r"), "range", [_S.unary("-", 3), 3])}, {"vy": _S.unary("-", _S.invoke(_S.read(_e, "r"), "range", [12, 22]))}, {"s": _S.binary("*", _S.invoke(_S.read(_e, "r"), "range", [0.9, 1.6]), _S.binary("+", 0.8, _S.binary("*", 0.5, _S.prop(_S.prop(_S.read(_e, "TT"), _S.binary("%", _S.read(_e, "j"), _S.prop(_S.read(_e, "TT"), "length"))), "env"))))}, {"life": 0.26}])
-
-static func _f36(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "q", _S.arg(_args, 0))
-	_S.define(_e, "age", _S.arg(_args, 1))
-	var _v42 = _S.call_value(_S.read(_e, "tip"), [_S.prop(_S.read(_e, "q"), "i"), _S.binary("-", _S.read(_e, "t"), _S.read(_e, "age"))])
-	_S.define(_e, "tx", _S.prop(_v42, 0))
-	_S.define(_e, "ty", _S.prop(_v42, 1))
-	_S.call_value(_S.read(_e, "lick"), [_S.read(_e, "p"), _S.binary("+", _S.read(_e, "tx"), _S.binary("*", _S.prop(_S.read(_e, "q"), "vx"), _S.read(_e, "age"))), _S.binary("+", _S.binary("-", _S.read(_e, "ty"), 2), _S.binary("*", _S.prop(_S.read(_e, "q"), "vy"), _S.read(_e, "age"))), _S.binary("-", 1, _S.binary("/", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "life"))), _S.prop(_S.read(_e, "q"), "s"), _S.read(_e, "H")])
+static func _f35(_parent,_args:Array,_this=null):
+	var _n_TT = _S.read(_parent,"TT")
+	var _n_r_b0 = _S.arg(_args,0)
+	var _n_j_b1 = _S.arg(_args,1)
+	return {"i":fmod(_n_j_b1,_S.prop(_n_TT,"length")),"vx":_S.invoke(_n_r_b0,"range",[(-3), 3]),"vy":(-_S.invoke(_n_r_b0,"range",[12, 22])),"s":(_S.invoke(_n_r_b0,"range",[0.9, 1.6]) * (0.8 + (0.5 * _S.named_value(_S.index_value(_n_TT,fmod(_n_j_b1,_S.prop(_n_TT,"length"))),"env")))),"life":0.26}
 	return null
 
-static func _f37(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "r", _S.arg(_args, 0))
-	return _S.merge([{"x": _S.invoke(_S.read(_e, "r"), "range", [_S.unary("-", _S.read(_e, "W")), _S.read(_e, "W")])}, {"y": _S.unary("-", _S.invoke(_S.read(_e, "r"), "range", [_S.binary("*", _S.read(_e, "HC"), 0.3), _S.binary("*", _S.read(_e, "HC"), 0.8)]))}, {"vx": _S.invoke(_S.read(_e, "r"), "range", [_S.unary("-", 15), 15])}, {"vy": _S.unary("-", _S.invoke(_S.read(_e, "r"), "range", [25, 60]))}, {"life": _S.invoke(_S.read(_e, "r"), "range", [1.1, 2.4])}, {"s": (2 if _S.truth(_S.invoke(_S.read(_e, "r"), "chance", [0.15])) else _S.invoke(_S.read(_e, "r"), "range", [1, 1.6]))}, {"a": _S.invoke(_S.read(_e, "r"), "range", [0, 6.3])}, {"b": _S.invoke(_S.read(_e, "r"), "range", [0, 6.3])}])
-
-static func _f38(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "q", _S.arg(_args, 0))
-	_S.define(_e, "age", _S.arg(_args, 1))
-	var _v46 = _S.call_value(_S.read(_e, "drift"), [_S.prop(_S.read(_e, "q"), "x"), _S.prop(_S.read(_e, "q"), "y"), _S.prop(_S.read(_e, "q"), "vx"), _S.prop(_S.read(_e, "q"), "vy"), _S.read(_e, "age"), 0, _S.unary("-", 30), 1.6, 1.6])
-	_S.define(_e, "x", _S.prop(_v46, 0))
-	_S.define(_e, "y", _S.prop(_v46, 1))
-	_S.call_value(_S.read(_e, "ember"), [_S.read(_e, "p"), _S.binary("+", _S.binary("+", _S.read(_e, "X"), _S.read(_e, "x")), _S.binary("*", 7, _S.binary("-", _S.invoke(_S.read(_e, "Math"), "sin", [_S.binary("+", _S.binary("*", _S.read(_e, "age"), 2.3), _S.prop(_S.read(_e, "q"), "a"))]), _S.invoke(_S.read(_e, "Math"), "sin", [_S.prop(_S.read(_e, "q"), "a")])))), _S.binary("+", _S.binary("+", _S.read(_e, "Y"), _S.read(_e, "y")), _S.binary("*", 2, _S.binary("-", _S.invoke(_S.read(_e, "Math"), "sin", [_S.binary("+", _S.binary("*", _S.read(_e, "age"), 3), _S.prop(_S.read(_e, "q"), "b"))]), _S.invoke(_S.read(_e, "Math"), "sin", [_S.prop(_S.read(_e, "q"), "b")])))), _S.binary("-", 1, _S.binary("/", _S.read(_e, "age"), _S.prop(_S.read(_e, "q"), "life"))), _S.prop(_S.read(_e, "q"), "s"), _S.read(_e, "EMB"), _S.binary("+", _S.binary("*", _S.read(_e, "age"), 40), _S.prop(_S.read(_e, "q"), "a"))])
+static func _f36(_parent,_args:Array,_this=null):
+	var _n_tip = _S.read(_parent,"tip")
+	var _n_t = _S.read(_parent,"t")
+	var _n_lick = _S.read(_parent,"lick")
+	var _n_p = _S.read(_parent,"p")
+	var _n_H = _S.read(_parent,"H")
+	var _n_q_b0 = _S.arg(_args,0)
+	var _n_age_b1 = _S.arg(_args,1)
+	var _tuple_0 = _S.call_value(_n_tip,[_S.named_value(_n_q_b0,"i"), (_n_t - _n_age_b1)])
+	var _n_tx_b2 = _S.prop(_tuple_0,0)
+	var _n_ty_b3 = _S.prop(_tuple_0,1)
+	_S.call_value(_n_lick,[_n_p, (_n_tx_b2 + (_S.named_value(_n_q_b0,"vx") * _n_age_b1)), ((_n_ty_b3 - 2) + (_S.named_value(_n_q_b0,"vy") * _n_age_b1)), (1 - (float(_n_age_b1)/_S.named_value(_n_q_b0,"life"))), _S.named_value(_n_q_b0,"s"), _n_H])
 	return null
 
-static func _f39(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "N", _S.arg(_args, 0))
-	_S.define(_e, "s", _S.coalesce(_S.arg(_args, 1), func(): return 0))
-	return _S.binary("+", _S.binary("+", 0.74, _S.binary("*", 0.16, _S.call_value(_S.read(_e, "N"), [7.3, _S.binary("+", 1, _S.read(_e, "s"))]))), _S.binary("*", 0.1, _S.call_value(_S.read(_e, "N"), [19, _S.binary("+", 2, _S.read(_e, "s"))])))
+static func _f37(_parent,_args:Array,_this=null):
+	var _n_W = _S.read(_parent,"W")
+	var _n_HC = _S.read(_parent,"HC")
+	var _n_r_b0 = _S.arg(_args,0)
+	return {"x":_S.invoke(_n_r_b0,"range",[(-_n_W), _n_W]),"y":(-_S.invoke(_n_r_b0,"range",[(_n_HC * 0.3), (_n_HC * 0.8)])),"vx":_S.invoke(_n_r_b0,"range",[(-15), 15]),"vy":(-_S.invoke(_n_r_b0,"range",[25, 60])),"life":_S.invoke(_n_r_b0,"range",[1.1, 2.4]),"s":(2 if _S.truth(_S.invoke(_n_r_b0,"chance",[0.15])) else _S.invoke(_n_r_b0,"range",[1, 1.6])),"a":_S.invoke(_n_r_b0,"range",[0, 6.3]),"b":_S.invoke(_n_r_b0,"range",[0, 6.3])}
+	return null
 
-static func _f40(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "F", _S.arg(_args, 0))
-	return _S.invoke(_S.concat([_S.array(_S.read(_e, "F"))]), "reverse", [])
+static func _f38(_parent,_args:Array,_this=null):
+	var _n_drift = _S.read(_parent,"drift")
+	var _n_ember = _S.read(_parent,"ember")
+	var _n_p = _S.read(_parent,"p")
+	var _n_X = _S.read(_parent,"X")
+	var _n_Y = _S.read(_parent,"Y")
+	var _n_EMB = _S.read(_parent,"EMB")
+	var _n_q_b0 = _S.arg(_args,0)
+	var _n_age_b1 = _S.arg(_args,1)
+	var _tuple_0 = _S.call_value(_n_drift,[_S.named_value(_n_q_b0,"x"), _S.named_value(_n_q_b0,"y"), _S.named_value(_n_q_b0,"vx"), _S.named_value(_n_q_b0,"vy"), _n_age_b1, 0, (-30), 1.6, 1.6])
+	var _n_x_b2 = _S.prop(_tuple_0,0)
+	var _n_y_b3 = _S.prop(_tuple_0,1)
+	_S.call_value(_n_ember,[_n_p, ((_n_X + _n_x_b2) + (7 * (sin(((_n_age_b1 * 2.3) + _S.named_value(_n_q_b0,"a"))) - sin(_S.named_value(_n_q_b0,"a"))))), ((_n_Y + _n_y_b3) + (2 * (sin(((_n_age_b1 * 3) + _S.named_value(_n_q_b0,"b"))) - sin(_S.named_value(_n_q_b0,"b"))))), (1 - (float(_n_age_b1)/_S.named_value(_n_q_b0,"life"))), _S.named_value(_n_q_b0,"s"), _n_EMB, ((_n_age_b1 * 40) + _S.named_value(_n_q_b0,"a"))])
+	return null
 
-static func _f41(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "r", _S.arg(_args, 0))
-	_S.define(_e, "t", _S.arg(_args, 1))
-	return _S.prop(_S.read(_e, "r"), _S.invoke(_S.read(_e, "Math"), "min", [_S.binary("-", _S.prop(_S.read(_e, "r"), "length"), 1), _S.invoke(_S.read(_e, "Math"), "max", [0, _S.invoke(_S.read(_e, "Math"), "floor", [_S.binary("*", _S.read(_e, "t"), _S.prop(_S.read(_e, "r"), "length"))])])]))
+static func _f39(_parent,_args:Array,_this=null):
+	var _n_N_b0 = _S.arg(_args,0)
+	var _n_s_b1 = _S.coalesce(_S.arg(_args,1),func():return 0)
+	return ((0.74 + (0.16 * _S.call_value(_n_N_b0,[7.3, (1 + _n_s_b1)]))) + (0.1 * _S.call_value(_n_N_b0,[19, (2 + _n_s_b1)])))
+	return null
+
+static func _f40(_parent,_args:Array,_this=null):
+	var _n_F_b0 = _S.arg(_args,0)
+	return _S.invoke(_S.concat([_S.array(_n_F_b0)]),"reverse",[])
+	return null
+
+static func _f41(_parent,_args:Array,_this=null):
+	var _n_r_b0 = _S.arg(_args,0)
+	var _n_t_b1 = _S.arg(_args,1)
+	return _S.index_value(_n_r_b0,minf((_S.prop(_n_r_b0,"length") - 1),maxf(0,floori((_n_t_b1 * _S.prop(_n_r_b0,"length"))))))
+	return null

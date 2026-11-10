@@ -78,9 +78,9 @@ static func _f0(_parent, _args: Array, _this=null):
 	_S.define(_e, "t", 0)
 	return _S.merge([{"update": _S.function_value(_e, "_f2")}, {"draw": _S.function_value(_e, "_f3")}])
 
-static func _f1(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
+static func _f1(_parent,_args:Array,_this=null):
 	return 0
+	return null
 
 static func _f2(_parent, _args: Array, _this=null):
 	var _e = _S.scope(_parent)
@@ -91,26 +91,41 @@ static func _f2(_parent, _args: Array, _this=null):
 	_S.invoke(_S.read(_e, "smoke"), "update", [_S.read(_e, "dt")])
 	return null
 
-static func _f3(_parent, _args: Array, _this=null):
-	var _e = _S.scope(_parent)
-	_S.define(_e, "this", _this)
-	_S.define(_e, "p", _S.arg(_args, 0))
-	_S.define(_e, "pop", _S.invoke(_S.read(_e, "Math"), "exp", [_S.binary("/", _S.unary("-", _S.binary("+", _S.read(_e, "t"), 0.008)), 0.035)]))
-	_S.define(_e, "list", _S.invoke(_S.read(_e, "smoke"), "puffs", []))
-	for _v7 in _S.array(_S.read(_e, "list")):
-		var _v8 = _S.scope(_e)
-		_S.define(_v8, "q", _v7)
-		_S.set_prop(_S.read(_v8, "q"), "w", _S.binary("+", 0.4, _S.read(_v8, "pop")), "*=", false)
-	_S.call_value(_S.read(_e, "cloud"), [_S.read(_e, "p"), _S.read(_e, "list"), _S.read(_e, "SM"), [_S.prop(_S.read(_e, "SM"), 0), _S.call_value(_S.read(_e, "mix"), [_S.prop(_S.read(_e, "F"), 1), _S.prop(_S.read(_e, "SM"), 1), 0.5]), _S.call_value(_S.read(_e, "mix"), [_S.prop(_S.read(_e, "F"), 2), _S.prop(_S.read(_e, "SM"), 2), 0.4]), _S.prop(_S.read(_e, "F"), 3), _S.prop(_S.read(_e, "F"), 4), _S.prop(_S.read(_e, "F"), 5), _S.prop(_S.read(_e, "F"), 7)], _S.merge([{"dens": 1.5}, {"max": 0.8}, {"lit": 1.4}])])
-	if _S.truth(_S.binary("<", _S.read(_e, "t"), _S.prop(_S.read(_e, "meta"), "duration"))):
-		_S.call_value(_S.read(_e, "drawCasing"), [_S.read(_e, "p"), _S.call_value(_S.read(_e, "casing"), [_S.unary("-", 7), _S.binary("-", _S.read(_e, "MY"), 1), _S.prop(_S.read(_e, "shell"), "vx"), _S.prop(_S.read(_e, "shell"), "vy"), _S.prop(_S.read(_e, "shell"), "va"), _S.read(_e, "t"), 850, _S.unary("-", 0.5), 0.42, _S.prop(_S.read(_e, "shell"), "a0")]), _S.read(_e, "B"), _S.invoke(_S.read(_e, "Math"), "min", [1, _S.binary("/", _S.binary("-", _S.binary("-", _S.prop(_S.read(_e, "meta"), "duration"), 0.05), _S.read(_e, "t")), 0.3)])])
-	if _S.truth(_S.binary("<", _S.read(_e, "t"), _S.binary("*", 2, _S.read(_e, "F1")))):
-		var _v9 = _S.scope(_e)
-		_S.define(_v9, "f", (1 if _S.truth(_S.binary("<", _S.read(_v9, "t"), _S.read(_v9, "F1"))) else 2))
-		_S.define(_v9, "L", _S.call_value(_S.read(_v9, "flashShape"), [_S.call_value(_S.read(_v9, "rng"), [_S.read(_v9, "shapeSeed")]), _S.read(_v9, "f"), _S.merge([{"size": 1.15}, {"spike": [15, 22]}, {"diag": [7, 12]}, {"cross": [4.5, 8]}, {"back": [3, 5.5]}])]))
-		_S.call_value(_S.read(_v9, "flash"), [_S.read(_v9, "p"), 0, _S.read(_v9, "MY"), _S.read(_v9, "tilt"), _S.read(_v9, "L"), ([_S.read(_v9, "WHITE"), _S.prop(_S.read(_v9, "F"), 7), _S.prop(_S.read(_v9, "F"), 6), _S.prop(_S.read(_v9, "F"), 3)] if _S.truth(_S.binary("===", _S.read(_v9, "f"), 1)) else [_S.prop(_S.read(_v9, "F"), 7), _S.prop(_S.read(_v9, "F"), 6), _S.prop(_S.read(_v9, "F"), 4), _S.prop(_S.read(_v9, "F"), 2)]), _S.binary("+", _S.read(_v9, "f"), _S.prop(_S.read(_v9, "o"), "seed"))])
-	_S.invoke(_S.read(_e, "ps"), "draw", [_S.read(_e, "p")])
-	_S.invoke(_S.read(_e, "p"), "glow", [4, _S.read(_e, "MY"), 30, _S.prop(_S.read(_e, "F"), 4), _S.binary("*", 0.85, _S.read(_e, "pop"))])
-	_S.invoke(_S.read(_e, "p"), "glow", [2, _S.read(_e, "MY"), 8, _S.read(_e, "WHITE"), _S.binary("*", 0.5, _S.read(_e, "pop"))])
-	_S.invoke(_S.read(_e, "p"), "glow", [4, 0, 16, _S.prop(_S.read(_e, "F"), 4), _S.binary("*", 0.2, _S.read(_e, "pop"))])
+static func _f3(_parent,_args:Array,_this=null):
+	var _n_t = _S.read(_parent,"t")
+	var _n_smoke = _S.read(_parent,"smoke")
+	var _n_SM = _S.read(_parent,"SM")
+	var _n_F = _S.read(_parent,"F")
+	var _n_cloud = _S.read(_parent,"cloud")
+	var _n_meta = _S.read(_parent,"meta")
+	var _n_MY = _S.read(_parent,"MY")
+	var _n_shell = _S.read(_parent,"shell")
+	var _n_casing = _S.read(_parent,"casing")
+	var _n_B = _S.read(_parent,"B")
+	var _n_drawCasing = _S.read(_parent,"drawCasing")
+	var _n_F1 = _S.read(_parent,"F1")
+	var _n_shapeSeed = _S.read(_parent,"shapeSeed")
+	var _n_flashShape = _S.read(_parent,"flashShape")
+	var _n_tilt = _S.read(_parent,"tilt")
+	var _n_WHITE = _S.read(_parent,"WHITE")
+	var _n_o = _S.read(_parent,"o")
+	var _n_flash = _S.read(_parent,"flash")
+	var _n_ps = _S.read(_parent,"ps")
+	var _n_p_b0 = _S.arg(_args,0)
+	var _n_pop_b1 = exp((float((-(_n_t + 0.008)))/0.035))
+	var _n_list_b2 = _S.invoke(_n_smoke,"puffs",[])
+	for _iter_0 in _S.array(_n_list_b2):
+		var _n_q_b3 = _iter_0
+		_S.set_prop(_n_q_b3,"w",(0.4 + _n_pop_b1),"*=")
+	_S.call_value(_n_cloud,[_n_p_b0, _n_list_b2, _n_SM, [_S.index_value(_n_SM,0), _S.ColorFX.mix(_S.index_value(_n_F,1),_S.index_value(_n_SM,1),0.5), _S.ColorFX.mix(_S.index_value(_n_F,2),_S.index_value(_n_SM,2),0.4), _S.index_value(_n_F,3), _S.index_value(_n_F,4), _S.index_value(_n_F,5), _S.index_value(_n_F,7)], {"dens":1.5,"max":0.8,"lit":1.4}])
+	if _S.truth((_n_t < _S.named_value(_n_meta,"duration"))):
+		_S.call_value(_n_drawCasing,[_n_p_b0, _S.call_value(_n_casing,[(-7), (_n_MY - 1), _S.named_value(_n_shell,"vx"), _S.named_value(_n_shell,"vy"), _S.named_value(_n_shell,"va"), _n_t, 850, (-0.5), 0.42, _S.named_value(_n_shell,"a0")]), _n_B, minf(1,(float(((_S.named_value(_n_meta,"duration") - 0.05) - _n_t))/0.3))])
+	if _S.truth((_n_t < (2 * _n_F1))):
+		var _n_f_b4 = (1 if _S.truth((_n_t < _n_F1)) else 2)
+		var _n_L_b5 = _S.call_value(_n_flashShape,[_S.MathFX.rng([_n_shapeSeed]), _n_f_b4, {"size":1.15,"spike":[15, 22],"diag":[7, 12],"cross":[4.5, 8],"back":[3, 5.5]}])
+		_S.call_value(_n_flash,[_n_p_b0, 0, _n_MY, _n_tilt, _n_L_b5, ([_n_WHITE, _S.index_value(_n_F,7), _S.index_value(_n_F,6), _S.index_value(_n_F,3)] if _S.truth(_S.binary("===",_n_f_b4,1)) else [_S.index_value(_n_F,7), _S.index_value(_n_F,6), _S.index_value(_n_F,4), _S.index_value(_n_F,2)]), (_n_f_b4 + _S.named_value(_n_o,"seed"))])
+	_S.invoke(_n_ps,"draw",[_n_p_b0])
+	_S.invoke(_n_p_b0,"glow",[4, _n_MY, 30, _S.index_value(_n_F,4), (0.85 * _n_pop_b1)])
+	_S.invoke(_n_p_b0,"glow",[2, _n_MY, 8, _n_WHITE, (0.5 * _n_pop_b1)])
+	_S.invoke(_n_p_b0,"glow",[4, 0, 16, _S.index_value(_n_F,4), (0.2 * _n_pop_b1)])
 	return null

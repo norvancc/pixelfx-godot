@@ -1,6 +1,6 @@
 # Roadmap and migration status
 
-Updated 2026-11-09: source migration now covers 244/244 algorithms and 245 presets. The new 192 ports have basic playback checks only; full acceptance remains 52/244. See [full source migration](addons/pixelfx/FULL_MIGRATION.md). Historical acceptance milestones follow. The first B2 slice in [B2 PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) was merged as `112d5d4`; Linux acceptance for the simulation slice is recorded in [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks). The pinned PixelFX 0.3.0 catalog contains **244 algorithms: 52 accepted, 192 remaining**. The latest published release is still **0.2.0 (five algorithms)**; B1/B2 are source additions. Arcane Fireball is a palette preset.
+Updated 2026-11-10: source migration covers 244/244 algorithms and 245 presets; full acceptance remains 52/244. The optimization round has passed 6,500 native pixel cases and 979 editor assertions; eight focused effects run at roughly 29–30 effect updates per second in a visible M4 Pro window. Other catalog entries still exceed the sampled CPU budget. See the [review and measured costs](docs/plans/native-acceptance-review.zh-CN.md). See [full source migration](addons/pixelfx/FULL_MIGRATION.md). Historical acceptance milestones follow. The first B2 slice in [B2 PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) was merged as `112d5d4`; Linux acceptance for the simulation slice is recorded in [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks). The pinned PixelFX 0.3.0 catalog contains **244 algorithms: 52 accepted, 192 remaining**. The latest published release is still **0.2.0 (five algorithms)**; B1/B2 are source additions. Arcane Fireball is a palette preset.
 
 ## Accepted source capabilities
 
@@ -32,7 +32,7 @@ The [machine-readable ledger](docs/migration-status.json) is the source of per-e
 
 ## Next priorities and limits
 
-1. Fully accept the 192 new ports, beginning with the 8 pending B2 actor effects. Source/dependency migration is complete; pixel, lifecycle, visual and platform acceptance remains.
+1. Fix the generic native rendering cost before accepting the 192 new ports. Direct numeric kernels now reduce several second-long frame costs to tens of milliseconds. Preserve pixel parity, finish the serial performance and editor regression, then complete visual and platform acceptance.
 2. Verify the newly ported actor/rig/act/poses/chain systems and external image inputs against the pinned upstream behavior. Keep the older accepted helpers and evidence intact.
 3. Preserve the 7081 existing pixel comparisons, lifecycle/isolation/bounds checks and source-hashed evidence. Check parameter extremes and normal-speed native output for every new port.
 4. Measure cold generation and unique-parameter workloads. Some accepted CPU effects exceed a 33.3 ms frame budget; no GPU/native accelerated backend is implemented.

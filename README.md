@@ -1,6 +1,6 @@
 # PixelFX for Godot
 
-The migration branch now provides **244/244 algorithms and 245 presets**: **52 fully accepted; 192 newly ported with basic playback checks only**. Unit tests, pixel comparisons and recordings are deferred for this phase, as requested. The 52-effect counts below describe the earlier accepted snapshot. See [full source migration](addons/pixelfx/FULL_MIGRATION.md) for scope, native inputs and limitations.
+The migration branch provides **244/244 algorithms and 245 presets**; full acceptance remains **52/244**. Direct numeric kernels and lazy dependency loading have reduced several second-long frame costs to tens of milliseconds. The eight focused B2 effects now measure about 29–30 effect updates per second in a visible M4 Pro window with frame caching disabled; other catalog entries still exceed the CPU budget. The local regression covers 6,500 native pixel cases and 979 editor assertions. Pixel and sampled lifecycle checks are separate from real-time readiness; see the [acceptance review](docs/plans/native-acceptance-review.zh-CN.md) and [native migration notes](addons/pixelfx/FULL_MIGRATION.md).
 
 
 [![CI](https://github.com/norvancc/pixelfx-godot/actions/workflows/ci.yml/badge.svg)](https://github.com/norvancc/pixelfx-godot/actions/workflows/ci.yml)
