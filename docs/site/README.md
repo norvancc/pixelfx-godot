@@ -1,6 +1,6 @@
 # PixelFX public effect library
 
-Public site: https://pixelfx-godot.craftypatio2.chatgpt.site
+Public site: https://norvancc.github.io/pixelfx-godot
 
 Buildless HTML, CSS and JavaScript. Serve this `docs/site/` directory with a static HTTP server. The native Godot render tools in the addon repository export each algorithm as an individual animated GIF. The browser loads animation on hover, on explicit play, or in the detail dialog; it does not run 244 effects at once.
 
@@ -19,4 +19,6 @@ After export stops, run `python3 tools/pixelfx/finish_previews.py /absolute/path
 
 Move/choreography previews include wind-up, recovery and hit freezes. Transitions use a light field so dark wipes remain visible. GIFs are 480×320 with the format's 256-color limit.
 
-This directory is excluded from Godot asset import with `.gdignore`. Sites keeps the independent hosting identity and source history; its `dist/` contains the same static files. The published page and this copy should be updated together.
+This directory is the source of truth for GitHub Pages. `.github/workflows/pages.yml` validates and publishes it automatically when page files change on `main`; it can also be run manually. Pages uses the repository’s GitHub Actions source. All local asset URLs are relative, so the `/pixelfx-godot/` project prefix works. Edit and commit these files to update the site; there is no separate site checkout or manual source synchronization.
+
+The directory is excluded from Godot asset import with `.gdignore`. For a local preview, run `python3 -m http.server 8000` at the repository root, then open `http://localhost:8000/docs/site/`. Run `python3 tools/pixelfx/check_site.py` before publishing.

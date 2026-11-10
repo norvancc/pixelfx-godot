@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — GitHub Pages
+
+- Serve the complete 244-effect preview library from GitHub Pages with automatic deployment from `docs/site/`.
+- Put a linked preview banner and website/Wiki navigation at the top of both READMEs; use the Pages address across repository documentation.
+
 ## Unreleased — documentation and showcase
 
 - Publish the GitHub Wiki and independent PixelFX website with a searchable, categorized library of 244 native lifecycle GIFs. Keep editable page/site sources, animation metadata and serial export tools.

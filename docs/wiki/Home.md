@@ -2,7 +2,7 @@
 
 给 Godot 项目使用的原生像素特效库。火焰、冰霜、闪电、法术、打击、天气、过场和拾取效果，都以 GDScript 算法和 `.tres` 预设交付。
 
-[宣传页](https://pixelfx-godot.craftypatio2.chatgpt.site) · [下载源码](https://github.com/norvancc/pixelfx-godot/archive/refs/heads/main.zip) · [English README](https://github.com/norvancc/pixelfx-godot/blob/main/README.md) · [中文说明](https://github.com/norvancc/pixelfx-godot/blob/main/README.zh-CN.md)
+[宣传页](https://norvancc.github.io/pixelfx-godot) · [下载源码](https://github.com/norvancc/pixelfx-godot/archive/refs/heads/main.zip) · [English README](https://github.com/norvancc/pixelfx-godot/blob/main/README.md) · [中文说明](https://github.com/norvancc/pixelfx-godot/blob/main/README.zh-CN.md)
 
 ![原生 Godot 效果](https://raw.githubusercontent.com/norvancc/pixelfx-godot/main/docs/images/b2-simulations-effects.png)
 

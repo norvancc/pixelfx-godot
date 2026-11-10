@@ -1,5 +1,9 @@
 # PixelFX for Godot
 
+**[Open the effect library →](https://norvancc.github.io/pixelfx-godot/#effects)** — preview and download all 244 animated effects. [Wiki & installation](https://github.com/norvancc/pixelfx-godot/wiki)
+
+[![Browse all 244 effects](docs/site/assets/portal-forest.webp)](https://norvancc.github.io/pixelfx-godot/)
+
 The main branch provides **244/244 algorithms and 245 presets**; full acceptance remains **52/244**. Direct numeric kernels and lazy dependency loading have reduced several second-long frame costs to tens of milliseconds. The eight focused B2 effects now measure about 29–30 effect updates per second in a visible M4 Pro window with frame caching disabled; other catalog entries still exceed the CPU budget. The local regression covers 6,500 native pixel cases and 979 editor assertions. Pixel and sampled lifecycle checks are separate from real-time readiness; see the [acceptance review](docs/plans/native-acceptance-review.zh-CN.md) and [native migration notes](addons/pixelfx/FULL_MIGRATION.md).
 
 
@@ -17,7 +21,7 @@ The main branch provides **244/244 algorithms and 245 presets**; full acceptance
 
 Based on upstream **PixelFX 0.3.0**, pinned at [`a841596`](https://github.com/patch-gg/pixelfx/tree/a84159688af3ca37a4be05a0d422b94451b2e24e). Original work by Patch and Hugo Duprez; see [attribution](NOTICE.md) and [source hashes](addons/pixelfx/provenance.json). This project is independently maintained and is not an official upstream release.
 
-[Animated effect library — all 244 GIFs](https://pixelfx-godot.craftypatio2.chatgpt.site/#effects) · [Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [Getting started](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
+[Animated effect library — all 244 GIFs](https://norvancc.github.io/pixelfx-godot/#effects) · [Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [Getting started](https://github.com/norvancc/pixelfx-godot/wiki/Getting-Started)
 
 ## Status
 

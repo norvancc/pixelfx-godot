@@ -5,7 +5,7 @@ The main branch provides **244/244 algorithms and 245 presets**: **52 fully acce
 
 Full acceptance: **52/244 algorithms, 192 pending, 53 accepted presets**. B2 is **41/49** complete (8 remaining); the latest published release is **0.2.0 with five algorithms**. The first B2 implementation is merged in [PR #6](https://github.com/norvancc/pixelfx-godot/pull/6) (`112d5d4`); [Godot 4.3/Linux CI](https://github.com/norvancc/pixelfx-godot/actions/runs/42574117517) passed for that 31-effect snapshot; the new simulation slice has passed local acceptance, with Linux verification recorded in [PR #9](https://github.com/norvancc/pixelfx-godot/pull/9/checks).
 
-[Website](https://pixelfx-godot.craftypatio2.chatgpt.site) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [Wiki source](wiki/README.md) · [Website source](site/README.md)
+[Website](https://norvancc.github.io/pixelfx-godot) · [GitHub Wiki](https://github.com/norvancc/pixelfx-godot/wiki) · [Wiki source](wiki/README.md) · [Website source](site/README.md)
 
 The independent website includes an individual animated GIF for every algorithm, with searchable categories and a detailed preview. GIF production is separate from acceptance; source coverage and full acceptance remain separate counts.
 

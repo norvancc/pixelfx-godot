@@ -7,4 +7,4 @@
 - [性能与当前状态](https://github.com/norvancc/pixelfx-godot/wiki/Performance-and-Status)
 - [来源与许可](https://github.com/norvancc/pixelfx-godot/wiki/Credits)
 
-[宣传页](https://pixelfx-godot.craftypatio2.chatgpt.site) · [GitHub](https://github.com/norvancc/pixelfx-godot)
+[宣传页](https://norvancc.github.io/pixelfx-godot) · [GitHub](https://github.com/norvancc/pixelfx-godot)

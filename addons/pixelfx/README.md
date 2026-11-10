@@ -96,4 +96,4 @@ Godot 官方设计参考：
 [Resources](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html)、
 [Asset Library packaging](https://docs.godotengine.org/en/stable/community/asset_library/submitting_to_assetlib.html)。
 
-[宣传页](https://pixelfx-godot.craftypatio2.chatgpt.site) · [Wiki / 安装和使用](https://github.com/norvancc/pixelfx-godot/wiki)
+[宣传页](https://norvancc.github.io/pixelfx-godot) · [Wiki / 安装和使用](https://github.com/norvancc/pixelfx-godot/wiki)
